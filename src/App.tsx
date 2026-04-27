@@ -648,10 +648,11 @@ const Footer = () => (
           <div className="bg-slate-900 text-white font-black px-2 py-1 rounded text-lg tracking-tighter">SHIPPLIX</div>
           <span className="text-[10px] font-bold tracking-widest uppercase">Safe. Fast. Transparent.</span>
         </div>
-        <div className="flex gap-6 text-[10px] font-black uppercase tracking-widest">
+        <div className="flex flex-wrap justify-center md:justify-end gap-x-6 gap-y-2 text-[10px] font-black uppercase tracking-widest">
            <a href="#what" className="hover:text-blue-600">Extracts</a>
            <a href="#how" className="hover:text-blue-600">Guarantee</a>
            <a href="#trust" className="hover:text-blue-600">Verification</a>
+           <a href="mailto:services@shipplix.com" className="hover:text-blue-600 lowercase tracking-normal">services@shipplix.com</a>
         </div>
       </div>
       <div className="pt-8 border-t border-slate-100 flex flex-col md:flex-row justify-between items-center gap-4 text-[9px] font-black uppercase tracking-widest">
