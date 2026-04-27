@@ -94,10 +94,6 @@ const Navbar = () => {
         </div>
         
         <div className="hidden md:flex items-center gap-8 text-xs font-bold uppercase tracking-wider">
-          <div className="flex items-center gap-1 opacity-80">
-            <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
-            142 Shipments Tracking
-          </div>
           <a href="#what" className="hover:text-shipplix-yellow transition-colors">Categories</a>
           <a href="#how" className="hover:text-shipplix-yellow transition-colors">Process</a>
           <a href="#trust" className="hover:text-shipplix-yellow transition-colors">Trust</a>
@@ -710,8 +706,7 @@ export default function App() {
                 </div>
              </div>
              
-             <div className="text-[9px] text-slate-400 uppercase tracking-[0.4em] font-black mb-8">Data refreshed live — 142 Shipments Tracking Today</div>
-             
+
              <Button 
                as="a" 
                href={URL_RESERVE} 
