@@ -10,12 +10,6 @@
   --color-shipplix-accent: #3b82f6; /* blue-500 from theme */
   --color-shipplix-navy: #171717; /* slate-900ish */
   --color-shipplix-bg: #f8fafc; /* slate-50 from theme */
-
-  @keyframes marquee {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
-  }
-  --animate-marquee: marquee 30s linear infinite;
 }
 
 @layer base {

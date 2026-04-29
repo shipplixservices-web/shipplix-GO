@@ -232,53 +232,6 @@ const Hero = () => (
   </section>
 );
 
-const PartnersMarquee = () => {
-  const partners = [
-    { name: "DHL", url: "https://logo.clearbit.com/dhl.com" },
-    { name: "FedEx", url: "https://logo.clearbit.com/fedex.com" },
-    { name: "UPS", url: "https://logo.clearbit.com/ups.com" },
-    { name: "Delta Air Lines", url: "https://logo.clearbit.com/delta.com" },
-    { name: "United Airlines", url: "https://logo.clearbit.com/united.com" },
-    { name: "Lufthansa", url: "https://logo.clearbit.com/lufthansa.com" },
-    { name: "KLM", url: "https://logo.clearbit.com/klm.com" },
-    { name: "Emirates", url: "https://logo.clearbit.com/emirates.com" },
-  ];
-
-  // Double the partners for seamless loop
-  const duplicatedPartners = [...partners, ...partners];
-
-  return (
-    <section className="py-12 bg-white border-y border-slate-100 overflow-hidden">
-      <div className="container mx-auto px-6 mb-8 text-center">
-        <p className="text-[10px] font-black uppercase tracking-[0.4em] text-slate-400">
-          Powered by Trusted Global Shipping Partners
-        </p>
-      </div>
-      
-      <div className="relative flex overflow-x-hidden">
-        <div className="flex animate-marquee whitespace-nowrap items-center">
-          {duplicatedPartners.map((partner, idx) => (
-            <div key={idx} className="flex items-center gap-4 mx-12 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
-              <img 
-                src={partner.url} 
-                alt={partner.name} 
-                className="h-8 md:h-10 w-auto object-contain"
-                referrerPolicy="no-referrer"
-                onError={(e) => {
-                  (e.target as HTMLImageElement).src = `https://via.placeholder.com/100x40?text=${partner.name}`;
-                }}
-              />
-              <span className="text-xs font-black uppercase tracking-widest text-slate-400 hidden md:block">
-                {partner.name}
-              </span>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-};
-
 const UrgencyBanner = () => (
   <div className="bg-yellow-100 border-y border-yellow-300 py-3 relative overflow-hidden">
     <div className="container mx-auto px-6 flex flex-col md:flex-row items-center justify-center gap-4 text-center">
@@ -716,7 +669,6 @@ export default function App() {
       <Navbar />
       <main>
         <Hero />
-        <PartnersMarquee />
         <UrgencyBanner />
         <ExportCategories />
         <HowItWorks />
