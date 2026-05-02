@@ -90,13 +90,12 @@ const Hero = () => (
 
       <div className="mt-8 grid grid-cols-2 md:grid-cols-4 gap-4">
         {[
-          { icon: <CheckCircle2 size={16} className="text-green-500" />, label: "No Hidden Charges" },
-          { icon: <CheckCircle2 size={16} className="text-green-500" />, label: "Real-Time Video Proof" },
-          { icon: <CheckCircle2 size={16} className="text-green-500" />, label: "100% Customs Clearance" },
-          { icon: <CheckCircle2 size={16} className="text-green-500" />, label: "Warehouse Hub in Lagos" }
+          { label: "No Hidden Charges" },
+          { label: "Real-Time Video Proof" },
+          { label: "100% Customs Clearance" },
+          { label: "Warehouse Hub in Lagos" }
         ].map((item, i) => (
           <div key={i} className="flex items-center gap-2 bg-white px-4 py-2 rounded-lg border border-slate-200 shadow-sm font-bold text-[11px] uppercase tracking-tight text-slate-600">
-            {item.icon}
             {item.label}
           </div>
         ))}
@@ -184,7 +183,6 @@ const ExportCategories = () => {
               <ul className="space-y-1 text-left hidden md:block">
                 {cat.items.map((item, i) => (
                   <li key={i} className="flex items-center gap-1.5 text-[11px] text-slate-600 font-bold uppercase tracking-tight">
-                    <CheckCircle2 size={10} className="text-blue-500" />
                     {item}
                   </li>
                 ))}
@@ -319,7 +317,6 @@ const TrustSection = () => {
           <div className="lg:col-span-7 grid grid-cols-1 md:grid-cols-2 gap-4">
             {reasons.map((r, i) => (
               <div key={i} className="p-6 border border-slate-200 rounded-xl hover:bg-slate-50 transition-colors">
-                <div className="text-green-600 font-black mb-2 text-xl">\u2713</div>
                 <h3 className="text-sm font-black mb-2 uppercase tracking-tight text-slate-900">{r.title}</h3>
                 <p className="text-xs text-slate-500 font-bold leading-relaxed tracking-tight">{r.desc}</p>
               </div>
@@ -390,11 +387,9 @@ const GroupShipping = () => (
           </p>
           <div className="flex flex-wrap gap-4 mb-8">
             <div className="flex items-center gap-2 text-[10px] font-black uppercase tracking-widest bg-white/5 border border-white/10 px-3 py-1.5 rounded">
-              <CheckCircle2 size={12} className="text-shipplix-yellow" />
               Pay for only your weight
             </div>
             <div className="flex items-center gap-2 text-[10px] font-black uppercase tracking-widest bg-white/5 border border-white/10 px-3 py-1.5 rounded">
-              <CheckCircle2 size={12} className="text-shipplix-yellow" />
               Fully Insured Share
             </div>
           </div>
