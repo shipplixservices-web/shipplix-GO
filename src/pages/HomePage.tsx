@@ -1,7 +1,6 @@
 import React from 'react';
 import { 
   ArrowRight, 
-  CheckCircle2, 
   Plane, 
   Box, 
   Clock, 
