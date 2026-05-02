@@ -22,6 +22,11 @@ import {
   URL_START
 } from '../constants';
 
+import wigImg from '../assets/images/regenerated_image_1777712964095.jpg';
+import fashionImg from '../assets/images/regenerated_image_1777713137148.jpg';
+import foodImg from '../assets/images/regenerated_image_1777713318605.jpg';
+import skincareImg from '../assets/images/regenerated_image_1777713537927.jpg';
+
 const HubHero = () => (
   <section className="relative pt-32 pb-24 bg-shipplix-blue overflow-hidden">
     {/* Decorative Elements */}
@@ -167,10 +172,10 @@ const WhatIsHub = () => {
 
 const GlobalDemand = () => {
   const products = [
-    { name: "Luxury Wigs", category: "Beauty", market: "USA/UK", img: "/src/assets/images/regenerated_image_1777712964095.jpg" },
-    { name: "Ankara Fashion", category: "Style", market: "Global", img: "/src/assets/images/regenerated_image_1777713137148.jpg" },
-    { name: "Dried Foodstuff", category: "Food", market: "Canada", img: "/src/assets/images/regenerated_image_1777713318605.jpg" },
-    { name: "Organic Skincare", category: "Beauty", market: "UK", img: "/src/assets/images/regenerated_image_1777713537927.jpg" },
+    { name: "Luxury Wigs", category: "Beauty", market: "USA/UK", img: wigImg },
+    { name: "Ankara Fashion", category: "Style", market: "Global", img: fashionImg },
+    { name: "Dried Foodstuff", category: "Food", market: "Canada", img: foodImg },
+    { name: "Organic Skincare", category: "Beauty", market: "UK", img: skincareImg },
   ];
 
   return (
