@@ -21,6 +21,16 @@
   }
 }
 
+@layer utilities {
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
 .high-density-card {
   @apply bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden;
 }

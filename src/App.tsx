@@ -25,7 +25,17 @@ import {
   Phone,
   Video,
   ExternalLink,
-  Info
+  Info,
+  Globe,
+  Cpu,
+  TrendingUp,
+  ShoppingCart,
+  Zap,
+  Bot,
+  Store,
+  FileCheck,
+  CreditCard,
+  Briefcase
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 
@@ -598,6 +608,345 @@ const GroupShipping = () => (
   </section>
 );
 
+const ExportHub = () => {
+  const features = [
+    {
+      title: "AI Commerce",
+      desc: "Use AI to create content, captions, ads, and product descriptions faster.",
+      icon: <Bot className="text-shipplix-yellow" size={24} />,
+    },
+    {
+      title: "Global Shipping",
+      desc: "Ship products from Nigeria to USA, UK, Canada & Europe.",
+      icon: <Globe className="text-shipplix-yellow" size={24} />,
+    },
+    {
+      title: "Customer Acquisition",
+      desc: "Learn how to attract international customers online.",
+      icon: <TrendingUp className="text-shipplix-yellow" size={24} />,
+    },
+    {
+      title: "E-commerce Systems",
+      desc: "Build online stores and automate your business.",
+      icon: <ShoppingCart className="text-shipplix-yellow" size={24} />,
+    },
+    {
+      title: "Export Guidance",
+      desc: "Learn packaging, pricing, and export processes.",
+      icon: <FileCheck className="text-shipplix-yellow" size={24} />,
+    },
+    {
+      title: "Vendor Community",
+      desc: "Join ambitious African entrepreneurs building global brands.",
+      icon: <Users className="text-shipplix-yellow" size={24} />,
+    }
+  ];
+
+  const timeline = [
+    { step: "1", title: "Choose Your Product" },
+    { step: "2", title: "Learn Modern Selling" },
+    { step: "3", title: "Use AI Tools" },
+    { step: "4", title: "Attract Global Customers" },
+    { step: "5", title: "Ship Worldwide With Shipplix" },
+    { step: "6", title: "Scale Internationally" },
+  ];
+
+  return (
+    <section id="hub" className="py-20 lg:py-32 bg-shipplix-blue relative overflow-hidden text-white font-sans">
+      {/* Background Decorative Elements - Enhanced */}
+      <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none opacity-30">
+        <div className="absolute top-[-10%] -left-[10%] w-[500px] h-[500px] bg-shipplix-yellow/20 rounded-full blur-[150px] animate-pulse"></div>
+        <div className="absolute bottom-[-10%] -right-[10%] w-[500px] h-[500px] bg-shipplix-accent/20 rounded-full blur-[150px]"></div>
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-[radial-gradient(circle_at_center,rgba(59,130,246,0.1)_0%,transparent_70%)]"></div>
+      </div>
+
+      <div className="container mx-auto px-6 relative z-10">
+        {/* Hub Header Section */}
+        <div className="flex flex-col lg:flex-row gap-12 mb-20">
+          <div className="lg:w-1/2">
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+            >
+              <div className="inline-flex items-center gap-2 bg-shipplix-yellow/10 border border-shipplix-yellow/20 px-3 py-1 rounded-full mb-6 text-shipplix-yellow text-[10px] uppercase font-black tracking-widest">
+                <Zap size={14} className="animate-pulse" />
+                Shipplix Export Hub
+              </div>
+              <p className="text-shipplix-yellow font-bold text-lg mb-2 tracking-tight uppercase">Learn • Sell • Ship Worldwide</p>
+              <h2 className="text-3xl md:text-5xl lg:text-6xl font-black mb-6 leading-[0.95] tracking-tighter uppercase">
+                Turn Your Nigerian <br/> 
+                <span className="text-shipplix-yellow">Products Into</span> <br/>
+                Pounds, Dollars <br/>
+                & Canadian Cash.
+              </h2>
+              <p className="text-lg text-white/80 font-medium max-w-xl mb-10 leading-relaxed md:text-xl">
+                Learn how to sell Nigerian products globally using AI tools, customer acquisition systems, eCommerce strategies, and Shipplix international shipping.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Button 
+                  as="a" 
+                  href={URL_CONNECT} 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  variant="yellow" 
+                  className="px-10 py-5 text-sm uppercase tracking-widest shadow-[0_0_20px_rgba(250,204,21,0.3)] hover:scale-105"
+                >
+                  Start Selling Globally
+                </Button>
+                <Button 
+                  as="a" 
+                  href={URL_START} 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  variant="ghost" 
+                  className="px-10 py-5 text-sm border border-white/20 uppercase tracking-widest"
+                >
+                  Ship With Shipplix
+                </Button>
+              </div>
+            </motion.div>
+          </div>
+
+          <div className="lg:w-1/2 relative min-h-[400px] lg:min-h-auto">
+            {/* Visual Area */}
+            <motion.div 
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.8 }}
+              className="relative h-full flex items-center justify-center"
+            >
+              {/* World Map Glow Effect */}
+              <div className="absolute inset-0 flex items-center justify-center">
+                <div className="w-full h-full max-w-md max-h-md rounded-full bg-shipplix-accent/20 blur-[60px] animate-pulse"></div>
+                <Globe className="w-64 h-64 text-white/5 absolute opacity-20" strokeWidth={0.5} />
+              </div>
+
+              {/* Floating Elements */}
+              <motion.div 
+                animate={{ y: [0, -15, 0] }}
+                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                className="absolute top-10 right-1/4 z-20 bg-white/10 backdrop-blur-md border border-white/20 p-4 rounded-xl shadow-2xl flex flex-col items-center gap-2"
+              >
+                 <Package className="text-shipplix-yellow" size={32} />
+                 <div className="text-[10px] font-black uppercase text-white/60 tracking-wider">To: London</div>
+              </motion.div>
+
+              <motion.div 
+                animate={{ y: [0, 15, 0] }}
+                transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+                className="absolute bottom-10 left-1/4 z-20 bg-white/10 backdrop-blur-md border border-white/20 p-4 rounded-xl shadow-2xl flex flex-col items-center gap-2"
+              >
+                 <Box className="text-shipplix-yellow" size={32} />
+                 <div className="text-[10px] font-black uppercase text-white/60 tracking-wider">To: New York</div>
+              </motion.div>
+
+              <motion.div 
+                animate={{ scale: [1, 1.05, 1] }}
+                transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+                className="bg-white/5 backdrop-blur-xl border border-white/10 p-8 rounded-3xl shadow-[0_0_50px_rgba(0,0,0,0.3)] w-full max-w-sm relative z-10"
+              >
+                <div className="flex items-center justify-between mb-6">
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 rounded-full bg-shipplix-yellow/20 flex items-center justify-center">
+                      <Cpu size={20} className="text-shipplix-yellow" />
+                    </div>
+                    <div>
+                      <div className="text-xs font-black uppercase text-white tracking-widest">AI Hub</div>
+                      <div className="text-[10px] text-white/50 uppercase">Analysis...</div>
+                    </div>
+                  </div>
+                  <div className="text-shipplix-yellow">
+                    <TrendingUp size={20} />
+                  </div>
+                </div>
+
+                <div className="space-y-3">
+                  <div className="h-2 w-full bg-white/10 rounded-full overflow-hidden">
+                    <motion.div 
+                      initial={{ width: 0 }}
+                      whileInView={{ width: '85%' }}
+                      transition={{ duration: 2, delay: 0.5 }}
+                      className="h-full bg-shipplix-yellow"
+                    ></motion.div>
+                  </div>
+                  <div className="h-2 w-full bg-white/10 rounded-full overflow-hidden">
+                    <motion.div 
+                      initial={{ width: 0 }}
+                      whileInView={{ width: '65%' }}
+                      transition={{ duration: 2, delay: 0.7 }}
+                      className="h-full bg-shipplix-accent"
+                    ></motion.div>
+                  </div>
+                </div>
+
+                <div className="mt-8 grid grid-cols-2 gap-4">
+                  <div className="bg-white/5 p-3 rounded-lg text-center">
+                    <div className="text-shipplix-yellow font-black text-lg">$</div>
+                    <div className="text-[8px] uppercase tracking-widest opacity-50">Earnings</div>
+                  </div>
+                  <div className="bg-white/5 p-3 rounded-lg text-center">
+                    <div className="text-white font-black text-lg">£</div>
+                    <div className="text-[8px] uppercase tracking-widest opacity-50">Profit</div>
+                  </div>
+                </div>
+              </motion.div>
+
+              {/* Entrepreneur Visual (Simplified representation) */}
+              <div className="absolute top-1/2 left-0 -translate-y-1/2 w-48 h-48 opacity-40 pointer-events-none">
+                 <Users className="w-full h-full text-white/10" strokeWidth={1} />
+              </div>
+
+              {/* Currency Symbols */}
+              <div className="absolute top-1/4 left-10 text-white/20 font-black text-4xl select-none">$</div>
+              <div className="absolute top-1/3 right-5 text-shipplix-yellow/20 font-black text-5xl select-none">£</div>
+              <div className="absolute bottom-1/4 left-5 text-shipplix-accent/20 font-black text-4xl select-none">€</div>
+              <div className="absolute bottom-1/3 right-10 text-white/20 font-black text-3xl select-none">CAD</div>
+            </motion.div>
+          </div>
+        </div>
+
+        {/* Feature Cards Section */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-20">
+          {features.map((feature, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: i * 0.1 }}
+              viewport={{ once: true }}
+              whileHover={{ y: -5, transition: { duration: 0.2 } }}
+              className="group bg-white/5 backdrop-blur-md border border-white/10 p-8 rounded-2xl hover:bg-white/10 transition-all hover:border-shipplix-yellow/30"
+            >
+              <div className="w-12 h-12 bg-white/5 rounded-xl flex items-center justify-center mb-6 border border-white/10 group-hover:border-shipplix-yellow/50 transition-colors">
+                {feature.icon}
+              </div>
+              <h3 className="text-lg font-black mb-3 uppercase tracking-tight group-hover:text-shipplix-yellow transition-colors">
+                {feature.title}
+              </h3>
+              <p className="text-sm text-white/60 font-medium leading-relaxed">
+                {feature.desc}
+              </p>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* Psychology Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+          className="max-w-4xl mx-auto mb-24"
+        >
+          <div className="relative p-10 md:p-14 bg-gradient-to-br from-shipplix-yellow/20 to-transparent border border-shipplix-yellow/30 rounded-[2rem] text-center">
+            <div className="absolute -top-6 left-1/2 -translate-x-1/2 w-12 h-12 bg-shipplix-blue flex items-center justify-center rounded-full border border-shipplix-yellow/30 shadow-2xl">
+              <Star className="text-shipplix-yellow" size={24} fill="#facc15" />
+            </div>
+            <p className="text-xl md:text-3xl font-black leading-tight italic tracking-tight">
+              “The world already wants African products. <br className="hidden md:block" /> 
+              Most vendors simply lack visibility, systems, and global access. <br className="hidden md:block" /> 
+              Shipplix helps bridge that gap.”
+            </p>
+          </div>
+        </motion.div>
+
+        {/* Timeline Section */}
+        <div className="mb-24">
+          <SectionTitle 
+            title="How It Works" 
+            subtitle="The path to global commerce is shorter than you think." 
+            light 
+          />
+          <div className="relative mt-16 overflow-x-auto pb-8 scrollbar-hide">
+            <div className="flex lg:grid lg:grid-cols-6 gap-4 min-w-[900px] lg:min-w-0">
+              {timeline.map((item, i) => (
+                <div key={i} className="flex-1 relative">
+                  {/* Connector Line */}
+                  {i < timeline.length - 1 && (
+                    <div className="hidden lg:block absolute top-6 left-[60%] right-[-40%] h-[2px] bg-white/10 z-0">
+                      <div className="h-full bg-shipplix-yellow w-0 group-while-in-view:w-full transition-all duration-1000"></div>
+                    </div>
+                  )}
+                  {/* Step Node */}
+                  <div className="relative z-10 flex flex-col items-center text-center px-4">
+                    <div className="w-12 h-12 rounded-full bg-white/10 border border-white/20 flex items-center justify-center mb-6 font-black text-shipplix-yellow shadow-xl">
+                      {item.step}
+                    </div>
+                    <div className="text-[10px] uppercase font-black tracking-[0.2em] text-white">
+                      {item.title}
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* CTA Area */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+          className="text-center bg-white p-10 md:p-20 rounded-[3rem] shadow-2xl border-4 border-shipplix-yellow relative overflow-hidden"
+        >
+          <div className="relative z-10">
+            <h2 className="text-3xl md:text-6xl font-black text-shipplix-blue mb-8 uppercase tracking-tighter italic">
+              YOUR PRODUCTS <span className="bg-shipplix-yellow px-2">DESERVE</span> <br/> A GLOBAL MARKET.
+            </h2>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-10">
+              <Button 
+                as="a" 
+                href={URL_CONNECT} 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                variant="primary" 
+                className="w-full sm:w-auto px-12 py-5 text-xs tracking-widest uppercase bg-shipplix-blue"
+              >
+                Start Selling Globally
+              </Button>
+              <Button 
+                as="a" 
+                href={URL_START} 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                variant="outline" 
+                className="w-full sm:w-auto px-12 py-5 text-xs tracking-widest uppercase border-shipplix-blue text-shipplix-blue"
+              >
+                Ship With Shipplix
+              </Button>
+            </div>
+            <p className="text-[10px] md:text-xs font-black uppercase tracking-[0.3em] text-shipplix-blue/40 max-w-lg mx-auto leading-relaxed">
+              The future belongs to African vendors who combine products + technology + global logistics.
+            </p>
+          </div>
+          {/* Subtle pattern background for CTA */}
+          <div className="absolute inset-0 opacity-[0.03] pointer-events-none">
+             <div className="grid grid-cols-12 h-full">
+                {Array.from({length: 144}).map((_, i) => (
+                  <div key={i} className="border border-shipplix-blue aspect-square"></div>
+                ))}
+             </div>
+          </div>
+        </motion.div>
+      </div>
+
+      {/* Sticky Mobile CTA for this section (optional but prompt requested) */}
+      <div className="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 w-[90%] md:hidden pointer-events-none">
+          <motion.div 
+            initial={{ y: 100 }}
+            whileInView={{ y: 0 }}
+            className="pointer-events-auto"
+          >
+             {/* This could be a floating message button or similar, but the user requested a sticky mobile CTA */}
+          </motion.div>
+      </div>
+    </section>
+  );
+};
+
 const FinalCTA = () => (
   <section className="py-16 bg-shipplix-bg">
     <div className="container mx-auto px-6 text-center">
@@ -677,6 +1026,8 @@ export default function App() {
         <GroupShipping />
         <Testimonials />
         
+        <ExportHub />
+
         {/* Urgent Recap Section */}
         <section className="py-16 bg-white overflow-hidden relative border-t border-slate-200">
           <div className="container mx-auto px-6 text-center">
