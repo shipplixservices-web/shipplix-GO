@@ -349,7 +349,7 @@ const HowItWorks = () => {
   const steps = [
     {
       title: "Drop-off",
-      desc: "Pickup or Lagos Hub Hub",
+      desc: "Lagos Hub or Pickup Request",
       reassurance: "We handle everything",
       step: "01"
     },
@@ -451,10 +451,10 @@ const ShippingServices = () => {
   ];
 
   const steps = [
-    { title: "Drop off or request pickup", icon: <Truck size={20} /> },
-    { title: "We process & ship", icon: <Package size={20} /> },
-    { title: "Track your package", icon: <Globe size={20} /> },
-    { title: "Delivered to doorstep", icon: <CheckCircle2 size={20} /> }
+    { title: "Drop off or Request Pickup at Lagos Hub", icon: <Truck size={20} /> },
+    { title: "We Process & Ship", icon: <Package size={20} /> },
+    { title: "Track Your Package", icon: <Globe size={20} /> },
+    { title: "Delivered to Doorstep", icon: <CheckCircle2 size={20} /> }
   ];
 
   const trustPoints = [
