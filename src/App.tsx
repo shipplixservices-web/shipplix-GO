@@ -28,6 +28,7 @@ import {
   ExternalLink,
   Info,
   Globe,
+  User,
   Cpu,
   TrendingUp,
   ShoppingCart,
@@ -697,8 +698,8 @@ const Testimonials = () => (
               <p className="text-xs font-bold text-slate-700 leading-relaxed italic mb-6">"{t.text}"</p>
             </div>
             <div className="flex items-center gap-3 border-t border-slate-100 pt-4">
-              <div className="w-8 h-8 rounded-full bg-slate-200 overflow-hidden flex-shrink-0">
-                <img src={`https://api.dicebear.com/7.x/avataaars/svg?seed=${t.name}`} alt={t.name} />
+              <div className="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center flex-shrink-0 border border-slate-200">
+                <User size={16} className="text-slate-400" />
               </div>
               <div>
                  <div className="text-[11px] font-black text-slate-900 uppercase tracking-tight">{t.name}</div>
