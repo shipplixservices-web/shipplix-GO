@@ -20,6 +20,7 @@ import {
   Shirt, 
   Palette, 
   Box, 
+  Ship,
   Menu, 
   X,
   Phone,
@@ -407,6 +408,152 @@ const HowItWorks = () => {
            >
              Track My Shipments
            </Button>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+const ShippingServices = () => {
+  const options = [
+    {
+      title: "Express Shipping",
+      time: "3–4 Days",
+      desc: "Fastest option for urgent deliveries. We prioritize these shipments for the next available flight.",
+      benefit: "Next-flight priority",
+      useCase: "Urgent documents, time-sensitive goods",
+      icon: <Zap className="text-shipplix-yellow" size={24} />
+    },
+    {
+      title: "Standard Shipping",
+      time: "5–7 Business Days",
+      desc: "Balanced option between speed and cost. Reliable delivery for your everyday exports.",
+      benefit: "Cost-effective speed",
+      useCase: "Regular inventory, fashion items",
+      icon: <Plane className="text-shipplix-yellow" size={24} />
+    },
+    {
+      title: "Economy Cargo",
+      time: "9–14 Business Days",
+      desc: "Affordable option for bulk or non-urgent shipments. Save more on larger volumes.",
+      benefit: "Lowest shipping rates",
+      useCase: "Bulk foodstuff, non-urgent heavy cargo",
+      icon: <Ship className="text-shipplix-yellow" size={24} />
+    },
+    {
+      title: "Premium Cargo",
+      time: "5–8 Business Days",
+      desc: "Premium Cargo is a private, priority shipping service with faster transit and dedicated handling—no shared cargo.",
+      benefit: "Private & Dedicated Handling",
+      useCase: "High-value or sensitive priority goods",
+      icon: <ShieldCheck className="text-shipplix-yellow" size={24} />
+    }
+  ];
+
+  const steps = [
+    { title: "Drop off or request pickup", icon: <Truck size={20} /> },
+    { title: "We process & ship", icon: <Package size={20} /> },
+    { title: "Track your package", icon: <Globe size={20} /> },
+    { title: "Delivered to doorstep", icon: <CheckCircle2 size={20} /> }
+  ];
+
+  const trustPoints = [
+    "Safe & secure handling",
+    "On-time delivery",
+    "Customer support",
+    "Affordable pricing"
+  ];
+
+  return (
+    <section id="services" className="py-16 bg-white border-y border-slate-200">
+      <div className="container mx-auto px-6">
+        <SectionTitle 
+          title="Our Shipping Services" 
+          subtitle="Shipplix offers fast, reliable, and affordable shipping options from Nigeria to the USA. We provide tailored solutions to match your urgency and budget."
+        />
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+          {options.map((opt, i) => (
+            <div key={i} className="p-6 bg-white border border-slate-200 rounded-xl hover:border-shipplix-blue transition-all shadow-sm flex flex-col h-full group">
+              <div className="bg-slate-50 w-12 h-12 rounded-lg flex items-center justify-center mb-4 group-hover:bg-shipplix-blue/5 transition-colors">
+                {opt.icon}
+              </div>
+              <h3 className="text-lg font-black text-slate-900 mb-1 uppercase tracking-tight">{opt.title}</h3>
+              <div className="text-shipplix-blue font-black text-xs uppercase mb-3 tracking-widest">{opt.time}</div>
+              <p className="text-sm text-slate-600 font-medium mb-6 flex-grow">{opt.desc}</p>
+              
+              <div className="mt-auto space-y-3 pt-4 border-t border-slate-100">
+                <div>
+                  <div className="text-[9px] font-black uppercase tracking-[0.2em] text-slate-400 mb-1">Key Benefit</div>
+                  <div className="text-[11px] font-bold text-slate-800 uppercase tracking-tight">{opt.benefit}</div>
+                </div>
+                <div>
+                  <div className="text-[9px] font-black uppercase tracking-[0.2em] text-slate-400 mb-1">Ideal For</div>
+                  <div className="text-[11px] font-bold text-slate-800 uppercase tracking-tight">{opt.useCase}</div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center bg-shipplix-blue text-white p-8 md:p-14 rounded-3xl relative overflow-hidden">
+          <div className="relative z-10">
+            <h3 className="text-2xl md:text-3xl font-black mb-8 uppercase tracking-tighter italic">How It Works</h3>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-10">
+              {steps.map((step, i) => (
+                <div key={i} className="flex gap-4">
+                  <div className="flex-shrink-0 w-10 h-10 rounded-full bg-shipplix-yellow text-shipplix-blue flex items-center justify-center font-black text-lg border-2 border-white/20 shadow-lg">
+                    {i + 1}
+                  </div>
+                  <div>
+                    <div className="text-white/40 mb-1">{step.icon}</div>
+                    <div className="font-black text-xs uppercase tracking-widest leading-tight">{step.title}</div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="relative z-10 bg-white/5 backdrop-blur-sm p-8 rounded-2xl border border-white/10">
+            <h3 className="text-xl font-black mb-6 uppercase tracking-tight text-shipplix-yellow italic">Why Trust Shipplix?</h3>
+            <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-10">
+              {trustPoints.map((point, i) => (
+                <li key={i} className="flex items-center gap-3">
+                  <CheckCircle2 size={16} className="text-shipplix-yellow flex-shrink-0" />
+                  <span className="text-xs font-black uppercase tracking-tight">{point}</span>
+                </li>
+              ))}
+            </ul>
+            
+            <div className="pt-8 border-t border-white/10">
+              <h4 className="text-base font-black mb-4 uppercase tracking-tight text-white/90">Ready to ship to the USA?</h4>
+              <div className="flex flex-col sm:flex-row gap-3">
+                <Button 
+                  as="a" 
+                  href={URL_QUOTE} 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  variant="yellow" 
+                  className="w-full text-[10px] py-4 uppercase tracking-widest shadow-xl"
+                >
+                  Get A Quote
+                </Button>
+                <Button 
+                  as="a" 
+                  href={URL_START} 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  variant="ghost" 
+                  className="w-full border border-white/20 text-[10px] py-4 uppercase tracking-widest"
+                >
+                  WhatsApp Us
+                </Button>
+              </div>
+            </div>
+          </div>
+          
+          {/* Decorative background element */}
+          <Truck className="absolute -bottom-10 -right-10 text-white/5 w-64 h-64 rotate-[-15deg] pointer-events-none" />
         </div>
       </div>
     </section>
@@ -1020,6 +1167,7 @@ export default function App() {
         <Hero />
         <UrgencyBanner />
         <ExportCategories />
+        <ShippingServices />
         <HowItWorks />
         <TrustSection />
         <DiasporaSection />
