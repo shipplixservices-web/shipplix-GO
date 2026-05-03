@@ -205,8 +205,8 @@ const Hero = () => (
 
         <div className="lg:w-1/3 mt-8 lg:mt-0 bg-blue-50/50 flex items-center justify-center border-l-0 lg:border-l border-slate-100 -m-6 md:-m-10 lg:m-0 p-8">
           <div className="text-center w-full">
-            <div className="text-4xl font-black text-blue-900 mb-1">$4,200+</div>
-            <div className="text-[10px] uppercase font-bold text-slate-500 tracking-wider mb-6">Avg. Monthly Profit per Vendor</div>
+            <div className="text-4xl font-black text-blue-900 mb-1">$2,500+</div>
+            <div className="text-[10px] uppercase font-bold text-slate-500 tracking-wider mb-6">Avg. Potential Growth per Vendor</div>
             
             <div className="grid grid-cols-2 gap-2 text-[10px] font-bold">
               <div className="bg-white p-3 rounded-lg border border-blue-100 shadow-sm italic text-blue-800">
@@ -230,7 +230,7 @@ const Hero = () => (
         {[
           { icon: <CheckCircle2 size={16} className="text-green-500" />, label: "No Hidden Charges" },
           { icon: <CheckCircle2 size={16} className="text-green-500" />, label: "Real-Time Video Proof" },
-          { icon: <CheckCircle2 size={16} className="text-green-500" />, label: "100% Customs Clearance" },
+          { icon: <CheckCircle2 size={16} className="text-green-500" />, label: "Expert Customs Support" },
           { icon: <CheckCircle2 size={16} className="text-green-500" />, label: "Warehouse Hub in Lagos" }
         ].map((item, i) => (
           <div key={i} className="flex items-center gap-2 bg-white px-4 py-2 rounded-lg border border-slate-200 shadow-sm font-bold text-[11px] uppercase tracking-tight text-slate-600">
@@ -275,25 +275,25 @@ const ExportCategories = () => {
   const categories = [
     {
       title: "Foodstuff",
-      emoji: "🍲",
+      icon: <Utensils size={32} className="text-shipplix-blue" />,
       items: ["Garri", "Egusi", "Palm Oil", "Spices", "Dried Fish", "Crayfish"],
       tag: "Most Popular",
     },
     {
       title: "Fashion",
-      emoji: "👗",
+      icon: <Shirt size={32} className="text-shipplix-accent" />,
       items: ["Ankara Fabric", "Wigs & Hair", "Native Wear", "Accessories"],
       tag: "High Demand",
     },
     {
       title: "Heritage Goods",
-      emoji: "🎭",
+      icon: <Palette size={32} className="text-blue-500" />,
       items: ["Cultural Crafts", "Artwork", "Beads & Jewellery", "Souvenirs"],
       tag: "High Value",
     },
     {
       title: "Essentials",
-      emoji: "📦",
+      icon: <Box size={32} className="text-slate-400" />,
       items: ["General Goods", "Business Inventory", "Personal Packages", "Gifts"],
       tag: "Flexible",
     }
@@ -317,7 +317,7 @@ const ExportCategories = () => {
               <div className="absolute top-2 right-2 bg-blue-50 text-blue-800 text-[8px] font-black uppercase px-2 py-0.5 rounded border border-blue-100">
                 {cat.tag}
               </div>
-              <div className="text-4xl mb-4">{cat.emoji}</div>
+              <div className="mb-4 flex justify-center">{cat.icon}</div>
               <h3 className="text-sm font-black mb-4 text-slate-900 uppercase tracking-wider">{cat.title}</h3>
               <ul className="space-y-1 text-left hidden md:block">
                 {cat.items.map((item, i) => (
@@ -593,8 +593,8 @@ const TrustSection = () => {
             </p>
             <div className="bg-blue-900 text-white p-6 rounded-xl relative overflow-hidden">
                 <div className="relative z-10">
-                  <div className="text-shipplix-yellow font-black text-2xl mb-1">100%</div>
-                  <div className="text-[10px] font-black uppercase tracking-widest opacity-70">Customs Clearance Success Rate</div>
+                  <div className="text-shipplix-yellow font-black text-2xl mb-1">99%</div>
+                  <div className="text-[10px] font-black uppercase tracking-widest opacity-70">Customs Success Rate</div>
                 </div>
                 <Plane className="absolute -bottom-4 -right-4 text-white/5 w-32 h-32 rotate-12" />
             </div>
@@ -603,7 +603,7 @@ const TrustSection = () => {
           <div className="lg:col-span-7 grid grid-cols-1 md:grid-cols-2 gap-4">
             {reasons.map((r, i) => (
               <div key={i} className="p-6 border border-slate-200 rounded-xl hover:bg-slate-50 transition-colors">
-                <div className="text-green-600 font-black mb-2 text-xl">✓</div>
+                <CheckCircle2 size={24} className="text-green-600 mb-2" />
                 <h3 className="text-sm font-black mb-2 uppercase tracking-tight text-slate-900">{r.title}</h3>
                 <p className="text-xs text-slate-500 font-bold leading-relaxed tracking-tight">{r.desc}</p>
               </div>
