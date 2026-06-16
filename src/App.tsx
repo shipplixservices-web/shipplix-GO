@@ -11,7 +11,6 @@ import {
   Plane, 
   Package, 
   Truck, 
-  ShieldCheck, 
   Star, 
   Clock, 
   DollarSign, 
@@ -440,14 +439,6 @@ const ShippingServices = () => {
       benefit: "Lowest shipping rates",
       useCase: "Bulk foodstuff, non-urgent heavy cargo",
       icon: <Ship className="text-shipplix-yellow" size={24} />
-    },
-    {
-      title: "Premium Cargo",
-      time: "5–8 Business Days",
-      desc: "Premium Cargo is a private, priority shipping service with faster transit and dedicated handling—no shared cargo.",
-      benefit: "Private & Dedicated Handling",
-      useCase: "High-value or sensitive priority goods",
-      icon: <ShieldCheck className="text-shipplix-yellow" size={24} />
     }
   ];
 
@@ -473,7 +464,7 @@ const ShippingServices = () => {
           subtitle="Shipplix offers fast, reliable, and affordable shipping options from Nigeria to the USA. We provide tailored solutions to match your urgency and budget."
         />
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
           {options.map((opt, i) => (
             <div key={i} className="p-6 bg-white border border-slate-200 rounded-xl hover:border-shipplix-blue transition-all shadow-sm flex flex-col h-full group">
               <div className="bg-slate-50 w-12 h-12 rounded-lg flex items-center justify-center mb-4 group-hover:bg-shipplix-blue/5 transition-colors">
