@@ -13,6 +13,7 @@ import {
   Video 
 } from 'lucide-react';
 import { motion } from 'motion/react';
+import watchYourCargoPackedLive from '../assets/images/watch_your_cargo_packed_live-1.jpg';
 
 const Button = ({ 
   children, 
@@ -232,8 +233,13 @@ export default function ProcessingPage() {
               <Compass className="text-slate-200 absolute -bottom-10 -left-10 w-48 h-48 pointer-events-none" />
               
               <div className="relative z-10">
-                <div className="bg-slate-900 rounded-xl aspect-video mb-6 flex items-center justify-center border border-slate-800">
-                  <span className="text-white/40 font-black font-mono text-xs uppercase tracking-widest animate-pulse">[ VIDEO ENVELOPE RECORDING ]</span>
+                <div className="rounded-xl overflow-hidden mb-6 border border-slate-200 shadow-md aspect-video bg-slate-900">
+                  <img 
+                    src={watchYourCargoPackedLive}
+                    alt="Shipplix Video Envelope Packing Recording"
+                    className="w-full h-full object-cover"
+                    referrerPolicy="no-referrer"
+                  />
                 </div>
                 <h4 className="text-sm font-black text-blue-950 uppercase mb-2">"Video received! Packing is perfect"</h4>
                 <p className="text-[10px] text-slate-500 font-medium">Mrs. Adebayo, London Fashion Exporter</p>

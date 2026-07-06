@@ -179,7 +179,7 @@ export default function EconomyCargoPage() {
                 </div>
                 <div className="flex items-center gap-3 bg-white/5 border border-white/10 px-4 py-3 rounded-xl">
                   <CheckCircle2 size={16} className="text-amber-400 flex-shrink-0" />
-                  <span className="uppercase tracking-tight">Fully insured cargo split</span>
+                  <span className="uppercase tracking-tight">Committed Safe Handling cargo split</span>
                 </div>
                 <div className="flex items-center gap-3 bg-white/5 border border-white/10 px-4 py-3 rounded-xl">
                   <CheckCircle2 size={16} className="text-amber-400 flex-shrink-0" />

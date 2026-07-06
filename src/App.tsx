@@ -588,8 +588,8 @@ const TrustSection = () => {
       desc: "We record your goods being packed. You see the proof before it flies.",
     },
     {
-      title: "Fully Insured",
-      desc: "Real insurance for your peace of mind. Your investment is protected.",
+      title: "Careful Handling",
+      desc: "We are committed to handling every shipment with care. Where applicable, compensation may be provided in accordance with our published Compensation Policy and Terms & Conditions.",
     },
   ];
 
@@ -744,7 +744,7 @@ const GroupShipping = () => (
             </div>
             <div className="flex items-center gap-2 text-[10px] font-black uppercase tracking-widest bg-white/5 border border-white/10 px-3 py-1.5 rounded">
               <CheckCircle2 size={12} className="text-shipplix-yellow" />
-              Fully Insured Share
+              Committed Safe Handling
             </div>
           </div>
           <Button 
