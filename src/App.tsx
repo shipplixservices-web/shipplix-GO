@@ -122,11 +122,11 @@ const Navbar = ({ onNavigate, currentPath }: { onNavigate?: (path: string) => vo
         </div>
         
         <div className="hidden md:flex items-center gap-6 text-xs font-bold uppercase tracking-wider">
-          <a href="/cargo-items" onClick={(e) => handleLinkClick(e, '/cargo-items')} className={`transition-colors ${currentPath === '/cargo-items' ? 'text-shipplix-yellow underline font-black' : 'hover:text-shipplix-yellow'}`}>Cargo Items</a>
-          <a href="/economy-cargo" onClick={(e) => handleLinkClick(e, '/economy-cargo')} className={`transition-colors ${currentPath === '/economy-cargo' ? 'text-shipplix-yellow underline font-black' : 'hover:text-shipplix-yellow'}`}>Economy Cargo</a>
-          <a href="/economy-cargo-terms" onClick={(e) => handleLinkClick(e, '/economy-cargo-terms')} className={`transition-colors ${currentPath === '/economy-cargo-terms' ? 'text-shipplix-yellow underline font-black' : 'hover:text-shipplix-yellow'}`}>Economy Terms</a>
-          <a href="/processing" onClick={(e) => handleLinkClick(e, '/processing')} className={`transition-colors ${currentPath === '/processing' ? 'text-shipplix-yellow underline font-black' : 'hover:text-shipplix-yellow'}`}>Processing</a>
-          <a href="/trust" onClick={(e) => handleLinkClick(e, '/trust')} className={`transition-colors ${currentPath === '/trust' ? 'text-shipplix-yellow underline font-black' : 'hover:text-shipplix-yellow'}`}>Trust</a>
+          <a href="#/cargo-items" onClick={(e) => handleLinkClick(e, '/cargo-items')} className={`transition-colors ${currentPath === '/cargo-items' ? 'text-shipplix-yellow underline font-black' : 'hover:text-shipplix-yellow'}`}>Cargo Items</a>
+          <a href="#/economy-cargo" onClick={(e) => handleLinkClick(e, '/economy-cargo')} className={`transition-colors ${currentPath === '/economy-cargo' ? 'text-shipplix-yellow underline font-black' : 'hover:text-shipplix-yellow'}`}>Economy Cargo</a>
+          <a href="#/economy-cargo-terms" onClick={(e) => handleLinkClick(e, '/economy-cargo-terms')} className={`transition-colors ${currentPath === '/economy-cargo-terms' ? 'text-shipplix-yellow underline font-black' : 'hover:text-shipplix-yellow'}`}>Economy Terms</a>
+          <a href="#/processing" onClick={(e) => handleLinkClick(e, '/processing')} className={`transition-colors ${currentPath === '/processing' ? 'text-shipplix-yellow underline font-black' : 'hover:text-shipplix-yellow'}`}>Processing</a>
+          <a href="#/trust" onClick={(e) => handleLinkClick(e, '/trust')} className={`transition-colors ${currentPath === '/trust' ? 'text-shipplix-yellow underline font-black' : 'hover:text-shipplix-yellow'}`}>Trust</a>
           <Button 
             as="a" 
             href={URL_QUOTE} 
@@ -153,11 +153,11 @@ const Navbar = ({ onNavigate, currentPath }: { onNavigate?: (path: string) => vo
             className="md:hidden bg-shipplix-blue border-t border-white/10 overflow-hidden"
           >
             <div className="flex flex-col gap-4 p-6 font-bold text-xs uppercase tracking-wider">
-              <a href="/cargo-items" onClick={(e) => handleLinkClick(e, '/cargo-items')} className={`py-1 ${currentPath === '/cargo-items' ? 'text-shipplix-yellow underline font-black' : 'hover:text-shipplix-yellow'}`}>Cargo Items</a>
-              <a href="/economy-cargo" onClick={(e) => handleLinkClick(e, '/economy-cargo')} className={`py-1 ${currentPath === '/economy-cargo' ? 'text-shipplix-yellow underline font-black' : 'hover:text-shipplix-yellow'}`}>Economy Cargo</a>
-              <a href="/economy-cargo-terms" onClick={(e) => handleLinkClick(e, '/economy-cargo-terms')} className={`py-1 ${currentPath === '/economy-cargo-terms' ? 'text-shipplix-yellow underline font-black' : 'hover:text-shipplix-yellow'}`}>Economy Terms</a>
-              <a href="/processing" onClick={(e) => handleLinkClick(e, '/processing')} className={`py-1 ${currentPath === '/processing' ? 'text-shipplix-yellow underline font-black' : 'hover:text-shipplix-yellow'}`}>Processing</a>
-              <a href="/trust" onClick={(e) => handleLinkClick(e, '/trust')} className={`py-1 ${currentPath === '/trust' ? 'text-shipplix-yellow underline font-black' : 'hover:text-shipplix-yellow'}`}>Trust</a>
+              <a href="#/cargo-items" onClick={(e) => handleLinkClick(e, '/cargo-items')} className={`py-1 ${currentPath === '/cargo-items' ? 'text-shipplix-yellow underline font-black' : 'hover:text-shipplix-yellow'}`}>Cargo Items</a>
+              <a href="#/economy-cargo" onClick={(e) => handleLinkClick(e, '/economy-cargo')} className={`py-1 ${currentPath === '/economy-cargo' ? 'text-shipplix-yellow underline font-black' : 'hover:text-shipplix-yellow'}`}>Economy Cargo</a>
+              <a href="#/economy-cargo-terms" onClick={(e) => handleLinkClick(e, '/economy-cargo-terms')} className={`py-1 ${currentPath === '/economy-cargo-terms' ? 'text-shipplix-yellow underline font-black' : 'hover:text-shipplix-yellow'}`}>Economy Terms</a>
+              <a href="#/processing" onClick={(e) => handleLinkClick(e, '/processing')} className={`py-1 ${currentPath === '/processing' ? 'text-shipplix-yellow underline font-black' : 'hover:text-shipplix-yellow'}`}>Processing</a>
+              <a href="#/trust" onClick={(e) => handleLinkClick(e, '/trust')} className={`py-1 ${currentPath === '/trust' ? 'text-shipplix-yellow underline font-black' : 'hover:text-shipplix-yellow'}`}>Trust</a>
               <Button 
                 as="a" 
                 href={URL_START} 
@@ -1160,10 +1160,10 @@ const Footer = ({ onNavigate }: { onNavigate?: (path: string) => void }) => {
             <span className="text-[10px] font-bold tracking-widest uppercase">Safe. Fast. Transparent.</span>
           </div>
           <div className="flex flex-wrap justify-center md:justify-end gap-x-6 gap-y-2 text-[10px] font-black uppercase tracking-widest items-center">
-             <a href="/cargo-items" onClick={(e) => handleLinkClick(e, '/cargo-items')} className="hover:text-blue-600">Cargo Items</a>
-             <a href="/trust" onClick={(e) => handleLinkClick(e, '/trust')} className="hover:text-blue-600">Trust</a>
-             <a href="/processing" onClick={(e) => handleLinkClick(e, '/processing')} className="hover:text-blue-600">Processing</a>
-             <a href="/economy-cargo-terms" onClick={(e) => handleLinkClick(e, '/economy-cargo-terms')} className="hover:text-blue-600">Economy Terms</a>
+             <a href="#/cargo-items" onClick={(e) => handleLinkClick(e, '/cargo-items')} className="hover:text-blue-600">Cargo Items</a>
+             <a href="#/trust" onClick={(e) => handleLinkClick(e, '/trust')} className="hover:text-blue-600">Trust</a>
+             <a href="#/processing" onClick={(e) => handleLinkClick(e, '/processing')} className="hover:text-blue-600">Processing</a>
+             <a href="#/economy-cargo-terms" onClick={(e) => handleLinkClick(e, '/economy-cargo-terms')} className="hover:text-blue-600">Economy Terms</a>
              <a href="mailto:services@shipplix.com" className="hover:text-blue-600 lowercase tracking-normal">services@shipplix.com</a>
           </div>
         </div>
@@ -1184,19 +1184,19 @@ export default function App() {
   const [currentPath, setCurrentPath] = React.useState(() => {
     const p = window.location.pathname;
     const h = window.location.hash;
-    if (p === '/economy-cargo-terms' || h === '#/economy-cargo-terms' || p === '/terms' || h === '#/terms') {
+    if (p === '/economy-cargo-terms' || h === '#/economy-cargo-terms' || h === '#economy-cargo-terms' || p === '/terms' || h === '#/terms' || h === '#terms') {
       return '/economy-cargo-terms';
     }
-    if (p === '/cargo-items' || h === '#/cargo-items') {
+    if (p === '/cargo-items' || h === '#/cargo-items' || h === '#cargo-items') {
       return '/cargo-items';
     }
-    if (p === '/economy-cargo' || h === '#/economy-cargo') {
+    if (p === '/economy-cargo' || h === '#/economy-cargo' || h === '#economy-cargo') {
       return '/economy-cargo';
     }
-    if (p === '/processing' || h === '#/processing') {
+    if (p === '/processing' || h === '#/processing' || h === '#processing') {
       return '/processing';
     }
-    if (p === '/trust' || h === '#/trust') {
+    if (p === '/trust' || h === '#/trust' || h === '#trust') {
       return '/trust';
     }
     return '/';
@@ -1206,15 +1206,15 @@ export default function App() {
     const handlePopState = () => {
       const p = window.location.pathname;
       const h = window.location.hash;
-      if (p === '/economy-cargo-terms' || h === '#/economy-cargo-terms' || p === '/terms' || h === '#/terms') {
+      if (p === '/economy-cargo-terms' || h === '#/economy-cargo-terms' || h === '#economy-cargo-terms' || p === '/terms' || h === '#/terms' || h === '#terms') {
         setCurrentPath('/economy-cargo-terms');
-      } else if (p === '/cargo-items' || h === '#/cargo-items') {
+      } else if (p === '/cargo-items' || h === '#/cargo-items' || h === '#cargo-items') {
         setCurrentPath('/cargo-items');
-      } else if (p === '/economy-cargo' || h === '#/economy-cargo') {
+      } else if (p === '/economy-cargo' || h === '#/economy-cargo' || h === '#economy-cargo') {
         setCurrentPath('/economy-cargo');
-      } else if (p === '/processing' || h === '#/processing') {
+      } else if (p === '/processing' || h === '#/processing' || h === '#processing') {
         setCurrentPath('/processing');
-      } else if (p === '/trust' || h === '#/trust') {
+      } else if (p === '/trust' || h === '#/trust' || h === '#trust') {
         setCurrentPath('/trust');
       } else {
         setCurrentPath('/');
@@ -1229,7 +1229,8 @@ export default function App() {
   }, []);
 
   const navigateTo = (path: string) => {
-    window.history.pushState({}, '', path);
+    const hashPath = path === '/' ? '' : '#' + path;
+    window.history.pushState({}, '', '/' + hashPath);
     setCurrentPath(path);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
