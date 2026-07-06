@@ -40,6 +40,10 @@ import {
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import EconomyTerms from './components/EconomyTerms';
+import CargoItemsPage from './components/CargoItemsPage';
+import EconomyCargoPage from './components/EconomyCargoPage';
+import ProcessingPage from './components/ProcessingPage';
+import TrustPage from './components/TrustPage';
 
 // Common Components
 const Button = ({ 
@@ -97,31 +101,10 @@ const SectionTitle = ({ title, subtitle, light = false, centered = true }: { tit
 const Navbar = ({ onNavigate, currentPath }: { onNavigate?: (path: string) => void; currentPath?: string }) => {
   const [isOpen, setIsOpen] = React.useState(false);
 
-  const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, hash: string) => {
+  const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, path: string) => {
     e.preventDefault();
     setIsOpen(false);
-    if (onNavigate) {
-      if (currentPath !== '/') {
-        onNavigate('/');
-        setTimeout(() => {
-          const el = document.getElementById(hash.replace('#', ''));
-          if (el) {
-            el.scrollIntoView({ behavior: 'smooth' });
-          }
-        }, 150);
-      } else {
-        const el = document.getElementById(hash.replace('#', ''));
-        if (el) {
-          el.scrollIntoView({ behavior: 'smooth' });
-        }
-      }
-    }
-  };
-
-  const handleTermsClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    e.preventDefault();
-    setIsOpen(false);
-    onNavigate?.('/economy-cargo-terms');
+    onNavigate?.(path);
   };
 
   return (
@@ -131,11 +114,7 @@ const Navbar = ({ onNavigate, currentPath }: { onNavigate?: (path: string) => vo
           className="flex items-center gap-2 cursor-pointer" 
           onClick={() => {
             setIsOpen(false);
-            if (currentPath !== '/') {
-              onNavigate?.('/');
-            } else {
-              window.scrollTo({ top: 0, behavior: 'smooth' });
-            }
+            onNavigate?.('/');
           }}
         >
           <div className="bg-shipplix-yellow text-shipplix-blue font-black p-1 rounded-sm text-xl tracking-tighter">SHIPPLIX</div>
@@ -143,11 +122,11 @@ const Navbar = ({ onNavigate, currentPath }: { onNavigate?: (path: string) => vo
         </div>
         
         <div className="hidden md:flex items-center gap-6 text-xs font-bold uppercase tracking-wider">
-          <a href="#what" onClick={(e) => handleLinkClick(e, '#what')} className="hover:text-shipplix-yellow transition-colors">Cargo Items</a>
-          <a href="#services" onClick={(e) => handleLinkClick(e, '#services')} className="hover:text-shipplix-yellow transition-colors">Economy Cargo</a>
-          <a href="/economy-cargo-terms" onClick={handleTermsClick} className={`transition-colors ${currentPath === '/economy-cargo-terms' ? 'text-shipplix-yellow underline font-black' : 'hover:text-shipplix-yellow'}`}>Economy Terms</a>
-          <a href="#how" onClick={(e) => handleLinkClick(e, '#how')} className="hover:text-shipplix-yellow transition-colors">Process</a>
-          <a href="#trust" onClick={(e) => handleLinkClick(e, '#trust')} className="hover:text-shipplix-yellow transition-colors">Trust</a>
+          <a href="/cargo-items" onClick={(e) => handleLinkClick(e, '/cargo-items')} className={`transition-colors ${currentPath === '/cargo-items' ? 'text-shipplix-yellow underline font-black' : 'hover:text-shipplix-yellow'}`}>Cargo Items</a>
+          <a href="/economy-cargo" onClick={(e) => handleLinkClick(e, '/economy-cargo')} className={`transition-colors ${currentPath === '/economy-cargo' ? 'text-shipplix-yellow underline font-black' : 'hover:text-shipplix-yellow'}`}>Economy Cargo</a>
+          <a href="/economy-cargo-terms" onClick={(e) => handleLinkClick(e, '/economy-cargo-terms')} className={`transition-colors ${currentPath === '/economy-cargo-terms' ? 'text-shipplix-yellow underline font-black' : 'hover:text-shipplix-yellow'}`}>Economy Terms</a>
+          <a href="/processing" onClick={(e) => handleLinkClick(e, '/processing')} className={`transition-colors ${currentPath === '/processing' ? 'text-shipplix-yellow underline font-black' : 'hover:text-shipplix-yellow'}`}>Processing</a>
+          <a href="/trust" onClick={(e) => handleLinkClick(e, '/trust')} className={`transition-colors ${currentPath === '/trust' ? 'text-shipplix-yellow underline font-black' : 'hover:text-shipplix-yellow'}`}>Trust</a>
           <Button 
             as="a" 
             href={URL_QUOTE} 
@@ -174,11 +153,11 @@ const Navbar = ({ onNavigate, currentPath }: { onNavigate?: (path: string) => vo
             className="md:hidden bg-shipplix-blue border-t border-white/10 overflow-hidden"
           >
             <div className="flex flex-col gap-4 p-6 font-bold text-xs uppercase tracking-wider">
-              <a href="#what" onClick={(e) => handleLinkClick(e, '#what')} className="hover:text-shipplix-yellow py-1">Cargo Items</a>
-              <a href="#services" onClick={(e) => handleLinkClick(e, '#services')} className="hover:text-shipplix-yellow py-1">Economy Cargo</a>
-              <a href="/economy-cargo-terms" onClick={handleTermsClick} className={`py-1 ${currentPath === '/economy-cargo-terms' ? 'text-shipplix-yellow underline font-black' : 'hover:text-shipplix-yellow'}`}>Economy Terms</a>
-              <a href="#how" onClick={(e) => handleLinkClick(e, '#how')} className="hover:text-shipplix-yellow py-1">Process</a>
-              <a href="#trust" onClick={(e) => handleLinkClick(e, '#trust')} className="hover:text-shipplix-yellow py-1">Trust</a>
+              <a href="/cargo-items" onClick={(e) => handleLinkClick(e, '/cargo-items')} className={`py-1 ${currentPath === '/cargo-items' ? 'text-shipplix-yellow underline font-black' : 'hover:text-shipplix-yellow'}`}>Cargo Items</a>
+              <a href="/economy-cargo" onClick={(e) => handleLinkClick(e, '/economy-cargo')} className={`py-1 ${currentPath === '/economy-cargo' ? 'text-shipplix-yellow underline font-black' : 'hover:text-shipplix-yellow'}`}>Economy Cargo</a>
+              <a href="/economy-cargo-terms" onClick={(e) => handleLinkClick(e, '/economy-cargo-terms')} className={`py-1 ${currentPath === '/economy-cargo-terms' ? 'text-shipplix-yellow underline font-black' : 'hover:text-shipplix-yellow'}`}>Economy Terms</a>
+              <a href="/processing" onClick={(e) => handleLinkClick(e, '/processing')} className={`py-1 ${currentPath === '/processing' ? 'text-shipplix-yellow underline font-black' : 'hover:text-shipplix-yellow'}`}>Processing</a>
+              <a href="/trust" onClick={(e) => handleLinkClick(e, '/trust')} className={`py-1 ${currentPath === '/trust' ? 'text-shipplix-yellow underline font-black' : 'hover:text-shipplix-yellow'}`}>Trust</a>
               <Button 
                 as="a" 
                 href={URL_START} 
@@ -342,7 +321,7 @@ const ExportCategories = () => {
   ];
 
   return (
-    <section id="what" className="py-16 bg-shipplix-bg">
+    <section id="what" className="scroll-mt-24 py-16 bg-shipplix-bg">
       <div className="container mx-auto px-6">
         <SectionTitle 
           title="Export Categories" 
@@ -416,7 +395,7 @@ const HowItWorks = () => {
   ];
 
   return (
-    <section id="how" className="py-16 bg-shipplix-blue text-white overflow-hidden">
+    <section id="how" className="scroll-mt-24 py-16 bg-shipplix-blue text-white overflow-hidden">
       <div className="container mx-auto px-6">
         <SectionTitle 
           title="Security Guarantee" 
@@ -499,7 +478,7 @@ const ShippingServices = () => {
   ];
 
   return (
-    <section id="services" className="py-16 bg-white border-y border-slate-200">
+    <section id="services" className="scroll-mt-24 py-16 bg-white border-y border-slate-200">
       <div className="container mx-auto px-6">
         <SectionTitle 
           title="Our Shipping Services" 
@@ -615,7 +594,7 @@ const TrustSection = () => {
   ];
 
   return (
-    <section id="trust" className="py-16 bg-white border-b border-slate-200">
+    <section id="trust" className="scroll-mt-24 py-16 bg-white border-b border-slate-200">
       <div className="container mx-auto px-6">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
           <div className="lg:col-span-5">
@@ -1166,27 +1145,28 @@ const FinalCTA = () => (
   </section>
 );
 
-const Footer = ({ onNavigate }: { onNavigate?: (path: string) => void }) => (
-  <footer className="bg-white border-t border-slate-200 py-10 text-slate-500">
-    <div className="container mx-auto px-6">
-      <div className="flex flex-col md:flex-row justify-between items-center gap-6 mb-8">
-        <div className="flex items-center gap-2">
-          <div className="bg-slate-900 text-white font-black px-2 py-1 rounded text-lg tracking-tighter">SHIPPLIX</div>
-          <span className="text-[10px] font-bold tracking-widest uppercase">Safe. Fast. Transparent.</span>
+const Footer = ({ onNavigate }: { onNavigate?: (path: string) => void }) => {
+  const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, path: string) => {
+    e.preventDefault();
+    onNavigate?.(path);
+  };
+
+  return (
+    <footer className="bg-white border-t border-slate-200 py-10 text-slate-500">
+      <div className="container mx-auto px-6">
+        <div className="flex flex-col md:flex-row justify-between items-center gap-6 mb-8">
+          <div className="flex items-center gap-2">
+            <div className="bg-slate-900 text-white font-black px-2 py-1 rounded text-lg tracking-tighter">SHIPPLIX</div>
+            <span className="text-[10px] font-bold tracking-widest uppercase">Safe. Fast. Transparent.</span>
+          </div>
+          <div className="flex flex-wrap justify-center md:justify-end gap-x-6 gap-y-2 text-[10px] font-black uppercase tracking-widest items-center">
+             <a href="/cargo-items" onClick={(e) => handleLinkClick(e, '/cargo-items')} className="hover:text-blue-600">Cargo Items</a>
+             <a href="/trust" onClick={(e) => handleLinkClick(e, '/trust')} className="hover:text-blue-600">Trust</a>
+             <a href="/processing" onClick={(e) => handleLinkClick(e, '/processing')} className="hover:text-blue-600">Processing</a>
+             <a href="/economy-cargo-terms" onClick={(e) => handleLinkClick(e, '/economy-cargo-terms')} className="hover:text-blue-600">Economy Terms</a>
+             <a href="mailto:services@shipplix.com" className="hover:text-blue-600 lowercase tracking-normal">services@shipplix.com</a>
+          </div>
         </div>
-        <div className="flex flex-wrap justify-center md:justify-end gap-x-6 gap-y-2 text-[10px] font-black uppercase tracking-widest items-center">
-           <a href="#what" className="hover:text-blue-600">Extracts</a>
-           <a href="#how" className="hover:text-blue-600">Guarantee</a>
-           <a href="#trust" className="hover:text-blue-600">Verification</a>
-           <button 
-             onClick={() => onNavigate?.('/economy-cargo-terms')} 
-             className="hover:text-blue-600 uppercase font-black cursor-pointer tracking-widest text-[10px] bg-transparent border-none p-0"
-           >
-             Economy Cargo Terms
-           </button>
-           <a href="mailto:services@shipplix.com" className="hover:text-blue-600 lowercase tracking-normal">services@shipplix.com</a>
-        </div>
-      </div>
       <div className="pt-8 border-t border-slate-100 flex flex-col md:flex-row justify-between items-center gap-4 text-[9px] font-black uppercase tracking-widest">
          <p>© {new Date().getFullYear()} SHIPPLIX EXPORT LOGISTICS. MADE IN LAGOS.</p>
          <div className="flex items-center gap-4">
@@ -1197,7 +1177,8 @@ const Footer = ({ onNavigate }: { onNavigate?: (path: string) => void }) => (
       </div>
     </div>
   </footer>
-);
+  );
+};
 
 export default function App() {
   const [currentPath, setCurrentPath] = React.useState(() => {
@@ -1205,6 +1186,18 @@ export default function App() {
     const h = window.location.hash;
     if (p === '/economy-cargo-terms' || h === '#/economy-cargo-terms' || p === '/terms' || h === '#/terms') {
       return '/economy-cargo-terms';
+    }
+    if (p === '/cargo-items' || h === '#/cargo-items') {
+      return '/cargo-items';
+    }
+    if (p === '/economy-cargo' || h === '#/economy-cargo') {
+      return '/economy-cargo';
+    }
+    if (p === '/processing' || h === '#/processing') {
+      return '/processing';
+    }
+    if (p === '/trust' || h === '#/trust') {
+      return '/trust';
     }
     return '/';
   });
@@ -1215,6 +1208,14 @@ export default function App() {
       const h = window.location.hash;
       if (p === '/economy-cargo-terms' || h === '#/economy-cargo-terms' || p === '/terms' || h === '#/terms') {
         setCurrentPath('/economy-cargo-terms');
+      } else if (p === '/cargo-items' || h === '#/cargo-items') {
+        setCurrentPath('/cargo-items');
+      } else if (p === '/economy-cargo' || h === '#/economy-cargo') {
+        setCurrentPath('/economy-cargo');
+      } else if (p === '/processing' || h === '#/processing') {
+        setCurrentPath('/processing');
+      } else if (p === '/trust' || h === '#/trust') {
+        setCurrentPath('/trust');
       } else {
         setCurrentPath('/');
       }
@@ -1230,29 +1231,73 @@ export default function App() {
   const navigateTo = (path: string) => {
     window.history.pushState({}, '', path);
     setCurrentPath(path);
-    window.scrollTo(0, 0);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   React.useEffect(() => {
     if (currentPath === '/') {
       document.title = "Shipplix Logistics – Fast & Reliable Export Shipping from Nigeria";
-      const metaDesc = document.querySelector('meta[name="description"]');
-      if (metaDesc) {
-        metaDesc.setAttribute('content', 'Shipplix offers fast, reliable, and affordable shipping options from Nigeria to the USA. We provide tailored solutions to match your urgency and budget.');
-      }
+    } else if (currentPath === '/cargo-items') {
+      document.title = "Permitted Export & Cargo Items Catalog – Shipplix";
+    } else if (currentPath === '/economy-cargo') {
+      document.title = "Economy Cargo & Split Space Shipping – Shipplix";
+    } else if (currentPath === '/processing') {
+      document.title = "Customs Clearance & Processing Flow – Shipplix";
+    } else if (currentPath === '/trust') {
+      document.title = "Trust & Anti-Scam Verification – Shipplix";
+    } else if (currentPath === '/economy-cargo-terms') {
+      document.title = "Economy Cargo Terms & Conditions – Shipplix";
     }
   }, [currentPath]);
 
   return (
     <div className="min-h-screen bg-white">
       <Navbar onNavigate={navigateTo} currentPath={currentPath} />
-      {currentPath === '/economy-cargo-terms' ? (
-        <EconomyTerms onBack={() => navigateTo('/')} />
-      ) : (
-        <>
-          <main>
+      
+      <main className="min-h-screen">
+        {currentPath === '/' && (
+          <>
             <Hero />
             <UrgencyBanner />
+            
+            {/* Elegant Standalone Gateway Portal */}
+            <section className="py-16 bg-white border-b border-slate-200">
+              <div className="container mx-auto px-6 max-w-5xl">
+                <div className="text-center mb-12">
+                  <span className="bg-blue-100 text-blue-900 text-[10px] font-black px-3 py-1.5 rounded uppercase tracking-widest font-mono">
+                    Explore Standalone Divisions
+                  </span>
+                  <h2 className="text-3xl font-black uppercase text-slate-950 mt-2 mb-4 tracking-tighter">
+                    Dedicated Customer Portals
+                  </h2>
+                  <p className="text-xs font-bold text-slate-500 uppercase tracking-wider max-w-xl mx-auto leading-relaxed">
+                    Click any panel to jump into our specialized, deep-dive information pages.
+                  </p>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                  {[
+                    { title: "Cargo Items", desc: "Lookup allowed foodstuff, cosmetics, fashion, and forbidden products.", link: "/cargo-items", num: "01" },
+                    { title: "Economy Cargo", desc: "Cooperative space consolidation, freight estimators, and rates.", link: "/economy-cargo", num: "02" },
+                    { title: "Processing Flow", desc: "Our 5-step packing, MMIA customs manifesting, and last-mile.", link: "/processing", num: "03" },
+                    { title: "Trust & Reviews", desc: "Anti-scam video packing scales, customer reviews, and insurance.", link: "/trust", num: "04" },
+                    { title: "Economy Terms", desc: "Full service agreements, dimensional metrics, and payload rules.", link: "/economy-cargo-terms", num: "05" }
+                  ].map((portal, i) => (
+                    <div key={i} className="p-6 bg-slate-50 border border-slate-200 rounded-2xl hover:border-blue-900 transition-colors flex flex-col justify-between">
+                      <div>
+                        <div className="text-amber-500 font-black text-xs font-mono mb-2">{portal.num}</div>
+                        <h3 className="text-sm font-black uppercase text-blue-950 tracking-tight mb-2">{portal.title}</h3>
+                        <p className="text-[11px] text-slate-500 font-bold leading-normal mb-6">{portal.desc}</p>
+                      </div>
+                      <Button onClick={() => navigateTo(portal.link)} variant="outline" className="w-full text-[10px] py-2.5 uppercase tracking-widest font-black">
+                        Open Portal
+                      </Button>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </section>
+
             <ExportCategories />
             <ShippingServices />
             <HowItWorks />
@@ -1260,9 +1305,8 @@ export default function App() {
             <DiasporaSection />
             <GroupShipping />
             <Testimonials />
-            
             <ExportHub />
-
+            
             {/* Urgent Recap Section */}
             <section className="py-16 bg-white overflow-hidden relative border-t border-slate-200">
               <div className="container mx-auto px-6 text-center">
@@ -1308,10 +1352,17 @@ export default function App() {
             </section>
 
             <FinalCTA />
-          </main>
-          <Footer onNavigate={navigateTo} />
-        </>
-      )}
+          </>
+        )}
+
+        {currentPath === '/cargo-items' && <CargoItemsPage />}
+        {currentPath === '/economy-cargo' && <EconomyCargoPage />}
+        {currentPath === '/processing' && <ProcessingPage />}
+        {currentPath === '/trust' && <TrustPage />}
+        {currentPath === '/economy-cargo-terms' && <EconomyTerms onBack={() => navigateTo('/')} />}
+      </main>
+
+      <Footer onNavigate={navigateTo} />
     </div>
   );
 }
