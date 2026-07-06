@@ -94,21 +94,60 @@ const SectionTitle = ({ title, subtitle, light = false, centered = true }: { tit
 );
 
 // Navigation
-const Navbar = () => {
+const Navbar = ({ onNavigate, currentPath }: { onNavigate?: (path: string) => void; currentPath?: string }) => {
   const [isOpen, setIsOpen] = React.useState(false);
+
+  const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, hash: string) => {
+    e.preventDefault();
+    setIsOpen(false);
+    if (onNavigate) {
+      if (currentPath !== '/') {
+        onNavigate('/');
+        setTimeout(() => {
+          const el = document.getElementById(hash.replace('#', ''));
+          if (el) {
+            el.scrollIntoView({ behavior: 'smooth' });
+          }
+        }, 150);
+      } else {
+        const el = document.getElementById(hash.replace('#', ''));
+        if (el) {
+          el.scrollIntoView({ behavior: 'smooth' });
+        }
+      }
+    }
+  };
+
+  const handleTermsClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    setIsOpen(false);
+    onNavigate?.('/economy-cargo-terms');
+  };
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-shipplix-blue border-b-4 border-shipplix-yellow text-white py-3 shadow-md">
       <div className="container mx-auto px-6 flex justify-between items-center">
-        <div className="flex items-center gap-2">
+        <div 
+          className="flex items-center gap-2 cursor-pointer" 
+          onClick={() => {
+            setIsOpen(false);
+            if (currentPath !== '/') {
+              onNavigate?.('/');
+            } else {
+              window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+          }}
+        >
           <div className="bg-shipplix-yellow text-shipplix-blue font-black p-1 rounded-sm text-xl tracking-tighter">SHIPPLIX</div>
           <span className="hidden sm:inline-block text-[10px] font-bold tracking-widest opacity-80 uppercase leading-none">Official Export<br/>Partner</span>
         </div>
         
-        <div className="hidden md:flex items-center gap-8 text-xs font-bold uppercase tracking-wider">
-          <a href="#what" className="hover:text-shipplix-yellow transition-colors">Categories</a>
-          <a href="#how" className="hover:text-shipplix-yellow transition-colors">Process</a>
-          <a href="#trust" className="hover:text-shipplix-yellow transition-colors">Trust</a>
+        <div className="hidden md:flex items-center gap-6 text-xs font-bold uppercase tracking-wider">
+          <a href="#what" onClick={(e) => handleLinkClick(e, '#what')} className="hover:text-shipplix-yellow transition-colors">Cargo Items</a>
+          <a href="#services" onClick={(e) => handleLinkClick(e, '#services')} className="hover:text-shipplix-yellow transition-colors">Economy Cargo</a>
+          <a href="/economy-cargo-terms" onClick={handleTermsClick} className={`transition-colors ${currentPath === '/economy-cargo-terms' ? 'text-shipplix-yellow underline font-black' : 'hover:text-shipplix-yellow'}`}>Economy Terms</a>
+          <a href="#how" onClick={(e) => handleLinkClick(e, '#how')} className="hover:text-shipplix-yellow transition-colors">Process</a>
+          <a href="#trust" onClick={(e) => handleLinkClick(e, '#trust')} className="hover:text-shipplix-yellow transition-colors">Trust</a>
           <Button 
             as="a" 
             href={URL_QUOTE} 
@@ -121,7 +160,7 @@ const Navbar = () => {
           </Button>
         </div>
 
-        <button className="md:hidden" onClick={() => setIsOpen(!isOpen)}>
+        <button className="md:hidden flex items-center justify-center p-2 rounded-lg hover:bg-white/10 transition-colors" onClick={() => setIsOpen(!isOpen)} aria-label="Toggle menu">
           {isOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
       </div>
@@ -132,19 +171,21 @@ const Navbar = () => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-shipplix-blue border-t border-white/10"
+            className="md:hidden bg-shipplix-blue border-t border-white/10 overflow-hidden"
           >
             <div className="flex flex-col gap-4 p-6 font-bold text-xs uppercase tracking-wider">
-              <a href="#what" onClick={() => setIsOpen(false)}>Categories</a>
-              <a href="#how" onClick={() => setIsOpen(false)}>Process</a>
-              <a href="#trust" onClick={() => setIsOpen(false)}>Trust</a>
+              <a href="#what" onClick={(e) => handleLinkClick(e, '#what')} className="hover:text-shipplix-yellow py-1">Cargo Items</a>
+              <a href="#services" onClick={(e) => handleLinkClick(e, '#services')} className="hover:text-shipplix-yellow py-1">Economy Cargo</a>
+              <a href="/economy-cargo-terms" onClick={handleTermsClick} className={`py-1 ${currentPath === '/economy-cargo-terms' ? 'text-shipplix-yellow underline font-black' : 'hover:text-shipplix-yellow'}`}>Economy Terms</a>
+              <a href="#how" onClick={(e) => handleLinkClick(e, '#how')} className="hover:text-shipplix-yellow py-1">Process</a>
+              <a href="#trust" onClick={(e) => handleLinkClick(e, '#trust')} className="hover:text-shipplix-yellow py-1">Trust</a>
               <Button 
                 as="a" 
                 href={URL_START} 
                 target="_blank" 
                 rel="noopener noreferrer" 
                 variant="yellow" 
-                className="w-full"
+                className="w-full mt-2"
               >
                 Ship Now
               </Button>
@@ -1202,73 +1243,75 @@ export default function App() {
     }
   }, [currentPath]);
 
-  if (currentPath === '/economy-cargo-terms') {
-    return <EconomyTerms onBack={() => navigateTo('/')} />;
-  }
-
   return (
     <div className="min-h-screen bg-white">
-      <Navbar />
-      <main>
-        <Hero />
-        <UrgencyBanner />
-        <ExportCategories />
-        <ShippingServices />
-        <HowItWorks />
-        <TrustSection />
-        <DiasporaSection />
-        <GroupShipping />
-        <Testimonials />
-        
-        <ExportHub />
+      <Navbar onNavigate={navigateTo} currentPath={currentPath} />
+      {currentPath === '/economy-cargo-terms' ? (
+        <EconomyTerms onBack={() => navigateTo('/')} />
+      ) : (
+        <>
+          <main>
+            <Hero />
+            <UrgencyBanner />
+            <ExportCategories />
+            <ShippingServices />
+            <HowItWorks />
+            <TrustSection />
+            <DiasporaSection />
+            <GroupShipping />
+            <Testimonials />
+            
+            <ExportHub />
 
-        {/* Urgent Recap Section */}
-        <section className="py-16 bg-white overflow-hidden relative border-t border-slate-200">
-          <div className="container mx-auto px-6 text-center">
-             <div className="inline-flex items-center justify-center w-16 h-16 bg-red-600 rounded-lg mb-8 shadow-2xl relative">
-                <Clock className="text-white" size={32} />
-                <div className="absolute inset-0 animate-ping rounded-lg bg-red-600 opacity-20"></div>
-             </div>
-             <h2 className="text-3xl md:text-5xl font-black text-slate-900 mb-4 uppercase tracking-tighter leading-none">
-               Batch Closing <span className="text-red-500">Fast</span>
-             </h2>
-             <p className="text-sm md:text-lg text-slate-500 font-bold max-w-2xl mx-auto mb-10 uppercase tracking-widest leading-relaxed">
-               If your goods miss this week's flight, you're <span className="text-slate-900 underline decoration-shipplix-yellow decoration-4 underline-offset-4">delaying your profit.</span>
-             </p>
-             
-             <div className="grid grid-cols-1 md:grid-cols-3 gap-0 max-w-3xl mx-auto border border-slate-200 rounded-xl overflow-hidden mb-12">
-                <div className="bg-red-50 p-6 border-b md:border-b-0 md:border-r border-slate-200">
-                  <div className="text-slate-400 text-[10px] uppercase font-black tracking-widest mb-2">Mon - Wed Batch</div>
-                  <div className="text-red-600 font-black text-lg">FULL</div>
-                </div>
-                <div className="bg-orange-50 p-6 border-b md:border-b-0 md:border-r border-slate-200">
-                  <div className="text-slate-400 text-[10px] uppercase font-black tracking-widest mb-2">Wed - Fri Batch</div>
-                  <div className="text-orange-500 font-black text-lg">ALMOST FULL</div>
-                </div>
-                <div className="bg-emerald-50 p-6">
-                  <div className="text-slate-400 text-[10px] uppercase font-black tracking-widest mb-2">Weekend Batch</div>
-                  <div className="text-emerald-600 font-black text-lg">SPOTS LEFT</div>
-                </div>
-             </div>
-             
+            {/* Urgent Recap Section */}
+            <section className="py-16 bg-white overflow-hidden relative border-t border-slate-200">
+              <div className="container mx-auto px-6 text-center">
+                 <div className="inline-flex items-center justify-center w-16 h-16 bg-red-600 rounded-lg mb-8 shadow-2xl relative">
+                    <Clock className="text-white" size={32} />
+                    <div className="absolute inset-0 animate-ping rounded-lg bg-red-600 opacity-20"></div>
+                 </div>
+                 <h2 className="text-3xl md:text-5xl font-black text-slate-900 mb-4 uppercase tracking-tighter leading-none">
+                   Batch Closing <span className="text-red-500">Fast</span>
+                 </h2>
+                 <p className="text-sm md:text-lg text-slate-500 font-bold max-w-2xl mx-auto mb-10 uppercase tracking-widest leading-relaxed">
+                   If your goods miss this week's flight, you're <span className="text-slate-900 underline decoration-shipplix-yellow decoration-4 underline-offset-4">delaying your profit.</span>
+                 </p>
+                 
+                 <div className="grid grid-cols-1 md:grid-cols-3 gap-0 max-w-3xl mx-auto border border-slate-200 rounded-xl overflow-hidden mb-12">
+                    <div className="bg-red-50 p-6 border-b md:border-b-0 md:border-r border-slate-200">
+                      <div className="text-slate-400 text-[10px] uppercase font-black tracking-widest mb-2">Mon - Wed Batch</div>
+                      <div className="text-red-600 font-black text-lg">FULL</div>
+                    </div>
+                    <div className="bg-orange-50 p-6 border-b md:border-b-0 md:border-r border-slate-200">
+                      <div className="text-slate-400 text-[10px] uppercase font-black tracking-widest mb-2">Wed - Fri Batch</div>
+                      <div className="text-orange-500 font-black text-lg">ALMOST FULL</div>
+                    </div>
+                    <div className="bg-emerald-50 p-6">
+                      <div className="text-slate-400 text-[10px] uppercase font-black tracking-widest mb-2">Weekend Batch</div>
+                      <div className="text-emerald-600 font-black text-lg">SPOTS LEFT</div>
+                    </div>
+                 </div>
+                 
 
-             <Button 
-               as="a" 
-               href={URL_RESERVE} 
-               target="_blank" 
-               rel="noopener noreferrer" 
-               variant="primary" 
-               className="mx-auto text-xs px-12 py-5 uppercase tracking-[0.2em] bg-shipplix-blue group"
-             >
-                Reserve My Spot Now
-                <ArrowRight className="group-hover:translate-x-1 transition-transform" size={16} />
-             </Button>
-          </div>
-        </section>
+                 <Button 
+                   as="a" 
+                   href={URL_RESERVE} 
+                   target="_blank" 
+                   rel="noopener noreferrer" 
+                   variant="primary" 
+                   className="mx-auto text-xs px-12 py-5 uppercase tracking-[0.2em] bg-shipplix-blue group"
+                 >
+                    Reserve My Spot Now
+                    <ArrowRight className="group-hover:translate-x-1 transition-transform" size={16} />
+                 </Button>
+              </div>
+            </section>
 
-        <FinalCTA />
-      </main>
-      <Footer onNavigate={navigateTo} />
+            <FinalCTA />
+          </main>
+          <Footer onNavigate={navigateTo} />
+        </>
+      )}
     </div>
   );
 }

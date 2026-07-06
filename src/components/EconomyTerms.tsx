@@ -179,24 +179,6 @@ export default function EconomyTerms({ onBack }: { onBack: () => void }) {
 
   return (
     <div className="min-h-screen bg-slate-50 font-sans text-slate-900 selection:bg-shipplix-yellow selection:text-shipplix-blue">
-      {/* Dynamic Header */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-blue-950 border-b-4 border-shipplix-yellow text-white py-3 shadow-md">
-        <div className="container mx-auto px-6 flex justify-between items-center">
-          <div className="flex items-center gap-3 cursor-pointer" onClick={onBack}>
-            <div className="bg-shipplix-yellow text-blue-950 font-black p-1 rounded-sm text-xl tracking-tighter">SHIPPLIX</div>
-            <span className="hidden sm:inline-block text-[10px] font-bold tracking-widest opacity-80 uppercase leading-none">Official Export<br/>Partner</span>
-          </div>
-          
-          <button 
-            onClick={onBack}
-            className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-white hover:text-shipplix-yellow transition-colors cursor-pointer"
-          >
-            <ArrowLeft size={16} />
-            Back to Home
-          </button>
-        </div>
-      </nav>
-
       {/* Hero Section */}
       <header className="relative pt-32 pb-16 bg-gradient-to-b from-blue-950 to-blue-900 text-white overflow-hidden">
         {/* Subtle background illustrations & grid */}
