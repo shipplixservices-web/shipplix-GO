@@ -45,10 +45,34 @@ const Button = ({
 
 export default function EconomyCargoPage() {
   const rates = [
-    { destination: 'United Kingdom (London)', economyAir: '£3.90 / kg', minWeight: '15kg', seaFreight: '£1.80 / kg', transit: '9-14 Days (Air) • 6 Weeks (Sea)' },
-    { destination: 'United States (Texas / Houston)', economyAir: '$4.50 / kg', minWeight: '20kg', seaFreight: '$2.10 / kg', transit: '10-14 Days (Air) • 8 Weeks (Sea)' },
-    { destination: 'United States (Maryland / DMV)', economyAir: '$4.80 / kg', minWeight: '20kg', seaFreight: '$2.20 / kg', transit: '10-14 Days (Air) • 8 Weeks (Sea)' },
-    { destination: 'Canada (Toronto / GTA)', economyAir: '$5.20 / kg', minWeight: '20kg', seaFreight: '$2.50 / kg', transit: '11-14 Days (Air) • 8 Weeks (Sea)' },
+    { 
+      destination: 'United Kingdom (London)', 
+      minWeight: '15kg', 
+      transit: '9-14 Days (Air) • 6 Weeks (Sea)',
+      airWhatsapp: 'https://wa.me/2349168273513?text=Hello%20Shipplix%2C%20I%20would%20like%20to%20get%20the%20live%20Economy%20Air%20Rate%20for%20United%20Kingdom%20(London).',
+      seaWhatsapp: 'https://wa.me/2349168273513?text=Hello%20Shipplix%2C%20I%20would%20like%20to%20get%20the%20live%20Ocean%20Freight%20Rate%20for%20United%20Kingdom%20(London).'
+    },
+    { 
+      destination: 'United States (Texas / Houston)', 
+      minWeight: '20kg', 
+      transit: '10-14 Days (Air) • 8 Weeks (Sea)',
+      airWhatsapp: 'https://wa.me/2349168273513?text=Hello%20Shipplix%2C%20I%20would%20like%20to%20get%20the%20live%20Economy%20Air%20Rate%20for%20United%20States%20(Texas%20%2F%20Houston).',
+      seaWhatsapp: 'https://wa.me/2349168273513?text=Hello%20Shipplix%2C%20I%20would%20like%20to%20get%20the%20live%20Ocean%20Freight%20Rate%20for%20United%20States%20(Texas%20%2F%20Houston).'
+    },
+    { 
+      destination: 'United States (Maryland / DMV)', 
+      minWeight: '20kg', 
+      transit: '10-14 Days (Air) • 8 Weeks (Sea)',
+      airWhatsapp: 'https://wa.me/2349168273513?text=Hello%20Shipplix%2C%20I%20would%20like%20to%20get%20the%20live%20Economy%20Air%20Rate%20for%20United%20States%20(Maryland%20%2F%20DMV).',
+      seaWhatsapp: 'https://wa.me/2349168273513?text=Hello%20Shipplix%2C%20I%20would%20like%20to%20get%20the%20live%20Ocean%20Freight%20Rate%20for%20United%20States%20(Maryland%20%2F%20DMV).'
+    },
+    { 
+      destination: 'Canada (Toronto / GTA)', 
+      minWeight: '20kg', 
+      transit: '11-14 Days (Air) • 8 Weeks (Sea)',
+      airWhatsapp: 'https://wa.me/2349168273513?text=Hello%20Shipplix%2C%20I%20would%20like%20to%20get%20the%20live%20Economy%20Air%20Rate%20for%20Canada%20(Toronto%20%2F%20GTA).',
+      seaWhatsapp: 'https://wa.me/2349168273513?text=Hello%20Shipplix%2C%20I%20would%20like%20to%20get%20the%20live%20Ocean%20Freight%20Rate%20for%20Canada%20(Toronto%20%2F%20GTA).'
+    },
   ];
 
   return (
@@ -97,9 +121,27 @@ export default function EconomyCargoPage() {
                   {rates.map((rate, idx) => (
                     <tr key={idx} className="hover:bg-slate-100/50 transition-colors">
                       <td className="py-4 font-black text-slate-900 uppercase tracking-tight">{rate.destination}</td>
-                      <td className="py-4 text-blue-900 font-black">{rate.economyAir}</td>
+                      <td className="py-4">
+                        <a 
+                          href={rate.airWhatsapp}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-1 text-emerald-600 hover:text-emerald-700 hover:underline font-bold font-mono"
+                        >
+                          Ask for Live Rate 📲
+                        </a>
+                      </td>
                       <td className="py-4 text-slate-500 font-mono text-[10px] uppercase">{rate.minWeight}</td>
-                      <td className="py-4 text-amber-600 font-black">{rate.seaFreight}</td>
+                      <td className="py-4">
+                        <a 
+                          href={rate.seaWhatsapp}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-1 text-emerald-600 hover:text-emerald-700 hover:underline font-bold font-mono"
+                        >
+                          Ask for Live Rate 📲
+                        </a>
+                      </td>
                       <td className="py-4 text-slate-600 font-bold">{rate.transit}</td>
                     </tr>
                   ))}
@@ -109,7 +151,7 @@ export default function EconomyCargoPage() {
             
             <div className="mt-6 flex items-center gap-2 bg-amber-50 p-4 rounded-xl border border-amber-100 text-amber-800 text-xs font-bold leading-normal">
               <ShieldCheck size={20} className="flex-shrink-0" />
-              <span>*Prices listed are baseline estimates. Volumetric adjustments apply for lightweight, bulky items. Taxes and standard export clearing files are covered in the rates. No extra payments required at destination.</span>
+              <span>*Due to constant adjustments in aviation fuel, custom clearing fees, and carrier surcharges, we supply live rates directly on WhatsApp. Tap any "Ask for Live Rate" above to get an instant, zero-obligation price breakdown.</span>
             </div>
           </div>
         </div>

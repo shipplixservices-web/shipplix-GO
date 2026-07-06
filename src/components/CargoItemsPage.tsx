@@ -287,7 +287,7 @@ export default function CargoItemsPage() {
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <Button 
               as="a"
-              href="https://wa.me/2349132227111" 
+              href="https://wa.me/2349168273513" 
               target="_blank" 
               rel="noopener noreferrer"
               variant="yellow"
@@ -298,7 +298,7 @@ export default function CargoItemsPage() {
             </Button>
             <Button 
               as="a"
-              href="https://wa.me/2349132227111" 
+              href="https://wa.me/2349168273513" 
               target="_blank" 
               rel="noopener noreferrer"
               variant="ghost"

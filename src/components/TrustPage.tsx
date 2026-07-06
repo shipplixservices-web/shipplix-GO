@@ -179,7 +179,7 @@ export default function TrustPage() {
               </p>
               <Button 
                 as="a" 
-                href="https://wa.me/2349132227111" 
+                href="https://wa.me/2349168273513" 
                 target="_blank" 
                 rel="noopener noreferrer" 
                 variant="primary" 
@@ -271,7 +271,7 @@ export default function TrustPage() {
           </p>
           <Button 
             as="a"
-            href="https://wa.me/2349132227111" 
+            href="https://wa.me/2349168273513" 
             target="_blank" 
             rel="noopener noreferrer"
             variant="yellow"
