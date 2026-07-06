@@ -128,7 +128,7 @@ export default function EconomyCargoPage() {
                           rel="noopener noreferrer"
                           className="inline-flex items-center gap-1 text-emerald-600 hover:text-emerald-700 hover:underline font-bold font-mono"
                         >
-                          Ask for Live Rate 📲
+                          Ask for Live Rate
                         </a>
                       </td>
                       <td className="py-4 text-slate-500 font-mono text-[10px] uppercase">{rate.minWeight}</td>
@@ -139,7 +139,7 @@ export default function EconomyCargoPage() {
                           rel="noopener noreferrer"
                           className="inline-flex items-center gap-1 text-emerald-600 hover:text-emerald-700 hover:underline font-bold font-mono"
                         >
-                          Ask for Live Rate 📲
+                          Ask for Live Rate
                         </a>
                       </td>
                       <td className="py-4 text-slate-600 font-bold">{rate.transit}</td>
@@ -193,7 +193,7 @@ export default function EconomyCargoPage() {
 
               <Button 
                 as="a"
-                href="https://wa.me/2349132227111"
+                href="https://wa.me/2349168273513"
                 target="_blank"
                 rel="noopener noreferrer"
                 variant="yellow" 
@@ -297,7 +297,7 @@ export default function EconomyCargoPage() {
           </p>
           <Button 
             as="a"
-            href="https://wa.me/2349132227111" 
+            href="https://wa.me/2349168273513" 
             target="_blank" 
             rel="noopener noreferrer"
             variant="yellow"
