@@ -39,6 +39,7 @@ import {
   Briefcase
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
+import EconomyTerms from './components/EconomyTerms';
 
 // Common Components
 const Button = ({ 
@@ -1124,7 +1125,7 @@ const FinalCTA = () => (
   </section>
 );
 
-const Footer = () => (
+const Footer = ({ onNavigate }: { onNavigate?: (path: string) => void }) => (
   <footer className="bg-white border-t border-slate-200 py-10 text-slate-500">
     <div className="container mx-auto px-6">
       <div className="flex flex-col md:flex-row justify-between items-center gap-6 mb-8">
@@ -1132,10 +1133,16 @@ const Footer = () => (
           <div className="bg-slate-900 text-white font-black px-2 py-1 rounded text-lg tracking-tighter">SHIPPLIX</div>
           <span className="text-[10px] font-bold tracking-widest uppercase">Safe. Fast. Transparent.</span>
         </div>
-        <div className="flex flex-wrap justify-center md:justify-end gap-x-6 gap-y-2 text-[10px] font-black uppercase tracking-widest">
+        <div className="flex flex-wrap justify-center md:justify-end gap-x-6 gap-y-2 text-[10px] font-black uppercase tracking-widest items-center">
            <a href="#what" className="hover:text-blue-600">Extracts</a>
            <a href="#how" className="hover:text-blue-600">Guarantee</a>
            <a href="#trust" className="hover:text-blue-600">Verification</a>
+           <button 
+             onClick={() => onNavigate?.('/economy-cargo-terms')} 
+             className="hover:text-blue-600 uppercase font-black cursor-pointer tracking-widest text-[10px] bg-transparent border-none p-0"
+           >
+             Economy Cargo Terms
+           </button>
            <a href="mailto:services@shipplix.com" className="hover:text-blue-600 lowercase tracking-normal">services@shipplix.com</a>
         </div>
       </div>
@@ -1152,6 +1159,53 @@ const Footer = () => (
 );
 
 export default function App() {
+  const [currentPath, setCurrentPath] = React.useState(() => {
+    const p = window.location.pathname;
+    const h = window.location.hash;
+    if (p === '/economy-cargo-terms' || h === '#/economy-cargo-terms' || p === '/terms' || h === '#/terms') {
+      return '/economy-cargo-terms';
+    }
+    return '/';
+  });
+
+  React.useEffect(() => {
+    const handlePopState = () => {
+      const p = window.location.pathname;
+      const h = window.location.hash;
+      if (p === '/economy-cargo-terms' || h === '#/economy-cargo-terms' || p === '/terms' || h === '#/terms') {
+        setCurrentPath('/economy-cargo-terms');
+      } else {
+        setCurrentPath('/');
+      }
+    };
+    window.addEventListener('popstate', handlePopState);
+    window.addEventListener('hashchange', handlePopState);
+    return () => {
+      window.removeEventListener('popstate', handlePopState);
+      window.removeEventListener('hashchange', handlePopState);
+    };
+  }, []);
+
+  const navigateTo = (path: string) => {
+    window.history.pushState({}, '', path);
+    setCurrentPath(path);
+    window.scrollTo(0, 0);
+  };
+
+  React.useEffect(() => {
+    if (currentPath === '/') {
+      document.title = "Shipplix Logistics – Fast & Reliable Export Shipping from Nigeria";
+      const metaDesc = document.querySelector('meta[name="description"]');
+      if (metaDesc) {
+        metaDesc.setAttribute('content', 'Shipplix offers fast, reliable, and affordable shipping options from Nigeria to the USA. We provide tailored solutions to match your urgency and budget.');
+      }
+    }
+  }, [currentPath]);
+
+  if (currentPath === '/economy-cargo-terms') {
+    return <EconomyTerms onBack={() => navigateTo('/')} />;
+  }
+
   return (
     <div className="min-h-screen bg-white">
       <Navbar />
@@ -1214,7 +1268,7 @@ export default function App() {
 
         <FinalCTA />
       </main>
-      <Footer />
+      <Footer onNavigate={navigateTo} />
     </div>
   );
 }
