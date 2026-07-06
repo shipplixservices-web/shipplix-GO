@@ -58,8 +58,8 @@ export default function TrustPage() {
       desc: "We record your goods being packed. You see the proof before it flies.",
     },
     {
-      title: "Fully Insured",
-      desc: "Real insurance for your peace of mind. Your investment is protected.",
+      title: "Careful Handling",
+      desc: "We are committed to handling every shipment with care. Where applicable, compensation may be provided in accordance with our published Compensation Policy and Terms & Conditions.",
     },
     {
       title: "Expert Customs Clearance",
@@ -112,7 +112,7 @@ export default function TrustPage() {
             Why Vendors <span className="text-amber-400">Trust Shipplix</span>
           </h1>
           <p className="text-sm md:text-base text-slate-300 font-medium max-w-2xl mx-auto">
-            We understand that shipping your hard-earned merchandise abroad is a major leap of faith. That's why we operate under a high-transparency, fully-insured safety model.
+            We understand that shipping your hard-earned merchandise abroad is a major leap of faith. That's why we operate under a high-transparency safety model with committed care.
           </p>
         </div>
       </section>
@@ -229,31 +229,31 @@ export default function TrustPage() {
         </div>
       </section>
 
-      {/* Insurance Guard Guarantee */}
+      {/* Shipment Care & Compensation Commitment */}
       <section className="py-16 bg-slate-50 border-t border-slate-200">
         <div className="container mx-auto px-6 max-w-4xl text-center">
           <div className="inline-flex items-center justify-center w-12 h-12 bg-emerald-100 text-emerald-600 rounded-xl mb-6">
             <ShieldCheck size={24} />
           </div>
           <h2 className="text-2xl md:text-3xl font-black text-blue-950 uppercase tracking-tighter mb-4">
-            Our 100% Anti-Loss Cargo Insurance
+            Our Care & Compensation Commitment
           </h2>
           <p className="text-xs text-slate-600 font-medium max-w-xl mx-auto mb-8 leading-relaxed">
-            In the highly unlikely event that your package is lost during air transit, delayed beyond standard limits, or seized due to administrative aircraft manifests, Shipplix provides real, cash-backed compensation based on declared invoices.
+            We are committed to handling every shipment with care. Where applicable, compensation may be provided in accordance with our published Compensation Policy and Terms & Conditions.
           </p>
 
           <div className="inline-flex flex-wrap justify-center gap-4 text-xs font-bold uppercase tracking-wider text-slate-700">
             <div className="flex items-center gap-2 bg-white px-4 py-2.5 rounded-xl border border-slate-200 shadow-sm">
               <Award size={16} className="text-amber-500" />
-              Full Declared Value Cover
+              Safe & Secure Handling
             </div>
             <div className="flex items-center gap-2 bg-white px-4 py-2.5 rounded-xl border border-slate-200 shadow-sm">
               <FileCheck size={16} className="text-amber-500" />
-              Zero Hassle Claims Files
+              Clear & Fair Policies
             </div>
             <div className="flex items-center gap-2 bg-white px-4 py-2.5 rounded-xl border border-slate-200 shadow-sm">
               <Coins size={16} className="text-amber-500" />
-              Transparent Payout Cycles
+              Dedicated Support Team
             </div>
           </div>
         </div>
