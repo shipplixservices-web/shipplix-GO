@@ -226,23 +226,44 @@ export default function ProcessingPage() {
               </ul>
             </div>
 
-            <div className="bg-slate-100 p-8 rounded-3xl border border-slate-200 text-center relative overflow-hidden">
+             <div className="bg-slate-100 p-8 rounded-3xl border border-slate-200 text-center relative overflow-hidden">
               <div className="absolute top-2 right-2 bg-red-600 text-white text-[8px] font-black uppercase tracking-widest px-2 py-0.5 rounded animate-pulse">
                 Live Sample
               </div>
               <Compass className="text-slate-200 absolute -bottom-10 -left-10 w-48 h-48 pointer-events-none" />
               
               <div className="relative z-10">
-                <div className="rounded-xl overflow-hidden mb-6 border border-slate-200 shadow-md aspect-video bg-slate-900">
+                <div className="rounded-xl overflow-hidden mb-6 border border-slate-200 shadow-md aspect-video bg-slate-900 relative group">
                   <img 
                     src={watchYourCargoPackedLive}
                     alt="Shipplix Video Envelope Packing Recording"
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                     referrerPolicy="no-referrer"
                   />
+                  <a 
+                    href="https://wa.me/2349168273513?text=Hello%20Shipplix,%20I%20would%20like%20to%20view%20my%20cargo's%20video%20envelope%20recording!" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                  >
+                    <span className="bg-emerald-500 hover:bg-emerald-600 text-white font-bold text-xs uppercase tracking-wider px-4 py-2.5 rounded-full flex items-center gap-2 shadow-lg transition-colors">
+                      <Video size={14} />
+                      Request Packing Video
+                    </span>
+                  </a>
                 </div>
                 <h4 className="text-sm font-black text-blue-950 uppercase mb-2">"Video received! Packing is perfect"</h4>
-                <p className="text-[10px] text-slate-500 font-medium">Mrs. Adebayo, London Fashion Exporter</p>
+                <p className="text-[10px] text-slate-500 font-medium mb-6">Mrs. Adebayo, London Fashion Exporter</p>
+
+                <a 
+                  href="https://wa.me/2349168273513?text=Hello%20Shipplix,%20I%20would%20like%20to%20view%20my%20cargo's%20video%20envelope%20recording!"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-2 w-full bg-emerald-500 hover:bg-emerald-600 text-white font-black uppercase text-xs tracking-wider py-3.5 px-6 rounded-xl shadow-md hover:shadow-lg transition-all"
+                >
+                  <Video size={16} />
+                  Get Your Video on WhatsApp
+                </a>
               </div>
             </div>
           </div>
