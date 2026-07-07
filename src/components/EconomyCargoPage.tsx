@@ -154,6 +154,24 @@ export default function EconomyCargoPage() {
               <span>*Due to constant adjustments in aviation fuel, custom clearing fees, and carrier surcharges, we supply live rates directly on WhatsApp. Tap any "Ask for Live Rate" above to get an instant, zero-obligation price breakdown.</span>
             </div>
           </div>
+
+          <div className="mt-12 text-center bg-slate-900 text-white p-8 md:p-10 rounded-2xl border border-slate-800 relative overflow-hidden shadow-md">
+            <div className="relative z-10 max-w-xl mx-auto flex flex-col items-center">
+              <h3 className="text-lg md:text-xl font-black uppercase tracking-tight mb-2">Ready to lock in your export?</h3>
+              <p className="text-xs text-slate-300 font-bold uppercase tracking-wider mb-6">Book your space in our weekly consolidated shipments instantly online.</p>
+              <a 
+                href="https://myshipment.shipplix.com" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="w-full sm:w-auto text-center bg-[#FEB919] hover:bg-[#e2a412] text-[#032B73] font-black py-4 px-10 rounded-xl transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg text-xs uppercase tracking-widest flex items-center justify-center gap-2"
+              >
+                Book my shipment
+              </a>
+              <p className="mt-3 text-xs text-slate-400 font-semibold italic">
+                Book your shipment online in less than 2 minutes.
+              </p>
+            </div>
+          </div>
         </div>
       </section>
 

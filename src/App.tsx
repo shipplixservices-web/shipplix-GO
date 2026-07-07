@@ -127,13 +127,21 @@ const Navbar = ({ onNavigate, currentPath }: { onNavigate?: (path: string) => vo
           <a href="#/economy-cargo-terms" onClick={(e) => handleLinkClick(e, '/economy-cargo-terms')} className={`transition-colors ${currentPath === '/economy-cargo-terms' ? 'text-shipplix-yellow underline font-black' : 'hover:text-shipplix-yellow'}`}>Economy Terms</a>
           <a href="#/processing" onClick={(e) => handleLinkClick(e, '/processing')} className={`transition-colors ${currentPath === '/processing' ? 'text-shipplix-yellow underline font-black' : 'hover:text-shipplix-yellow'}`}>Processing</a>
           <a href="#/trust" onClick={(e) => handleLinkClick(e, '/trust')} className={`transition-colors ${currentPath === '/trust' ? 'text-shipplix-yellow underline font-black' : 'hover:text-shipplix-yellow'}`}>Trust</a>
+          <a 
+            href="https://myshipment.shipplix.com" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className="bg-[#FEB919] hover:bg-[#e2a412] text-[#032B73] font-black py-2.5 px-5 rounded-xl transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md text-[10px] uppercase tracking-widest flex items-center justify-center gap-1.5"
+          >
+            Book my shipment
+          </a>
           <Button 
             as="a" 
             href={URL_QUOTE} 
             target="_blank" 
             rel="noopener noreferrer" 
-            variant="yellow" 
-            className="py-2 px-6 text-[10px] uppercase tracking-widest"
+            variant="ghost" 
+            className="py-2 px-4 text-[10px] uppercase tracking-widest border border-white/20 hover:bg-white/10"
           >
             Get Quote
           </Button>
@@ -158,13 +166,21 @@ const Navbar = ({ onNavigate, currentPath }: { onNavigate?: (path: string) => vo
               <a href="#/economy-cargo-terms" onClick={(e) => handleLinkClick(e, '/economy-cargo-terms')} className={`py-1 ${currentPath === '/economy-cargo-terms' ? 'text-shipplix-yellow underline font-black' : 'hover:text-shipplix-yellow'}`}>Economy Terms</a>
               <a href="#/processing" onClick={(e) => handleLinkClick(e, '/processing')} className={`py-1 ${currentPath === '/processing' ? 'text-shipplix-yellow underline font-black' : 'hover:text-shipplix-yellow'}`}>Processing</a>
               <a href="#/trust" onClick={(e) => handleLinkClick(e, '/trust')} className={`py-1 ${currentPath === '/trust' ? 'text-shipplix-yellow underline font-black' : 'hover:text-shipplix-yellow'}`}>Trust</a>
+              <a 
+                href="https://myshipment.shipplix.com" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="w-full text-center bg-[#FEB919] hover:bg-[#e2a412] text-[#032B73] font-black py-3 px-6 rounded-xl transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg text-xs uppercase tracking-widest mt-2"
+              >
+                Book my shipment
+              </a>
               <Button 
                 as="a" 
                 href={URL_START} 
                 target="_blank" 
                 rel="noopener noreferrer" 
-                variant="yellow" 
-                className="w-full mt-2"
+                variant="ghost" 
+                className="w-full mt-1 border border-white/20 text-white hover:bg-white/10"
               >
                 Ship Now
               </Button>
@@ -199,27 +215,31 @@ const Hero = () => (
               We help African vendors ship food, fashion & cultural goods from Nigeria safely. No stories. No scams. No lost goods. Just pure profit delivered to your destination.
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-3">
-              <Button 
-                as="a" 
-                href={URL_START} 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                variant="yellow" 
-                className="px-8 py-4 text-[13px] uppercase tracking-widest"
-              >
-                Start My First Shipment
-              </Button>
-              <Button 
-                as="a"
-                href={URL_PROCESS}
-                target="_blank"
-                rel="noopener noreferrer"
-                variant="secondary" 
-                className="px-8 py-4 text-[13px] uppercase tracking-widest bg-slate-100 text-slate-700"
-              >
-                See How It Works
-              </Button>
+            <div className="mb-4">
+              <div className="flex flex-col sm:flex-row gap-4">
+                <a 
+                  href="https://myshipment.shipplix.com" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="w-full sm:w-auto text-center bg-[#FEB919] hover:bg-[#e2a412] text-[#032B73] font-black py-4 px-10 rounded-xl transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg text-sm uppercase tracking-widest flex items-center justify-center gap-2"
+                >
+                  Book my shipment
+                </a>
+                <Button 
+                  as="a"
+                  href={URL_PROCESS}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  variant="secondary" 
+                  className="w-full sm:w-auto px-10 py-4 text-[13px] uppercase tracking-widest bg-slate-100 text-slate-700"
+                >
+                  See How It Works
+                </Button>
+              </div>
+              <p className="mt-3 text-xs text-slate-500 font-bold italic flex items-center gap-2">
+                <span className="inline-block w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                Book your shipment online in less than 2 minutes.
+              </p>
             </div>
           </motion.div>
         </div>
@@ -1152,8 +1172,33 @@ const Footer = ({ onNavigate }: { onNavigate?: (path: string) => void }) => {
   };
 
   return (
-    <footer className="bg-white border-t border-slate-200 py-10 text-slate-500">
+    <footer className="bg-white border-t border-slate-200 py-12 text-slate-500">
       <div className="container mx-auto px-6">
+        {/* Prominent Footer CTA Section */}
+        <div className="bg-slate-50 border border-slate-200 rounded-2xl p-6 md:p-8 mb-10 flex flex-col md:flex-row items-center justify-between gap-6">
+          <div className="text-center md:text-left">
+            <h4 className="text-base font-black text-slate-900 uppercase tracking-tight mb-1">
+              Ready to Export Your Nigerian Cargo?
+            </h4>
+            <p className="text-xs font-bold text-slate-500 uppercase tracking-wider">
+              Experience stress-free, fast, and secure delivery to your global buyers.
+            </p>
+          </div>
+          <div className="flex flex-col items-center gap-2 w-full md:w-auto">
+            <a 
+              href="https://myshipment.shipplix.com" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="w-full md:w-auto text-center bg-[#FEB919] hover:bg-[#e2a412] text-[#032B73] font-black py-3.5 px-8 rounded-xl transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg text-xs uppercase tracking-widest flex items-center justify-center gap-2"
+            >
+              Book my shipment
+            </a>
+            <span className="text-[10px] text-slate-400 font-bold tracking-tight">
+              Book your shipment online in less than 2 minutes.
+            </span>
+          </div>
+        </div>
+
         <div className="flex flex-col md:flex-row justify-between items-center gap-6 mb-8">
           <div className="flex items-center gap-2">
             <div className="bg-slate-900 text-white font-black px-2 py-1 rounded text-lg tracking-tighter">SHIPPLIX</div>
