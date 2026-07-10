@@ -44,6 +44,7 @@ import CargoItemsPage from './components/CargoItemsPage';
 import EconomyCargoPage from './components/EconomyCargoPage';
 import ProcessingPage from './components/ProcessingPage';
 import TrustPage from './components/TrustPage';
+import RevenuePartnerPage from './components/RevenuePartnerPage';
 
 // Common Components
 const Button = ({ 
@@ -127,6 +128,7 @@ const Navbar = ({ onNavigate, currentPath }: { onNavigate?: (path: string) => vo
           <a href="#/economy-cargo-terms" onClick={(e) => handleLinkClick(e, '/economy-cargo-terms')} className={`transition-colors ${currentPath === '/economy-cargo-terms' ? 'text-shipplix-yellow underline font-black' : 'hover:text-shipplix-yellow'}`}>Economy Terms</a>
           <a href="#/processing" onClick={(e) => handleLinkClick(e, '/processing')} className={`transition-colors ${currentPath === '/processing' ? 'text-shipplix-yellow underline font-black' : 'hover:text-shipplix-yellow'}`}>Processing</a>
           <a href="#/trust" onClick={(e) => handleLinkClick(e, '/trust')} className={`transition-colors ${currentPath === '/trust' ? 'text-shipplix-yellow underline font-black' : 'hover:text-shipplix-yellow'}`}>Trust</a>
+          <a href="#/revenue-partner" onClick={(e) => handleLinkClick(e, '/revenue-partner')} className={`transition-colors ${currentPath === '/revenue-partner' ? 'text-shipplix-yellow underline font-black' : 'hover:text-shipplix-yellow'}`}>Revenue Partner</a>
           <a 
             href="https://myshipment.shipplix.com" 
             target="_blank" 
@@ -166,6 +168,7 @@ const Navbar = ({ onNavigate, currentPath }: { onNavigate?: (path: string) => vo
               <a href="#/economy-cargo-terms" onClick={(e) => handleLinkClick(e, '/economy-cargo-terms')} className={`py-1 ${currentPath === '/economy-cargo-terms' ? 'text-shipplix-yellow underline font-black' : 'hover:text-shipplix-yellow'}`}>Economy Terms</a>
               <a href="#/processing" onClick={(e) => handleLinkClick(e, '/processing')} className={`py-1 ${currentPath === '/processing' ? 'text-shipplix-yellow underline font-black' : 'hover:text-shipplix-yellow'}`}>Processing</a>
               <a href="#/trust" onClick={(e) => handleLinkClick(e, '/trust')} className={`py-1 ${currentPath === '/trust' ? 'text-shipplix-yellow underline font-black' : 'hover:text-shipplix-yellow'}`}>Trust</a>
+              <a href="#/revenue-partner" onClick={(e) => handleLinkClick(e, '/revenue-partner')} className={`py-1 ${currentPath === '/revenue-partner' ? 'text-shipplix-yellow underline font-black' : 'hover:text-shipplix-yellow'}`}>Revenue Partner</a>
               <a 
                 href="https://myshipment.shipplix.com" 
                 target="_blank" 
@@ -1209,6 +1212,7 @@ const Footer = ({ onNavigate }: { onNavigate?: (path: string) => void }) => {
              <a href="#/trust" onClick={(e) => handleLinkClick(e, '/trust')} className="hover:text-blue-600">Trust</a>
              <a href="#/processing" onClick={(e) => handleLinkClick(e, '/processing')} className="hover:text-blue-600">Processing</a>
              <a href="#/economy-cargo-terms" onClick={(e) => handleLinkClick(e, '/economy-cargo-terms')} className="hover:text-blue-600">Economy Terms</a>
+             <a href="#/revenue-partner" onClick={(e) => handleLinkClick(e, '/revenue-partner')} className="hover:text-blue-600">Revenue Partner</a>
              <a href="mailto:services@shipplix.com" className="hover:text-blue-600 lowercase tracking-normal">services@shipplix.com</a>
           </div>
         </div>
@@ -1244,6 +1248,9 @@ export default function App() {
     if (p === '/trust' || h === '#/trust' || h === '#trust') {
       return '/trust';
     }
+    if (p === '/revenue-partner' || h === '#/revenue-partner' || h === '#revenue-partner') {
+      return '/revenue-partner';
+    }
     return '/';
   });
 
@@ -1261,6 +1268,8 @@ export default function App() {
         setCurrentPath('/processing');
       } else if (p === '/trust' || h === '#/trust' || h === '#trust') {
         setCurrentPath('/trust');
+      } else if (p === '/revenue-partner' || h === '#/revenue-partner' || h === '#revenue-partner') {
+        setCurrentPath('/revenue-partner');
       } else {
         setCurrentPath('/');
       }
@@ -1293,6 +1302,8 @@ export default function App() {
       document.title = "Trust & Anti-Scam Verification – Shipplix";
     } else if (currentPath === '/economy-cargo-terms') {
       document.title = "Economy Cargo Terms & Conditions – Shipplix";
+    } else if (currentPath === '/revenue-partner') {
+      document.title = "Become a Shipplix Revenue Partner – Earn referring customers";
     }
   }, [currentPath]);
 
@@ -1327,7 +1338,8 @@ export default function App() {
                     { title: "Economy Cargo", desc: "Cooperative space consolidation, freight estimators, and rates.", link: "/economy-cargo", num: "02" },
                     { title: "Processing Flow", desc: "Our 5-step packing, MMIA customs manifesting, and last-mile.", link: "/processing", num: "03" },
                     { title: "Trust & Reviews", desc: "Anti-scam video packing scales, customer reviews, and insurance.", link: "/trust", num: "04" },
-                    { title: "Economy Terms", desc: "Full service agreements, dimensional metrics, and payload rules.", link: "/economy-cargo-terms", num: "05" }
+                    { title: "Economy Terms", desc: "Full service agreements, dimensional metrics, and payload rules.", link: "/economy-cargo-terms", num: "05" },
+                    { title: "Revenue Partner", desc: "Earn extra passive income by referring customers to ship with Shipplix.", link: "/revenue-partner", num: "06" }
                   ].map((portal, i) => (
                     <div key={i} className="p-6 bg-slate-50 border border-slate-200 rounded-2xl hover:border-blue-900 transition-colors flex flex-col justify-between">
                       <div>
@@ -1406,6 +1418,7 @@ export default function App() {
         {currentPath === '/processing' && <ProcessingPage />}
         {currentPath === '/trust' && <TrustPage />}
         {currentPath === '/economy-cargo-terms' && <EconomyTerms onBack={() => navigateTo('/')} />}
+        {currentPath === '/revenue-partner' && <RevenuePartnerPage />}
       </main>
 
       <Footer onNavigate={navigateTo} />
