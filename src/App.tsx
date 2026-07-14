@@ -444,11 +444,10 @@ const HowItWorks = () => {
         <div className="mt-12 text-center pt-8 border-t border-white/10">
            <Button 
             as="a"
-            href={URL_TRACK}
-            target="_blank"
-            rel="noopener noreferrer"
+            href="https://track.shipplix.com"
             variant="yellow" 
             className="mx-auto text-xs px-10 uppercase tracking-[0.2em]"
+            aria-label="Track My Shipments"
            >
              Track My Shipments
            </Button>
