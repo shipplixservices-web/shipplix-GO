@@ -45,6 +45,7 @@ import EconomyCargoPage from './components/EconomyCargoPage';
 import ProcessingPage from './components/ProcessingPage';
 import TrustPage from './components/TrustPage';
 import RevenuePartnerPage from './components/RevenuePartnerPage';
+import ExportBlueprintPage from './components/ExportBlueprintPage';
 
 // Common Components
 const Button = ({ 
@@ -129,6 +130,7 @@ const Navbar = ({ onNavigate, currentPath }: { onNavigate?: (path: string) => vo
           <a href="#/processing" onClick={(e) => handleLinkClick(e, '/processing')} className={`transition-colors ${currentPath === '/processing' ? 'text-shipplix-yellow underline font-black' : 'hover:text-shipplix-yellow'}`}>Processing</a>
           <a href="#/trust" onClick={(e) => handleLinkClick(e, '/trust')} className={`transition-colors ${currentPath === '/trust' ? 'text-shipplix-yellow underline font-black' : 'hover:text-shipplix-yellow'}`}>Trust</a>
           <a href="#/revenue-partner" onClick={(e) => handleLinkClick(e, '/revenue-partner')} className={`transition-colors ${currentPath === '/revenue-partner' ? 'text-shipplix-yellow underline font-black' : 'hover:text-shipplix-yellow'}`}>Revenue Partner</a>
+          <a href="#/export-blueprint" onClick={(e) => handleLinkClick(e, '/export-blueprint')} className={`transition-colors ${currentPath === '/export-blueprint' ? 'text-shipplix-yellow underline font-black' : 'hover:text-shipplix-yellow'}`}>Blueprint</a>
           <a 
             href="https://myshipment.shipplix.com" 
             target="_blank" 
@@ -169,6 +171,7 @@ const Navbar = ({ onNavigate, currentPath }: { onNavigate?: (path: string) => vo
               <a href="#/processing" onClick={(e) => handleLinkClick(e, '/processing')} className={`py-1 ${currentPath === '/processing' ? 'text-shipplix-yellow underline font-black' : 'hover:text-shipplix-yellow'}`}>Processing</a>
               <a href="#/trust" onClick={(e) => handleLinkClick(e, '/trust')} className={`py-1 ${currentPath === '/trust' ? 'text-shipplix-yellow underline font-black' : 'hover:text-shipplix-yellow'}`}>Trust</a>
               <a href="#/revenue-partner" onClick={(e) => handleLinkClick(e, '/revenue-partner')} className={`py-1 ${currentPath === '/revenue-partner' ? 'text-shipplix-yellow underline font-black' : 'hover:text-shipplix-yellow'}`}>Revenue Partner</a>
+              <a href="#/export-blueprint" onClick={(e) => handleLinkClick(e, '/export-blueprint')} className={`py-1 ${currentPath === '/export-blueprint' ? 'text-shipplix-yellow underline font-black' : 'hover:text-shipplix-yellow'}`}>Blueprint</a>
               <a 
                 href="https://myshipment.shipplix.com" 
                 target="_blank" 
@@ -1212,6 +1215,7 @@ const Footer = ({ onNavigate }: { onNavigate?: (path: string) => void }) => {
              <a href="#/processing" onClick={(e) => handleLinkClick(e, '/processing')} className="hover:text-blue-600">Processing</a>
              <a href="#/economy-cargo-terms" onClick={(e) => handleLinkClick(e, '/economy-cargo-terms')} className="hover:text-blue-600">Economy Terms</a>
              <a href="#/revenue-partner" onClick={(e) => handleLinkClick(e, '/revenue-partner')} className="hover:text-blue-600">Revenue Partner</a>
+             <a href="#/export-blueprint" onClick={(e) => handleLinkClick(e, '/export-blueprint')} className="hover:text-blue-600">Export Blueprint</a>
              <a href="mailto:services@shipplix.com" className="hover:text-blue-600 lowercase tracking-normal">services@shipplix.com</a>
           </div>
         </div>
@@ -1250,6 +1254,12 @@ export default function App() {
     if (p === '/revenue-partner' || h === '#/revenue-partner' || h === '#revenue-partner') {
       return '/revenue-partner';
     }
+    if (p === '/export-blueprint' || h === '#/export-blueprint' || h === '#export-blueprint') {
+      return '/export-blueprint';
+    }
+    if (p === '/export-blueprint/thank-you' || h === '#/export-blueprint/thank-you' || h === '#export-blueprint-thank-you') {
+      return '/export-blueprint/thank-you';
+    }
     return '/';
   });
 
@@ -1269,6 +1279,10 @@ export default function App() {
         setCurrentPath('/trust');
       } else if (p === '/revenue-partner' || h === '#/revenue-partner' || h === '#revenue-partner') {
         setCurrentPath('/revenue-partner');
+      } else if (p === '/export-blueprint' || h === '#/export-blueprint' || h === '#export-blueprint') {
+        setCurrentPath('/export-blueprint');
+      } else if (p === '/export-blueprint/thank-you' || h === '#/export-blueprint/thank-you' || h === '#export-blueprint-thank-you') {
+        setCurrentPath('/export-blueprint/thank-you');
       } else {
         setCurrentPath('/');
       }
@@ -1303,6 +1317,10 @@ export default function App() {
       document.title = "Economy Cargo Terms & Conditions – Shipplix";
     } else if (currentPath === '/revenue-partner') {
       document.title = "Become a Shipplix Revenue Partner – Earn referring customers";
+    } else if (currentPath === '/export-blueprint') {
+      document.title = "The African Export Blueprint | Free Export Business Guide | Shipplix";
+    } else if (currentPath === '/export-blueprint/thank-you') {
+      document.title = "Thank You – Download The African Export Blueprint | Shipplix";
     }
   }, [currentPath]);
 
@@ -1338,7 +1356,8 @@ export default function App() {
                     { title: "Processing Flow", desc: "Our 5-step packing, MMIA customs manifesting, and last-mile.", link: "/processing", num: "03" },
                     { title: "Trust & Reviews", desc: "Anti-scam video packing scales, customer reviews, and insurance.", link: "/trust", num: "04" },
                     { title: "Economy Terms", desc: "Full service agreements, dimensional metrics, and payload rules.", link: "/economy-cargo-terms", num: "05" },
-                    { title: "Revenue Partner", desc: "Earn extra passive income by referring customers to ship with Shipplix.", link: "/revenue-partner", num: "06" }
+                    { title: "Revenue Partner", desc: "Earn extra passive income by referring customers to ship with Shipplix.", link: "/revenue-partner", num: "06" },
+                    { title: "Export Blueprint", desc: "Learn how to find overseas buyers and build custom customer acquisition systems.", link: "/export-blueprint", num: "07" }
                   ].map((portal, i) => (
                     <div key={i} className="p-6 bg-slate-50 border border-slate-200 rounded-2xl hover:border-blue-900 transition-colors flex flex-col justify-between">
                       <div>
@@ -1418,6 +1437,8 @@ export default function App() {
         {currentPath === '/trust' && <TrustPage />}
         {currentPath === '/economy-cargo-terms' && <EconomyTerms onBack={() => navigateTo('/')} />}
         {currentPath === '/revenue-partner' && <RevenuePartnerPage />}
+        {currentPath === '/export-blueprint' && <ExportBlueprintPage onNavigate={navigateTo} currentPath={currentPath} />}
+        {currentPath === '/export-blueprint/thank-you' && <ExportBlueprintPage onNavigate={navigateTo} currentPath={currentPath} />}
       </main>
 
       <Footer onNavigate={navigateTo} />
