@@ -1,0 +1,15 @@
+HOW TO UPLOAD YOUR REAL PDF:
+==========================
+
+1. Rename your PDF file to:
+   african-export-blueprint.pdf
+
+2. Upload it to this "public" folder. In the AI Studio file explorer on the left:
+   - Hover over this "public" folder.
+   - Click the options (three dots) or right-click.
+   - Choose "Upload File..." and select your PDF file.
+
+3. Once uploaded, the file path must be:
+   /public/african-export-blueprint.pdf
+
+4. That's it! The "Download Blueprint" button on the website will automatically detect your uploaded PDF and download it directly instead of the text fallback.

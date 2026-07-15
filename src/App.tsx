@@ -46,6 +46,7 @@ import ProcessingPage from './components/ProcessingPage';
 import TrustPage from './components/TrustPage';
 import RevenuePartnerPage from './components/RevenuePartnerPage';
 import ExportBlueprintPage from './components/ExportBlueprintPage';
+import ExportBlueprintAdminPage from './components/ExportBlueprintAdminPage';
 
 // Common Components
 const Button = ({ 
@@ -1439,6 +1440,7 @@ export default function App() {
         {currentPath === '/revenue-partner' && <RevenuePartnerPage />}
         {currentPath === '/export-blueprint' && <ExportBlueprintPage onNavigate={navigateTo} currentPath={currentPath} />}
         {currentPath === '/export-blueprint/thank-you' && <ExportBlueprintPage onNavigate={navigateTo} currentPath={currentPath} />}
+        {currentPath === '/export-blueprint/admin' && <ExportBlueprintAdminPage onBack={() => navigateTo('/export-blueprint')} />}
       </main>
 
       <Footer onNavigate={navigateTo} />

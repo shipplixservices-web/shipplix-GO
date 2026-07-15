@@ -36,6 +36,7 @@ import {
   Package
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
+import blueprintPdf from '../assets/african-export-blueprint.pdf';
 
 // Common WhatsApp link matching app convention
 const WHATSAPP_BASE = "https://wa.me/2349168273513?text=";
@@ -187,73 +188,30 @@ export default function ExportBlueprintPage({ onNavigate, currentPath }: ExportB
     };
   }, []);
 
-  // Helper to trigger direct download of a simulated beautifully formatted blueprint PDF
+  // Helper to trigger direct download of the local African Export Blueprint PDF file from our assets with multiple fallback paths
   const triggerBlueprintDownload = () => {
-    const textContent = `THE AFRICAN EXPORT BLUEPRINT
-========================================================================
-How to Build an International Customer Acquisition System That Attracts Overseas Buyers Consistently.
-Brought to you by Shipplix Logistics (https://shipplix.com)
-========================================================================
-
-PHASE 1: Building an International Business Buyers Trust
-------------------------------------------------------------------------
-* Trust is your primary product; physical goods are second.
-* Before wiring funds, international buyers ask subconscious safety questions:
-  - Can I trust this business?
-  - Will I receive my order?
-  - Is this company professional?
-  - Can I contact them if something goes wrong?
-* Essential elements to establish instant buyer confidence:
-  - Custom business domain email (e.g. sales@yourbrand.com) instead of @gmail.com
-  - Fully complete WhatsApp Business Profile with automatic replies and detailed catalog
-  - Dynamic, responsive, secure digital storefront website
-  - High-quality, original product photos and professional-looking packaging
-  - Clear, accessible refund policies, delivery timelines, and contact information.
-
-PHASE 2: Finding Overseas Customers
-------------------------------------------------------------------------
-* Stop waiting to be discovered. Build four dependable customer pipelines:
-  1. Targeted Meta Ads: Direct laser focus on diaspora communities, African groceries, fashion stores, and beauty boutique owners in the USA, UK, Canada, and Europe.
-  2. Authentic Content Marketing: Show product sourcing, behind-the-scenes hygienic packaging, and verified weight quality controls.
-  3. Active Diaspora Community Engagement: Provide genuine value in online forums and local groups rather than generic spamming.
-  4. Structured Referral Engine: Offer rewarding incentives (discounts, free packaging, shipping credits) to existing customers for word-of-mouth growth.
-
-PHASE 3: Building a Sales System That Works While You Sleep
-------------------------------------------------------------------------
-* Map out a frictionless, structured 10-step client journey:
-  1. Ad/Content View -> 2. Website Visit -> 3. Catalog Browse -> 4. Simple Question -> 5. Place Order -> 6. Secure Invoice -> 7. Packing/Scale Scale Video -> 8. Tracking Code -> 9. Safe Delivery -> 10. Review & Referral.
-* Ensure automated CRM, fast response messaging, and self-serve ordering options to prevent lead drop-offs.
-
-PHASE 4: Turning One Customer Into Ten
-------------------------------------------------------------------------
-* Retaining a customer is exponentially cheaper than hunting for a new one.
-* Deliver an unmatched sensory experience (neat packaging, secure boxes, clear tracking, surprise bonus items).
-* Solicit reviews systematically after every arrival. Use these reviews to create secondary marketing assets.
-
-PHASE 5: Scaling an Export Business
-------------------------------------------------------------------------
-* Unite marketing, tech, automation, and reliable logistics into one operational engine.
-* Maintain a strict 90-day execution framework:
-  - Month 1: Settle foundation, branding, and WhatsApp catalogs.
-  - Month 2: Scale consistent posting and launch targeted Meta Ads campaigns.
-  - Month 3: Optimize sales pipelines, integrate shipping automation, and expand territories.
-
-IMPLEMENTATION PARTNER
-------------------------------------------------------------------------
-Need expert implementation of these systems?
-Shipplix builds your premium websites, online stores, corporate emails, CRM integrations, Meta Ads setups, and handles your entire high-priority international freight delivery.
-Contact: services@shipplix.com | WhatsApp: +234 916 827 3513
-========================================================================`;
-
-    const blob = new Blob([textContent], { type: 'text/plain' });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = "Shipplix_The_African_Export_Blueprint.txt";
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-    URL.revokeObjectURL(url);
+    try {
+      const a = document.createElement('a');
+      a.href = blueprintPdf || '/african-export-blueprint.pdf';
+      a.download = "The_African_Export_Blueprint_Shipplix.pdf";
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      console.log("PDF download triggered successfully from assets!");
+    } catch (err) {
+      console.error("Could not download local PDF file from assets, falling back to direct public path:", err);
+      try {
+        const a = document.createElement('a');
+        a.href = '/african-export-blueprint.pdf';
+        a.download = "The_African_Export_Blueprint_Shipplix.pdf";
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        console.log("PDF download triggered successfully via direct public URL fallback!");
+      } catch (fallbackErr) {
+        console.error("All PDF download routes failed:", fallbackErr);
+      }
+    }
   };
 
   // Form Validation and Submission
@@ -270,7 +228,7 @@ Contact: services@shipplix.com | WhatsApp: +234 916 827 3513
     }
   };
 
-  const handleFormSubmit = (e: React.FormEvent) => {
+  const handleFormSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     const errors: { [key: string]: string } = {};
 
@@ -293,8 +251,20 @@ Contact: services@shipplix.com | WhatsApp: +234 916 827 3513
 
     setIsSubmitting(true);
 
-    // Simulate database CRM persistence
-    setTimeout(() => {
+    try {
+      const response = await fetch('/api/leads', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(formData)
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to save lead on backend');
+      }
+    } catch (err) {
+      console.warn("Could not save to server API, caching in local storage:", err);
       try {
         const existingLeads = JSON.parse(localStorage.getItem('shipplix_export_leads') || '[]');
         existingLeads.push({
@@ -303,14 +273,14 @@ Contact: services@shipplix.com | WhatsApp: +234 916 827 3513
           timestamp: new Date().toISOString()
         });
         localStorage.setItem('shipplix_export_leads', JSON.stringify(existingLeads));
-      } catch (err) {
-        console.error("Local storage lead save error", err);
+      } catch (storageErr) {
+        console.error("Local storage fallback lead save error", storageErr);
       }
-
+    } finally {
       setIsSubmitting(false);
       onNavigate('/export-blueprint/thank-you');
       triggerBlueprintDownload(); // Automatically trigger instant download as requested
-    }, 1200);
+    }
   };
 
   // Scroll Helper
@@ -553,6 +523,12 @@ Contact: services@shipplix.com | WhatsApp: +234 916 827 3513
                 <PageButton variant="ghost" as="a" href={URL_STRATEGY_CALL} target="_blank" rel="noopener noreferrer" className="border border-white/20 px-8 py-4.5 text-xs uppercase tracking-widest font-black hover:bg-white/5">
                   Book Free Strategy Call
                 </PageButton>
+                <button 
+                  onClick={() => onNavigate('/export-blueprint/admin')}
+                  className="px-6 py-4 px-8 py-4.5 text-xs uppercase tracking-widest font-black border border-dashed border-white/20 hover:border-white/50 rounded-xl flex items-center justify-center gap-2 text-slate-300 hover:text-white transition-all cursor-pointer"
+                >
+                  <Database size={14} className="text-shipplix-yellow" /> Leads Admin
+                </button>
               </div>
             </div>
 
