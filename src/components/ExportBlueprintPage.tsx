@@ -13,7 +13,6 @@ import {
   Sparkles, 
   Globe, 
   ChevronRight, 
-  Star, 
   HelpCircle, 
   Briefcase, 
   ShieldCheck,
@@ -36,7 +35,6 @@ import {
   Package
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
-import blueprintPdf from '../assets/african-export-blueprint.pdf';
 
 // Common WhatsApp link matching app convention
 const WHATSAPP_BASE = "https://wa.me/2349168273513?text=";
@@ -99,9 +97,6 @@ export default function ExportBlueprintPage({ onNavigate, currentPath }: ExportB
 
   // FAQ Active Index
   const [activeFaq, setActiveFaq] = useState<number | null>(null);
-
-  // Testimonial Carousel Index
-  const [testimonialIndex, setTestimonialIndex] = useState(0);
 
   // Book Preview Active Page
   const [previewPage, setPreviewPage] = useState(0);
@@ -188,30 +183,92 @@ export default function ExportBlueprintPage({ onNavigate, currentPath }: ExportB
     };
   }, []);
 
-  // Helper to trigger direct download of the local African Export Blueprint PDF file from our assets with multiple fallback paths
-  const triggerBlueprintDownload = () => {
+  // Helper to trigger direct download of a simulated beautifully formatted blueprint PDF or the real PDF if uploaded
+  const triggerBlueprintDownload = async () => {
     try {
-      const a = document.createElement('a');
-      a.href = blueprintPdf || '/african-export-blueprint.pdf';
-      a.download = "The_African_Export_Blueprint_Shipplix.pdf";
-      document.body.appendChild(a);
-      a.click();
-      document.body.removeChild(a);
-      console.log("PDF download triggered successfully from assets!");
-    } catch (err) {
-      console.error("Could not download local PDF file from assets, falling back to direct public path:", err);
-      try {
+      // Check if the user has uploaded the real PDF in the public folder as "african-export-blueprint.pdf"
+      const response = await fetch('/african-export-blueprint.pdf', { method: 'HEAD' });
+      const contentType = response.headers.get('content-type') || '';
+      
+      // If the file exists and is not the SPA fallback index.html (which is text/html)
+      if (response.ok && !contentType.includes('text/html')) {
         const a = document.createElement('a');
         a.href = '/african-export-blueprint.pdf';
         a.download = "The_African_Export_Blueprint_Shipplix.pdf";
         document.body.appendChild(a);
         a.click();
         document.body.removeChild(a);
-        console.log("PDF download triggered successfully via direct public URL fallback!");
-      } catch (fallbackErr) {
-        console.error("All PDF download routes failed:", fallbackErr);
+        return;
       }
+    } catch (err) {
+      console.warn("Could not fetch real PDF, falling back to blueprint text generation", err);
     }
+
+    const textContent = `THE AFRICAN EXPORT BLUEPRINT
+========================================================================
+How to Build an International Customer Acquisition System That Attracts Overseas Buyers Consistently.
+Brought to you by Shipplix Logistics (https://shipplix.com)
+========================================================================
+
+PHASE 1: Building an International Business Buyers Trust
+------------------------------------------------------------------------
+* Trust is your primary product; physical goods are second.
+* Before wiring funds, international buyers ask subconscious safety questions:
+  - Can I trust this business?
+  - Will I receive my order?
+  - Is this company professional?
+  - Can I contact them if something goes wrong?
+* Essential elements to establish instant buyer confidence:
+  - Custom business domain email (e.g. sales@yourbrand.com) instead of @gmail.com
+  - Fully complete WhatsApp Business Profile with automatic replies and detailed catalog
+  - Dynamic, responsive, secure digital storefront website
+  - High-quality, original product photos and professional-looking packaging
+  - Clear, accessible refund policies, delivery timelines, and contact information.
+
+PHASE 2: Finding Overseas Customers
+------------------------------------------------------------------------
+* Stop waiting to be discovered. Build four dependable customer pipelines:
+  1. Targeted Meta Ads: Direct laser focus on diaspora communities, African groceries, fashion stores, and beauty boutique owners in the USA, UK, Canada, and Europe.
+  2. Authentic Content Marketing: Show product sourcing, behind-the-scenes hygienic packaging, and verified weight quality controls.
+  3. Active Diaspora Community Engagement: Provide genuine value in online forums and local groups rather than generic spamming.
+  4. Structured Referral Engine: Offer rewarding incentives (discounts, free packaging, shipping credits) to existing customers for word-of-mouth growth.
+
+PHASE 3: Building a Sales System That Works While You Sleep
+------------------------------------------------------------------------
+* Map out a frictionless, structured 10-step client journey:
+  1. Ad/Content View -> 2. Website Visit -> 3. Catalog Browse -> 4. Simple Question -> 5. Place Order -> 6. Secure Invoice -> 7. Packing/Scale Scale Video -> 8. Tracking Code -> 9. Safe Delivery -> 10. Review & Referral.
+* Ensure automated CRM, fast response messaging, and self-serve ordering options to prevent lead drop-offs.
+
+PHASE 4: Turning One Customer Into Ten
+------------------------------------------------------------------------
+* Retaining a customer is exponentially cheaper than hunting for a new one.
+* Deliver an unmatched sensory experience (neat packaging, secure boxes, clear tracking, surprise bonus items).
+* Solicit reviews systematically after every arrival. Use these reviews to create secondary marketing assets.
+
+PHASE 5: Scaling an Export Business
+------------------------------------------------------------------------
+* Unite marketing, tech, automation, and reliable logistics into one operational engine.
+* Maintain a strict 90-day execution framework:
+  - Month 1: Settle foundation, branding, and WhatsApp catalogs.
+  - Month 2: Scale consistent posting and launch targeted Meta Ads campaigns.
+  - Month 3: Optimize sales pipelines, integrate shipping automation, and expand territories.
+
+IMPLEMENTATION PARTNER
+------------------------------------------------------------------------
+Need expert implementation of these systems?
+Shipplix builds your premium websites, online stores, corporate emails, CRM integrations, Meta Ads setups, and handles your entire high-priority international freight delivery.
+Contact: services@shipplix.com | WhatsApp: +234 916 827 3513
+========================================================================`;
+
+    const blob = new Blob([textContent], { type: 'text/plain' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = "Shipplix_The_African_Export_Blueprint.txt";
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
   };
 
   // Form Validation and Submission
@@ -228,7 +285,7 @@ export default function ExportBlueprintPage({ onNavigate, currentPath }: ExportB
     }
   };
 
-  const handleFormSubmit = async (e: React.FormEvent) => {
+  const handleFormSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     const errors: { [key: string]: string } = {};
 
@@ -251,20 +308,8 @@ export default function ExportBlueprintPage({ onNavigate, currentPath }: ExportB
 
     setIsSubmitting(true);
 
-    try {
-      const response = await fetch('/api/leads', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(formData)
-      });
-
-      if (!response.ok) {
-        throw new Error('Failed to save lead on backend');
-      }
-    } catch (err) {
-      console.warn("Could not save to server API, caching in local storage:", err);
+    // Simulate database CRM persistence
+    setTimeout(() => {
       try {
         const existingLeads = JSON.parse(localStorage.getItem('shipplix_export_leads') || '[]');
         existingLeads.push({
@@ -273,14 +318,14 @@ export default function ExportBlueprintPage({ onNavigate, currentPath }: ExportB
           timestamp: new Date().toISOString()
         });
         localStorage.setItem('shipplix_export_leads', JSON.stringify(existingLeads));
-      } catch (storageErr) {
-        console.error("Local storage fallback lead save error", storageErr);
+      } catch (err) {
+        console.error("Local storage lead save error", err);
       }
-    } finally {
+
       setIsSubmitting(false);
       onNavigate('/export-blueprint/thank-you');
       triggerBlueprintDownload(); // Automatically trigger instant download as requested
-    }
+    }, 1200);
   };
 
   // Scroll Helper
@@ -317,31 +362,6 @@ export default function ExportBlueprintPage({ onNavigate, currentPath }: ExportB
       title: "Phase 4: Scaling",
       text: "Turn one customer into ten. Retain them through clean packaging, real-time tracking videos, feedback surveys, and incentivized word-of-mouth credits.",
       badge: "PAGE 18"
-    }
-  ];
-
-  // Testimonials Array
-  const testimonials = [
-    {
-      name: "Chidi Egwu",
-      role: "CEO, Egwu Agricultural Foods",
-      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&auto=format&fit=crop&q=80",
-      content: "We struggled to find distributors in Texas for our processed garri and melon seed batches. After implementing the Phase 1 & 2 guidelines, overseas buyers verified us via our Shipplix website and placed orders worth $12k in our first month. Absolute game changer!",
-      rating: 5
-    },
-    {
-      name: "Amina Yusuf",
-      role: "Creative Director, Amina Ankara Luxury",
-      image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80",
-      content: "Most exporters told us we just need social media. But getting our professional domain email and the website system setup from Shipplix instantly converted three international boutique store owners from the UK. The guide's trust framework is golden.",
-      rating: 5
-    },
-    {
-      name: "Tolani Balogun",
-      role: "Founder, Tolani Beauty & Herbs",
-      image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=150&auto=format&fit=crop&q=80",
-      content: "The WhatsApp automation tips saved me. I used to lose US customers because of the timezone differences. Now, our catalog and answers are delivered instantly. Combined with Shipplix's fast air-cargo, my client retention rate is over 75%!",
-      rating: 5
     }
   ];
 
@@ -523,12 +543,6 @@ export default function ExportBlueprintPage({ onNavigate, currentPath }: ExportB
                 <PageButton variant="ghost" as="a" href={URL_STRATEGY_CALL} target="_blank" rel="noopener noreferrer" className="border border-white/20 px-8 py-4.5 text-xs uppercase tracking-widest font-black hover:bg-white/5">
                   Book Free Strategy Call
                 </PageButton>
-                <button 
-                  onClick={() => onNavigate('/export-blueprint/admin')}
-                  className="px-6 py-4 px-8 py-4.5 text-xs uppercase tracking-widest font-black border border-dashed border-white/20 hover:border-white/50 rounded-xl flex items-center justify-center gap-2 text-slate-300 hover:text-white transition-all cursor-pointer"
-                >
-                  <Database size={14} className="text-shipplix-yellow" /> Leads Admin
-                </button>
               </div>
             </div>
 
@@ -1212,77 +1226,6 @@ export default function ExportBlueprintPage({ onNavigate, currentPath }: ExportB
               </p>
             </div>
 
-          </div>
-        </div>
-      </section>
-
-      {/* TESTIMONIALS (CAROUSEL) */}
-      <section className="py-20 bg-white px-6 border-b border-slate-200/60">
-        <div className="container mx-auto max-w-4xl">
-          <div className="text-center max-w-2xl mx-auto mb-16 space-y-3">
-            <span className="text-shipplix-blue text-[10px] font-black uppercase tracking-[0.25em] bg-blue-50 px-3 py-1.5 rounded-full inline-block">
-              Exporters Success
-            </span>
-            <h2 className="text-3xl md:text-4xl font-black text-slate-950 uppercase tracking-tighter">
-              Trusted By African Exporters
-            </h2>
-            <p className="text-slate-500 text-xs md:text-sm font-bold tracking-tight">
-              Hear from actual business owners who transformed their operations using the Blueprint frameworks.
-            </p>
-          </div>
-
-          {/* Testimonial card */}
-          <div className="bg-slate-50 border border-slate-200/80 rounded-3xl p-8 md:p-12 relative shadow-sm">
-            <div className="absolute right-8 top-8 opacity-10 text-slate-400">
-              <Star size={80} fill="currentColor" />
-            </div>
-
-            <div className="space-y-6">
-              {/* Stars */}
-              <div className="flex gap-1">
-                {[...Array(testimonials[testimonialIndex].rating)].map((_, i) => (
-                  <Star key={i} size={16} className="text-shipplix-yellow fill-shipplix-yellow" />
-                ))}
-              </div>
-
-              <p className="text-slate-700 text-sm md:text-base font-bold italic leading-relaxed">
-                "{testimonials[testimonialIndex].content}"
-              </p>
-
-              {/* Author Info */}
-              <div className="flex items-center gap-4 pt-4 border-t border-slate-200/60">
-                <img 
-                  src={testimonials[testimonialIndex].image} 
-                  alt={testimonials[testimonialIndex].name}
-                  referrerPolicy="no-referrer"
-                  className="w-12 h-12 rounded-full border border-slate-200 object-cover"
-                />
-                <div>
-                  <h4 className="text-xs font-black text-slate-900 uppercase tracking-tight">
-                    {testimonials[testimonialIndex].name}
-                  </h4>
-                  <p className="text-[10px] text-slate-500 font-bold uppercase tracking-wider mt-0.5">
-                    {testimonials[testimonialIndex].role}
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            {/* Testimonials Switcher Buttons */}
-            <div className="flex gap-2 justify-end mt-8">
-              <button 
-                onClick={() => setTestimonialIndex(prev => prev === 0 ? testimonials.length - 1 : prev - 1)}
-                className="w-10 h-10 rounded-full border border-slate-200 bg-white hover:bg-slate-50 flex items-center justify-center text-slate-700 transition-colors"
-              >
-                <ChevronLeft size={18} />
-              </button>
-              <button 
-                onClick={() => setTestimonialIndex(prev => (prev + 1) % testimonials.length)}
-                className="w-10 h-10 rounded-full border border-slate-200 bg-white hover:bg-slate-50 flex items-center justify-center text-slate-700 transition-colors"
-              >
-                <ChevronRight size={18} />
-              </button>
-            </div>
           </div>
         </div>
       </section>

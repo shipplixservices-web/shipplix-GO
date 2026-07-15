@@ -46,7 +46,7 @@ import ProcessingPage from './components/ProcessingPage';
 import TrustPage from './components/TrustPage';
 import RevenuePartnerPage from './components/RevenuePartnerPage';
 import ExportBlueprintPage from './components/ExportBlueprintPage';
-import ExportBlueprintAdminPage from './components/ExportBlueprintAdminPage';
+import AdminLeadsPage from './components/AdminLeadsPage';
 
 // Common Components
 const Button = ({ 
@@ -1237,6 +1237,9 @@ export default function App() {
   const [currentPath, setCurrentPath] = React.useState(() => {
     const p = window.location.pathname;
     const h = window.location.hash;
+    if (p === '/admin-leads' || h === '#/admin-leads' || h === '#admin-leads') {
+      return '/admin-leads';
+    }
     if (p === '/economy-cargo-terms' || h === '#/economy-cargo-terms' || h === '#economy-cargo-terms' || p === '/terms' || h === '#/terms' || h === '#terms') {
       return '/economy-cargo-terms';
     }
@@ -1268,7 +1271,9 @@ export default function App() {
     const handlePopState = () => {
       const p = window.location.pathname;
       const h = window.location.hash;
-      if (p === '/economy-cargo-terms' || h === '#/economy-cargo-terms' || h === '#economy-cargo-terms' || p === '/terms' || h === '#/terms' || h === '#terms') {
+      if (p === '/admin-leads' || h === '#/admin-leads' || h === '#admin-leads') {
+        setCurrentPath('/admin-leads');
+      } else if (p === '/economy-cargo-terms' || h === '#/economy-cargo-terms' || h === '#economy-cargo-terms' || p === '/terms' || h === '#/terms' || h === '#terms') {
         setCurrentPath('/economy-cargo-terms');
       } else if (p === '/cargo-items' || h === '#/cargo-items' || h === '#cargo-items') {
         setCurrentPath('/cargo-items');
@@ -1306,6 +1311,8 @@ export default function App() {
   React.useEffect(() => {
     if (currentPath === '/') {
       document.title = "Shipplix Logistics – Fast & Reliable Export Shipping from Nigeria";
+    } else if (currentPath === '/admin-leads') {
+      document.title = "Admin Leads Portal – Shipplix";
     } else if (currentPath === '/cargo-items') {
       document.title = "Permitted Export & Cargo Items Catalog – Shipplix";
     } else if (currentPath === '/economy-cargo') {
@@ -1327,7 +1334,7 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-white">
-      <Navbar onNavigate={navigateTo} currentPath={currentPath} />
+      {currentPath !== '/admin-leads' && <Navbar onNavigate={navigateTo} currentPath={currentPath} />}
       
       <main className="min-h-screen">
         {currentPath === '/' && (
@@ -1440,10 +1447,10 @@ export default function App() {
         {currentPath === '/revenue-partner' && <RevenuePartnerPage />}
         {currentPath === '/export-blueprint' && <ExportBlueprintPage onNavigate={navigateTo} currentPath={currentPath} />}
         {currentPath === '/export-blueprint/thank-you' && <ExportBlueprintPage onNavigate={navigateTo} currentPath={currentPath} />}
-        {currentPath === '/export-blueprint/admin' && <ExportBlueprintAdminPage onBack={() => navigateTo('/export-blueprint')} />}
+        {currentPath === '/admin-leads' && <AdminLeadsPage onNavigate={navigateTo} />}
       </main>
 
-      <Footer onNavigate={navigateTo} />
+      {currentPath !== '/admin-leads' && <Footer onNavigate={navigateTo} />}
     </div>
   );
 }
