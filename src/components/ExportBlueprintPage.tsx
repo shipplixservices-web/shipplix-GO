@@ -183,6 +183,662 @@ export default function ExportBlueprintPage({ onNavigate, currentPath }: ExportB
     };
   }, []);
 
+  // Helper to trigger direct download of the blueprint in TXT format (100% complete text)
+  const triggerBlueprintTxtDownload = () => {
+    const textContent = `PHASE 1
+Build an International Business That Overseas Customers Trust
+Why Most Nigerian Businesses Never Get International Customers
+Many business owners believe they don't have customers overseas because their products aren't good enough.
+That is rarely the real problem.
+Thousands of people abroad buy Nigerian products every single day—from food items and beverages to fashion, beauty products, herbs, spices, and cultural items.
+The businesses winning these customers are not always selling better products.
+They simply look more trustworthy.
+People in the US, UK, Canada, and Europe are sending money to someone they've never met. Before they pay, they subconsciously ask themselves:
+* Can I trust this business?
+* Will I receive my order?
+* Is this company professional?
+* Can I contact them if something goes wrong?
+If your business cannot answer those questions within a few seconds, many buyers will leave—even if they love your product.
+Trust is your first product.
+Your actual product comes second.
+________________
+
+
+The International Sales Formula
+International sales are built on five pillars:
+Product + Trust + Visibility + Follow-up + Reliable Delivery = International Customers
+Most businesses only focus on the product.
+Successful export businesses build all five.
+________________
+
+
+What Products Sell Well Overseas?
+Demand already exists for many Nigerian and African products.
+Examples include:
+* Kola nuts
+* Palm oil
+* Garri
+* Egusi
+* Ogbono
+* Crayfish
+* Stockfish
+* Dried pepper
+* Local spices
+* Honey
+* Herbal products
+* African beverages
+* Fashion
+* Ankara fabrics
+* Wigs
+* Skincare
+* African gifts
+* Handmade products
+The goal is not to sell everything.
+Choose one category and become known for it.
+Specialists build trust faster than general stores.
+________________
+
+
+Understand Who You're Selling To
+Most first-time exporters make one mistake.
+They try to sell to everyone.
+Instead, choose one audience.
+Examples:
+* Nigerians living abroad
+* African families overseas
+* African restaurants
+* Grocery stores
+* Beauty stores
+* Church communities
+* Students
+* Gift buyers
+* Small retailers
+The more specific your audience is, the easier it becomes to attract customers.
+________________
+
+
+Your Business Must Look International
+Before running a single advertisement, make sure your business looks professional.
+Every serious export business should have:
+✔ A professional business name
+✔ A logo
+✔ A business email address
+Example:
+contact@yourbusiness.com
+instead of
+yourbusiness@gmail.com
+A business email immediately increases credibility.
+It tells customers they are dealing with a real company instead of a random social media seller.
+You should also have:
+* A professional WhatsApp Business profile
+* A Facebook Page
+* An Instagram Business account
+* A simple website or online store
+* Clear business branding
+People buy with their eyes before they buy with their wallets.
+________________
+
+
+Action Step
+Before moving to Phase 2, complete this checklist:
+□ Choose one product category.
+□ Define one target customer.
+□ Create a professional business email.
+□ Set up WhatsApp Business.
+□ Create your Facebook and Instagram business pages.
+□ Prepare clear product photos and videos.
+Do not skip this stage.
+Everything else becomes much easier when your business already looks trustworthy.
+________________
+
+
+Soft Transition to Phase 2 (Psychological CTA)
+Now that your business has the foundation buyers expect, the next challenge is visibility.
+A professional business without customers is like opening a beautiful shop in the middle of a forest—no one knows it exists.
+In Phase 2, you'll learn how to consistently attract overseas buyers using Meta Ads, content marketing, diaspora communities, and high-converting advertising strategies that put your products in front of the right audience.
+________________
+
+
+
+
+PHASE 2
+How to Find Overseas Customers Every Month
+Stop Looking for Customers. Position Yourself to Be Found.
+One of the biggest mistakes new exporters make is posting a product on WhatsApp and hoping someone will buy it.
+That approach rarely creates a predictable business.
+Successful exporters don't wait for customers. They build a system that consistently puts their products in front of the right people.
+Your goal is simple:
+Get your products in front of people who already have a reason to buy.
+________________
+
+
+The Four Customer Sources
+Think of your business as having four customer pipelines. The more pipelines you build, the more stable your sales become.
+Pipeline 1: Meta Ads (Facebook & Instagram)
+This is one of the fastest ways to reach buyers in countries such as:
+* United States
+* United Kingdom
+* Canada
+* Germany
+* Ireland
+* France
+* Netherlands
+Instead of advertising to everyone, target specific groups such as:
+* Nigerians living abroad
+* Africans in the diaspora
+* People interested in African food
+* African fashion lovers
+* African grocery shoppers
+* Restaurant owners
+* Beauty store owners
+When your ads reach the right audience, your chances of getting enquiries increase significantly.
+Remember: You're not selling a product first. You're selling confidence that you can deliver what you promise.
+________________
+
+
+Pipeline 2: Organic Content Marketing
+People rarely buy the first time they see your business.
+They usually watch your content first.
+That's why successful exporters post consistently.
+Create content like:
+* How your products are sourced
+* Packing behind the scenes
+* Quality inspection
+* Customer testimonials
+* Delivery videos
+* Product education
+* Frequently asked questions
+* Before-and-after packaging
+* Shipping updates
+This type of content builds trust before anyone contacts you.
+________________
+
+
+Pipeline 3: Diaspora Communities
+Millions of Africans living abroad actively participate in online communities.
+These communities can become valuable sources of customers if you provide genuine value instead of constantly promoting your products.
+Examples include:
+* Facebook Groups
+* Community forums
+* Local association groups
+* Church communities
+* Cultural organizations
+* WhatsApp communities
+Focus on helping people first.
+Trust grows faster when people see you as a helpful business rather than someone who only wants to sell.
+________________
+
+
+Pipeline 4: Referrals
+Satisfied customers are one of your best marketing assets.
+After every successful delivery:
+* Ask for a review.
+* Request a photo or short video.
+* Encourage referrals.
+* Offer a small reward or discount for successful referrals.
+Every happy customer can become a source of future business.
+________________
+
+
+Marketing Psychology That Makes People Click
+Many businesses advertise products.
+Few advertise outcomes.
+Instead of saying:
+"We sell palm oil."
+Say:
+"Bring the authentic taste of home back to your kitchen."
+Instead of saying:
+"We ship to the UK."
+Say:
+"Receive your favourite Nigerian products at your doorstep without asking family members to carry them on flights."
+People buy solutions, convenience, memories, emotions, and confidence—not just products.
+________________
+
+
+The 80/20 Content Rule
+Don't make every post a sales post.
+A simple framework is:
+* 80%: Educate, inspire, entertain, answer questions, show behind the scenes.
+* 20%: Promote your products or services.
+When people trust your expertise, selling becomes much easier.
+________________
+
+
+Your Creative Determines Your Results
+Many businesses think their ads fail because of the budget.
+In reality, the creative is often the problem.
+Your ad should immediately answer these questions:
+* What is this?
+* Why should I care?
+* Why should I trust you?
+* What should I do next?
+A strong advertisement combines:
+* High-quality images or videos
+* Clear headlines
+* Authentic storytelling
+* Customer proof
+* A simple call to action
+Great advertising isn't about being loud—it's about being relevant.
+________________
+
+
+Action Steps
+Before moving to Phase 3:
+✅ Define your ideal customer.
+✅ Create a monthly content calendar.
+✅ Produce at least 15 short videos.
+✅ Collect customer testimonials.
+✅ Join diaspora communities related to your niche.
+✅ Launch your first Meta advertising campaign.
+________________
+
+
+Moving to Phase 3
+By now, you've learned how to attract attention.
+But attention alone doesn't generate sales.
+The next step is turning interested visitors into paying customers using a professional website, business email, WhatsApp automation, and a sales system that works around the clock.
+In Phase 3, you'll learn how to build an online presence that makes your business look established and trustworthy so customers feel confident buying from you, even if they've never met you.
+PHASE 3
+Build a Sales System That Works Even While You Sleep
+Why Most Businesses Lose Customers
+Imagine two businesses selling the exact same product.
+The first business posts a product on social media and tells people to "send a DM."
+The second business has:
+* A professional website
+* A business email
+* A WhatsApp Business account with automatic replies
+* A product catalogue
+* Customer reviews
+* A simple ordering process
+* Secure payment options
+* Shipment tracking
+Which business would you trust with your money?
+Most people choose the second one.
+The difference isn't the product—it's the buying experience.
+________________
+
+
+Your Business Needs a Digital Storefront
+Think of your website as your online office.
+Social media can disappear. Accounts can be suspended. Algorithms change.
+Your website is the one platform you truly control.
+A professional website should help customers:
+* Learn about your business
+* Browse your products
+* Understand your shipping process
+* Read customer reviews
+* Ask questions
+* Place an order
+* Contact you easily
+Your website should answer the questions customers would normally ask before they send a message.
+________________
+
+
+A Business Email Builds Confidence
+Many international buyers feel more comfortable communicating with businesses that use a professional email address.
+For example:
+✅ sales@yourbusiness.com
+is generally seen as more professional than:
+❌ yourbusiness@gmail.com
+A custom email shows that you've invested in your business and intend to be around for the long term.
+________________
+
+
+Turn WhatsApp Into a 24-Hour Sales Assistant
+WhatsApp Business is more than a messaging app.
+It can become one of your most valuable sales tools.
+Set it up to:
+* Welcome new enquiries automatically
+* Answer frequently asked questions
+* Share your product catalogue
+* Explain shipping timelines
+* Display business hours
+* Direct customers to the correct next step
+When people receive fast, helpful responses, they're more likely to continue the conversation instead of moving on to another seller.
+As your business grows, you can also add AI-powered assistants that answer common questions, qualify leads, and keep conversations moving even when you're unavailable.
+________________
+
+
+Create a Simple Customer Journey
+Don't leave customers wondering what to do next.
+Guide them through a clear process.
+For example:
+1. Customer sees your content or advertisement.
+2. They visit your website or WhatsApp.
+3. They learn about your products.
+4. They ask questions.
+5. They place an order.
+6. They receive payment instructions.
+7. Their shipment is prepared.
+8. They receive tracking information.
+9. Their order is delivered.
+10. You follow up for feedback and referrals.
+The easier this journey is, the more likely people are to complete it.
+________________
+
+
+Collect Reviews and Show Proof
+Before buying, most customers look for evidence that others have had a good experience.
+Make it easy for them to find:
+* Customer testimonials
+* Photos of delivered orders
+* Packing videos
+* Delivery confirmations
+* Repeat customers
+* Reviews and ratings
+Every successful delivery becomes marketing material for your next customer.
+________________
+
+
+Don't Rely on One Platform
+A resilient business has multiple ways for customers to find and contact it.
+Aim to build a presence across:
+* Your website
+* WhatsApp Business
+* Facebook
+* Instagram
+* TikTok
+* LinkedIn (for wholesale and business buyers)
+* Google Business Profile
+* Email marketing
+This way, if one platform changes, your business can continue operating.
+________________
+
+
+Action Steps
+Before moving to Phase 4, make sure you have:
+✅ A professional website
+✅ A custom business email
+✅ WhatsApp Business fully configured
+✅ A clear customer ordering process
+✅ Testimonials and customer reviews
+✅ A simple follow-up process after every sale
+________________
+
+
+Preparing for Phase 4
+At this stage, many businesses have a good-looking brand and a steady flow of enquiries.
+But one challenge remains:
+How do you turn first-time buyers into loyal customers who return again and again and even recommend your business to others?
+In Phase 4, you'll learn the psychology of customer retention, follow-up, referrals, and building a brand that grows through trust instead of constantly chasing new customers.
+Implementation Note: Building a professional website, setting up a business email, creating WhatsApp automation, integrating enquiry forms, payment options, and shipment tracking can take time if you're starting from scratch. Many business owners choose to work with specialists so they can focus on sourcing products and serving customers while the technical setup is handled for them. 
+PHASE 4
+Turn One Customer Into Ten
+The Most Expensive Sale Is the First One
+Many business owners think the sale is the finish line.
+It's actually the starting line.
+You've already spent time and money attracting that customer. The next goal is to keep them coming back and encourage them to tell others about your business.
+The businesses that grow the fastest don't always have the biggest advertising budgets. They have customers who trust them enough to buy again and recommend them to friends and family.
+________________
+
+
+Deliver an Experience, Not Just a Package
+People remember how you made them feel.
+A simple shipment can become a memorable experience if you:
+* Package products neatly and securely.
+* Communicate throughout the shipping process.
+* Share tracking updates.
+* Respond promptly to questions.
+* Deliver on the timeline you promised whenever possible.
+Customers who feel informed and valued are more likely to become repeat buyers.
+________________
+
+
+Follow Up After Every Delivery
+Don't disappear after the shipment is delivered.
+Within a few days, send a message asking:
+* Did your order arrive safely?
+* Are you happy with the products?
+* Is there anything we could improve?
+This shows professionalism and gives customers confidence that you care beyond the payment.
+It's also an opportunity to solve small issues before they become negative reviews.
+________________
+
+
+Ask for Reviews
+Most happy customers won't leave a review unless you ask.
+A simple request can go a long way.
+You can ask them to:
+* Leave a written review.
+* Share a photo of their order.
+* Record a short testimonial.
+* Tag your business on social media.
+These become powerful trust signals for future customers.
+________________
+
+
+Build a Referral Engine
+One satisfied customer can introduce you to several more.
+Encourage referrals by offering a small reward, such as:
+* A discount on the next order.
+* Free packaging.
+* A shipping credit.
+* A bonus product.
+People are much more likely to trust a recommendation from someone they already know.
+________________
+
+
+Stay in Touch
+Not every customer is ready to buy again immediately.
+Keep your business in front of them by sharing useful content, including:
+* New arrivals.
+* Seasonal products.
+* Shipping updates.
+* Helpful tips.
+* Customer success stories.
+* Special promotions.
+Consistent communication helps your business stay top of mind.
+________________
+
+
+Measure What Matters
+Growing businesses pay attention to numbers.
+Track:
+* Number of enquiries.
+* Number of orders.
+* Repeat customers.
+* Referral customers.
+* Advertising costs.
+* Revenue.
+* Best-selling products.
+When you measure your business, you make better decisions.
+________________
+
+
+Think Like a Brand
+Customers don't stay loyal to businesses that only post products.
+They stay loyal to businesses that stand for something.
+Build your brand around:
+* Reliability.
+* Honesty.
+* Consistency.
+* Professionalism.
+* Customer care.
+A trusted brand can often charge more than competitors because customers believe in the value it provides.
+________________
+
+
+Action Steps
+Before moving to the final phase:
+✅ Create a follow-up message for every completed order.
+✅ Ask every satisfied customer for a review.
+✅ Launch a referral program.
+✅ Keep a simple record of your business performance.
+✅ Commit to consistent communication with your audience.
+________________
+
+
+Preparing for Phase 5
+By now, you understand how to:
+* Choose products with international demand.
+* Attract overseas customers.
+* Build a professional online presence.
+* Turn first-time buyers into loyal customers.
+The final piece is bringing everything together into one complete system.
+In Phase 5, you'll see how successful export businesses combine marketing, technology, automation, and reliable logistics into a single engine that can grow consistently. You'll also discover the key areas where expert setup can save months of trial and error and help you scale faster.
+PHASE 5 
+Build an Export Business That Can Scale
+Success Doesn't Come From One Tool—It Comes From a Complete System
+Many business owners think they need one more app, one more social media platform, or one more advertisement to succeed.
+In reality, successful export businesses are built on systems that work together.
+Think of your business like a machine. Every part has a job:
+* Your content attracts attention.
+* Your advertisements generate enquiries.
+* Your website builds trust.
+* Your WhatsApp Business answers questions.
+* Your email communicates professionally.
+* Your payment system makes buying easy.
+* Your shipping process fulfills orders.
+* Your follow-up turns customers into repeat buyers.
+When these parts work together, your business becomes predictable and easier to grow.
+________________
+
+
+The Modern Export Business Blueprint
+A scalable export business typically includes:
+Marketing
+* Meta Ads (Facebook & Instagram)
+* TikTok content
+* Instagram Reels
+* Facebook Page
+* Search visibility
+* Referral marketing
+Sales
+* Professional website
+* Product catalogue
+* Landing pages
+* Business email
+* WhatsApp Business
+* Automated follow-ups
+Operations
+* Order management
+* Payment tracking
+* Customer database
+* Shipment tracking
+* Delivery updates
+* Customer support
+Growth
+* Customer reviews
+* Referral program
+* Email marketing
+* Retargeting ads
+* Performance reporting
+Each part strengthens the others.
+________________
+
+
+Work Smarter With Automation
+As your business grows, manually replying to every message and tracking every order becomes difficult.
+This is where automation becomes valuable.
+For example, your business can automatically:
+* Welcome new enquiries.
+* Answer common questions.
+* Share pricing information.
+* Collect customer details.
+* Confirm orders.
+* Send payment instructions.
+* Provide shipment updates.
+* Follow up after delivery.
+Automation doesn't replace personal service—it gives you more time to focus on growing your business.
+________________
+
+
+Don't Compete on Price Alone
+Many businesses believe the cheapest seller always wins.
+That's rarely true.
+Customers also pay for:
+* Reliability.
+* Fast communication.
+* Professional presentation.
+* Secure packaging.
+* Clear tracking.
+* Peace of mind.
+A business that delivers a better experience can often charge more while keeping loyal customers.
+________________
+
+
+Your 90-Day Growth Plan
+Month 1 – Build Your Foundation
+* Choose your niche.
+* Create your branding.
+* Set up your business email.
+* Build your website.
+* Configure WhatsApp Business.
+* Prepare high-quality product photos and videos.
+Month 2 – Launch Your Marketing
+* Start posting consistently.
+* Join diaspora communities.
+* Run your first Meta Ads campaign.
+* Collect customer testimonials.
+* Improve your sales process.
+Month 3 – Optimize and Scale
+* Review your advertising performance.
+* Increase spending on successful campaigns.
+* Launch a referral program.
+* Automate repetitive tasks.
+* Expand into additional international markets.
+Growth comes from improving your system every month—not from chasing shortcuts.
+________________
+
+
+Final Thoughts
+International customers are already buying products from Africa every day.
+The opportunity exists.
+The businesses that succeed are the ones that combine quality products with professional systems, consistent marketing, and dependable delivery.
+Start with a solid foundation, build trust, and improve your business step by step.
+Small improvements made consistently can produce remarkable results over time.
+________________
+
+
+Ready to Build Your Export System?
+This guide has shown you what to build.
+The next challenge is building it correctly.
+Many business owners understand the strategy but don't have the time or technical skills to set up:
+* A professional website
+* An online store
+* A business email
+* WhatsApp Business automation
+* Meta Ads campaigns
+* Customer enquiry forms
+* AI-powered customer support
+* Shipment tracking
+* Follow-up automation
+* Export-ready business systems
+That's where Shipplix can help.
+Instead of spending months learning multiple tools and fixing mistakes, you can work with a team that helps you build a professional export business from the ground up.
+Whether you're selling food products, fashion, beauty items, handmade goods, or other export-ready products, the goal is the same:
+Create a business that customers trust, recommend, and return to—again and again.
+________________
+
+
+Bonus: Free Export Business Checklist
+Before you launch, make sure you have:
+☐ Chosen a profitable niche.
+☐ Identified your ideal overseas customer.
+☐ Created professional branding.
+☐ Registered a business domain and email.
+☐ Built a website or online store.
+☐ Set up WhatsApp Business.
+☐ Prepared high-quality product photos and videos.
+☐ Created a content calendar.
+☐ Launched your first Meta Ads campaign.
+☐ Collected customer reviews.
+☐ Established a clear shipping process.
+☐ Created a follow-up system.
+☐ Built a referral program.
+☐ Tracked your key business metrics.`;
+
+    const blob = new Blob([textContent], { type: 'text/plain;charset=utf-8' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = "Shipplix_The_African_Export_Blueprint.txt";
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  };
+
   // Helper to trigger direct download of a simulated beautifully formatted blueprint PDF or the real PDF if uploaded
   const triggerBlueprintDownload = async () => {
     try {
@@ -204,71 +860,8 @@ export default function ExportBlueprintPage({ onNavigate, currentPath }: ExportB
       console.warn("Could not fetch real PDF, falling back to blueprint text generation", err);
     }
 
-    const textContent = `THE AFRICAN EXPORT BLUEPRINT
-========================================================================
-How to Build an International Customer Acquisition System That Attracts Overseas Buyers Consistently.
-Brought to you by Shipplix Logistics (https://shipplix.com)
-========================================================================
-
-PHASE 1: Building an International Business Buyers Trust
-------------------------------------------------------------------------
-* Trust is your primary product; physical goods are second.
-* Before wiring funds, international buyers ask subconscious safety questions:
-  - Can I trust this business?
-  - Will I receive my order?
-  - Is this company professional?
-  - Can I contact them if something goes wrong?
-* Essential elements to establish instant buyer confidence:
-  - Custom business domain email (e.g. sales@yourbrand.com) instead of @gmail.com
-  - Fully complete WhatsApp Business Profile with automatic replies and detailed catalog
-  - Dynamic, responsive, secure digital storefront website
-  - High-quality, original product photos and professional-looking packaging
-  - Clear, accessible refund policies, delivery timelines, and contact information.
-
-PHASE 2: Finding Overseas Customers
-------------------------------------------------------------------------
-* Stop waiting to be discovered. Build four dependable customer pipelines:
-  1. Targeted Meta Ads: Direct laser focus on diaspora communities, African groceries, fashion stores, and beauty boutique owners in the USA, UK, Canada, and Europe.
-  2. Authentic Content Marketing: Show product sourcing, behind-the-scenes hygienic packaging, and verified weight quality controls.
-  3. Active Diaspora Community Engagement: Provide genuine value in online forums and local groups rather than generic spamming.
-  4. Structured Referral Engine: Offer rewarding incentives (discounts, free packaging, shipping credits) to existing customers for word-of-mouth growth.
-
-PHASE 3: Building a Sales System That Works While You Sleep
-------------------------------------------------------------------------
-* Map out a frictionless, structured 10-step client journey:
-  1. Ad/Content View -> 2. Website Visit -> 3. Catalog Browse -> 4. Simple Question -> 5. Place Order -> 6. Secure Invoice -> 7. Packing/Scale Scale Video -> 8. Tracking Code -> 9. Safe Delivery -> 10. Review & Referral.
-* Ensure automated CRM, fast response messaging, and self-serve ordering options to prevent lead drop-offs.
-
-PHASE 4: Turning One Customer Into Ten
-------------------------------------------------------------------------
-* Retaining a customer is exponentially cheaper than hunting for a new one.
-* Deliver an unmatched sensory experience (neat packaging, secure boxes, clear tracking, surprise bonus items).
-* Solicit reviews systematically after every arrival. Use these reviews to create secondary marketing assets.
-
-PHASE 5: Scaling an Export Business
-------------------------------------------------------------------------
-* Unite marketing, tech, automation, and reliable logistics into one operational engine.
-* Maintain a strict 90-day execution framework:
-  - Month 1: Settle foundation, branding, and WhatsApp catalogs.
-  - Month 2: Scale consistent posting and launch targeted Meta Ads campaigns.
-  - Month 3: Optimize sales pipelines, integrate shipping automation, and expand territories.
-
-IMPLEMENTATION PARTNER
-------------------------------------------------------------------------
-Need expert implementation of these systems?
-Shipplix builds your premium websites, online stores, corporate emails, CRM integrations, Meta Ads setups, and handles your entire high-priority international freight delivery.
-Contact: services@shipplix.com | WhatsApp: +234 916 827 3513
-========================================================================`;
-
-    const blob = new Blob([textContent], { type: 'text/plain' });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = "Shipplix_The_African_Export_Blueprint.txt";
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-    URL.revokeObjectURL(url);
+    // Fallback to text download
+    triggerBlueprintTxtDownload();
   };
 
   // Form Validation and Submission
@@ -324,7 +917,7 @@ Contact: services@shipplix.com | WhatsApp: +234 916 827 3513
 
       setIsSubmitting(false);
       onNavigate('/export-blueprint/thank-you');
-      triggerBlueprintDownload(); // Automatically trigger instant download as requested
+      triggerBlueprintTxtDownload(); // Automatically trigger instant TXT download for absolute reliability as requested
     }, 1200);
   };
 
@@ -434,22 +1027,31 @@ Contact: services@shipplix.com | WhatsApp: +234 916 827 3513
             The free guide has been successfully transmitted to your email address. You can also download it instantly below to begin your global export journey.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+          <div className="flex flex-col md:flex-row gap-4 justify-center items-center">
             <PageButton 
               variant="yellow" 
+              onClick={triggerBlueprintTxtDownload}
+              className="w-full md:w-auto px-8 py-5 text-xs uppercase tracking-widest font-black flex items-center justify-center gap-2"
+            >
+              <FileText size={16} />
+              Download TXT Blueprint (Recommended)
+            </PageButton>
+
+            <PageButton 
+              variant="outline" 
               onClick={triggerBlueprintDownload}
-              className="w-full sm:w-auto px-10 py-5 text-xs uppercase tracking-widest font-black"
+              className="w-full md:w-auto px-8 py-5 text-xs uppercase tracking-widest font-black flex items-center justify-center gap-2 border-slate-300 hover:bg-slate-50 text-slate-800"
             >
               <Download size={16} />
-              Download PDF Blueprint
+              Download PDF Version
             </PageButton>
 
             <PageButton 
               variant="outline" 
               onClick={() => onNavigate('/')}
-              className="w-full sm:w-auto px-10 py-5 text-xs uppercase tracking-widest font-black"
+              className="w-full md:w-auto px-8 py-5 text-xs uppercase tracking-widest font-black flex items-center justify-center gap-1"
             >
-              Back to Homepage
+              Back to Home
               <ArrowRight size={16} />
             </PageButton>
           </div>
