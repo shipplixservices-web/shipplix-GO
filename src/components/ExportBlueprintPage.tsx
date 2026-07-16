@@ -1053,7 +1053,7 @@ Before you launch, make sure you have:
             </h4>
             <div className="bg-slate-50 border border-slate-200/60 rounded-2xl p-6 text-sm text-slate-700 space-y-4">
               <p className="font-bold">
-                🚀 Take Advantage of Your Free Export Strategy Session
+                Take Advantage of Your Free Export Strategy Session
               </p>
               <p className="text-xs text-slate-500 font-medium leading-relaxed">
                 Since you checked the strategy session request, a Shipplix representative will reach out to you on WhatsApp within the next 24 business hours to analyze your product list, audit your digital trust parameters, and map out your optimal international target audiences.
