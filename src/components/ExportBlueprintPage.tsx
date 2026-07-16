@@ -1039,15 +1039,6 @@ Before you launch, make sure you have:
 
             <PageButton 
               variant="outline" 
-              onClick={triggerBlueprintDownload}
-              className="w-full md:w-auto px-8 py-5 text-xs uppercase tracking-widest font-black flex items-center justify-center gap-2 border-slate-300 hover:bg-slate-50 text-slate-800"
-            >
-              <Download size={16} />
-              Download PDF Version
-            </PageButton>
-
-            <PageButton 
-              variant="outline" 
               onClick={() => onNavigate('/')}
               className="w-full md:w-auto px-8 py-5 text-xs uppercase tracking-widest font-black flex items-center justify-center gap-1"
             >
