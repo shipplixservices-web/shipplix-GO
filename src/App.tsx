@@ -38,7 +38,9 @@ import {
   CreditCard,
   Briefcase,
   ChevronDown,
-  HelpCircle
+  HelpCircle,
+  ShieldCheck,
+  Award
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import EconomyTerms from './components/EconomyTerms';
@@ -319,6 +321,49 @@ const UrgencyBanner = () => (
       </a>
     </div>
   </div>
+);
+
+const TrustCertifications = () => (
+  <section className="bg-slate-50 py-6 border-b border-slate-200 font-sans">
+    <div className="container mx-auto px-6">
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 items-center justify-items-center max-w-4xl mx-auto">
+        
+        {/* Badge 1: 100% Tax Compliant */}
+        <div className="flex items-center gap-3 bg-white px-4 py-3 rounded-xl border border-slate-200/80 shadow-sm w-full transition-all duration-300 hover:shadow-md">
+          <div className="p-2 bg-emerald-50 text-emerald-600 rounded-lg shrink-0">
+            <FileCheck size={20} className="stroke-[2.5]" />
+          </div>
+          <div>
+            <div className="font-black text-slate-900 text-[11px] uppercase tracking-tight">100% Tax Compliant</div>
+            <div className="text-[9px] text-slate-500 font-extrabold tracking-wider uppercase">FIRS Fully Cleared</div>
+          </div>
+        </div>
+
+        {/* Badge 2: CAC Registered */}
+        <div className="flex items-center gap-3 bg-white px-4 py-3 rounded-xl border border-slate-200/80 shadow-sm w-full transition-all duration-300 hover:shadow-md">
+          <div className="p-2 bg-amber-50 text-amber-600 rounded-lg shrink-0">
+            <ShieldCheck size={20} className="stroke-[2.5]" />
+          </div>
+          <div>
+            <div className="font-black text-slate-900 text-[11px] uppercase tracking-tight">CAC Registered</div>
+            <div className="text-[9px] text-slate-500 font-extrabold tracking-wider uppercase">RC: 8032416</div>
+          </div>
+        </div>
+
+        {/* Badge 3: Secure Payment Gateway */}
+        <div className="flex items-center gap-3 bg-white px-4 py-3 rounded-xl border border-slate-200/80 shadow-sm w-full transition-all duration-300 hover:shadow-md">
+          <div className="p-2 bg-indigo-50 text-indigo-600 rounded-lg shrink-0">
+            <CreditCard size={20} className="stroke-[2.5]" />
+          </div>
+          <div>
+            <div className="font-black text-slate-900 text-[11px] uppercase tracking-tight">Secure Payments</div>
+            <div className="text-[9px] text-slate-500 font-extrabold tracking-wider uppercase">Encrypted Checkout</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
 );
 
 const ExportCategories = () => {
@@ -1426,6 +1471,7 @@ export default function App() {
           <>
             <Hero />
             <UrgencyBanner />
+            <TrustCertifications />
             
             {/* Elegant Standalone Gateway Portal */}
             <section className="py-16 bg-white border-b border-slate-200">
