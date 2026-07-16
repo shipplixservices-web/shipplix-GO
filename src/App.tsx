@@ -1451,6 +1451,36 @@ export default function App() {
       </main>
 
       {currentPath !== '/admin-leads' && <Footer onNavigate={navigateTo} />}
+
+      {/* Floating WhatsApp Action Button */}
+      {currentPath !== '/admin-leads' && (
+        <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-1 select-none pointer-events-auto">
+          {/* Tooltip / Label */}
+          <div className="bg-slate-950 text-white border border-slate-800/80 px-3 py-1 rounded-full shadow-2xl text-[9px] font-black uppercase tracking-widest flex items-center gap-1.5 pointer-events-none mb-1">
+            <span className="relative flex h-1.5 w-1.5">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-emerald-500"></span>
+            </span>
+            Export Expert Online
+          </div>
+
+          {/* WhatsApp Button */}
+          <motion.a 
+            href={`${WHATSAPP_BASE}${encodeURIComponent("Hello Shipplix, I would like to make a bespoke inquiry about shipping products from Nigeria to global markets.")}`}
+            target="_blank" 
+            rel="noopener noreferrer"
+            whileHover={{ scale: 1.08 }}
+            whileTap={{ scale: 0.95 }}
+            className="bg-emerald-500 text-white p-4 rounded-full shadow-[0_8px_30px_rgba(16,185,129,0.4)] hover:bg-emerald-600 transition-colors flex items-center justify-center border-2 border-white/20 group relative"
+            aria-label="Chat on WhatsApp"
+          >
+            <MessageCircle size={26} className="fill-white/10 group-hover:rotate-12 transition-transform duration-300" />
+            
+            {/* Pulsing Outer Ring */}
+            <span className="absolute -inset-1 rounded-full border border-emerald-500/30 animate-pulse pointer-events-none"></span>
+          </motion.a>
+        </div>
+      )}
     </div>
   );
 }
