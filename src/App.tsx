@@ -36,7 +36,9 @@ import {
   Store,
   FileCheck,
   CreditCard,
-  Briefcase
+  Briefcase,
+  ChevronDown,
+  HelpCircle
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import EconomyTerms from './components/EconomyTerms';
@@ -751,6 +753,89 @@ const Testimonials = () => (
   </section>
 );
 
+const FAQSection = () => {
+  const [activeIndex, setActiveIndex] = React.useState<number | null>(null);
+
+  const faqs = [
+    {
+      question: "What are the exact transit times to the USA, UK, Canada, and Europe?",
+      answer: "Our standard air cargo transit times are extremely fast and reliable:\n\n• United Kingdom: 3 to 5 business days\n• United States: 5 to 7 business days\n• Canada: 5 to 7 business days\n• Europe: 5 to 8 business days\n\nTransit times are counted from our weekly flight departure. Once your shipment clears customs in the destination country, it is instantly handed over to last-mile delivery partners (like DHL, UPS, or Royal Mail) to reach your buyer's doorstep."
+    },
+    {
+      question: "How does Shipplix handle customs clearance for exports?",
+      answer: "Shipplix operates a fully managed, stress-free clearance service. We handle 100% of the customs inspection, export paperwork, and destination clearance on your behalf—both at MMIA Lagos and in the destination ports (US Customs, UK Border Force, CBSA Canada, etc.). This ensures your buyers never have to deal with complex shipping agents or unexpected clearance hurdles. Note that all food items are packed and declared in compliance with international food import guidelines."
+    },
+    {
+      question: "Are my shipments covered by insurance? What is the payout process?",
+      answer: "Yes, every single shipment handled by Shipplix includes standard cargo protection. For absolute peace of mind, we offer our optional Premium Shipment Insurance at just 2% of your declared goods value. This premium cover guarantees a 100% full payout of your declared goods value and shipping fees in the highly unlikely event of transit loss, customs confiscation (for non-prohibited items), or damage."
+    },
+    {
+      question: "What items are strictly prohibited or restricted from being exported?",
+      answer: "For safety and international import regulations, the following items are strictly prohibited:\n\n• Biological samples, raw fresh meat, or unprocessed hides.\n• Fresh, unlabelled fruits, soil, or unregistered seeds.\n• Liquids or herbs without proper commercial labelling or security clearance.\n• Dangerous goods, ammunition, and explosives.\n\nHowever, we fully permit and regularly ship cosmetics, wigs, fashion apparel, African fabrics, dried herbs, spices, dried foodstuffs, and packaged food items. Please refer to our Cargo Items Portal for the complete up-to-date catalog."
+    },
+    {
+      question: "How are shipping costs calculated? Is it by weight or dimensions?",
+      answer: "Shipping costs are calculated based on either the actual weight of the package or its volumetric weight (Length × Width × Height in cm / 5000), whichever is greater. This is a standard global aviation industry practice. To save on costs, we strongly advise using durable, custom-fit boxes and packing as compactly as possible to minimize empty space."
+    },
+    {
+      question: "How do we split space using your 'Group Shipping' feature?",
+      answer: "Group Shipping is our cooperative space-splitting solution that allows you to join other vendors sending goods in the same batch. Instead of paying the higher single-package rate for half-empty boxes, your items are securely grouped with others, letting you pay only for your exact share of the weight. This saves up to 40% on standard cargo rates!"
+    }
+  ];
+
+  return (
+    <section className="py-20 bg-slate-50 border-y border-slate-200 font-sans" id="faqs">
+      <div className="container mx-auto px-6 max-w-4xl">
+        <SectionTitle 
+          title="Frequently Asked Questions" 
+          subtitle="Answers to common queries about customs, insurance, transit times, and space consolidation."
+          centered={true}
+        />
+
+        <div className="mt-12 space-y-4">
+          {faqs.map((faq, index) => {
+            const isOpen = activeIndex === index;
+            return (
+              <div 
+                key={index} 
+                className={`bg-white border rounded-2xl transition-all duration-300 overflow-hidden ${
+                  isOpen ? 'border-blue-900 shadow-md' : 'border-slate-200/80 hover:border-slate-300'
+                }`}
+              >
+                <button
+                  type="button"
+                  onClick={() => setActiveIndex(isOpen ? null : index)}
+                  className="w-full px-6 py-5 text-left flex items-center justify-between gap-4 font-bold text-slate-800 hover:text-blue-900 transition-colors focus:outline-none"
+                >
+                  <span className="text-sm md:text-base tracking-tight leading-snug">{faq.question}</span>
+                  <div className={`p-1.5 rounded-lg transition-transform duration-300 ${isOpen ? 'bg-blue-50 text-blue-900 rotate-180' : 'bg-slate-100 text-slate-500'}`}>
+                    <ChevronDown size={18} />
+                  </div>
+                </button>
+
+                <AnimatePresence initial={false}>
+                  {isOpen && (
+                    <motion.div
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: "auto", opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.25, ease: "easeInOut" }}
+                    >
+                      <div className="px-6 pb-6 pt-1 text-slate-600 text-xs md:text-sm leading-relaxed border-t border-slate-100 whitespace-pre-line">
+                        {faq.answer}
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+  );
+};
+
 const GroupShipping = () => (
   <section className="py-16 bg-white border-y border-slate-200">
     <div className="container mx-auto px-6">
@@ -1389,6 +1474,7 @@ export default function App() {
             <DiasporaSection />
             <GroupShipping />
             <Testimonials />
+            <FAQSection />
             <ExportHub />
             
             {/* Urgent Recap Section */}
