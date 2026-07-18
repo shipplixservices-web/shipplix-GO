@@ -204,55 +204,198 @@ const Navbar = ({ onNavigate, currentPath }: { onNavigate?: (path: string) => vo
 };
 
 // Sections
-const Hero = () => (
-  <section className="relative pt-32 pb-12 bg-shipplix-bg overflow-hidden">
-    <div className="container mx-auto px-6 relative z-10">
-      <div className="bg-white p-6 md:p-10 rounded-2xl shadow-sm border border-slate-200 relative overflow-hidden flex flex-col lg:flex-row gap-0">
-        <div className="relative z-10 lg:w-2/3 lg:pr-10">
-          <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4 }}
-          >
-            <span className="bg-blue-100 text-blue-800 text-[10px] font-black px-2 py-1 rounded uppercase tracking-widest mb-4 inline-block">
-              Nigeria to UK, USA & Canada
-            </span>
-            
-            <h1 className="text-3xl md:text-5xl font-black leading-tight text-slate-900 mb-4">
-              Turn Your Nigerian Goods Into <span className="text-shipplix-blue underline decoration-shipplix-yellow decoration-4 underline-offset-4">Pounds, Dollars</span> & Canadian Cash.
-            </h1>
-            
-            <p className="text-slate-600 text-base md:text-lg mb-8 max-w-2xl font-medium">
-              We help African vendors ship food, fashion & cultural goods from Nigeria safely. No stories. No scams. No lost goods. Just pure profit delivered to your destination.
-            </p>
+const Hero = () => {
+  const [fullName, setFullName] = React.useState('');
+  const [phone, setPhone] = React.useState('');
+  const [destination, setDestination] = React.useState('');
+  const [shipmentType, setShipmentType] = React.useState('');
+  const [message, setMessage] = React.useState('');
+  const [error, setError] = React.useState('');
 
-            <div className="mb-4">
-              <div className="flex flex-col sm:flex-row gap-4">
-                <a 
-                  href="https://myshipment.shipplix.com" 
-                  target="_self" 
-                  className="w-full sm:w-auto text-center bg-[#FEB919] hover:bg-[#e2a412] text-[#032B73] font-black py-4 px-10 rounded-xl transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg text-sm uppercase tracking-widest flex items-center justify-center gap-2"
-                >
-                  Book my shipment
-                </a>
-                <Button 
-                  as="a"
-                  href={URL_PROCESS}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  variant="secondary" 
-                  className="w-full sm:w-auto px-10 py-4 text-[13px] uppercase tracking-widest bg-slate-100 text-slate-700"
-                >
-                  See How It Works
-                </Button>
-              </div>
-              <p className="mt-3 text-xs text-slate-500 font-bold italic flex items-center gap-2">
-                <span className="inline-block w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-                Book your shipment online in less than 2 minutes.
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!fullName.trim() || !phone.trim() || !destination) {
+      setError('Full Name, Phone Number, and Destination Country are required.');
+      return;
+    }
+    setError('');
+
+    const formattedMessage = `Hello Shipplix,
+
+I would like to book a shipment.
+
+Name:
+${fullName.trim()}
+
+Phone:
+${phone.trim()}
+
+Destination:
+${destination}
+
+Shipment Type:
+${shipmentType || 'Not specified'}
+
+Message:
+${message.trim() || 'None'}
+
+Please contact me to continue my shipment booking.`;
+
+    const whatsappUrl = `https://wa.me/2349168273513?text=${encodeURIComponent(formattedMessage)}`;
+    window.open(whatsappUrl, '_self');
+  };
+
+  return (
+    <section className="relative pt-32 pb-12 bg-shipplix-bg overflow-hidden">
+      <div className="container mx-auto px-6 relative z-10">
+        <div className="bg-white p-6 md:p-10 rounded-2xl shadow-sm border border-slate-200 relative overflow-hidden flex flex-col lg:flex-row gap-0">
+          <div className="relative z-10 lg:w-2/3 lg:pr-10">
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4 }}
+            >
+              <span className="bg-blue-100 text-blue-800 text-[10px] font-black px-2 py-1 rounded uppercase tracking-widest mb-4 inline-block">
+                Nigeria to UK, USA & Canada
+              </span>
+              
+              <h1 className="text-3xl md:text-5xl font-black leading-tight text-slate-900 mb-4">
+                Turn Your Nigerian Goods Into <span className="text-shipplix-blue underline decoration-shipplix-yellow decoration-4 underline-offset-4">Pounds, Dollars</span> & Canadian Cash.
+              </h1>
+              
+              <p className="text-slate-600 text-base md:text-lg mb-8 max-w-2xl font-medium">
+                We help African vendors ship food, fashion & cultural goods from Nigeria safely. No stories. No scams. No lost goods. Just pure profit delivered to your destination.
               </p>
-            </div>
-          </motion.div>
-        </div>
+
+              <div className="mb-4">
+                <div className="flex flex-col sm:flex-row gap-4">
+                  <a 
+                    href="https://myshipment.shipplix.com" 
+                    target="_self" 
+                    className="w-full sm:w-auto text-center bg-[#FEB919] hover:bg-[#e2a412] text-[#032B73] font-black py-4 px-10 rounded-xl transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg text-sm uppercase tracking-widest flex items-center justify-center gap-2"
+                  >
+                    Book my shipment
+                  </a>
+                  <Button 
+                    as="a"
+                    href={URL_PROCESS}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    variant="secondary" 
+                    className="w-full sm:w-auto px-10 py-4 text-[13px] uppercase tracking-widest bg-slate-100 text-slate-700"
+                  >
+                    See How It Works
+                  </Button>
+                </div>
+                <p className="mt-3 text-xs text-slate-500 font-bold italic flex items-center gap-2">
+                  <span className="inline-block w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                  Book your shipment online in less than 2 minutes.
+                </p>
+              </div>
+
+              {/* QUICK BOOKING FORM */}
+              <div className="mt-8 pt-6 border-t border-slate-100 max-w-2xl">
+                <div className="flex items-center gap-2 mb-4">
+                  <span className="flex h-2 w-2 relative">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#FEB919] opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-2 w-2 bg-[#FEB919]"></span>
+                  </span>
+                  <h3 className="text-xs font-black uppercase tracking-wider text-slate-800">Quick Booking Request</h3>
+                </div>
+                
+                <form onSubmit={handleSubmit} className="space-y-4">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div className="space-y-1.5">
+                      <label className="text-[10px] font-black uppercase tracking-wider text-slate-500 flex items-center gap-1">
+                        <User size={12} className="text-shipplix-blue" /> Full Name *
+                      </label>
+                      <input 
+                        type="text" 
+                        placeholder="Enter your first & last name"
+                        value={fullName}
+                        onChange={(e) => setFullName(e.target.value)}
+                        className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-xs font-bold text-slate-800 placeholder-slate-400 focus:outline-none focus:border-shipplix-blue transition-colors"
+                      />
+                    </div>
+
+                    <div className="space-y-1.5">
+                      <label className="text-[10px] font-black uppercase tracking-wider text-slate-500 flex items-center gap-1">
+                        <Phone size={12} className="text-shipplix-blue" /> Phone Number (WhatsApp) *
+                      </label>
+                      <input 
+                        type="tel" 
+                        placeholder="e.g. +234..."
+                        value={phone}
+                        onChange={(e) => setPhone(e.target.value)}
+                        className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-xs font-bold text-slate-800 placeholder-slate-400 focus:outline-none focus:border-shipplix-blue transition-colors"
+                      />
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div className="space-y-1.5">
+                      <label className="text-[10px] font-black uppercase tracking-wider text-slate-500 flex items-center gap-1">
+                        <Globe size={12} className="text-shipplix-blue" /> Destination Country *
+                      </label>
+                      <select 
+                        value={destination}
+                        onChange={(e) => setDestination(e.target.value)}
+                        className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-xs font-bold text-slate-800 focus:outline-none focus:border-shipplix-blue transition-colors cursor-pointer"
+                      >
+                        <option value="">Select destination</option>
+                        <option value="UK">United Kingdom (UK)</option>
+                        <option value="USA">United States (USA)</option>
+                        <option value="Canada">Canada</option>
+                        <option value="Other">Other</option>
+                      </select>
+                    </div>
+
+                    <div className="space-y-1.5">
+                      <label className="text-[10px] font-black uppercase tracking-wider text-slate-500 flex items-center gap-1">
+                        <Box size={12} className="text-shipplix-blue" /> Shipment Type (Optional)
+                      </label>
+                      <select 
+                        value={shipmentType}
+                        onChange={(e) => setShipmentType(e.target.value)}
+                        className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-xs font-bold text-slate-800 focus:outline-none focus:border-shipplix-blue transition-colors cursor-pointer"
+                      >
+                        <option value="">Select type (Optional)</option>
+                        <option value="Air Cargo">Air Cargo</option>
+                        <option value="Sea Cargo">Sea Cargo</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div className="space-y-1.5">
+                    <label className="text-[10px] font-black uppercase tracking-wider text-slate-500 flex items-center gap-1">
+                      <MessageCircle size={12} className="text-shipplix-blue" /> Message (Optional)
+                    </label>
+                    <input 
+                      type="text" 
+                      placeholder="What items are you shipping? E.g. 50kg Garri, Clothes, etc."
+                      value={message}
+                      onChange={(e) => setMessage(e.target.value)}
+                      className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-xs font-bold text-slate-800 placeholder-slate-400 focus:outline-none focus:border-shipplix-blue transition-colors"
+                    />
+                  </div>
+
+                  {error && (
+                    <p className="text-red-500 text-[10px] font-black uppercase tracking-wider">{error}</p>
+                  )}
+
+                  <div className="pt-2">
+                    <button 
+                      type="submit" 
+                      className="w-full text-center bg-[#032B73] hover:bg-[#022157] text-white font-black py-3.5 px-8 rounded-xl transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg text-xs uppercase tracking-widest flex items-center justify-center gap-2 cursor-pointer"
+                    >
+                      <MessageCircle size={14} className="text-shipplix-yellow fill-shipplix-yellow" />
+                      Send Booking Request
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </motion.div>
+          </div>
 
         <div className="lg:w-1/3 mt-8 lg:mt-0 bg-blue-50/50 flex items-center justify-center border-l-0 lg:border-l border-slate-100 -m-6 md:-m-10 lg:m-0 p-8">
           <div className="text-center w-full">
@@ -292,7 +435,8 @@ const Hero = () => (
       </div>
     </div>
   </section>
-);
+  );
+};
 
 const UrgencyBanner = () => (
   <div className="bg-yellow-100 border-y border-yellow-300 py-3 relative overflow-hidden">
