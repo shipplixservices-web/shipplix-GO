@@ -161,8 +161,7 @@ export default function EconomyCargoPage() {
               <p className="text-xs text-slate-300 font-bold uppercase tracking-wider mb-6">Book your space in our weekly consolidated shipments instantly online.</p>
               <a 
                 href="https://myshipment.shipplix.com" 
-                target="_blank" 
-                rel="noopener noreferrer" 
+                target="_self" 
                 className="w-full sm:w-auto text-center bg-[#FEB919] hover:bg-[#e2a412] text-[#032B73] font-black py-4 px-10 rounded-xl transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg text-xs uppercase tracking-widest flex items-center justify-center gap-2"
               >
                 Book my shipment

@@ -140,8 +140,7 @@ const Navbar = ({ onNavigate, currentPath }: { onNavigate?: (path: string) => vo
           <a href="#/export-blueprint" onClick={(e) => handleLinkClick(e, '/export-blueprint')} className={`transition-colors ${currentPath === '/export-blueprint' ? 'text-shipplix-yellow underline font-black' : 'hover:text-shipplix-yellow'}`}>Blueprint</a>
           <a 
             href="https://myshipment.shipplix.com" 
-            target="_blank" 
-            rel="noopener noreferrer" 
+            target="_self" 
             className="bg-[#FEB919] hover:bg-[#e2a412] text-[#032B73] font-black py-2.5 px-5 rounded-xl transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md text-[10px] uppercase tracking-widest flex items-center justify-center gap-1.5"
           >
             Book my shipment
@@ -181,8 +180,7 @@ const Navbar = ({ onNavigate, currentPath }: { onNavigate?: (path: string) => vo
               <a href="#/export-blueprint" onClick={(e) => handleLinkClick(e, '/export-blueprint')} className={`py-1 ${currentPath === '/export-blueprint' ? 'text-shipplix-yellow underline font-black' : 'hover:text-shipplix-yellow'}`}>Blueprint</a>
               <a 
                 href="https://myshipment.shipplix.com" 
-                target="_blank" 
-                rel="noopener noreferrer" 
+                target="_self" 
                 className="w-full text-center bg-[#FEB919] hover:bg-[#e2a412] text-[#032B73] font-black py-3 px-6 rounded-xl transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg text-xs uppercase tracking-widest mt-2"
               >
                 Book my shipment
@@ -232,8 +230,7 @@ const Hero = () => (
               <div className="flex flex-col sm:flex-row gap-4">
                 <a 
                   href="https://myshipment.shipplix.com" 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
+                  target="_self" 
                   className="w-full sm:w-auto text-center bg-[#FEB919] hover:bg-[#e2a412] text-[#032B73] font-black py-4 px-10 rounded-xl transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg text-sm uppercase tracking-widest flex items-center justify-center gap-2"
                 >
                   Book my shipment
@@ -915,9 +912,8 @@ const PremiumPackagingSection = () => {
             <div className="flex flex-wrap gap-4 pt-2">
               <Button 
                 as="a" 
-                href={URL_START} 
-                target="_blank" 
-                rel="noopener noreferrer" 
+                href="https://myshipment.shipplix.com" 
+                target="_self" 
                 variant="yellow" 
                 className="px-8 py-3 text-xs uppercase tracking-widest font-black transition-all duration-300 hover:shadow-lg hover:shadow-yellow-500/20"
               >
@@ -925,9 +921,8 @@ const PremiumPackagingSection = () => {
               </Button>
               <Button 
                 as="a" 
-                href={URL_TRACK} 
-                target="_blank" 
-                rel="noopener noreferrer" 
+                href="https://track.shipplix.com" 
+                target="_self" 
                 variant="outline" 
                 className="px-8 py-3 text-xs uppercase tracking-widest font-black transition-all duration-300 hover:border-blue-900"
               >
@@ -1894,8 +1889,7 @@ const Footer = ({ onNavigate }: { onNavigate?: (path: string) => void }) => {
           <div className="flex flex-col items-center gap-2 w-full md:w-auto">
             <a 
               href="https://myshipment.shipplix.com" 
-              target="_blank" 
-              rel="noopener noreferrer" 
+              target="_self" 
               className="w-full md:w-auto text-center bg-[#FEB919] hover:bg-[#e2a412] text-[#032B73] font-black py-3.5 px-8 rounded-xl transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg text-xs uppercase tracking-widest flex items-center justify-center gap-2"
             >
               Book my shipment
