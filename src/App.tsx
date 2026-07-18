@@ -51,6 +51,8 @@ import TrustPage from './components/TrustPage';
 import RevenuePartnerPage from './components/RevenuePartnerPage';
 import ExportBlueprintPage from './components/ExportBlueprintPage';
 import AdminLeadsPage from './components/AdminLeadsPage';
+import shipplixPackaging from './assets/images/shipplix_packaging_1784360014363.jpg';
+import shipplixPackagingUploaded from './assets/images/shipplix_packaging.png';
 
 // Common Components
 const Button = ({ 
@@ -820,6 +822,190 @@ const TopItemCategoriesShipped = () => {
             </div>
           </motion.div>
         </AnimatePresence>
+      </div>
+    </section>
+  );
+};
+
+const PremiumPackagingSection = () => {
+  const [imageSrc, setImageSrc] = React.useState<string>(shipplixPackagingUploaded);
+
+  const handleImageError = () => {
+    if (imageSrc !== shipplixPackaging) {
+      setImageSrc(shipplixPackaging);
+    }
+  };
+
+  const features = [
+    "Branded Premium Packaging",
+    "Secure Shipment Handling",
+    "Worldwide Delivery",
+    "Real-Time Tracking",
+    "Fast Processing",
+    "Reliable Logistics"
+  ];
+
+  const stats = [
+    {
+      value: "10,000+",
+      label: "Packages Delivered",
+      sub: "USA • UK • Canada • Europe",
+      icon: <Package className="text-shipplix-yellow" size={20} />
+    },
+    {
+      value: "99%",
+      label: "Customer Satisfaction",
+      sub: "Fast & Secure",
+      icon: <Award className="text-shipplix-yellow" size={20} />
+    },
+    {
+      value: "24/7",
+      label: "Customer Support",
+      sub: "Dedicated Team",
+      icon: <Clock className="text-shipplix-yellow" size={20} />
+    },
+    {
+      value: "100%",
+      label: "Secure & Covered",
+      sub: "Fully Insured",
+      icon: <ShieldCheck className="text-shipplix-yellow" size={20} />
+    }
+  ];
+
+  return (
+    <section id="packaging-showcase" className="py-20 md:py-28 bg-gradient-to-b from-white to-slate-50/50 border-b border-slate-200 font-sans overflow-hidden">
+      <div className="container mx-auto px-6 max-w-6xl">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+          {/* Left Column: Content */}
+          <motion.div 
+            initial={{ opacity: 0, y: 25 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="lg:col-span-5 space-y-6 md:space-y-8"
+          >
+            <div className="space-y-3">
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-blue-50 text-blue-900 text-[10px] md:text-xs font-black uppercase tracking-widest rounded-full border border-blue-100">
+                <ShieldCheck size={12} className="stroke-[2.5]" />
+                Premium Packaging Standards
+              </span>
+              <h2 className="text-2xl md:text-4xl font-black uppercase tracking-tighter text-slate-900 leading-tight">
+                Professional Packaging That Protects Every Shipment
+              </h2>
+              <p className="text-sm md:text-base text-slate-500 font-medium leading-relaxed">
+                Every package shipped with Shipplix is professionally handled using secure packaging materials, branded shipping bags, and reliable tracking systems to ensure your shipment arrives safely from Nigeria to destinations worldwide.
+              </p>
+            </div>
+
+            {/* Checklist Features */}
+            <div className="grid grid-cols-2 gap-y-3 gap-x-4">
+              {features.map((feat, idx) => (
+                <div key={idx} className="flex items-center gap-2">
+                  <span className="flex items-center justify-center w-5 h-5 bg-emerald-50 text-emerald-600 rounded-full shrink-0 border border-emerald-100">
+                    <CheckCircle2 size={12} className="stroke-[3]" />
+                  </span>
+                  <span className="text-xs md:text-sm font-bold text-slate-700 tracking-tight">
+                    {feat}
+                  </span>
+                </div>
+              ))}
+            </div>
+
+            {/* CTA Buttons */}
+            <div className="flex flex-wrap gap-4 pt-2">
+              <Button 
+                as="a" 
+                href={URL_START} 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                variant="yellow" 
+                className="px-8 py-3 text-xs uppercase tracking-widest font-black transition-all duration-300 hover:shadow-lg hover:shadow-yellow-500/20"
+              >
+                Book Your Shipment
+              </Button>
+              <Button 
+                as="a" 
+                href={URL_TRACK} 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                variant="outline" 
+                className="px-8 py-3 text-xs uppercase tracking-widest font-black transition-all duration-300 hover:border-blue-900"
+              >
+                Track Shipment
+              </Button>
+            </div>
+
+            {/* Small Statistics Cards */}
+            <div className="grid grid-cols-2 gap-4 pt-4">
+              {stats.map((stat, idx) => (
+                <motion.div 
+                  key={idx}
+                  initial={{ opacity: 0, scale: 0.9, y: 15 }}
+                  whileInView={{ opacity: 1, scale: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: idx * 0.1, ease: "easeOut" }}
+                  className="p-4 bg-white border border-slate-200/80 rounded-2xl shadow-sm hover:shadow-md hover:border-blue-900/10 transition-all duration-300 flex flex-col justify-between group"
+                >
+                  <div className="flex justify-between items-start mb-2">
+                    <div className="p-2 bg-slate-50 group-hover:bg-blue-50 text-blue-950 rounded-xl transition-colors duration-300 shrink-0">
+                      {stat.icon}
+                    </div>
+                  </div>
+                  <div>
+                    <div className="text-lg md:text-xl font-black text-slate-900 font-mono tracking-tight leading-none">
+                      {stat.value}
+                    </div>
+                    <div className="text-[11px] font-black uppercase text-blue-950 tracking-tight mt-1 leading-none">
+                      {stat.label}
+                    </div>
+                    <div className="text-[9px] font-bold text-slate-400 uppercase tracking-wider mt-0.5 leading-none">
+                      {stat.sub}
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
+
+          {/* Right Column: Premium Image Showcase */}
+          <motion.div 
+            initial={{ opacity: 0, y: 30, scale: 0.95 }}
+            whileInView={{ opacity: 1, y: 0, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+            className="lg:col-span-7 flex justify-center items-center relative"
+          >
+            {/* Ambient Background Glow */}
+            <div className="absolute -inset-4 bg-blue-500/5 blur-[50px] rounded-3xl pointer-events-none" />
+            <div className="absolute -inset-1 bg-gradient-to-tr from-blue-600/5 via-transparent to-amber-500/5 blur-3xl rounded-3xl pointer-events-none" />
+
+            {/* Container wrapper for soft float and hover actions */}
+            <motion.div
+              animate={{ y: [0, -8, 0] }}
+              transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+              whileHover={{ y: -6, scale: 1.02 }}
+              className="relative rounded-3xl overflow-hidden shadow-2xl shadow-slate-900/10 border border-slate-200/80 max-w-[560px] lg:max-w-none w-full bg-slate-100 transition-shadow hover:shadow-slate-900/15 group"
+            >
+              {/* Soft overlay on image */}
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/10 via-transparent to-white/5 opacity-80 z-10 transition-opacity duration-500 pointer-events-none group-hover:opacity-60" />
+              
+              <img 
+                src={imageSrc}
+                onError={handleImageError}
+                alt="Shipplix Custom Premium Poly Mailer Packaging Bags Showcase"
+                referrerPolicy="no-referrer"
+                loading="lazy"
+                className="w-full h-auto object-cover object-center relative block select-none transform transition-transform duration-700 ease-out group-hover:scale-[1.01]"
+              />
+
+              {/* Extra Trust Badge overlaid at the bottom */}
+              <div className="absolute bottom-4 left-4 z-20 bg-slate-900/90 backdrop-blur-md text-white text-[9px] font-mono tracking-widest font-black uppercase px-3 py-1.5 rounded-full border border-slate-700/50 flex items-center gap-1.5 shadow-xl">
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                Shipplix Certified Branding
+              </div>
+            </motion.div>
+          </motion.div>
+        </div>
       </div>
     </section>
   );
@@ -1900,6 +2086,7 @@ export default function App() {
 
             <ExportCategories />
             <TopItemCategoriesShipped />
+            <PremiumPackagingSection />
             <ShippingServices />
             <HowItWorks />
             <TrustSection />
