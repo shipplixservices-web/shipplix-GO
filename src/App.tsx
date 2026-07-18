@@ -440,6 +440,391 @@ const ExportCategories = () => {
   );
 };
 
+const CountUp = ({ value, duration = 800 }: { value: number; duration?: number }) => {
+  const [count, setCount] = React.useState(0);
+
+  React.useEffect(() => {
+    let start = 0;
+    const end = value;
+    if (start === end) return;
+
+    const totalFrames = Math.round(duration / 16);
+    const increment = end / totalFrames;
+    let currentFrame = 0;
+
+    const timer = setInterval(() => {
+      currentFrame++;
+      const currentVal = Math.min(Math.round(increment * currentFrame), end);
+      setCount(currentVal);
+
+      if (currentFrame >= totalFrames) {
+        clearInterval(timer);
+        setCount(end);
+      }
+    }, 16);
+
+    return () => clearInterval(timer);
+  }, [value, duration]);
+
+  return <span>{count}%</span>;
+};
+
+const TopItemCategoriesShipped = () => {
+  type TabId = 'USA' | 'UK' | 'Canada' | 'Europe';
+  const [activeTab, setActiveTab] = React.useState<TabId>('USA');
+
+  const tabs: { id: TabId; label: string }[] = [
+    { id: 'USA', label: '🇺🇸 USA' },
+    { id: 'UK', label: '🇬🇧 United Kingdom' },
+    { id: 'Canada', label: '🇨🇦 Canada' },
+    { id: 'Europe', label: '🌍 Europe' }
+  ];
+
+  const categoriesData = {
+    USA: {
+      title: "Top Item Categories Shipped To United States",
+      items: [
+        { label: "African Food & Groceries", percentage: 42, color: "bg-blue-900" },
+        { label: "Fashion & Clothing", percentage: 24, color: "bg-blue-600" },
+        { label: "Beauty Products", percentage: 13, color: "bg-shipplix-accent" },
+        { label: "Health & Herbal Products", percentage: 11, color: "bg-teal-500" },
+        { label: "Electronics", percentage: 10, color: "bg-slate-400" },
+      ],
+      destinations: [{ x: 110, y: 120, label: "USA" }],
+      flightPath: "M 240 175 Q 165 110 110 120",
+      packagePos: { x: 22, y: 35 }
+    },
+    UK: {
+      title: "Top Item Categories Shipped To United Kingdom",
+      items: [
+        { label: "African Food & Groceries", percentage: 48, color: "bg-blue-900" },
+        { label: "Fashion & Clothing", percentage: 20, color: "bg-blue-600" },
+        { label: "Personal Care", percentage: 12, color: "bg-shipplix-accent" },
+        { label: "Home Essentials", percentage: 10, color: "bg-teal-500" },
+        { label: "Business Parcels", percentage: 10, color: "bg-slate-400" },
+      ],
+      destinations: [{ x: 235, y: 85, label: "London, UK" }],
+      flightPath: "M 240 175 Q 225 125 235 85",
+      packagePos: { x: 52, y: 22 }
+    },
+    Canada: {
+      title: "Top Item Categories Shipped To Canada",
+      items: [
+        { label: "African Food & Groceries", percentage: 40, color: "bg-blue-900" },
+        { label: "Fashion & Clothing", percentage: 22, color: "bg-blue-600" },
+        { label: "Beauty Products", percentage: 15, color: "bg-shipplix-accent" },
+        { label: "Health Products", percentage: 13, color: "bg-teal-500" },
+        { label: "Electronics", percentage: 10, color: "bg-slate-400" },
+      ],
+      destinations: [{ x: 100, y: 90, label: "Canada" }],
+      flightPath: "M 240 175 Q 160 100 100 90",
+      packagePos: { x: 20, y: 25 }
+    },
+    Europe: {
+      title: "Top Item Categories Shipped Across Europe",
+      items: [
+        { label: "African Food & Groceries", percentage: 38, color: "bg-blue-900" },
+        { label: "Fashion & Clothing", percentage: 25, color: "bg-blue-600" },
+        { label: "Beauty & Cosmetics", percentage: 15, color: "bg-shipplix-accent" },
+        { label: "Health Products", percentage: 12, color: "bg-teal-500" },
+        { label: "Commercial Goods", percentage: 10, color: "bg-slate-400" },
+      ],
+      destinations: [
+        { x: 245, y: 95, label: "France" },
+        { x: 260, y: 90, label: "Germany" },
+        { x: 260, y: 110, label: "Italy" }
+      ],
+      flightPath: "M 240 175 Q 248 130 252 100",
+      packagePos: { x: 56, y: 28 }
+    }
+  };
+
+  return (
+    <section className="py-20 bg-slate-50 border-b border-slate-200 font-sans" id="volume-statistics">
+      <div className="container mx-auto px-6 max-w-6xl">
+        <SectionTitle 
+          title="Top Item Categories Shipped" 
+          subtitle="Real-time volume distribution of goods exported from Nigeria to our key global destinations."
+          centered={true}
+        />
+
+        {/* Custom Premium Tabs with Sliding Pill */}
+        <div className="flex justify-center mb-12">
+          <div className="bg-slate-200/60 p-1.5 rounded-full flex gap-1 border border-slate-300/40 relative">
+            {tabs.map((tab) => {
+              const isSelected = activeTab === tab.id;
+              return (
+                <button
+                  key={tab.id}
+                  type="button"
+                  onClick={() => setActiveTab(tab.id)}
+                  className={`relative px-5 py-2.5 rounded-full text-xs md:text-sm font-black uppercase tracking-wider transition-colors duration-300 focus:outline-none select-none ${
+                    isSelected ? 'text-blue-950' : 'text-slate-600 hover:text-slate-900'
+                  }`}
+                >
+                  {isSelected && (
+                    <motion.div
+                      layoutId="activeTabIndicator"
+                      className="absolute inset-0 bg-white rounded-full shadow-md border border-slate-200/60"
+                      transition={{ type: "spring", stiffness: 350, damping: 28 }}
+                    />
+                  )}
+                  <span className="relative z-10">{tab.label}</span>
+                </button>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* Tab content with transition */}
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={activeTab}
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            transition={{ duration: 0.35, ease: "easeInOut" }}
+            className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center"
+          >
+            {/* Progress Bars (Left column) */}
+            <div className="lg:col-span-5 space-y-5 bg-white border border-slate-200/80 rounded-3xl p-6 md:p-8 shadow-sm">
+              <div className="flex items-center gap-3 mb-2">
+                <div className="p-2 bg-blue-50 text-blue-950 rounded-lg shrink-0">
+                  <TrendingUp size={20} className="stroke-[2.5]" />
+                </div>
+                <h3 className="text-base md:text-lg font-black uppercase tracking-tight text-slate-900 leading-tight">
+                  {categoriesData[activeTab].title}
+                </h3>
+              </div>
+              <p className="text-[11px] font-bold text-slate-500 uppercase tracking-wider mb-6">
+                Weekly cargo volume share by category
+              </p>
+              
+              <div className="space-y-4">
+                {categoriesData[activeTab].items.map((item, idx) => (
+                  <div key={idx} className="space-y-1.5">
+                    <div className="flex justify-between items-center text-xs font-black uppercase tracking-wide">
+                      <span className="text-slate-800 flex items-center gap-2">
+                        <span className="w-1.5 h-1.5 rounded-full bg-blue-500" />
+                        {item.label}
+                      </span>
+                      <span className="text-blue-900 font-mono font-black text-sm">
+                        <CountUp value={item.percentage} />
+                      </span>
+                    </div>
+                    <div className="h-3 w-full bg-slate-100 rounded-full overflow-hidden p-[2px] border border-slate-200/40">
+                      <motion.div
+                        initial={{ width: "0%" }}
+                        animate={{ width: `${item.percentage}%` }}
+                        transition={{ duration: 0.8, ease: "easeOut" }}
+                        className={`h-full ${item.color} rounded-full`}
+                      />
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Map (Right column) */}
+            <div className="lg:col-span-7">
+              <div className="bg-slate-900 border border-slate-850 rounded-3xl p-6 relative overflow-hidden h-[340px] md:h-[400px] flex items-center justify-center shadow-xl">
+                {/* World Map Background Grid / Glows */}
+                <div className="absolute inset-0 bg-gradient-to-b from-slate-950 to-slate-900" />
+                
+                {/* Soft ambient glow behind map */}
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="w-64 h-64 rounded-full bg-blue-500/10 blur-[80px]" />
+                  {activeTab === 'USA' && <div className="absolute left-[20%] top-[40%] w-32 h-32 rounded-full bg-blue-500/20 blur-[50px] animate-pulse" />}
+                  {activeTab === 'UK' && <div className="absolute left-[45%] top-[30%] w-24 h-24 rounded-full bg-blue-500/20 blur-[45px] animate-pulse" />}
+                  {activeTab === 'Canada' && <div className="absolute left-[18%] top-[30%] w-32 h-32 rounded-full bg-blue-500/20 blur-[50px] animate-pulse" />}
+                  {activeTab === 'Europe' && <div className="absolute left-[50%] top-[30%] w-32 h-32 rounded-full bg-blue-500/20 blur-[50px] animate-pulse" />}
+                </div>
+
+                <svg viewBox="0 0 500 300" className="w-full h-full relative z-10 select-none">
+                  {/* Stylized simplified continent paths with soft low opacity */}
+                  {/* North America */}
+                  <path 
+                    d="M30,70 L50,60 L90,55 L130,50 L160,50 L190,40 L180,70 L150,85 L140,110 L125,125 L115,140 L100,140 L90,120 L80,110 L60,115 L50,100 Z" 
+                    fill="currentColor" 
+                    className={`transition-colors duration-500 ${activeTab === 'USA' || activeTab === 'Canada' ? 'text-slate-700/80' : 'text-slate-800/40'}`} 
+                  />
+                  
+                  {/* South America */}
+                  <path 
+                    d="M110,150 L125,155 L140,170 L155,190 L165,210 L150,240 L135,270 L125,280 L120,260 L120,230 L110,200 L105,175 Z" 
+                    fill="currentColor" 
+                    className="text-slate-800/40 transition-colors duration-500" 
+                  />
+                  
+                  {/* Africa */}
+                  <path 
+                    d="M200,160 L220,150 L245,140 L270,145 L285,155 L295,170 L300,190 L285,220 L270,250 L255,275 L245,260 L245,230 L225,200 L210,190 Z" 
+                    fill="currentColor" 
+                    className="text-slate-700/60" 
+                  />
+                  
+                  {/* Europe */}
+                  <path 
+                    d="M205,120 L210,105 L225,85 L245,75 L265,70 L280,75 L275,100 L260,115 L245,120 L225,125 Z" 
+                    fill="currentColor" 
+                    className={`transition-colors duration-500 ${activeTab === 'UK' || activeTab === 'Europe' ? 'text-slate-700/80' : 'text-slate-800/40'}`} 
+                  />
+                  
+                  {/* Asia */}
+                  <path 
+                    d="M285,75 L310,65 L350,60 L390,55 L430,60 L460,70 L470,90 L465,110 L440,120 L410,135 L375,145 L345,150 L315,140 L295,115 Z" 
+                    fill="currentColor" 
+                    className="text-slate-800/40 transition-colors duration-500" 
+                  />
+                  
+                  {/* Australia */}
+                  <path 
+                    d="M400,220 L425,215 L450,220 L460,240 L450,260 L430,265 L410,255 L395,240 Z" 
+                    fill="currentColor" 
+                    className="text-slate-800/40 transition-colors duration-500" 
+                  />
+
+                  {/* Origin Pin: Lagos, Nigeria */}
+                  <g className="translate-x-[240px] translate-y-[175px]">
+                    <circle r="4" fill="#facc15" />
+                    <circle r="8" fill="none" stroke="#facc15" strokeWidth="1.5" className="animate-ping opacity-75" />
+                  </g>
+
+                  {/* Label for Lagos */}
+                  <text x="248" y="188" fill="#facc15" fontSize="8" fontWeight="bold" className="font-mono tracking-widest uppercase opacity-80">
+                    Lagos (MMIA)
+                  </text>
+
+                  {/* Dotted Flight Path */}
+                  {activeTab === 'Europe' ? (
+                    <>
+                      {/* France */}
+                      <motion.path 
+                        id="path-France"
+                        d="M 240 175 Q 235 130 245 95" 
+                        fill="none" 
+                        stroke="#3b82f6" 
+                        strokeWidth="2" 
+                        strokeDasharray="4 4"
+                        initial={{ pathLength: 0 }}
+                        animate={{ pathLength: 1 }}
+                        transition={{ duration: 1, ease: "easeOut" }}
+                      />
+                      {/* Germany */}
+                      <motion.path 
+                        id="path-Germany"
+                        d="M 240 175 Q 248 130 260 90" 
+                        fill="none" 
+                        stroke="#3b82f6" 
+                        strokeWidth="2" 
+                        strokeDasharray="4 4"
+                        initial={{ pathLength: 0 }}
+                        animate={{ pathLength: 1 }}
+                        transition={{ duration: 1, ease: "easeOut", delay: 0.15 }}
+                      />
+                      {/* Italy */}
+                      <motion.path 
+                        id="path-Italy"
+                        d="M 240 175 Q 252 140 260 110" 
+                        fill="none" 
+                        stroke="#3b82f6" 
+                        strokeWidth="2" 
+                        strokeDasharray="4 4"
+                        initial={{ pathLength: 0 }}
+                        animate={{ pathLength: 1 }}
+                        transition={{ duration: 1, ease: "easeOut", delay: 0.3 }}
+                      />
+                    </>
+                  ) : (
+                    <motion.path 
+                      id={`flightPath-${activeTab}`}
+                      d={categoriesData[activeTab].flightPath} 
+                      fill="none" 
+                      stroke="#3b82f6" 
+                      strokeWidth="2" 
+                      strokeDasharray="4 4"
+                      initial={{ pathLength: 0 }}
+                      animate={{ pathLength: 1 }}
+                      transition={{ duration: 1.2, ease: "easeOut" }}
+                    />
+                  )}
+
+                  {/* Native animated plane flying along path */}
+                  {activeTab === 'Europe' ? (
+                    <>
+                      {/* Plane 1: France */}
+                      <g>
+                        <path d="M-4,-4 L4,0 L-4,4 L-2,0 Z" fill="#facc15" transform="scale(1.3)" />
+                        <animateMotion dur="3.5s" repeatCount="indefinite" rotate="auto">
+                          <mpath href="#path-France" />
+                        </animateMotion>
+                      </g>
+                      {/* Plane 2: Germany */}
+                      <g>
+                        <path d="M-4,-4 L4,0 L-4,4 L-2,0 Z" fill="#facc15" transform="scale(1.3)" />
+                        <animateMotion dur="4s" repeatCount="indefinite" rotate="auto">
+                          <mpath href="#path-Germany" />
+                        </animateMotion>
+                      </g>
+                    </>
+                  ) : (
+                    <g>
+                      <path d="M-4,-4 L4,0 L-4,4 L-2,0 Z" fill="#facc15" transform="scale(1.4)" />
+                      <animateMotion dur="4s" repeatCount="indefinite" rotate="auto">
+                        <mpath href={`#flightPath-${activeTab}`} />
+                      </animateMotion>
+                    </g>
+                  )}
+
+                  {/* Destination Pin(s) */}
+                  {categoriesData[activeTab].destinations.map((dest, i) => (
+                    <g key={i} className="transition-all duration-500" transform={`translate(${dest.x}, ${dest.y})`}>
+                      {/* Glow rings */}
+                      <circle r="6" fill="#3b82f6" opacity="0.4" className="animate-ping" style={{ animationDuration: '3s' }} />
+                      <circle r="12" fill="none" stroke="#3b82f6" strokeWidth="1" opacity="0.2" className="animate-pulse" />
+                      <circle r="3" fill="#3b82f6" />
+                      
+                      {/* Custom tooltip / label for the pin */}
+                      <text x="8" y="3" fill="#ffffff" fontSize="7" fontWeight="black" className="font-sans uppercase tracking-wider bg-slate-950/80 px-1 py-0.5 rounded">
+                        {dest.label}
+                      </text>
+                    </g>
+                  ))}
+                </svg>
+
+                {/* Floating Package Icons */}
+                <AnimatePresence>
+                  <motion.div 
+                    key={activeTab}
+                    initial={{ opacity: 0, scale: 0.6, y: 10 }}
+                    animate={{ opacity: 1, scale: 1, y: 0 }}
+                    exit={{ opacity: 0, scale: 0.6 }}
+                    transition={{ duration: 0.4 }}
+                    style={{ 
+                      position: 'absolute', 
+                      left: `${categoriesData[activeTab].packagePos.x}%`, 
+                      top: `${categoriesData[activeTab].packagePos.y}%` 
+                    }}
+                    className="z-20 bg-slate-950/95 border border-slate-800 p-2 px-3 rounded-xl shadow-2xl flex items-center gap-1.5 pointer-events-none"
+                  >
+                    <motion.div
+                      animate={{ y: [0, -4, 0], rotate: [0, 5, -5, 0] }}
+                      transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
+                    >
+                      <Package className="text-shipplix-yellow" size={14} />
+                    </motion.div>
+                    <span className="text-[9px] font-black uppercase text-white tracking-widest font-mono">Cargo Shipped</span>
+                  </motion.div>
+                </AnimatePresence>
+              </div>
+            </div>
+          </motion.div>
+        </AnimatePresence>
+      </div>
+    </section>
+  );
+};
+
 const HowItWorks = () => {
   const steps = [
     {
@@ -1514,6 +1899,7 @@ export default function App() {
             </section>
 
             <ExportCategories />
+            <TopItemCategoriesShipped />
             <ShippingServices />
             <HowItWorks />
             <TrustSection />
