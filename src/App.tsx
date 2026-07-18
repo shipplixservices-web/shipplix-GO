@@ -40,7 +40,9 @@ import {
   ChevronDown,
   HelpCircle,
   ShieldCheck,
-  Award
+  Award,
+  Facebook,
+  Instagram
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import EconomyTerms from './components/EconomyTerms';
@@ -2045,9 +2047,49 @@ const Footer = ({ onNavigate }: { onNavigate?: (path: string) => void }) => {
         </div>
 
         <div className="flex flex-col md:flex-row justify-between items-center gap-6 mb-8">
-          <div className="flex items-center gap-2">
-            <div className="bg-slate-900 text-white font-black px-2 py-1 rounded text-lg tracking-tighter">SHIPPLIX</div>
-            <span className="text-[10px] font-bold tracking-widest uppercase">Safe. Fast. Transparent.</span>
+          <div className="flex flex-col items-center md:items-start gap-3">
+            <div className="flex items-center gap-2">
+              <div className="bg-slate-900 text-white font-black px-2 py-1 rounded text-lg tracking-tighter">SHIPPLIX</div>
+              <span className="text-[10px] font-bold tracking-widest uppercase">Safe. Fast. Transparent.</span>
+            </div>
+            {/* Follow Us Section */}
+            <div className="flex items-center gap-3">
+              <span className="text-[9px] font-black uppercase tracking-[0.2em] text-slate-400">Follow Us:</span>
+              <div className="flex items-center gap-4">
+                <a 
+                  href="https://web.facebook.com/profile.php?id=61571461311460" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="text-slate-400 hover:text-blue-600 transition-colors duration-200 flex items-center justify-center"
+                  aria-label="Facebook"
+                  title="Facebook"
+                >
+                  <Facebook size={14} className="w-3.5 h-3.5" />
+                </a>
+                <a 
+                  href="https://www.instagram.com/shipplixcargo1/" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="text-slate-400 hover:text-pink-600 transition-colors duration-200 flex items-center justify-center"
+                  aria-label="Instagram"
+                  title="Instagram"
+                >
+                  <Instagram size={14} className="w-3.5 h-3.5" />
+                </a>
+                <a 
+                  href="https://www.tiktok.com/@shipplixcargo" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="text-slate-400 hover:text-slate-900 transition-colors duration-200 flex items-center justify-center"
+                  aria-label="TikTok"
+                  title="TikTok"
+                >
+                  <svg className="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 15.69a6.33 6.33 0 0 0 10.86 4.43 6.25 6.25 0 0 0 1.62-4.4V10.22a8.27 8.27 0 0 0 4.1 1.71V8.4a4.81 4.81 0 0 1-2-.41 4.8 4.8 0 0 1-2-1.3z" />
+                  </svg>
+                </a>
+              </div>
+            </div>
           </div>
           <div className="flex flex-wrap justify-center md:justify-end gap-x-6 gap-y-2 text-[10px] font-black uppercase tracking-widest items-center">
              <a href="#/cargo-items" onClick={(e) => handleLinkClick(e, '/cargo-items')} className="hover:text-blue-600">Cargo Items</a>
