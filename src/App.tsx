@@ -53,6 +53,7 @@ import TrustPage from './components/TrustPage';
 import RevenuePartnerPage from './components/RevenuePartnerPage';
 import ExportBlueprintPage from './components/ExportBlueprintPage';
 import AdminLeadsPage from './components/AdminLeadsPage';
+import GlobalLogisticsNetwork from './components/GlobalLogisticsNetwork';
 import shipplixPackaging from './assets/images/shipplix_packaging_1784360014363.jpg';
 import shipplixPackagingUploaded from './assets/images/shipplix_packaging.png';
 
@@ -2221,6 +2222,7 @@ export default function App() {
         {currentPath === '/' && (
           <>
             <Hero />
+            <GlobalLogisticsNetwork />
             <UrgencyBanner />
             <TrustCertifications />
             
