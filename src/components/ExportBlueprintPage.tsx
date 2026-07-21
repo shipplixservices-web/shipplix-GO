@@ -113,7 +113,7 @@ export default function ExportBlueprintPage({ onNavigate, currentPath }: ExportB
           "name": "Is this guide free?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Yes, The African Export Blueprint is 100% free to download. Our goal is to empower African exporters with modern customer acquisition and automation systems to grow their international trade."
+            "text": "Yes, The African Export Growth is 100% free to download. Our goal is to empower African exporters with modern customer acquisition and automation systems to grow their international trade."
           }
         },
         {
@@ -130,7 +130,7 @@ export default function ExportBlueprintPage({ onNavigate, currentPath }: ExportB
     const articleSchema = {
       "@context": "https://schema.org",
       "@type": "Article",
-      "headline": "The African Export Blueprint: How to Build an International Customer Acquisition System",
+      "headline": "The African Export Growth: How to Build an International Customer Acquisition System",
       "description": "Download the official guide on how African businesses attract, validate, and convert overseas buyers systematically with modern technology and logistics.",
       "publisher": {
         "@type": "Organization",
@@ -155,7 +155,7 @@ export default function ExportBlueprintPage({ onNavigate, currentPath }: ExportB
         {
           "@type": "ListItem",
           "position": 2,
-          "name": "The African Export Blueprint",
+          "name": "The African Export Growth",
           "item": "https://shipplix.com/export-blueprint"
         }
       ]
@@ -694,7 +694,7 @@ When these parts work together, your business becomes predictable and easier to 
 ________________
 
 
-The Modern Export Business Blueprint
+The Modern Export Business Growth Manual
 A scalable export business typically includes:
 Marketing
 * Meta Ads (Facebook & Instagram)
@@ -832,14 +832,14 @@ Before you launch, make sure you have:
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;
-    a.download = "Shipplix_The_African_Export_Blueprint.txt";
+    a.download = "Shipplix_The_African_Export_Growth.txt";
     document.body.appendChild(a);
     a.click();
     document.body.removeChild(a);
     URL.revokeObjectURL(url);
   };
 
-  // Helper to trigger direct download of a simulated beautifully formatted blueprint PDF or the real PDF if uploaded
+  // Helper to trigger direct download of a simulated beautifully formatted Export Growth PDF or the real PDF if uploaded
   const triggerBlueprintDownload = async () => {
     try {
       // Check if the user has uploaded the real PDF in the public folder as "african-export-blueprint.pdf"
@@ -850,14 +850,14 @@ Before you launch, make sure you have:
       if (response.ok && !contentType.includes('text/html')) {
         const a = document.createElement('a');
         a.href = '/african-export-blueprint.pdf';
-        a.download = "The_African_Export_Blueprint_Shipplix.pdf";
+        a.download = "The_African_Export_Growth_Shipplix.pdf";
         document.body.appendChild(a);
         a.click();
         document.body.removeChild(a);
         return;
       }
     } catch (err) {
-      console.warn("Could not fetch real PDF, falling back to blueprint text generation", err);
+      console.warn("Could not fetch real PDF, falling back to Export Growth text generation", err);
     }
 
     // Fallback to text download
@@ -933,7 +933,7 @@ Before you launch, make sure you have:
   const previewPages = [
     {
       title: "Cover Page",
-      text: "The African Export Blueprint: How to Build an International Customer Acquisition System That Attracts Overseas Buyers Consistently.",
+      text: "The African Export Growth: How to Build an International Customer Acquisition System That Attracts Overseas Buyers Consistently.",
       badge: "GUIDE START"
     },
     {
@@ -962,11 +962,11 @@ Before you launch, make sure you have:
   const faqs = [
     {
       q: "Is this guide free?",
-      a: "Yes, The African Export Blueprint is 100% free with no hidden charges. It serves as our contribution to help African brands professionalize and access global trade opportunities confidently."
+      a: "Yes, The African Export Growth is 100% free with no hidden charges. It serves as our contribution to help African brands professionalize and access global trade opportunities confidently."
     },
     {
       q: "Who is this guide for?",
-      a: "This blueprint is specifically designed for agricultural product suppliers, food processors, fashion designers, beauty/cosmetic brands, handcrafted gift makers, and small-to-medium entrepreneurs across Africa aspiring to win high-value overseas buyers."
+      a: "This Export Growth is specifically designed for agricultural product suppliers, food processors, fashion designers, beauty/cosmetic brands, handcrafted gift makers, and small-to-medium entrepreneurs across Africa aspiring to win high-value overseas buyers."
     },
     {
       q: "Do I need export experience?",
@@ -1020,7 +1020,7 @@ Before you launch, make sure you have:
             Congratulations!
           </h1>
           <h2 className="text-xl font-bold text-slate-600 mb-6">
-            Your Export Blueprint Is Ready.
+            Your Export Growth Is Ready.
           </h2>
 
           <p className="text-slate-500 font-medium text-sm leading-relaxed max-w-lg mx-auto mb-10">
@@ -1034,7 +1034,7 @@ Before you launch, make sure you have:
               className="w-full md:w-auto px-8 py-5 text-xs uppercase tracking-widest font-black flex items-center justify-center gap-2"
             >
               <FileText size={16} />
-              Download TXT Blueprint (Recommended)
+              Download TXT Export Growth (Recommended)
             </PageButton>
 
             <PageButton 
@@ -1102,7 +1102,7 @@ Before you launch, make sure you have:
               
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-black uppercase tracking-tighter leading-[0.95] text-white">
                 The African <br className="hidden md:inline" />
-                <span className="text-shipplix-yellow bg-gradient-to-r from-yellow-300 to-amber-400 bg-clip-text text-transparent">Export Blueprint</span>
+                <span className="text-shipplix-yellow bg-gradient-to-r from-yellow-300 to-amber-400 bg-clip-text text-transparent">Export Growth</span>
               </h1>
 
               <h2 className="text-lg md:text-xl font-extrabold text-slate-100 tracking-tight leading-relaxed">
@@ -1119,7 +1119,7 @@ Before you launch, make sure you have:
                   "Free 5 Phase Guide",
                   "Beginner Friendly",
                   "Marketing Psychology",
-                  "Export Business Blueprint"
+                  "Export Business Growth"
                 ].map((badge, i) => (
                   <div key={i} className="flex items-center gap-1.5 bg-white/5 border border-white/10 px-3 py-2 rounded-xl">
                     <CheckCircle2 size={12} className="text-shipplix-yellow flex-shrink-0" />
@@ -1131,7 +1131,7 @@ Before you launch, make sure you have:
               {/* Action Buttons */}
               <div className="flex flex-col sm:flex-row gap-4 pt-6">
                 <PageButton variant="yellow" onClick={scrollToForm} className="px-8 py-4.5 text-xs uppercase tracking-widest font-black shadow-[0_0_30px_rgba(250,204,21,0.25)] hover:scale-[1.02]">
-                  <Download size={14} /> Download Free Blueprint
+                  <Download size={14} /> Download Free Export Growth
                 </PageButton>
                 <PageButton variant="ghost" as="a" href={URL_STRATEGY_CALL} target="_blank" rel="noopener noreferrer" className="border border-white/20 px-8 py-4.5 text-xs uppercase tracking-widest font-black hover:bg-white/5">
                   Book Free Strategy Call
@@ -1160,7 +1160,7 @@ Before you launch, make sure you have:
                       </span>
                       
                       <h3 className="text-xl md:text-2xl font-black uppercase tracking-tighter text-white leading-tight">
-                        THE AFRICAN<br />EXPORT<br />BLUEPRINT
+                        THE AFRICAN<br />EXPORT<br />GROWTH
                       </h3>
                       
                       <p className="text-[10px] text-slate-400 font-bold leading-relaxed mt-4">
@@ -1242,10 +1242,10 @@ Before you launch, make sure you have:
               Comprehensive Walkthrough
             </span>
             <h2 className="text-3xl md:text-4xl font-black text-slate-950 uppercase tracking-tighter">
-              Inside the 5-Phase Blueprint
+              Inside the 5-Phase Export Growth
             </h2>
             <p className="text-slate-500 text-xs md:text-sm font-bold tracking-tight">
-              Summarized into clear actionable objectives extracted straight from our PDF blueprint.
+              Summarized into clear actionable objectives extracted straight from our PDF Export Growth.
             </p>
           </div>
 
@@ -1337,12 +1337,12 @@ Before you launch, make sure you have:
                 Most traditional export courses only teach you customs codes and freight logistics. They assume customers will magically find you.
               </p>
               <p className="text-slate-300 text-xs md:text-sm font-bold leading-relaxed">
-                This blueprint flips the model: it teaches you how to build the complete digital trust engine first, ensuring you have reliable buyers lined up before your cargo even leaves the warehouse.
+                This Export Growth flips the model: it teaches you how to build the complete digital trust engine first, ensuring you have reliable buyers lined up before your cargo even leaves the warehouse.
               </p>
 
               <div className="pt-6 border-t border-white/10 space-y-4">
                 <p className="text-xl md:text-2xl font-black italic text-shipplix-yellow tracking-tight leading-relaxed">
-                  "International customers don't buy products first. They buy trust. This blueprint teaches you how to build that trust."
+                  "International customers don't buy products first. They buy trust. This Export Growth teaches you how to build that trust."
                 </p>
               </div>
             </div>
@@ -1397,7 +1397,7 @@ Before you launch, make sure you have:
                 
                 {/* Simulated Book Page Header */}
                 <div className="flex justify-between items-center text-slate-400 text-[8px] font-mono tracking-widest uppercase">
-                  <span>THE AFRICAN EXPORT BLUEPRINT</span>
+                  <span>THE AFRICAN EXPORT GROWTH</span>
                   <span className="bg-slate-800 text-shipplix-yellow px-2 py-0.5 rounded">
                     {previewPages[previewPage].badge}
                   </span>
@@ -1467,7 +1467,7 @@ Before you launch, make sure you have:
                   <BookOpen size={14} className="text-shipplix-yellow" /> Download Package Included:
                 </h4>
                 <p className="text-sm font-extrabold text-slate-800">
-                  You get the complete blueprint document instantly, plus matching checklist checklists, ready to apply to your business today.
+                  You get the complete Export Growth document instantly, plus matching checklist checklists, ready to apply to your business today.
                 </p>
                 <div className="mt-6 space-y-3.5">
                   {[
@@ -1507,7 +1507,7 @@ Before you launch, make sure you have:
                 Instant Digital Delivery
               </span>
               <h2 className="text-2xl md:text-3xl font-black uppercase tracking-tight">
-                Download Your Free Export Blueprint
+                Download Your Free Export Growth
               </h2>
               <p className="text-slate-300 text-xs font-medium leading-relaxed max-w-xl mx-auto">
                 Complete the form below to receive instant access. The guide will be instantly delivered to your email and made available on the next screen.
@@ -1690,7 +1690,7 @@ Before you launch, make sure you have:
                   disabled={isSubmitting}
                   className="w-full text-xs uppercase tracking-widest font-black py-4.5"
                 >
-                  {isSubmitting ? 'Transmitting Leads...' : 'Download My Free Blueprint'}
+                  {isSubmitting ? 'Transmitting Leads...' : 'Download My Free Export Growth'}
                   <ArrowRight size={14} className="group-hover:translate-x-0.5 transition-transform" />
                 </PageButton>
                 <p className="text-center text-[10px] text-slate-400 mt-3 font-semibold uppercase tracking-wider">
@@ -1834,7 +1834,7 @@ Before you launch, make sure you have:
               Frequently Asked Questions
             </h2>
             <p className="text-slate-500 text-xs md:text-sm font-bold tracking-tight">
-              Get detailed, professional explanations regarding our free blueprint, tech setup, and shipping support.
+              Get detailed, professional explanations regarding our free Export Growth, tech setup, and shipping support.
             </p>
           </div>
 
@@ -1897,12 +1897,12 @@ Before you launch, make sure you have:
           </p>
 
           <p className="text-shipplix-yellow font-extrabold text-sm tracking-tight uppercase">
-            Download the free blueprint today and take the first step toward building an export business that grows beyond borders.
+            Download the free Export Growth today and take the first step toward building an export business that grows beyond borders.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-6">
             <PageButton variant="yellow" onClick={scrollToForm} className="w-full sm:w-auto px-10">
-              <Download size={14} /> Download Blueprint
+              <Download size={14} /> Download Export Growth
             </PageButton>
             <PageButton variant="ghost" as="a" href={URL_STRATEGY_CALL} target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto border border-white/20 px-10">
               Book Strategy Session
