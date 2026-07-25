@@ -237,6 +237,9 @@ export default function ProcessingPage() {
                   <img 
                     src={watchYourCargoPackedLive}
                     alt="Shipplix Video Envelope Packing Recording"
+                    loading="lazy"
+                    decoding="async"
+                    sizes="(max-width: 768px) 100vw, 50vw"
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                     referrerPolicy="no-referrer"
                   />

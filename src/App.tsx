@@ -1130,6 +1130,8 @@ const PremiumPackagingSection = () => {
                 alt="Shipplix Custom Premium Poly Mailer Packaging Bags Showcase"
                 referrerPolicy="no-referrer"
                 loading="lazy"
+                decoding="async"
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 560px"
                 className="w-full h-auto object-cover object-center relative block select-none transform transition-transform duration-700 ease-out group-hover:scale-[1.01]"
               />
 

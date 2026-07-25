@@ -144,6 +144,8 @@ export const RealShipmentGallery: React.FC = () => {
                   src={item.url}
                   alt={item.caption}
                   loading="lazy"
+                  decoding="async"
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                   referrerPolicy="no-referrer"
                   className="w-full h-full object-cover group-hover:scale-108 transition-transform duration-500 ease-out"
                   onError={(e) => {
@@ -289,6 +291,9 @@ export const RealShipmentGallery: React.FC = () => {
                   <img
                     src={displayedItems[lightboxIndex].url}
                     alt={displayedItems[lightboxIndex].caption}
+                    loading="lazy"
+                    decoding="async"
+                    sizes="(max-width: 768px) 100vw, 66vw"
                     referrerPolicy="no-referrer"
                     className="w-full h-full object-contain max-h-[70vh]"
                   />
