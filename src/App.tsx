@@ -130,7 +130,7 @@ const Navbar = ({ onNavigate, currentPath }: { onNavigate?: (path: string) => vo
           }}
         >
           <div className="bg-shipplix-yellow text-shipplix-blue font-black p-1 rounded-sm text-xl tracking-tighter">SHIPPLIX</div>
-          <span className="hidden sm:inline-block text-[10px] font-bold tracking-widest opacity-80 uppercase leading-none">Official Export<br/>Partner</span>
+          <span className="hidden sm:inline-block text-[10px] font-bold tracking-widest opacity-80 uppercase leading-none">Global Commerce &amp;<br/>Logistics Platform</span>
         </div>
         
         <div className="hidden md:flex items-center gap-6 text-xs font-bold uppercase tracking-wider">
@@ -259,15 +259,15 @@ Please contact me to continue my shipment booking.`;
               transition={{ duration: 0.4 }}
             >
               <span className="bg-blue-100 text-blue-800 text-[10px] font-black px-2 py-1 rounded uppercase tracking-widest mb-4 inline-block">
-                Nigeria to UK, USA & Canada
+                Global Commerce &amp; Logistics Platform
               </span>
               
               <h1 className="text-3xl md:text-5xl font-black leading-tight text-slate-900 mb-4">
-                Turn Your Nigerian Goods Into <span className="text-shipplix-blue underline decoration-shipplix-yellow decoration-4 underline-offset-4">Pounds, Dollars</span> & Canadian Cash.
+                Expand Your Business <span className="text-shipplix-blue underline decoration-shipplix-yellow decoration-4 underline-offset-4">Beyond Borders.</span>
               </h1>
               
               <p className="text-slate-600 text-base md:text-lg mb-8 max-w-2xl font-medium">
-                We help African vendors ship food, fashion & cultural goods from Nigeria safely. No stories. No scams. No lost goods. Just pure profit delivered to your destination.
+                Shipplix helps African businesses sell globally through international shipping, export solutions, e-commerce, AI automation, and business growth systems.
               </p>
 
               <div className="mb-4">
@@ -403,20 +403,20 @@ Please contact me to continue my shipment booking.`;
         <div className="lg:w-1/3 mt-8 lg:mt-0 bg-blue-50/50 flex items-center justify-center border-l-0 lg:border-l border-slate-100 -m-6 md:-m-10 lg:m-0 p-8">
           <div className="text-center w-full">
             <div className="text-4xl font-black text-blue-900 mb-1">$2,500+</div>
-            <div className="text-[10px] uppercase font-bold text-slate-500 tracking-wider mb-6">Avg. Potential Growth per Vendor</div>
+            <div className="text-[10px] uppercase font-bold text-slate-500 tracking-wider mb-6">Avg. Global Sales Growth per Business</div>
             
             <div className="grid grid-cols-2 gap-2 text-[10px] font-bold">
               <div className="bg-white p-3 rounded-lg border border-blue-100 shadow-sm italic text-blue-800">
-                "Sent 50kg Garri to UK!"
+                "International Shipping"
               </div>
               <div className="bg-white p-3 rounded-lg border border-blue-100 shadow-sm italic text-blue-800">
-                "Native wears to USA!"
+                "E-Commerce & AI Setup"
               </div>
               <div className="bg-white p-3 rounded-lg border border-blue-100 shadow-sm italic text-blue-800">
-                "Wigs cleared in 3 days"
+                "Export Customs Cleared"
               </div>
               <div className="bg-white p-3 rounded-lg border border-blue-100 shadow-sm italic text-blue-800">
-                "Paid in GBP today!"
+                "Global Customer Growth"
               </div>
             </div>
           </div>
@@ -425,10 +425,10 @@ Please contact me to continue my shipment booking.`;
 
       <div className="mt-8 grid grid-cols-2 md:grid-cols-4 gap-4">
         {[
-          { icon: <CheckCircle2 size={16} className="text-green-500" />, label: "No Hidden Charges" },
-          { icon: <CheckCircle2 size={16} className="text-green-500" />, label: "Real-Time Video Proof" },
-          { icon: <CheckCircle2 size={16} className="text-green-500" />, label: "Expert Customs Support" },
-          { icon: <CheckCircle2 size={16} className="text-green-500" />, label: "Warehouse Hub in Lagos" }
+          { icon: <CheckCircle2 size={16} className="text-green-500" />, label: "International Shipping" },
+          { icon: <CheckCircle2 size={16} className="text-green-500" />, label: "Export Solutions & Customs" },
+          { icon: <CheckCircle2 size={16} className="text-green-500" />, label: "E-Commerce & AI Systems" },
+          { icon: <CheckCircle2 size={16} className="text-green-500" />, label: "Business Growth Support" }
         ].map((item, i) => (
           <div key={i} className="flex items-center gap-2 bg-white px-4 py-2 rounded-lg border border-slate-200 shadow-sm font-bold text-[11px] uppercase tracking-tight text-slate-600">
             {item.icon}
@@ -545,7 +545,7 @@ const ExportCategories = () => {
       <div className="container mx-auto px-6">
         <SectionTitle 
           title="Export Categories" 
-          subtitle="If people abroad are buying it, we can ship it."
+          subtitle="Whether you produce foodstuff, fashion, or cultural goods, Shipplix powers your global shipping and trade growth."
         />
         
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
@@ -1257,18 +1257,18 @@ const ShippingServices = () => {
   ];
 
   const trustPoints = [
-    "Safe & secure handling",
-    "On-time delivery",
-    "Customer support",
-    "Affordable pricing"
+    "International Shipping",
+    "Export & Customs Solutions",
+    "E-Commerce Store Development",
+    "AI & WhatsApp Automation"
   ];
 
   return (
     <section id="services" className="scroll-mt-24 py-16 bg-white border-y border-slate-200">
       <div className="container mx-auto px-6">
         <SectionTitle 
-          title="Our Shipping Services" 
-          subtitle="Shipplix offers fast, reliable, and affordable shipping options from Nigeria to the USA. We provide tailored solutions to match your urgency and budget."
+          title="Global Commerce & Logistics Services" 
+          subtitle="From fast international air cargo to complete export clearance, e-commerce, and business growth systems, Shipplix helps African businesses expand globally."
         />
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
@@ -1385,10 +1385,10 @@ const TrustSection = () => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
           <div className="lg:col-span-5">
             <h2 className="text-3xl md:text-4xl font-black text-blue-900 mb-6 uppercase tracking-tighter leading-none">
-              Why African Vendors <br/><span className="text-shipplix-accent">Truly Trust Shipplix</span>
+              Why African Businesses <br/><span className="text-shipplix-accent">Grow with Shipplix</span>
             </h2>
             <p className="text-slate-600 font-medium mb-8">
-              We know you've heard horror stories of lost goods and fake agents. That's why we've built a high-transparency shipping model.
+              Shipplix is more than a freight forwarder — we are your complete partner for global commerce. From transparent international logistics to AI tools, store setup, and buyer acquisition systems, we help you build an enduring international brand.
             </p>
             <div className="bg-blue-900 text-white p-6 rounded-xl relative overflow-hidden">
                 <div className="relative z-10">
@@ -1640,33 +1640,33 @@ const GroupShipping = () => (
 const ExportHub = () => {
   const features = [
     {
-      title: "AI Commerce",
-      desc: "Use AI to create content, captions, ads, and product descriptions faster.",
-      icon: <Bot className="text-shipplix-yellow" size={24} />,
-    },
-    {
-      title: "Global Shipping",
-      desc: "Ship products from Nigeria to USA, UK, Canada & Europe.",
+      title: "International Shipping",
+      desc: "Fast air freight and express courier solutions from Nigeria to the USA, UK, Canada, Europe, and worldwide.",
       icon: <Globe className="text-shipplix-yellow" size={24} />,
     },
     {
-      title: "Customer Acquisition",
-      desc: "Learn how to attract international customers online.",
-      icon: <TrendingUp className="text-shipplix-yellow" size={24} />,
-    },
-    {
-      title: "E-commerce Systems",
-      desc: "Build online stores and automate your business.",
-      icon: <ShoppingCart className="text-shipplix-yellow" size={24} />,
-    },
-    {
-      title: "Export Guidance",
-      desc: "Learn packaging, pricing, and export processes.",
+      title: "Export Solutions",
+      desc: "Full customs clearance, regulatory compliance, documentation, and secure export packaging.",
       icon: <FileCheck className="text-shipplix-yellow" size={24} />,
     },
     {
-      title: "Vendor Community",
-      desc: "Join ambitious African entrepreneurs building global brands.",
+      title: "E-Commerce Store Development",
+      desc: "Custom high-converting online store setups built for international shoppers and 24/7 global sales.",
+      icon: <ShoppingCart className="text-shipplix-yellow" size={24} />,
+    },
+    {
+      title: "AI & WhatsApp Automation",
+      desc: "Intelligent AI bots and automated CRM workflows to convert buyer inquiries into instant orders.",
+      icon: <Bot className="text-shipplix-yellow" size={24} />,
+    },
+    {
+      title: "Marketing & Acquisition",
+      desc: "Targeted customer acquisition systems designed to attract and retain overseas buyers.",
+      icon: <TrendingUp className="text-shipplix-yellow" size={24} />,
+    },
+    {
+      title: "Business Growth Support",
+      desc: "Strategic growth frameworks, pricing models, and community support for scaling African brands globally.",
       icon: <Users className="text-shipplix-yellow" size={24} />,
     }
   ];
@@ -1701,17 +1701,16 @@ const ExportHub = () => {
             >
               <div className="inline-flex items-center gap-2 bg-shipplix-yellow/10 border border-shipplix-yellow/20 px-3 py-1 rounded-full mb-6 text-shipplix-yellow text-[10px] uppercase font-black tracking-widest">
                 <Zap size={14} className="animate-pulse" />
-                Shipplix Export Hub
+                Shipplix Commerce &amp; Export Hub
               </div>
-              <p className="text-shipplix-yellow font-bold text-lg mb-2 tracking-tight uppercase">Learn • Sell • Ship Worldwide</p>
+              <p className="text-shipplix-yellow font-bold text-lg mb-2 tracking-tight uppercase">Ship • Sell • Automate • Scale Globally</p>
               <h2 className="text-3xl md:text-5xl lg:text-6xl font-black mb-6 leading-[0.95] tracking-tighter uppercase">
-                Turn Your Nigerian <br/> 
-                <span className="text-shipplix-yellow">Products Into</span> <br/>
-                Pounds, Dollars <br/>
-                & Canadian Cash.
+                Your Partner For <br/> 
+                <span className="text-shipplix-yellow">Global Commerce</span> <br/>
+                &amp; Export Growth
               </h2>
               <p className="text-lg text-white/80 font-medium max-w-xl mb-10 leading-relaxed md:text-xl">
-                Learn how to sell Nigerian products globally using AI tools, customer acquisition systems, eCommerce strategies, and Shipplix international shipping.
+                From export logistics to e-commerce store development, AI automation, and customer acquisition, Shipplix helps African businesses grow internationally.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Button 
@@ -1874,9 +1873,9 @@ const ExportHub = () => {
               <Star className="text-shipplix-yellow" size={24} fill="#facc15" />
             </div>
             <p className="text-xl md:text-3xl font-black leading-tight italic tracking-tight">
-              “The world already wants African products. <br className="hidden md:block" /> 
-              Most vendors simply lack visibility, systems, and global access. <br className="hidden md:block" /> 
-              Shipplix helps bridge that gap.”
+              “The world is eager for African products. <br className="hidden md:block" /> 
+              With Shipplix as your global commerce and logistics partner, <br className="hidden md:block" /> 
+              you get the shipping, technology, and growth systems to sell everywhere.”
             </p>
           </div>
         </motion.div>
@@ -2027,10 +2026,10 @@ const Footer = ({ onNavigate }: { onNavigate?: (path: string) => void }) => {
         <div className="bg-slate-50 border border-slate-200 rounded-2xl p-6 md:p-8 mb-10 flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="text-center md:text-left">
             <h4 className="text-base font-black text-slate-900 uppercase tracking-tight mb-1">
-              Ready to Export Your Nigerian Cargo?
+              Ready to Expand Your Business Globally?
             </h4>
             <p className="text-xs font-bold text-slate-500 uppercase tracking-wider">
-              Experience stress-free, fast, and secure delivery to your global buyers.
+              Experience seamless international shipping, e-commerce setup, and export growth.
             </p>
           </div>
           <div className="flex flex-col items-center gap-2 w-full md:w-auto">
@@ -2103,7 +2102,7 @@ const Footer = ({ onNavigate }: { onNavigate?: (path: string) => void }) => {
           </div>
         </div>
       <div className="pt-8 border-t border-slate-100 flex flex-col md:flex-row justify-between items-center gap-4 text-[9px] font-black uppercase tracking-widest">
-         <p>© {new Date().getFullYear()} SHIPPLIX EXPORT LOGISTICS. MADE IN LAGOS.</p>
+         <p>© {new Date().getFullYear()} SHIPPLIX GLOBAL COMMERCE &amp; LOGISTICS. MADE IN LAGOS.</p>
          <div className="flex items-center gap-4">
             <span className="text-blue-600">2,400+ Exports</span>
             <span className="text-slate-300">|</span>
@@ -2192,7 +2191,7 @@ export default function App() {
 
   React.useEffect(() => {
     if (currentPath === '/') {
-      document.title = "Shipplix Logistics – Fast & Reliable Export Shipping from Nigeria";
+      document.title = "Shipplix – Global Commerce & Logistics Platform | Expand Beyond Borders";
     } else if (currentPath === '/admin-leads') {
       document.title = "Admin Leads Portal – Shipplix";
     } else if (currentPath === '/cargo-items') {
