@@ -1641,32 +1641,32 @@ const ExportHub = () => {
   const features = [
     {
       title: "International Shipping",
-      desc: "Fast air freight and express courier solutions from Nigeria to the USA, UK, Canada, Europe, and worldwide.",
+      desc: "Fast air freight and express shipping solutions to reach global buyers reliably.",
       icon: <Globe className="text-shipplix-yellow" size={24} />,
     },
     {
       title: "Export Solutions",
-      desc: "Full customs clearance, regulatory compliance, documentation, and secure export packaging.",
+      desc: "Full customs clearance, regulatory compliance, and export documentation to enter global markets effortlessly.",
       icon: <FileCheck className="text-shipplix-yellow" size={24} />,
     },
     {
       title: "E-Commerce Store Development",
-      desc: "Custom high-converting online store setups built for international shoppers and 24/7 global sales.",
+      desc: "Professional e-commerce websites designed to help you attract customers and sell globally.",
       icon: <ShoppingCart className="text-shipplix-yellow" size={24} />,
     },
     {
       title: "AI & WhatsApp Automation",
-      desc: "Intelligent AI bots and automated CRM workflows to convert buyer inquiries into instant orders.",
+      desc: "Automate customer conversations, follow-ups, and sales with intelligent WhatsApp workflows.",
       icon: <Bot className="text-shipplix-yellow" size={24} />,
     },
     {
       title: "Marketing & Acquisition",
-      desc: "Targeted customer acquisition systems designed to attract and retain overseas buyers.",
+      desc: "Reach more customers through data-driven digital marketing and customer acquisition strategies.",
       icon: <TrendingUp className="text-shipplix-yellow" size={24} />,
     },
     {
       title: "Business Growth Support",
-      desc: "Strategic growth frameworks, pricing models, and community support for scaling African brands globally.",
+      desc: "Strategic growth frameworks, pricing models, and expert support to scale your business internationally.",
       icon: <Users className="text-shipplix-yellow" size={24} />,
     }
   ];
@@ -1701,16 +1701,16 @@ const ExportHub = () => {
             >
               <div className="inline-flex items-center gap-2 bg-shipplix-yellow/10 border border-shipplix-yellow/20 px-3 py-1 rounded-full mb-6 text-shipplix-yellow text-[10px] uppercase font-black tracking-widest">
                 <Zap size={14} className="animate-pulse" />
-                Shipplix Commerce &amp; Export Hub
+                Shipplix Growth Platform
               </div>
-              <p className="text-shipplix-yellow font-bold text-lg mb-2 tracking-tight uppercase">Ship • Sell • Automate • Scale Globally</p>
+              <p className="text-shipplix-yellow font-bold text-lg mb-2 tracking-tight uppercase">Build • Sell • Automate • Ship Worldwide</p>
               <h2 className="text-3xl md:text-5xl lg:text-6xl font-black mb-6 leading-[0.95] tracking-tighter uppercase">
                 Your Partner For <br/> 
                 <span className="text-shipplix-yellow">Global Commerce</span> <br/>
-                &amp; Export Growth
+                &amp; Business Growth
               </h2>
               <p className="text-lg text-white/80 font-medium max-w-xl mb-10 leading-relaxed md:text-xl">
-                From export logistics to e-commerce store development, AI automation, and customer acquisition, Shipplix helps African businesses grow internationally.
+                Shipplix Growth Platform helps entrepreneurs and businesses launch, sell, automate, and scale internationally. Beyond shipping, we provide the digital tools, business systems, and expert support needed to grow across global markets.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Button 
@@ -1731,7 +1731,7 @@ const ExportHub = () => {
                   variant="ghost" 
                   className="px-10 py-5 text-sm border border-white/20 uppercase tracking-widest"
                 >
-                  Ship With Shipplix
+                  Speak With a Growth Expert
                 </Button>
               </div>
             </motion.div>
