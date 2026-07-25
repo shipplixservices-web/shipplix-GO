@@ -54,7 +54,7 @@ import RevenuePartnerPage from './components/RevenuePartnerPage';
 import ExportBlueprintPage from './components/ExportBlueprintPage';
 import AdminLeadsPage from './components/AdminLeadsPage';
 import GlobalLogisticsNetwork from './components/GlobalLogisticsNetwork';
-import shipplixPackaging from './assets/images/shipplix_packaging_1784360014363.jpg';
+import { RealShipmentGallery } from './components/RealShipmentGallery';
 import shipplixPackagingUploaded from './assets/images/shipplix_packaging.png';
 
 // Common Components
@@ -972,13 +972,7 @@ const TopItemCategoriesShipped = () => {
 };
 
 const PremiumPackagingSection = () => {
-  const [imageSrc, setImageSrc] = React.useState<string>(shipplixPackagingUploaded);
-
-  const handleImageError = () => {
-    if (imageSrc !== shipplixPackaging) {
-      setImageSrc(shipplixPackaging);
-    }
-  };
+  const [imageSrc] = React.useState<string>(shipplixPackagingUploaded);
 
   const features = [
     "Branded Premium Packaging",
@@ -1133,7 +1127,6 @@ const PremiumPackagingSection = () => {
               
               <img 
                 src={imageSrc}
-                onError={handleImageError}
                 alt="Shipplix Custom Premium Poly Mailer Packaging Bags Showcase"
                 referrerPolicy="no-referrer"
                 loading="lazy"
@@ -2271,6 +2264,7 @@ export default function App() {
             <ShippingServices />
             <HowItWorks />
             <TrustSection />
+            <RealShipmentGallery />
             <DiasporaSection />
             <GroupShipping />
             <Testimonials />
