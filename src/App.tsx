@@ -712,8 +712,8 @@ const TopItemCategoriesShipped = () => {
         />
 
         {/* Custom Premium Tabs with Sliding Pill */}
-        <div className="flex justify-center mb-12">
-          <div className="bg-slate-200/60 p-1.5 rounded-full flex gap-1 border border-slate-300/40 relative">
+        <div className="flex justify-start sm:justify-center mb-12 overflow-x-auto scrollbar-hide max-w-full px-2 py-1">
+          <div className="bg-slate-200/60 p-1.5 rounded-full flex gap-1 border border-slate-300/40 relative min-w-max mx-auto">
             {tabs.map((tab) => {
               const isSelected = activeTab === tab.id;
               return (
@@ -721,7 +721,7 @@ const TopItemCategoriesShipped = () => {
                   key={tab.id}
                   type="button"
                   onClick={() => setActiveTab(tab.id)}
-                  className={`relative px-5 py-2.5 rounded-full text-xs md:text-sm font-black uppercase tracking-wider transition-colors duration-300 focus:outline-none select-none ${
+                  className={`relative px-3.5 sm:px-5 py-2 sm:py-2.5 rounded-full text-[11px] sm:text-xs md:text-sm font-black uppercase tracking-wider transition-colors duration-300 focus:outline-none select-none whitespace-nowrap ${
                     isSelected ? 'text-blue-950' : 'text-slate-600 hover:text-slate-900'
                   }`}
                 >
@@ -1948,7 +1948,7 @@ const ExportHub = () => {
             subtitle="The path to global commerce is shorter than you think." 
             light 
           />
-          <div className="relative mt-16 overflow-x-auto pb-8 scrollbar-hide">
+          <div className="relative mt-16 overflow-x-auto pb-8 scrollbar-hide max-w-full w-full">
             <div className="flex lg:grid lg:grid-cols-6 gap-4 min-w-[900px] lg:min-w-0">
               {timeline.map((item, i) => (
                 <div key={i} className="flex-1 relative">
