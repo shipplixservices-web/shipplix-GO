@@ -88,7 +88,7 @@ export default function ProcessingPage() {
     { day: 'Wednesday', activity: 'Export Packing & Security Scan', details: 'All packages are weighed, vacuum sealed, and security scanned.' },
     { day: 'Thursday', activity: 'Customs Clearance at MMIA Airport', details: 'Export manifests finalized with Federal Customs Aviation Division.' },
     { day: 'Friday - Saturday', activity: 'Weekly Flight Departure', details: 'Aircraft departs Lagos. Live manifest file shared in real-time.' },
-    { day: 'Monday - Tuesday', activity: 'Destination Customs & Delivery', details: 'Local clearance and home delivery across UK, USA, and Canada.' }
+    { day: 'Monday - Tuesday', activity: 'Destination Customs & Delivery', details: 'Local clearance and home delivery across China, UK, USA, Canada, and Europe.' }
   ];
 
   return (
@@ -104,7 +104,7 @@ export default function ProcessingPage() {
             How Shipping <span className="text-amber-400">Works</span>
           </h1>
           <p className="text-sm md:text-base text-slate-300 font-medium max-w-2xl mx-auto">
-            A highly optimized, step-by-step export workflow from Lagos Hub drop-offs directly to London, New York, or Toronto doorsteps. No delays. No secrets.
+            A highly optimized, step-by-step export workflow from Lagos Hub drop-offs directly to Guangzhou, London, New York, or Toronto doorsteps. No delays. No secrets.
           </p>
         </div>
       </section>
@@ -237,9 +237,6 @@ export default function ProcessingPage() {
                   <img 
                     src={watchYourCargoPackedLive}
                     alt="Shipplix Video Envelope Packing Recording"
-                    loading="lazy"
-                    decoding="async"
-                    sizes="(max-width: 768px) 100vw, 50vw"
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                     referrerPolicy="no-referrer"
                   />

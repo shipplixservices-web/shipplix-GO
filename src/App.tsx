@@ -55,6 +55,7 @@ import ExportBlueprintPage from './components/ExportBlueprintPage';
 import AdminLeadsPage from './components/AdminLeadsPage';
 import GlobalLogisticsNetwork from './components/GlobalLogisticsNetwork';
 import { RealShipmentGallery } from './components/RealShipmentGallery';
+import FutureProductsPage from './components/FutureProductsPage';
 import shipplixPackagingUploaded from './assets/images/shipplix_packaging.png';
 
 // Common Components
@@ -133,18 +134,17 @@ const Navbar = ({ onNavigate, currentPath }: { onNavigate?: (path: string) => vo
           <span className="hidden sm:inline-block text-[10px] font-bold tracking-widest opacity-80 uppercase leading-none">Global Commerce &amp;<br/>Logistics Platform</span>
         </div>
         
-        <div className="hidden md:flex items-center gap-6 text-xs font-bold uppercase tracking-wider">
+        <div className="hidden md:flex items-center gap-5 text-[11px] font-bold uppercase tracking-wider">
           <a href="#/cargo-items" onClick={(e) => handleLinkClick(e, '/cargo-items')} className={`transition-colors ${currentPath === '/cargo-items' ? 'text-shipplix-yellow underline font-black' : 'hover:text-shipplix-yellow'}`}>Cargo Items</a>
           <a href="#/economy-cargo" onClick={(e) => handleLinkClick(e, '/economy-cargo')} className={`transition-colors ${currentPath === '/economy-cargo' ? 'text-shipplix-yellow underline font-black' : 'hover:text-shipplix-yellow'}`}>Economy Cargo</a>
-          <a href="#/economy-cargo-terms" onClick={(e) => handleLinkClick(e, '/economy-cargo-terms')} className={`transition-colors ${currentPath === '/economy-cargo-terms' ? 'text-shipplix-yellow underline font-black' : 'hover:text-shipplix-yellow'}`}>Economy Terms</a>
           <a href="#/processing" onClick={(e) => handleLinkClick(e, '/processing')} className={`transition-colors ${currentPath === '/processing' ? 'text-shipplix-yellow underline font-black' : 'hover:text-shipplix-yellow'}`}>Processing</a>
           <a href="#/trust" onClick={(e) => handleLinkClick(e, '/trust')} className={`transition-colors ${currentPath === '/trust' ? 'text-shipplix-yellow underline font-black' : 'hover:text-shipplix-yellow'}`}>Trust</a>
-          <a href="#/revenue-partner" onClick={(e) => handleLinkClick(e, '/revenue-partner')} className={`transition-colors ${currentPath === '/revenue-partner' ? 'text-shipplix-yellow underline font-black' : 'hover:text-shipplix-yellow'}`}>Revenue Partner</a>
           <a href="#/export-blueprint" onClick={(e) => handleLinkClick(e, '/export-blueprint')} className={`transition-colors ${currentPath === '/export-blueprint' ? 'text-shipplix-yellow underline font-black' : 'hover:text-shipplix-yellow'}`}>Blueprint</a>
+          <a href="#/future-products" onClick={(e) => handleLinkClick(e, '/future-products')} className={`transition-colors ${currentPath === '/future-products' ? 'text-shipplix-yellow underline font-black' : 'hover:text-shipplix-yellow'}`}>Future Products</a>
           <a 
             href="https://myshipment.shipplix.com" 
             target="_self" 
-            className="bg-[#FEB919] hover:bg-[#e2a412] text-[#032B73] font-black py-2.5 px-5 rounded-xl transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md text-[10px] uppercase tracking-widest flex items-center justify-center gap-1.5"
+            className="bg-[#FEB919] hover:bg-[#e2a412] text-[#032B73] font-black py-2.5 px-4 rounded-xl transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md text-[10px] uppercase tracking-widest flex items-center justify-center gap-1.5"
           >
             Book my shipment
           </a>
@@ -154,7 +154,7 @@ const Navbar = ({ onNavigate, currentPath }: { onNavigate?: (path: string) => vo
             target="_blank" 
             rel="noopener noreferrer" 
             variant="ghost" 
-            className="py-2 px-4 text-[10px] uppercase tracking-widest border border-white/20 hover:bg-white/10"
+            className="py-2 px-3.5 text-[10px] uppercase tracking-widest border border-white/20 hover:bg-white/10"
           >
             Get Quote
           </Button>
@@ -181,6 +181,7 @@ const Navbar = ({ onNavigate, currentPath }: { onNavigate?: (path: string) => vo
               <a href="#/trust" onClick={(e) => handleLinkClick(e, '/trust')} className={`py-1 ${currentPath === '/trust' ? 'text-shipplix-yellow underline font-black' : 'hover:text-shipplix-yellow'}`}>Trust</a>
               <a href="#/revenue-partner" onClick={(e) => handleLinkClick(e, '/revenue-partner')} className={`py-1 ${currentPath === '/revenue-partner' ? 'text-shipplix-yellow underline font-black' : 'hover:text-shipplix-yellow'}`}>Revenue Partner</a>
               <a href="#/export-blueprint" onClick={(e) => handleLinkClick(e, '/export-blueprint')} className={`py-1 ${currentPath === '/export-blueprint' ? 'text-shipplix-yellow underline font-black' : 'hover:text-shipplix-yellow'}`}>Blueprint</a>
+              <a href="#/future-products" onClick={(e) => handleLinkClick(e, '/future-products')} className={`py-1 ${currentPath === '/future-products' ? 'text-shipplix-yellow underline font-black' : 'hover:text-shipplix-yellow'}`}>Future Products Roadmap</a>
               <a 
                 href="https://myshipment.shipplix.com" 
                 target="_self" 
@@ -267,7 +268,7 @@ Please contact me to continue my shipment booking.`;
               </h1>
               
               <p className="text-slate-600 text-base md:text-lg mb-8 max-w-2xl font-medium">
-                Shipplix helps African businesses sell globally through international shipping, export solutions, e-commerce, AI automation, and business growth systems.
+                Shipplix is a leading international logistics platform offering seamless import from China to Nigeria, fast air and sea export from Nigeria to China, customs clearance, e-commerce tools, and global shipping across the USA, UK, Canada, and Europe.
               </p>
 
               <div className="mb-4">
@@ -346,9 +347,11 @@ Please contact me to continue my shipment booking.`;
                         className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-xs font-bold text-slate-800 focus:outline-none focus:border-shipplix-blue transition-colors cursor-pointer"
                       >
                         <option value="">Select destination</option>
+                        <option value="China">China (Import &amp; Export)</option>
                         <option value="UK">United Kingdom (UK)</option>
                         <option value="USA">United States (USA)</option>
                         <option value="Canada">Canada</option>
+                        <option value="Europe">Europe</option>
                         <option value="Other">Other</option>
                       </select>
                     </div>
@@ -616,10 +619,11 @@ const CountUp = ({ value, duration = 800 }: { value: number; duration?: number }
 };
 
 const TopItemCategoriesShipped = () => {
-  type TabId = 'USA' | 'UK' | 'Canada' | 'Europe';
-  const [activeTab, setActiveTab] = React.useState<TabId>('USA');
+  type TabId = 'China' | 'USA' | 'UK' | 'Canada' | 'Europe';
+  const [activeTab, setActiveTab] = React.useState<TabId>('China');
 
   const tabs: { id: TabId; label: string }[] = [
+    { id: 'China', label: '🇨🇳 China' },
     { id: 'USA', label: '🇺🇸 USA' },
     { id: 'UK', label: '🇬🇧 United Kingdom' },
     { id: 'Canada', label: '🇨🇦 Canada' },
@@ -627,6 +631,19 @@ const TopItemCategoriesShipped = () => {
   ];
 
   const categoriesData = {
+    China: {
+      title: "Top Item Categories Shipped (China Import & Export)",
+      items: [
+        { label: "Electronics & Tech Hardware", percentage: 35, color: "bg-blue-900" },
+        { label: "Fashion, Textiles & Apparel", percentage: 28, color: "bg-blue-600" },
+        { label: "Agricultural Goods (Sesame, Cocoa)", percentage: 18, color: "bg-shipplix-accent" },
+        { label: "Machinery & Industrial Hardware", percentage: 12, color: "bg-teal-500" },
+        { label: "Commercial Goods & Materials", percentage: 7, color: "bg-slate-400" },
+      ],
+      destinations: [{ x: 380, y: 110, label: "China (Guangzhou / Yiwu)" }],
+      flightPath: "M 240 175 Q 310 120 380 110",
+      packagePos: { x: 76, y: 28 }
+    },
     USA: {
       title: "Top Item Categories Shipped To United States",
       items: [
@@ -780,6 +797,7 @@ const TopItemCategoriesShipped = () => {
                 {/* Soft ambient glow behind map */}
                 <div className="absolute inset-0 flex items-center justify-center">
                   <div className="w-64 h-64 rounded-full bg-blue-500/10 blur-[80px]" />
+                  {activeTab === 'China' && <div className="absolute left-[70%] top-[30%] w-32 h-32 rounded-full bg-amber-400/20 blur-[50px] animate-pulse" />}
                   {activeTab === 'USA' && <div className="absolute left-[20%] top-[40%] w-32 h-32 rounded-full bg-blue-500/20 blur-[50px] animate-pulse" />}
                   {activeTab === 'UK' && <div className="absolute left-[45%] top-[30%] w-24 h-24 rounded-full bg-blue-500/20 blur-[45px] animate-pulse" />}
                   {activeTab === 'Canada' && <div className="absolute left-[18%] top-[30%] w-32 h-32 rounded-full bg-blue-500/20 blur-[50px] animate-pulse" />}
@@ -820,7 +838,7 @@ const TopItemCategoriesShipped = () => {
                   <path 
                     d="M285,75 L310,65 L350,60 L390,55 L430,60 L460,70 L470,90 L465,110 L440,120 L410,135 L375,145 L345,150 L315,140 L295,115 Z" 
                     fill="currentColor" 
-                    className="text-slate-800/40 transition-colors duration-500" 
+                    className={`transition-colors duration-500 ${activeTab === 'China' ? 'text-amber-400/70' : 'text-slate-800/40'}`} 
                   />
                   
                   {/* Australia */}
@@ -1130,8 +1148,6 @@ const PremiumPackagingSection = () => {
                 alt="Shipplix Custom Premium Poly Mailer Packaging Bags Showcase"
                 referrerPolicy="no-referrer"
                 loading="lazy"
-                decoding="async"
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 560px"
                 className="w-full h-auto object-cover object-center relative block select-none transform transition-transform duration-700 ease-out group-hover:scale-[1.01]"
               />
 
@@ -1170,7 +1186,7 @@ const HowItWorks = () => {
     },
     {
       title: "Doorstep",
-      desc: "UK/US/Canada delivery",
+      desc: "China, UK, USA & Canada delivery",
       reassurance: "Happy money",
       step: "04"
     }
@@ -1224,7 +1240,8 @@ const ShippingServices = () => {
       desc: "Fastest option for urgent deliveries. We prioritize these shipments for the next available flight.",
       benefit: "Next-flight priority",
       useCase: "Urgent documents, time-sensitive goods",
-      icon: <Zap className="text-shipplix-yellow" size={24} />
+      icon: <Zap className="text-shipplix-yellow" size={24} />,
+      features: ["Next-flight priority dispatch", "Real-time tracking notifications", "Doorstep express delivery"]
     },
     {
       title: "Standard Shipping",
@@ -1232,7 +1249,8 @@ const ShippingServices = () => {
       desc: "Balanced option between speed and cost. Reliable delivery for your everyday exports.",
       benefit: "Cost-effective speed",
       useCase: "Regular inventory, fashion items",
-      icon: <Plane className="text-shipplix-yellow" size={24} />
+      icon: <Plane className="text-shipplix-yellow" size={24} />,
+      features: ["Weekly scheduled flights", "Complete customs clearance", "Direct doorstep delivery"]
     },
     {
       title: "Economy Cargo",
@@ -1240,7 +1258,40 @@ const ShippingServices = () => {
       desc: "Affordable option for bulk or non-urgent shipments. Save more on larger volumes.",
       benefit: "Lowest shipping rates",
       useCase: "Bulk foodstuff, non-urgent heavy cargo",
-      icon: <Ship className="text-shipplix-yellow" size={24} />
+      icon: <Ship className="text-shipplix-yellow" size={24} />,
+      features: ["Consolidated bulk space", "Ideal for high-volume goods", "Guaranteed lowest rates"]
+    },
+    {
+      title: "Import from China",
+      time: "Air & Sea Cargo",
+      desc: "Complete end-to-end import from China to Nigeria solutions connecting Chinese factories, suppliers, and warehouses directly to your doorstep in Nigeria.",
+      benefit: "Direct Factory Sourcing & Clearance",
+      useCase: "Commercial stock, electronics, fashion & hardware",
+      icon: <Package className="text-shipplix-yellow" size={24} />,
+      features: [
+        "Air Freight & Sea Freight Solutions",
+        "Product Sourcing & Supplier Verification",
+        "Factory Inspection & Quality Control",
+        "Cargo Consolidation in China Warehouses",
+        "Customs Clearance & Documentation",
+        "Nationwide Doorstep Delivery in Nigeria"
+      ]
+    },
+    {
+      title: "Export to China",
+      time: "Express Air Freight",
+      desc: "Streamlined export from Nigeria to China cargo services to ship agricultural produce, foodstuff, textiles, and commercial goods directly to major Chinese trade hubs.",
+      benefit: "Full Export Compliance & Freight",
+      useCase: "Agricultural goods, foodstuff, fashion & commercial cargo",
+      icon: <Globe className="text-shipplix-yellow" size={24} />,
+      features: [
+        "Agricultural Exports (Sesame, Ginger, Cocoa)",
+        "Food Exports (Subject to Regulations)",
+        "Fashion, Textiles & African Apparel",
+        "Personal & Commercial Cargo Handling",
+        "Complete Export Documentation & Permits",
+        "Air Freight & Logistics Support"
+      ]
     }
   ];
 
@@ -1252,10 +1303,10 @@ const ShippingServices = () => {
   ];
 
   const trustPoints = [
-    "International Shipping",
-    "Export & Customs Solutions",
-    "E-Commerce Store Development",
-    "AI & WhatsApp Automation"
+    "International Shipping (China, USA, UK, Canada, Europe)",
+    "Import from China & Export to China Solutions",
+    "Export & Customs Clearance Documentation",
+    "E-Commerce & AI Growth Automation"
   ];
 
   return (
@@ -1263,7 +1314,7 @@ const ShippingServices = () => {
       <div className="container mx-auto px-6">
         <SectionTitle 
           title="Global Commerce & Logistics Services" 
-          subtitle="From fast international air cargo to complete export clearance, e-commerce, and business growth systems, Shipplix helps African businesses expand globally."
+          subtitle="Premier international logistics solutions including seamless import from China to Nigeria, express export from Nigeria to China, global air cargo, customs clearance, and commerce growth systems."
         />
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
@@ -1285,6 +1336,17 @@ const ShippingServices = () => {
                   <div className="text-[9px] font-black uppercase tracking-[0.2em] text-slate-400 mb-1">Ideal For</div>
                   <div className="text-[11px] font-bold text-slate-800 uppercase tracking-tight">{opt.useCase}</div>
                 </div>
+                {opt.features && (
+                  <div className="space-y-1.5 pt-3 border-t border-slate-100">
+                    <div className="text-[9px] font-black uppercase tracking-[0.2em] text-slate-400 mb-1">Services Included</div>
+                    {opt.features.map((feat, fIdx) => (
+                      <div key={fIdx} className="flex items-start gap-1.5 text-[11px] font-bold text-slate-700">
+                        <CheckCircle2 size={13} className="text-shipplix-blue flex-shrink-0 mt-0.5" />
+                        <span>{feat}</span>
+                      </div>
+                    ))}
+                  </div>
+                )}
               </div>
             </div>
           ))}
@@ -1511,8 +1573,12 @@ const FAQSection = () => {
 
   const faqs = [
     {
-      question: "What are the exact transit times to the USA, UK, Canada, and Europe?",
-      answer: "Our standard air cargo transit times are extremely fast and reliable:\n\n• United Kingdom: 3 to 5 business days\n• United States: 5 to 7 business days\n• Canada: 5 to 7 business days\n• Europe: 5 to 8 business days\n\nTransit times are counted from our weekly flight departure. Once your shipment clears customs in the destination country, it is instantly handed over to last-mile delivery partners (like DHL, UPS, or Royal Mail) to reach your buyer's doorstep."
+      question: "What are the exact transit times to China, USA, UK, Canada, and Europe?",
+      answer: "Our standard air cargo and freight transit times are fast and reliable:\n\n• China (Guangzhou / Yiwu): 5 to 8 business days (Air) • 4 to 6 weeks (Sea)\n• United Kingdom: 3 to 5 business days\n• United States: 5 to 7 business days\n• Canada: 5 to 7 business days\n• Europe: 5 to 8 business days\n\nTransit times are counted from our weekly flight departure. Once your shipment clears customs in the destination country, it is instantly handed over to last-mile delivery partners to reach your doorstep."
+    },
+    {
+      question: "How do China Import & Export services work with Shipplix?",
+      answer: "Shipplix provides complete end-to-end China trade solutions:\n\n• Import from China to Nigeria: We handle supplier sourcing, factory verification, quality inspection, cargo consolidation in China, air & sea freight, customs clearance at Nigerian ports, and nationwide doorstep delivery.\n• Export from Nigeria to China: We support agricultural exports (sesame, ginger, cocoa), packaged foodstuffs, textiles, and commercial goods, offering full export documentation, permits, and air freight logistics to major Chinese hubs."
     },
     {
       question: "How does Shipplix handle customs clearance for exports?",
@@ -1635,44 +1701,44 @@ const GroupShipping = () => (
 const ExportHub = () => {
   const features = [
     {
-      title: "International Shipping",
-      desc: "Fast air freight and express shipping solutions to reach global buyers reliably.",
-      icon: <Globe className="text-shipplix-yellow" size={24} />,
-    },
-    {
-      title: "Export Solutions",
-      desc: "Full customs clearance, regulatory compliance, and export documentation to enter global markets effortlessly.",
-      icon: <FileCheck className="text-shipplix-yellow" size={24} />,
-    },
-    {
-      title: "E-Commerce Store Development",
-      desc: "Professional e-commerce websites designed to help you attract customers and sell globally.",
+      title: "Build An Online Business",
+      desc: "Custom e-commerce store design, branding, and digital storefront setup tailored to showcase your catalog to domestic and international buyers.",
       icon: <ShoppingCart className="text-shipplix-yellow" size={24} />,
     },
     {
-      title: "AI & WhatsApp Automation",
-      desc: "Automate customer conversations, follow-ups, and sales with intelligent WhatsApp workflows.",
+      title: "Import From China",
+      desc: "Direct factory sourcing, supplier verification, cargo consolidation, port customs clearance, and air/sea freight from China directly to Nigeria.",
+      icon: <Box className="text-shipplix-yellow" size={24} />,
+    },
+    {
+      title: "AI & Digital Marketing",
+      desc: "Intelligent AI WhatsApp auto-responders, customer service bots, and targeted ad campaigns to acquire high-converting global buyers.",
       icon: <Bot className="text-shipplix-yellow" size={24} />,
     },
     {
-      title: "Marketing & Acquisition",
-      desc: "Reach more customers through data-driven digital marketing and customer acquisition strategies.",
+      title: "Export Products Worldwide",
+      desc: "Express air freight, export documentation, regulatory permits, and customs clearance to ship goods across China, USA, UK, Canada, and Europe.",
+      icon: <Globe className="text-shipplix-yellow" size={24} />,
+    },
+    {
+      title: "Global Shipping & Payments",
+      desc: "Doorstep delivery nationwide and overseas, with multi-currency payment infrastructure to collect revenue in USD, GBP, CAD, EUR, and NGN.",
       icon: <TrendingUp className="text-shipplix-yellow" size={24} />,
     },
     {
-      title: "Business Growth Support",
-      desc: "Strategic growth frameworks, pricing models, and expert support to scale your business internationally.",
+      title: "Scale Into a Global Brand",
+      desc: "Strategic pricing models, revenue partnership frameworks, and logistics automation to scale your commercial brand internationally.",
       icon: <Users className="text-shipplix-yellow" size={24} />,
     }
   ];
 
   const timeline = [
-    { step: "1", title: "Choose Your Product" },
-    { step: "2", title: "Learn Modern Selling" },
-    { step: "3", title: "Use AI Tools" },
-    { step: "4", title: "Attract Global Customers" },
-    { step: "5", title: "Ship Worldwide With Shipplix" },
-    { step: "6", title: "Scale Internationally" },
+    { step: "1", title: "Build Your Store" },
+    { step: "2", title: "Import From China" },
+    { step: "3", title: "AI & Marketing Setup" },
+    { step: "4", title: "Sell Locally & Globally" },
+    { step: "5", title: "Export With Shipplix" },
+    { step: "6", title: "Scale Global Brand" },
   ];
 
   return (
@@ -1698,14 +1764,14 @@ const ExportHub = () => {
                 <Zap size={14} className="animate-pulse" />
                 Shipplix Growth Platform
               </div>
-              <p className="text-shipplix-yellow font-bold text-lg mb-2 tracking-tight uppercase">Build • Sell • Automate • Ship Worldwide</p>
+              <p className="text-shipplix-yellow font-bold text-lg mb-2 tracking-tight uppercase">Build • Sell • Import • Export • Scale Globally</p>
               <h2 className="text-3xl md:text-5xl lg:text-6xl font-black mb-6 leading-[0.95] tracking-tighter uppercase">
-                Your Partner For <br/> 
+                Your Complete <br/> 
                 <span className="text-shipplix-yellow">Global Commerce</span> <br/>
-                &amp; Business Growth
+                &amp; Logistics Ecosystem
               </h2>
               <p className="text-lg text-white/80 font-medium max-w-xl mb-10 leading-relaxed md:text-xl">
-                Shipplix Growth Platform helps entrepreneurs and businesses launch, sell, automate, and scale internationally. Beyond shipping, we provide the digital tools, business systems, and expert support needed to grow across global markets.
+                Shipplix Growth Platform empowers entrepreneurs to build an online store, import high-demand products from China, generate customers using AI and digital marketing, export goods worldwide, accept international payments, and scale into a thriving global brand.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Button 
@@ -2093,6 +2159,7 @@ const Footer = ({ onNavigate }: { onNavigate?: (path: string) => void }) => {
              <a href="#/economy-cargo-terms" onClick={(e) => handleLinkClick(e, '/economy-cargo-terms')} className="hover:text-blue-600">Economy Terms</a>
              <a href="#/revenue-partner" onClick={(e) => handleLinkClick(e, '/revenue-partner')} className="hover:text-blue-600">Revenue Partner</a>
              <a href="#/export-blueprint" onClick={(e) => handleLinkClick(e, '/export-blueprint')} className="hover:text-blue-600">Export Blueprint</a>
+             <a href="#/future-products" onClick={(e) => handleLinkClick(e, '/future-products')} className="hover:text-blue-600">Future Products</a>
              <a href="mailto:services@shipplix.com" className="hover:text-blue-600 lowercase tracking-normal">services@shipplix.com</a>
           </div>
         </div>
@@ -2140,6 +2207,9 @@ export default function App() {
     if (p === '/export-blueprint/thank-you' || h === '#/export-blueprint/thank-you' || h === '#export-blueprint-thank-you') {
       return '/export-blueprint/thank-you';
     }
+    if (p === '/future-products' || h === '#/future-products' || h === '#future-products') {
+      return '/future-products';
+    }
     return '/';
   });
 
@@ -2165,6 +2235,8 @@ export default function App() {
         setCurrentPath('/export-blueprint');
       } else if (p === '/export-blueprint/thank-you' || h === '#/export-blueprint/thank-you' || h === '#export-blueprint-thank-you') {
         setCurrentPath('/export-blueprint/thank-you');
+      } else if (p === '/future-products' || h === '#/future-products' || h === '#future-products') {
+        setCurrentPath('/future-products');
       } else {
         setCurrentPath('/');
       }
@@ -2205,6 +2277,8 @@ export default function App() {
       document.title = "The African Export Blueprint | Free Export Business Guide | Shipplix";
     } else if (currentPath === '/export-blueprint/thank-you') {
       document.title = "Thank You – Download The African Export Blueprint | Shipplix";
+    } else if (currentPath === '/future-products') {
+      document.title = "Future Products & Ecosystem Roadmap – Shipplix";
     }
   }, [currentPath]);
 
@@ -2243,7 +2317,8 @@ export default function App() {
                     { title: "Trust & Reviews", desc: "Anti-scam video packing scales, customer reviews, and insurance.", link: "/trust", num: "04" },
                     { title: "Economy Terms", desc: "Full service agreements, dimensional metrics, and payload rules.", link: "/economy-cargo-terms", num: "05" },
                     { title: "Revenue Partner", desc: "Earn extra passive income by referring customers to ship with Shipplix.", link: "/revenue-partner", num: "06" },
-                    { title: "Export Blueprint", desc: "Learn how to find overseas buyers and build custom customer acquisition systems.", link: "/export-blueprint", num: "07" }
+                    { title: "Export Blueprint", desc: "Learn how to find overseas buyers and build custom customer acquisition systems.", link: "/export-blueprint", num: "07" },
+                    { title: "Future Products Roadmap", desc: "Explore upcoming Shipplix Commerce, Supplier Directory, AI Assistant & Ecosystem features.", link: "/future-products", num: "08" }
                   ].map((portal, i) => (
                     <div key={i} className="p-6 bg-slate-50 border border-slate-200 rounded-2xl hover:border-blue-900 transition-colors flex flex-col justify-between">
                       <div>
@@ -2329,6 +2404,7 @@ export default function App() {
         {currentPath === '/revenue-partner' && <RevenuePartnerPage />}
         {currentPath === '/export-blueprint' && <ExportBlueprintPage onNavigate={navigateTo} currentPath={currentPath} />}
         {currentPath === '/export-blueprint/thank-you' && <ExportBlueprintPage onNavigate={navigateTo} currentPath={currentPath} />}
+        {currentPath === '/future-products' && <FutureProductsPage onNavigate={navigateTo} />}
         {currentPath === '/admin-leads' && <AdminLeadsPage onNavigate={navigateTo} />}
       </main>
 

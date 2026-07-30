@@ -46,6 +46,13 @@ const Button = ({
 export default function EconomyCargoPage() {
   const rates = [
     { 
+      destination: 'China (Guangzhou / Yiwu)', 
+      minWeight: '10kg', 
+      transit: '5-8 Days (Air) • 4-6 Weeks (Sea)',
+      airWhatsapp: 'https://wa.me/2349168273513?text=Hello%20Shipplix%2C%20I%20would%20like%20to%20get%20the%20live%20China%20Import%2FExport%20Air%20Rate%20for%20Guangzhou%20%2F%20Yiwu.',
+      seaWhatsapp: 'https://wa.me/2349168273513?text=Hello%20Shipplix%2C%20I%20would%20like%20to%20get%20the%20live%20China%20Import%2FExport%20Sea%20Rate%20for%20Guangzhou%20%2F%20Yiwu.'
+    },
+    { 
       destination: 'United Kingdom (London)', 
       minWeight: '15kg', 
       transit: '9-14 Days (Air) • 6 Weeks (Sea)',

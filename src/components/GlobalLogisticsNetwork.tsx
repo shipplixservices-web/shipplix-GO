@@ -189,7 +189,7 @@ export const GlobalLogisticsNetwork: React.FC = () => {
             Global Logistics Network
           </h2>
           <p className="text-xs md:text-sm text-slate-600 font-bold leading-relaxed tracking-tight max-w-3xl mx-auto">
-            Shipplix utilizes a trusted network of international logistics carriers and airline cargo services to move shipments safely and efficiently across the USA, UK, Canada, Europe, and other destinations worldwide.
+            Shipplix utilizes a trusted network of international logistics carriers and airline cargo services to move shipments safely and efficiently across China, the USA, UK, Canada, Europe, and other destinations worldwide.
           </p>
         </div>
 

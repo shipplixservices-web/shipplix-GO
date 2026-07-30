@@ -116,7 +116,7 @@ export default function CargoItemsPage() {
             Export Cargo & <span className="text-amber-400">Permitted Items</span>
           </h1>
           <p className="text-sm md:text-base text-slate-300 font-medium max-w-2xl mx-auto">
-            Ensure your shipments reach the UK, USA, or Canada without delays or customs seizures. Use our intelligent lookup tool to verify if your item is cleared to fly.
+            Ensure your shipments reach China, the UK, USA, Canada, or Europe without delays or customs seizures. Use our intelligent lookup tool to verify if your item is cleared to fly.
           </p>
         </div>
       </section>
