@@ -64,6 +64,7 @@ import ChinaToNigeriaPage from './components/ChinaToNigeriaPage';
 import UsaToNigeriaPage from './components/UsaToNigeriaPage';
 import UkToNigeriaPage from './components/UkToNigeriaPage';
 import NigeriaToHoustonPage from './components/NigeriaToHoustonPage';
+import Breadcrumbs from './components/Breadcrumbs';
 import shipplixPackagingUploaded from './assets/images/shipplix_packaging.png';
 
 // Common Components
@@ -2595,6 +2596,7 @@ export default function App() {
   return (
     <div className="min-h-screen bg-white">
       {currentPath !== '/admin-leads' && <Navbar onNavigate={navigateTo} currentPath={currentPath} />}
+      {currentPath !== '/admin-leads' && <Breadcrumbs currentPath={currentPath} onNavigate={navigateTo} />}
       
       <main className="min-h-screen">
         {currentPath === '/' && (
