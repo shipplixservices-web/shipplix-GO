@@ -2431,6 +2431,193 @@ const Footer = ({ onNavigate }: { onNavigate?: (path: string) => void }) => {
   );
 };
 
+// Helper function to dynamically update document title, meta description, Open Graph, Twitter, and canonical tags based on active page path
+function updatePageSeo(path: string) {
+  const origin = typeof window !== 'undefined' ? window.location.origin : 'https://shipplix.com';
+  const canonicalUrl = `${origin}${path === '/' ? '' : path}`;
+  const defaultOgImage = `${origin}/shipplix_packaging.png`;
+
+  interface SeoConfig {
+    title: string;
+    description: string;
+    ogTitle?: string;
+    ogDescription?: string;
+    ogType?: string;
+  }
+
+  const seoDataMap: Record<string, SeoConfig> = {
+    '/': {
+      title: "Shipplix – Global Commerce & Logistics Platform | Expand Beyond Borders",
+      description: "Shipplix is a leading global commerce and international logistics platform. We offer door-to-door express air cargo, China-to-Nigeria import freight, export systems, customs clearance, and global commerce growth.",
+      ogTitle: "Shipplix – Global Commerce & Logistics Platform",
+      ogDescription: "Door-to-door express air cargo, China-to-Nigeria import, international exports, customs clearance, and global commerce tools."
+    },
+    '/ship-from-nigeria-to-usa': {
+      title: "Ship from Nigeria to USA | Fast, Reliable & Affordable Air Cargo | Shipplix",
+      description: "Fast 3-5 business day door-to-door air freight shipping from Nigeria to all 50 US states. Customs cleared, tracking included, handling commercial cargo and African foodstuff.",
+      ogTitle: "Ship from Nigeria to USA – Express Air Cargo | Shipplix",
+      ogDescription: "Deliver packages from Lagos, Abuja, or PH to any US state in 3-5 days with full customs clearance and real-time tracking."
+    },
+    '/ship-from-nigeria-to-houston': {
+      title: "Ship from Nigeria to Houston, Texas | Fast, Secure & Affordable Delivery | Shipplix",
+      description: "Direct door-to-door air cargo shipping from Nigeria to Houston, Sugar Land, Katy, and The Woodlands, TX. Fast 3-5 day delivery for foodstuffs, commercial goods, and packages.",
+      ogTitle: "Ship from Nigeria to Houston, TX – Direct Air Cargo | Shipplix",
+      ogDescription: "Seamless express air cargo from Nigeria to Houston, Texas diaspora community. Fast, reliable, fully cleared customs."
+    },
+    '/ship-from-nigeria-to-uk': {
+      title: "Ship from Nigeria to UK | Fast, Secure & Affordable Delivery | Shipplix",
+      description: "Express 3-5 business day air freight shipping from Nigeria to London, Manchester, Birmingham, and across the UK. Full UK customs clearance & doorstep delivery.",
+      ogTitle: "Ship from Nigeria to UK – Express Doorstep Delivery | Shipplix",
+      ogDescription: "Send food items, fashion, and commercial goods from Nigeria to the United Kingdom with guaranteed fast clearance."
+    },
+    '/ship-from-nigeria-to-canada': {
+      title: "Ship from Nigeria to Canada | Fast, Secure & Affordable Air Cargo | Shipplix",
+      description: "Reliable air cargo shipping from Nigeria to Toronto, Calgary, Montreal, Vancouver, and all Canadian provinces. CBSA cleared with door delivery.",
+      ogTitle: "Ship from Nigeria to Canada – Air Cargo Logistics | Shipplix",
+      ogDescription: "Door-to-door air cargo shipping from Nigeria to Canada. Fast clearance and direct delivery to Canadian addresses."
+    },
+    '/ship-from-nigeria-to-europe': {
+      title: "Ship from Nigeria to Europe | Fast, Secure & Affordable Delivery | Shipplix",
+      description: "Express air freight delivery from Nigeria to Germany, France, Netherlands, Ireland, Italy, and EU destinations. Complete customs handling and tracking.",
+      ogTitle: "Ship from Nigeria to Europe – EU Doorstep Air Cargo | Shipplix",
+      ogDescription: "Ship food, commercial goods, and personal packages from Nigeria to EU countries safely and fast."
+    },
+    '/ship-from-china-to-nigeria': {
+      title: "Ship from China to Nigeria | Air Cargo & Sea Freight Import | Shipplix",
+      description: "Hassle-free China to Nigeria import freight forwarding. Express air cargo (3-7 days) & sea freight consolidation with Lagos door delivery and clearing.",
+      ogTitle: "Ship from China to Nigeria – Import Freight & Air Cargo | Shipplix",
+      ogDescription: "Source goods in China and ship seamlessly to Lagos, Abuja, and Port Harcourt with full customs clearing."
+    },
+    '/ship-from-usa-to-nigeria': {
+      title: "Ship from USA to Nigeria | Fast, Secure & Affordable Delivery | Shipplix",
+      description: "Express air cargo and procurement shipping from the USA to Nigeria. Ship online purchases and commercial packages straight to your doorstep.",
+      ogTitle: "Ship from USA to Nigeria – Fast Express Air Cargo | Shipplix",
+      ogDescription: "Import from the United States to Nigeria with fast transit, reliable customs handling, and Lagos door delivery."
+    },
+    '/ship-from-uk-to-nigeria': {
+      title: "Ship from UK to Nigeria | Fast, Secure & Affordable Delivery | Shipplix",
+      description: "Reliable freight shipping from UK to Nigeria. Doorstep collection across UK and fast delivery to Lagos, Abuja, and all Nigerian states.",
+      ogTitle: "Ship from UK to Nigeria – Reliable Freight & Courier | Shipplix",
+      ogDescription: "Ship personal items and commercial purchases from the UK to Nigeria with transparent pricing."
+    },
+    '/cargo-items': {
+      title: "Permitted Export & Cargo Items Catalog – Shipplix",
+      description: "Check approved export items, packaged African foodstuffs, commercial goods, and restricted cargo rules for international shipping.",
+      ogTitle: "Permitted Export & Cargo Items Catalog – Shipplix",
+      ogDescription: "Comprehensive guidelines on what you can ship internationally from Nigeria, including packaging requirements and customs rules."
+    },
+    '/economy-cargo': {
+      title: "Economy Cargo & Split Space Shipping – Shipplix",
+      description: "Save up to 40% on international shipping with Shipplix Economy Group Cargo. Consolidated space for budget-friendly air freight.",
+      ogTitle: "Economy Cargo & Group Space Shipping – Shipplix",
+      ogDescription: "Affordable consolidated group cargo shipping for budget-conscious business owners and exporters."
+    },
+    '/processing': {
+      title: "Customs Clearance & Processing Flow – Shipplix",
+      description: "Learn about Shipplix 5-stage export processing flow: reception, inspection, vacuum packaging, customs manifest, and air uplift.",
+      ogTitle: "Customs Clearance & Processing Flow – Shipplix",
+      ogDescription: "Transparent step-by-step export clearance and security inspection process at MMIA Lagos."
+    },
+    '/trust': {
+      title: "Trust & Anti-Scam Verification – Shipplix",
+      description: "Shipplix official verification portal. Learn about our official communication channels, office addresses, bank details, and scam protection.",
+      ogTitle: "Trust & Anti-Scam Policy – Shipplix Verification",
+      ogDescription: "Verify authentic Shipplix accounts, bank details, and customer support channels to protect against fraud."
+    },
+    '/economy-cargo-terms': {
+      title: "Economy Cargo Terms & Conditions – Shipplix",
+      description: "Terms and conditions governing Shipplix Economy Group Cargo, batch schedules, weight limits, and claims policy.",
+      ogTitle: "Economy Cargo Terms & Conditions – Shipplix",
+      ogDescription: "Official policies and terms of service for Shipplix group shipping and consolidated cargo."
+    },
+    '/revenue-partner': {
+      title: "Become a Shipplix Revenue Partner – Earn referring customers",
+      description: "Join the Shipplix Revenue Partner network. Earn recurring commissions in FX by introducing business owners and shippers to Shipplix.",
+      ogTitle: "Shipplix Revenue Partner Program – Earn in FX",
+      ogDescription: "Partner with Shipplix and earn commissions on international freight referrals."
+    },
+    '/export-blueprint': {
+      title: "The African Export Blueprint | Free Export Business Guide | Shipplix",
+      description: "Free step-by-step guide on how to build an international customer acquisition system that attracts overseas buyers consistently.",
+      ogTitle: "The African Export Blueprint – Free Masterclass Guide | Shipplix",
+      ogDescription: "Download the complete framework for scaling your African products and attracting buyers in US, UK, Canada & EU."
+    },
+    '/export-blueprint/thank-you': {
+      title: "Thank You – Download The African Export Blueprint | Shipplix",
+      description: "Your copy of The African Export Blueprint is ready for download. Start building your international customer acquisition system.",
+      ogTitle: "Download The African Export Blueprint – Shipplix",
+      ogDescription: "Access your free export growth blueprint now."
+    },
+    '/future-products': {
+      title: "Future Products & Ecosystem Roadmap – Shipplix",
+      description: "Discover upcoming Shipplix innovations: AI-powered store setup, instant buyer matching, FX settlement, and automated logistics.",
+      ogTitle: "Shipplix Ecosystem & Product Roadmap",
+      ogDescription: "Building the digital infrastructure for African cross-border trade and global commerce."
+    },
+    '/admin-leads': {
+      title: "Admin Leads Portal – Shipplix",
+      description: "Internal administrative leads dashboard for Shipplix team members.",
+      ogTitle: "Shipplix Admin Portal",
+      ogDescription: "Admin dashboard for managing logistics inquiries."
+    }
+  };
+
+  const currentSeo = seoDataMap[path] || {
+    title: "Shipplix – Global Commerce & Logistics Platform",
+    description: "Shipplix is a leading global commerce and international logistics platform providing air cargo, express shipping, and customs clearance.",
+    ogTitle: "Shipplix Logistics",
+    ogDescription: "Fast & Reliable Export Shipping and Commerce Platform."
+  };
+
+  // 1. Update Document Title
+  document.title = currentSeo.title;
+
+  // 2. Helper to set or create meta element
+  const setMeta = (attrKey: 'name' | 'property', attrVal: string, contentVal: string) => {
+    let element = document.querySelector(`meta[${attrKey}="${attrVal}"]`);
+    if (!element) {
+      element = document.createElement('meta');
+      element.setAttribute(attrKey, attrVal);
+      document.head.appendChild(element);
+    }
+    element.setAttribute('content', contentVal);
+  };
+
+  // 3. Helper to set or create link element (canonical)
+  const setLink = (relVal: string, hrefVal: string) => {
+    let element = document.querySelector(`link[rel="${relVal}"]`);
+    if (!element) {
+      element = document.createElement('link');
+      element.setAttribute('rel', relVal);
+      document.head.appendChild(element);
+    }
+    element.setAttribute('href', hrefVal);
+  };
+
+  const titleVal = currentSeo.ogTitle || currentSeo.title;
+  const descVal = currentSeo.ogDescription || currentSeo.description;
+
+  // Set Standard Meta Description
+  setMeta('name', 'description', currentSeo.description);
+
+  // Set Open Graph Tags
+  setMeta('property', 'og:title', titleVal);
+  setMeta('property', 'og:description', descVal);
+  setMeta('property', 'og:url', canonicalUrl);
+  setMeta('property', 'og:type', currentSeo.ogType || 'website');
+  setMeta('property', 'og:site_name', 'Shipplix Logistics');
+  setMeta('property', 'og:image', defaultOgImage);
+
+  // Set Twitter Card Meta Tags
+  setMeta('name', 'twitter:card', 'summary_large_image');
+  setMeta('name', 'twitter:title', titleVal);
+  setMeta('name', 'twitter:description', descVal);
+  setMeta('name', 'twitter:image', defaultOgImage);
+
+  // Set Canonical Link Tag
+  setLink('canonical', canonicalUrl);
+}
+
 export default function App() {
   const [currentPath, setCurrentPath] = React.useState(() => {
     const p = window.location.pathname;
@@ -2552,45 +2739,7 @@ export default function App() {
   };
 
   React.useEffect(() => {
-    if (currentPath === '/') {
-      document.title = "Shipplix – Global Commerce & Logistics Platform | Expand Beyond Borders";
-    } else if (currentPath === '/ship-from-nigeria-to-usa') {
-      document.title = "Ship from Nigeria to USA | Fast, Reliable & Affordable Air Cargo | Shipplix";
-    } else if (currentPath === '/ship-from-nigeria-to-houston') {
-      document.title = "Ship from Nigeria to Houston, Texas | Fast, Secure & Affordable Delivery | Shipplix";
-    } else if (currentPath === '/ship-from-nigeria-to-uk') {
-      document.title = "Ship from Nigeria to UK | Fast, Secure & Affordable Delivery | Shipplix";
-    } else if (currentPath === '/ship-from-nigeria-to-canada') {
-      document.title = "Ship from Nigeria to Canada | Fast, Secure & Affordable Air Cargo | Shipplix";
-    } else if (currentPath === '/ship-from-nigeria-to-europe') {
-      document.title = "Ship from Nigeria to Europe | Fast, Secure & Affordable Delivery | Shipplix";
-    } else if (currentPath === '/ship-from-china-to-nigeria') {
-      document.title = "Ship from China to Nigeria | Air Cargo & Sea Freight Import | Shipplix";
-    } else if (currentPath === '/ship-from-usa-to-nigeria') {
-      document.title = "Ship from USA to Nigeria | Fast, Secure & Affordable Delivery | Shipplix";
-    } else if (currentPath === '/ship-from-uk-to-nigeria') {
-      document.title = "Ship from UK to Nigeria | Fast, Secure & Affordable Delivery | Shipplix";
-    } else if (currentPath === '/admin-leads') {
-      document.title = "Admin Leads Portal – Shipplix";
-    } else if (currentPath === '/cargo-items') {
-      document.title = "Permitted Export & Cargo Items Catalog – Shipplix";
-    } else if (currentPath === '/economy-cargo') {
-      document.title = "Economy Cargo & Split Space Shipping – Shipplix";
-    } else if (currentPath === '/processing') {
-      document.title = "Customs Clearance & Processing Flow – Shipplix";
-    } else if (currentPath === '/trust') {
-      document.title = "Trust & Anti-Scam Verification – Shipplix";
-    } else if (currentPath === '/economy-cargo-terms') {
-      document.title = "Economy Cargo Terms & Conditions – Shipplix";
-    } else if (currentPath === '/revenue-partner') {
-      document.title = "Become a Shipplix Revenue Partner – Earn referring customers";
-    } else if (currentPath === '/export-blueprint') {
-      document.title = "The African Export Blueprint | Free Export Business Guide | Shipplix";
-    } else if (currentPath === '/export-blueprint/thank-you') {
-      document.title = "Thank You – Download The African Export Blueprint | Shipplix";
-    } else if (currentPath === '/future-products') {
-      document.title = "Future Products & Ecosystem Roadmap – Shipplix";
-    }
+    updatePageSeo(currentPath);
   }, [currentPath]);
 
   return (
