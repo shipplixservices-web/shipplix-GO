@@ -144,7 +144,7 @@ export default function NigeriaToCanadaPage({ onNavigate }: NigeriaToCanadaPageP
   const faqs = [
     {
       q: "How long does shipping from Nigeria to Canada take?",
-      a: "Express Air Freight takes 5-7 business days door-to-door across major cities like Toronto, Calgary, Edmonton, Ottawa, Vancouver, and Montreal. Economy Air Cargo takes approximately 7-10 business days."
+      a: "Express Air Freight takes 5-7 business days door-to-door across major cities like Toronto, Calgary, Edmonton, Ottawa, Vancouver, and Montreal. Economy Air Cargo Estimated Delivery: 9–14 Business Days. Most economy and heavy shipments are delivered within this estimated timeframe. However, in rare cases, delivery may take longer due to customs inspections, adverse weather conditions, airline or vessel rescheduling, port congestion, security checks, public holidays, government regulations, or other unforeseen logistics delays. While these situations are uncommon, we will continue to monitor your shipment and provide updates throughout the shipping process."
     },
     {
       q: "Can I ship foodstuffs from Nigeria to Canada?",

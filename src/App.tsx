@@ -1502,7 +1502,7 @@ const ShippingServices = () => {
     {
       title: "Economy Cargo",
       time: "9–14 Business Days",
-      desc: "Affordable option for bulk or non-urgent shipments. Save more on larger volumes.",
+      desc: "Affordable option for bulk or non-urgent heavy cargo. Estimated delivery: 9–14 Business Days.",
       benefit: "Lowest shipping rates",
       useCase: "Bulk foodstuff, non-urgent heavy cargo",
       icon: <Ship className="text-shipplix-yellow" size={24} />,

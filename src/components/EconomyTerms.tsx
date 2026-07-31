@@ -157,7 +157,7 @@ export default function EconomyTerms({ onBack }: { onBack: () => void }) {
   const faqs = [
     {
       q: "How long does Shipplix Economy Cargo delivery take?",
-      a: "Typically, delivery takes 2 to 3 weeks. These timelines are estimates and depend on airline schedules, airport backlogs, customs clearance inspections, and local transit networks. We ship out primarily on Fridays and occasionally on Wednesdays."
+      a: "Estimated Delivery: 7–10 Business Days for the United Kingdom, and 9–14 Business Days for US, Canada & Europe. Most economy and heavy shipments are delivered within these estimated timeframes. However, in rare cases, delivery may take longer due to customs inspections, adverse weather conditions, airline or cargo schedule changes, security checks, public holidays, government regulations, port congestion, or other unforeseen logistics delays. While these situations are uncommon, we will continue to monitor your shipment and keep you informed throughout the shipping process."
     },
     {
       q: "Does Shipplix Economy Cargo include door-to-door delivery?",
@@ -310,7 +310,7 @@ export default function EconomyTerms({ onBack }: { onBack: () => void }) {
               {/* 3. Delivery Time Estimates */}
               <Section id="delivery-estimates" title="Delivery Time Estimates" icon={<Clock size={20} className="text-blue-900" />}>
                 <p>
-                  The estimated delivery timeframe for Shipplix Economy Cargo is **2 to 3 weeks** from Lagos dispatch.
+                  **Estimated Delivery: 7–10 Business Days for the United Kingdom** (and 9–14 Business Days for US, Canada & Europe). Most economy and heavy-load shipments are delivered within these estimated timeframes. However, in rare cases, delivery may take longer due to customs inspections, adverse weather conditions, airline or cargo schedule changes, security checks, public holidays, government regulations, port congestion, or other unforeseen logistics delays. While these situations are uncommon, we will continue to monitor your shipment and keep you informed throughout the shipping process.
                 </p>
                 <div className="bg-blue-50 border border-blue-100 rounded-xl p-5 my-4 flex items-start gap-4">
                   <Clock className="text-blue-900 flex-shrink-0 mt-0.5" size={20} />

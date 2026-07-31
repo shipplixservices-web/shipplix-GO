@@ -141,7 +141,7 @@ export default function NigeriaToUkPage({ onNavigate }: NigeriaToUkPageProps) {
   const faqs = [
     {
       q: "How many days does shipping from Nigeria to the UK take?",
-      a: "Our express air freight cargo delivers to any doorstep in the United Kingdom within 3 to 5 business days. Packages fly directly out of Murtala Muhammed International Airport (MMIA) in Lagos straight into London Heathrow (LHR) or London Gatwick (LGW)."
+      a: "Express Air Freight takes 3 to 5 business days door-to-door to any doorstep in the United Kingdom. For UK Economy / Heavy Shipments, Estimated Delivery: 7–10 Business Days. Most economy and heavy-load shipments to the United Kingdom are delivered within this estimated timeframe. However, in rare cases, delivery may take longer due to customs inspections, adverse weather conditions, airline or cargo schedule changes, security checks, public holidays, government regulations, port congestion, or other unforeseen logistics delays. While these situations are uncommon, we will continue to monitor your shipment and keep you informed throughout the shipping process."
     },
     {
       q: "Do you deliver door-to-door across all UK cities and postcodes?",

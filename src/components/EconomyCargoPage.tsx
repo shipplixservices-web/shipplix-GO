@@ -55,28 +55,28 @@ export default function EconomyCargoPage() {
     { 
       destination: 'United Kingdom (London)', 
       minWeight: '15kg', 
-      transit: '9-14 Days (Air) • 6 Weeks (Sea)',
+      transit: '7–10 Business Days (Air) • 6 Weeks (Sea)',
       airWhatsapp: 'https://wa.me/2349168273513?text=Hello%20Shipplix%2C%20I%20would%20like%20to%20get%20the%20live%20Economy%20Air%20Rate%20for%20United%20Kingdom%20(London).',
       seaWhatsapp: 'https://wa.me/2349168273513?text=Hello%20Shipplix%2C%20I%20would%20like%20to%20get%20the%20live%20Ocean%20Freight%20Rate%20for%20United%20Kingdom%20(London).'
     },
     { 
       destination: 'United States (Texas / Houston)', 
       minWeight: '20kg', 
-      transit: '10-14 Days (Air) • 8 Weeks (Sea)',
+      transit: '9–14 Business Days (Air) • 8 Weeks (Sea)',
       airWhatsapp: 'https://wa.me/2349168273513?text=Hello%20Shipplix%2C%20I%20would%20like%20to%20get%20the%20live%20Economy%20Air%20Rate%20for%20United%20States%20(Texas%20%2F%20Houston).',
       seaWhatsapp: 'https://wa.me/2349168273513?text=Hello%20Shipplix%2C%20I%20would%20like%20to%20get%20the%20live%20Ocean%20Freight%20Rate%20for%20United%20States%20(Texas%20%2F%20Houston).'
     },
     { 
       destination: 'United States (Maryland / DMV)', 
       minWeight: '20kg', 
-      transit: '10-14 Days (Air) • 8 Weeks (Sea)',
+      transit: '9–14 Business Days (Air) • 8 Weeks (Sea)',
       airWhatsapp: 'https://wa.me/2349168273513?text=Hello%20Shipplix%2C%20I%20would%20like%20to%20get%20the%20live%20Economy%20Air%20Rate%20for%20United%20States%20(Maryland%20%2F%20DMV).',
       seaWhatsapp: 'https://wa.me/2349168273513?text=Hello%20Shipplix%2C%20I%20would%20like%20to%20get%20the%20live%20Ocean%20Freight%20Rate%20for%20United%20States%20(Maryland%20%2F%20DMV).'
     },
     { 
       destination: 'Canada (Toronto / GTA)', 
       minWeight: '20kg', 
-      transit: '11-14 Days (Air) • 8 Weeks (Sea)',
+      transit: '9–14 Business Days (Air) • 8 Weeks (Sea)',
       airWhatsapp: 'https://wa.me/2349168273513?text=Hello%20Shipplix%2C%20I%20would%20like%20to%20get%20the%20live%20Economy%20Air%20Rate%20for%20Canada%20(Toronto%20%2F%20GTA).',
       seaWhatsapp: 'https://wa.me/2349168273513?text=Hello%20Shipplix%2C%20I%20would%20like%20to%20get%20the%20live%20Ocean%20Freight%20Rate%20for%20Canada%20(Toronto%20%2F%20GTA).'
     },
@@ -156,9 +156,15 @@ export default function EconomyCargoPage() {
               </table>
             </div>
             
-            <div className="mt-6 flex items-center gap-2 bg-amber-50 p-4 rounded-xl border border-amber-100 text-amber-800 text-xs font-bold leading-normal">
-              <ShieldCheck size={20} className="flex-shrink-0" />
-              <span>*Due to constant adjustments in aviation fuel, custom clearing fees, and carrier surcharges, we supply live rates directly on WhatsApp. Tap any "Ask for Live Rate" above to get an instant, zero-obligation price breakdown.</span>
+            <div className="mt-6 flex flex-col gap-3">
+              <div className="flex items-center gap-2 bg-amber-50 p-4 rounded-xl border border-amber-100 text-amber-800 text-xs font-bold leading-normal">
+                <ShieldCheck size={20} className="flex-shrink-0" />
+                <span>*Due to constant adjustments in aviation fuel, custom clearing fees, and carrier surcharges, we supply live rates directly on WhatsApp. Tap any "Ask for Live Rate" above to get an instant, zero-obligation price breakdown.</span>
+              </div>
+              <div className="flex items-start gap-2 bg-blue-50 p-4 rounded-xl border border-blue-100 text-blue-900 text-xs font-medium leading-relaxed">
+                <Clock size={20} className="flex-shrink-0 text-blue-900 mt-0.5" />
+                <span><strong>Estimated Delivery: 9–14 Business Days.</strong> Most economy and heavy shipments are delivered within this estimated timeframe. However, in rare cases, delivery may take longer due to customs inspections, adverse weather conditions, airline or vessel rescheduling, port congestion, security checks, public holidays, government regulations, or other unforeseen logistics delays. While these situations are uncommon, we will continue to monitor your shipment and provide updates throughout the shipping process.</span>
+              </div>
             </div>
           </div>
 
@@ -256,7 +262,7 @@ export default function EconomyCargoPage() {
               </div>
               <h3 className="text-base font-black uppercase tracking-tight text-blue-950 mb-2">Maximize Profits</h3>
               <p className="text-xs text-slate-500 font-bold leading-relaxed">
-                By choosing a 9–14 day cycle instead of 3 days, you save up to 50% on air transport costs, which directly boosts your retail margin per sale.
+                By choosing a 9–14 business days cycle instead of 3 days, you save up to 50% on air transport costs, which directly boosts your retail margin per sale.
               </p>
             </div>
             
@@ -292,6 +298,7 @@ export default function EconomyCargoPage() {
           
           <div className="space-y-4">
             {[
+              { q: "How long does Shipplix Economy Cargo delivery take?", a: "Estimated Delivery: 7–10 Business Days for the United Kingdom, and 9–14 Business Days for US, Canada & Europe. Most economy and heavy-load shipments are delivered within these estimated timeframes. However, in rare cases, delivery may take longer due to customs inspections, adverse weather conditions, airline or cargo schedule changes, security checks, public holidays, government regulations, port congestion, or other unforeseen logistics delays. While these situations are uncommon, we will continue to monitor your shipment and keep you informed throughout the shipping process." },
               { q: "Is there a minimum weight limit for economy air?", a: "Yes, our economy cargo baseline starts at 15kg for the UK and 20kg for the US and Canada. For smaller weights, standard shipping is highly recommended." },
               { q: "How can I track my group shipment?", a: "Each vendor receives their own unique sub-waybill index linked to the master flight container tracking file, so you can track your cargo seamlessly." },
               { q: "Are customs duties included in these low rates?", a: "Yes! All rates are fully inclusive of clearing fees at Lagos airport and standard customs release processing in destination countries. Zero hidden charges." },
