@@ -1,0 +1,54 @@
+{
+  "name": "Shipplix",
+  "short_name": "Shipplix",
+  "description": "Shipplix Logistics – Fast & Reliable Export Shipping from Nigeria",
+  "start_url": "/",
+  "id": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#0b1736",
+  "theme_color": "#0b1736",
+  "orientation": "portrait",
+  "categories": ["business", "logistics", "utilities"],
+  "icons": [
+    {
+      "src": "/pwa-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/pwa-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/maskable-icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Track Shipment",
+      "short_name": "Track",
+      "description": "Track your cargo shipment",
+      "url": "/#/tracking",
+      "icons": [{ "src": "/pwa-192x192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Calculate Rates",
+      "short_name": "Rates",
+      "description": "Calculate shipping rates",
+      "url": "/#/rate-calculator",
+      "icons": [{ "src": "/pwa-192x192.png", "sizes": "192x192" }]
+    }
+  ]
+}

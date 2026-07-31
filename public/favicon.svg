@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <rect width="512" height="512" rx="110" fill="#0b1736"/>
+  <circle cx="256" cy="256" r="200" fill="none" stroke="#fbbf24" stroke-width="12" opacity="0.8"/>
+  <g transform="translate(256 256) rotate(-35) translate(-256 -256)">
+    <!-- Tail accent -->
+    <path d="M160 320 L220 320 L180 240 Z" fill="#fbbf24" />
+    <!-- Airplane body -->
+    <path d="M256 120 C270 120 280 180 280 340 L310 390 L280 380 L256 420 L232 380 L202 390 L232 340 C232 180 242 120 256 120 Z" fill="#ffffff"/>
+    <!-- Main Wings -->
+    <path d="M256 220 L410 330 L280 310 Z" fill="#ffffff"/>
+    <path d="M256 220 L102 330 L232 310 Z" fill="#ffffff"/>
+  </g>
+</svg>

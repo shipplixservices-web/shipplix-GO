@@ -65,6 +65,7 @@ import UsaToNigeriaPage from './components/UsaToNigeriaPage';
 import UkToNigeriaPage from './components/UkToNigeriaPage';
 import NigeriaToHoustonPage from './components/NigeriaToHoustonPage';
 import Breadcrumbs from './components/Breadcrumbs';
+import { PWAInstallPrompt } from './components/PWAInstallPrompt';
 import shipplixPackagingUploaded from './assets/images/shipplix_packaging.png';
 
 // Common Components
@@ -2916,6 +2917,9 @@ export default function App() {
           </motion.a>
         </div>
       )}
+
+      {/* Progressive Web App Install Prompt */}
+      <PWAInstallPrompt />
     </div>
   );
 }
