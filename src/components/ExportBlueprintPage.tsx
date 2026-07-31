@@ -59,9 +59,9 @@ const PageButton = ({
   const variants = {
     primary: "bg-blue-900 text-white hover:bg-blue-950 shadow-md",
     yellow: "bg-[#FEB919] text-[#032B73] hover:bg-[#e2a412] shadow-md hover:-translate-y-0.5",
-    outline: "border border-slate-200 text-slate-700 bg-white hover:bg-slate-50 shadow-sm",
+    outline: "border border-slate-200 text-slate-800 bg-white hover:bg-slate-50 shadow-sm",
     secondary: "bg-slate-100 text-slate-700 hover:bg-slate-200",
-    ghost: "text-white/80 hover:text-white hover:bg-white/10",
+    ghost: "text-white hover:text-white hover:bg-white/10",
     green: "bg-emerald-500 text-white hover:bg-emerald-600 shadow-md hover:-translate-y-0.5"
   };
   
