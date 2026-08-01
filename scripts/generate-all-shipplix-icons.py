@@ -1,4 +1,10 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+import zlib
+import struct
+import math
+import os
+
+def generate_svg_logo():
+    return """<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
   <defs>
     <!-- 3D Sphere Shading -->
     <radialGradient id="sphereGrad" cx="35%" cy="30%" r="70%">
@@ -47,4 +53,11 @@
     <!-- Lower Yellow Ribbon Sweeping Front -->
     <path d="M 90 355 C 135 370 215 390 315 380 C 385 373 420 335 405 295 C 390 330 350 353 285 360 C 195 370 125 355 90 355 Z" fill="url(#lowerRibbonGrad)" />
   </g>
-</svg>
+</svg>"""
+
+# Save SVG to public/favicon.svg
+svg_content = generate_svg_logo()
+with open('public/favicon.svg', 'w') as f:
+    f.write(svg_content)
+
+print("SVG Logo created successfully!")
