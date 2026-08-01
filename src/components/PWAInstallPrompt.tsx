@@ -15,25 +15,23 @@ export const PWAInstallPrompt: React.FC = () => {
   const [isIOS, setIsIOS] = useState<boolean>(false);
 
   useEffect(() => {
-    // 1. Check if previously marked as installed in localStorage
-    const hasBeenInstalled = localStorage.getItem('shipplix_app_installed') === 'true';
-
-    // 2. Check if currently running in display-mode: standalone or iOS standalone
+    // 1. Check if currently running in display-mode: standalone or iOS standalone window
     const isStandalone = window.matchMedia('(display-mode: standalone)').matches || 
                          (window.navigator as any).standalone === true;
 
-    if (hasBeenInstalled || isStandalone) {
+    if (isStandalone) {
       setIsInstalled(true);
       return;
     }
 
-    // 3. Check getInstalledRelatedApps API if available (Chrome 80+, Edge, Android)
+    // 2. Check getInstalledRelatedApps API if available
     if ('getInstalledRelatedApps' in navigator) {
       (navigator as any).getInstalledRelatedApps()
         .then((relatedApps: any[]) => {
           if (relatedApps && relatedApps.length > 0) {
-            localStorage.setItem('shipplix_app_installed', 'true');
             setIsInstalled(true);
+          } else {
+            setIsInstalled(false);
           }
         })
         .catch(() => {});
@@ -44,21 +42,21 @@ export const PWAInstallPrompt: React.FC = () => {
     const isIOSDevice = /iphone|ipad|ipod/.test(userAgent) && !(window as any).MSStream;
     setIsIOS(isIOSDevice);
 
-    // Check session storage if user dismissed prompt in current session
+    // Check session storage if user dismissed prompt in current browsing session
     const hasDismissed = sessionStorage.getItem('shipplix_pwa_prompt_dismissed') === 'true';
 
-    // Listen for beforeinstallprompt event (Android, Chrome Desktop, Edge)
+    // Listen for beforeinstallprompt event (Chromium browsers: Chrome, Edge, Android)
+    // Firing beforeinstallprompt guarantees the app is NOT currently installed and IS installable!
     const handleBeforeInstallPrompt = (e: Event) => {
       e.preventDefault();
-      // If already installed, never store or show prompt
-      if (localStorage.getItem('shipplix_app_installed') === 'true') {
-        return;
-      }
-
+      setIsInstalled(false); // Reset installed status since browser confirms site is installable
       setDeferredPrompt(e as BeforeInstallPromptEvent);
+
       if (!hasDismissed) {
         setIsVisible(true);
+        setIsMinimized(false);
       } else {
+        setIsVisible(false);
         setIsMinimized(true);
       }
     };
@@ -67,7 +65,6 @@ export const PWAInstallPrompt: React.FC = () => {
 
     // Listen for appinstalled event (fired upon successful installation)
     const handleAppInstalled = () => {
-      localStorage.setItem('shipplix_app_installed', 'true');
       setIsInstalled(true);
       setIsVisible(false);
       setIsMinimized(false);
@@ -81,9 +78,11 @@ export const PWAInstallPrompt: React.FC = () => {
     const mediaQuery = window.matchMedia('(display-mode: standalone)');
     const handleDisplayModeChange = (evt: MediaQueryListEvent) => {
       if (evt.matches) {
-        localStorage.setItem('shipplix_app_installed', 'true');
         setIsInstalled(true);
         setIsVisible(false);
+        setIsMinimized(false);
+      } else {
+        setIsInstalled(false);
       }
     };
 
@@ -91,8 +90,8 @@ export const PWAInstallPrompt: React.FC = () => {
       mediaQuery.addEventListener('change', handleDisplayModeChange);
     }
 
-    // On iOS, if not installed and not dismissed, show prompt trigger
-    if (isIOSDevice && !isStandalone && !hasBeenInstalled) {
+    // On iOS (which does not support beforeinstallprompt), show prompt if not in standalone
+    if (isIOSDevice && !isStandalone) {
       if (!hasDismissed) {
         setIsVisible(true);
       } else {
@@ -122,7 +121,6 @@ export const PWAInstallPrompt: React.FC = () => {
       const choiceResult = await deferredPrompt.userChoice;
       if (choiceResult.outcome === 'accepted') {
         console.log('User accepted the Shipplix PWA install prompt');
-        localStorage.setItem('shipplix_app_installed', 'true');
         setIsInstalled(true);
         setIsVisible(false);
         setIsMinimized(false);
