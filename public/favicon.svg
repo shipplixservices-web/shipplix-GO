@@ -1,13 +1,56 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
-  <rect width="512" height="512" rx="110" fill="#0b1736"/>
-  <circle cx="256" cy="256" r="200" fill="none" stroke="#fbbf24" stroke-width="12" opacity="0.8"/>
-  <g transform="translate(256 256) rotate(-35) translate(-256 -256)">
-    <!-- Tail accent -->
-    <path d="M160 320 L220 320 L180 240 Z" fill="#fbbf24" />
-    <!-- Airplane body -->
-    <path d="M256 120 C270 120 280 180 280 340 L310 390 L280 380 L256 420 L232 380 L202 390 L232 340 C232 180 242 120 256 120 Z" fill="#ffffff"/>
-    <!-- Main Wings -->
-    <path d="M256 220 L410 330 L280 310 Z" fill="#ffffff"/>
-    <path d="M256 220 L102 330 L232 310 Z" fill="#ffffff"/>
+  <defs>
+    <!-- Background / Globe Gradients -->
+    <linearGradient id="blueGlobeGrad" x1="20%" y1="10%" x2="80%" y2="90%">
+      <stop offset="0%" stop-color="#0241db" />
+      <stop offset="45%" stop-color="#022aab" />
+      <stop offset="100%" stop-color="#011463" />
+    </linearGradient>
+
+    <!-- Ribbon Red Back/Top Gradient -->
+    <linearGradient id="redRibbonGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#e61a00" />
+      <stop offset="50%" stop-color="#ff4500" />
+      <stop offset="100%" stop-color="#ff7700" />
+    </linearGradient>
+
+    <!-- Ribbon Gold Front Gradient -->
+    <linearGradient id="goldRibbonGrad" x1="0%" y1="0%" x2="100%" y2="80%">
+      <stop offset="0%" stop-color="#ffe214" />
+      <stop offset="30%" stop-color="#ffbe00" />
+      <stop offset="80%" stop-color="#f59e00" />
+      <stop offset="100%" stop-color="#d97700" />
+    </linearGradient>
+
+    <!-- Lower Ribbon Yellow Gradient -->
+    <linearGradient id="lowerRibbonGrad" x1="0%" y1="30%" x2="100%" y2="70%">
+      <stop offset="0%" stop-color="#ffea2e" />
+      <stop offset="60%" stop-color="#ffbe00" />
+      <stop offset="100%" stop-color="#e08b00" />
+    </linearGradient>
+
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="2" dy="6" stdDeviation="8" flood-color="#000" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+
+  <!-- Canvas Background (White for crisp app icon or transparent in SVG) -->
+  <rect width="512" height="512" rx="100" fill="#ffffff"/>
+
+  <g transform="translate(256 256) rotate(-28) translate(-256 -256)" filter="url(#shadow)">
+    <!-- Back Red/Orange Ribbon Section (Top Right Behind Globe) -->
+    <path d="M 290 100 C 370 100 420 160 420 220 C 420 250 390 270 340 280 C 370 240 380 190 330 140 Z" fill="url(#redRibbonGrad)" />
+
+    <!-- Main Tilted Blue Oval Spheroid -->
+    <ellipse cx="256" cy="256" rx="150" ry="195" fill="url(#blueGlobeGrad)" />
+
+    <!-- Upper Main Yellow/Gold Ribbon Crossing Front -->
+    <path d="M 395 185 C 410 215 385 245 320 280 C 230 330 120 370 50 375 C 30 375 35 340 65 315 C 130 260 250 185 365 145 C 385 138 410 140 425 155 Z" fill="url(#goldRibbonGrad)" />
+
+    <!-- Ribbon Turn-Around Fold on Bottom Left -->
+    <path d="M 50 375 C 32 375 30 340 65 315 C 90 295 115 320 110 345 C 105 365 80 375 50 375 Z" fill="#e08200" />
+
+    <!-- Lower Yellow Ribbon Sweeping Across Bottom Front -->
+    <path d="M 85 350 C 130 365 210 385 310 375 C 380 368 415 330 400 290 C 385 325 345 348 280 355 C 190 365 120 350 85 350 Z" fill="url(#lowerRibbonGrad)" />
   </g>
 </svg>
