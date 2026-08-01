@@ -149,25 +149,20 @@ export const PWAInstallPrompt: React.FC = () => {
       {isVisible && !isMinimized && (
         <div className="fixed bottom-5 left-4 right-4 sm:left-auto sm:right-6 sm:w-96 z-50 bg-slate-900 border border-slate-700/80 shadow-2xl rounded-2xl p-4.5 text-white backdrop-blur-lg animate-in slide-in-from-bottom-5 duration-300">
           <div className="flex items-start justify-between gap-3">
-            <div className="flex items-center gap-3">
-              <div className="w-12 h-12 rounded-xl bg-shipplix-blue flex items-center justify-center p-2 shadow-inner border border-blue-400/30 flex-shrink-0">
-                <img src="/pwa-192x192.png" alt="Shipplix Logo" className="w-full h-full object-contain rounded-lg" />
+            <div className="flex-1">
+              <div className="flex items-center gap-2">
+                <h4 className="font-bold text-sm text-white">Shipplix Mobile App</h4>
+                <span className="bg-amber-400/20 text-amber-300 text-[10px] font-black uppercase px-1.5 py-0.5 rounded tracking-wide border border-amber-400/30 flex items-center gap-0.5">
+                  <Sparkles size={10} /> Fast
+                </span>
               </div>
-              <div>
-                <div className="flex items-center gap-1.5">
-                  <h4 className="font-bold text-sm text-white">Shipplix Mobile App</h4>
-                  <span className="bg-amber-400/20 text-amber-300 text-[10px] font-black uppercase px-1.5 py-0.5 rounded tracking-wide border border-amber-400/30 flex items-center gap-0.5">
-                    <Sparkles size={10} /> Fast
-                  </span>
-                </div>
-                <p className="text-xs text-slate-300 mt-0.5 leading-snug">
-                  Install Shipplix for quick rate calculations, live cargo tracking &amp; instant booking!
-                </p>
-              </div>
+              <p className="text-xs text-slate-300 mt-1 leading-snug">
+                Install Shipplix for quick rate calculations, live cargo tracking &amp; instant booking!
+              </p>
             </div>
             <button
               onClick={handleDismiss}
-              className="text-slate-400 hover:text-white transition-colors p-1 rounded-lg hover:bg-slate-800"
+              className="text-slate-400 hover:text-white transition-colors p-1 rounded-lg hover:bg-slate-800 -mr-1 -mt-0.5"
               aria-label="Dismiss install prompt"
             >
               <X size={18} />
@@ -225,14 +220,9 @@ export const PWAInstallPrompt: React.FC = () => {
               <X size={20} />
             </button>
 
-            <div className="flex items-center gap-3 mb-4">
-              <div className="w-10 h-10 rounded-xl bg-shipplix-blue flex items-center justify-center p-1.5 border border-blue-400/30">
-                <img src="/pwa-192x192.png" alt="Shipplix" className="w-full h-full object-contain" />
-              </div>
-              <div>
-                <h3 className="font-bold text-base text-white">Install on iPhone / iPad</h3>
-                <p className="text-xs text-slate-400">Add Shipplix to your Home Screen</p>
-              </div>
+            <div className="mb-4">
+              <h3 className="font-bold text-base text-white">Install on iPhone / iPad</h3>
+              <p className="text-xs text-slate-400 mt-0.5">Add Shipplix to your Home Screen</p>
             </div>
 
             <ol className="space-y-3.5 text-xs text-slate-300 my-5">
