@@ -2,5 +2,7 @@
   "name": "Shipplix Logistics – Fast & Reliable Export Shipping from Nigeria",
   "description": "Shipplix helps African vendors ship food, fashion, and cultural goods from Nigeria to the UK, US, and Canada safely and reliably.",
   "requestFramePermissions": [],
-  "majorCapabilities": []
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
 }
