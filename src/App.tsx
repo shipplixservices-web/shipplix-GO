@@ -498,198 +498,200 @@ Please contact me to continue my shipment booking.`;
     window.open(whatsappUrl, '_self');
   };
 
+  const serviceBadges = [
+    "Nigeria → USA",
+    "Nigeria → UK",
+    "Nigeria → Canada",
+    "Nigeria → Europe",
+    "China → Nigeria",
+    "Air Freight",
+    "Sea Freight",
+    "Customs Clearance",
+    "Door-to-Door Delivery"
+  ];
+
   return (
-    <section className="relative pt-32 pb-12 bg-shipplix-bg overflow-hidden">
+    <section className="relative pt-32 pb-12 bg-shipplix-bg overflow-hidden select-none">
       <div className="container mx-auto px-6 relative z-10">
-        <div className="bg-white p-6 md:p-10 rounded-2xl shadow-sm border border-slate-200 relative overflow-hidden flex flex-col lg:flex-row gap-0">
-          <div className="relative z-10 lg:w-2/3 lg:pr-10">
+        <div className="bg-white p-6 md:p-10 rounded-2xl shadow-sm border border-slate-200 relative overflow-hidden flex flex-col lg:flex-row gap-8">
+          
+          {/* Main Hero Copy & Service Badges */}
+          <div className="relative z-10 lg:w-2/3 lg:pr-4">
             <motion.div
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4 }}
             >
-              <span className="bg-blue-100 text-blue-800 text-[10px] font-black px-2 py-1 rounded uppercase tracking-widest mb-4 inline-block">
-                Global Commerce &amp; Logistics Platform
+              <span className="bg-[#032B73]/10 text-[#032B73] text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-widest mb-4 inline-flex items-center gap-1.5 border border-[#032B73]/15">
+                <Globe size={12} className="text-[#032B73]" />
+                International Shipping &amp; Logistics
               </span>
               
-              <h1 className="text-3xl md:text-5xl font-black leading-tight text-slate-900 mb-4">
-                Expand Your Business <span className="text-shipplix-blue underline decoration-shipplix-yellow decoration-4 underline-offset-4">Beyond Borders.</span>
+              <h1 className="text-3xl md:text-5xl font-black leading-tight text-slate-900 mb-4 tracking-tight">
+                Global Shipping &amp; Logistics <span className="text-[#032B73] underline decoration-[#FFD700] decoration-4 underline-offset-4">Made Simple</span>
               </h1>
               
-              <p className="text-slate-600 text-base md:text-lg mb-8 max-w-2xl font-medium">
-                Shipplix is a leading international logistics platform offering seamless import from China to Nigeria, fast air and sea export from Nigeria to China, customs clearance, e-commerce tools, and global shipping across the USA, UK, Canada, and Europe.
+              <p className="text-slate-600 text-base md:text-lg mb-6 font-medium leading-relaxed max-w-2xl">
+                Ship confidently with Shipplix. We export from Nigeria to the USA, UK, Canada, and Europe, and import from China to Nigeria with reliable air freight, sea freight, customs clearance, and door-to-door delivery solutions.
               </p>
 
-              <div className="mb-4">
+              {/* Primary & Secondary Call-To-Action */}
+              <div className="mb-8">
                 <div className="flex flex-col sm:flex-row gap-4">
                   <a 
                     href="https://myshipment.shipplix.com" 
                     target="_self" 
-                    className="w-full sm:w-auto text-center bg-[#FEB919] hover:bg-[#e2a412] text-[#032B73] font-black py-4 px-10 rounded-xl transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg text-sm uppercase tracking-widest flex items-center justify-center gap-2"
+                    className="w-full sm:w-auto text-center bg-[#FEB919] hover:bg-[#e2a412] text-[#032B73] font-black py-4 px-8 rounded-xl transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg text-xs md:text-sm uppercase tracking-widest flex items-center justify-center gap-2 border border-[#FEB919]/50"
                   >
-                    Book my shipment
+                    <span>Get a Shipping Quote</span>
+                    <ArrowRight size={16} />
                   </a>
-                  <Button 
-                    as="a"
-                    href={URL_PROCESS}
+                  <a 
+                    href={URL_TRACK}
                     target="_blank"
                     rel="noopener noreferrer"
-                    variant="secondary" 
-                    className="w-full sm:w-auto px-10 py-4 text-[13px] uppercase tracking-widest bg-slate-100 text-slate-700"
+                    className="w-full sm:w-auto text-center bg-slate-100 hover:bg-slate-200 text-slate-800 font-black py-4 px-8 rounded-xl transition-all duration-300 hover:-translate-y-0.5 text-xs md:text-sm uppercase tracking-widest flex items-center justify-center gap-2 border border-slate-200"
                   >
-                    See How It Works
-                  </Button>
+                    <span>Track Shipment</span>
+                  </a>
                 </div>
                 <p className="mt-3 text-xs text-slate-500 font-bold italic flex items-center gap-2">
                   <span className="inline-block w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-                  Book your shipment online in less than 2 minutes.
+                  Fast door-to-door shipping • Customs cleared • Real-time tracking
                 </p>
               </div>
 
-              {/* QUICK BOOKING FORM */}
-              <div className="mt-8 pt-6 border-t border-slate-100 max-w-2xl">
-                <div className="flex items-center gap-2 mb-4">
-                  <span className="flex h-2 w-2 relative">
-                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#FEB919] opacity-75"></span>
-                    <span className="relative inline-flex rounded-full h-2 w-2 bg-[#FEB919]"></span>
-                  </span>
-                  <h3 className="text-xs font-black uppercase tracking-wider text-slate-800">Quick Booking Request</h3>
+              {/* Premium Service Badges */}
+              <div className="pt-6 border-t border-slate-100">
+                <div className="text-[10px] font-black uppercase tracking-wider text-slate-400 mb-3">
+                  Verified Freight Corridors &amp; Core Services
                 </div>
-                
-                <form onSubmit={handleSubmit} className="space-y-4">
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div className="space-y-1.5">
-                      <label className="text-[10px] font-black uppercase tracking-wider text-slate-500 flex items-center gap-1">
-                        <User size={12} className="text-shipplix-blue" /> Full Name *
-                      </label>
-                      <input 
-                        type="text" 
-                        placeholder="Enter your first & last name"
-                        value={fullName}
-                        onChange={(e) => setFullName(e.target.value)}
-                        className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-xs font-bold text-slate-800 placeholder-slate-400 focus:outline-none focus:border-shipplix-blue transition-colors"
-                      />
-                    </div>
-
-                    <div className="space-y-1.5">
-                      <label className="text-[10px] font-black uppercase tracking-wider text-slate-500 flex items-center gap-1">
-                        <Phone size={12} className="text-shipplix-blue" /> Phone Number (WhatsApp) *
-                      </label>
-                      <input 
-                        type="tel" 
-                        placeholder="e.g. +234..."
-                        value={phone}
-                        onChange={(e) => setPhone(e.target.value)}
-                        className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-xs font-bold text-slate-800 placeholder-slate-400 focus:outline-none focus:border-shipplix-blue transition-colors"
-                      />
-                    </div>
-                  </div>
-
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div className="space-y-1.5">
-                      <label className="text-[10px] font-black uppercase tracking-wider text-slate-500 flex items-center gap-1">
-                        <Globe size={12} className="text-shipplix-blue" /> Destination Country *
-                      </label>
-                      <select 
-                        value={destination}
-                        onChange={(e) => setDestination(e.target.value)}
-                        className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-xs font-bold text-slate-800 focus:outline-none focus:border-shipplix-blue transition-colors cursor-pointer"
-                      >
-                        <option value="">Select destination</option>
-                        <option value="China">China (Import &amp; Export)</option>
-                        <option value="UK">United Kingdom (UK)</option>
-                        <option value="USA">United States (USA)</option>
-                        <option value="Canada">Canada</option>
-                        <option value="Europe">Europe</option>
-                        <option value="Other">Other</option>
-                      </select>
-                    </div>
-
-                    <div className="space-y-1.5">
-                      <label className="text-[10px] font-black uppercase tracking-wider text-slate-500 flex items-center gap-1">
-                        <Box size={12} className="text-shipplix-blue" /> Shipment Type (Optional)
-                      </label>
-                      <select 
-                        value={shipmentType}
-                        onChange={(e) => setShipmentType(e.target.value)}
-                        className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-xs font-bold text-slate-800 focus:outline-none focus:border-shipplix-blue transition-colors cursor-pointer"
-                      >
-                        <option value="">Select type (Optional)</option>
-                        <option value="Air Cargo">Air Cargo</option>
-                        <option value="Sea Cargo">Sea Cargo</option>
-                      </select>
-                    </div>
-                  </div>
-
-                  <div className="space-y-1.5">
-                    <label className="text-[10px] font-black uppercase tracking-wider text-slate-500 flex items-center gap-1">
-                      <MessageCircle size={12} className="text-shipplix-blue" /> Message (Optional)
-                    </label>
-                    <input 
-                      type="text" 
-                      placeholder="What items are you shipping? E.g. 50kg Garri, Clothes, etc."
-                      value={message}
-                      onChange={(e) => setMessage(e.target.value)}
-                      className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-2.5 text-xs font-bold text-slate-800 placeholder-slate-400 focus:outline-none focus:border-shipplix-blue transition-colors"
-                    />
-                  </div>
-
-                  {error && (
-                    <p className="text-red-500 text-[10px] font-black uppercase tracking-wider">{error}</p>
-                  )}
-
-                  <div className="pt-2">
-                    <button 
-                      type="submit" 
-                      className="w-full text-center bg-[#032B73] hover:bg-[#022157] text-white font-black py-3.5 px-8 rounded-xl transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg text-xs uppercase tracking-widest flex items-center justify-center gap-2 cursor-pointer"
+                <div className="flex flex-wrap gap-2.5">
+                  {serviceBadges.map((badge, i) => (
+                    <div 
+                      key={i} 
+                      className="flex items-center gap-1.5 bg-slate-50 hover:bg-blue-50/60 border border-slate-200/90 hover:border-[#032B73]/30 px-3 py-1.5 rounded-xl text-xs font-bold text-slate-800 transition-colors shadow-2xs"
                     >
-                      <MessageCircle size={14} className="text-shipplix-yellow fill-shipplix-yellow" />
-                      Send Booking Request
-                    </button>
-                  </div>
-                </form>
+                      <CheckCircle2 size={14} className="text-emerald-600 shrink-0" />
+                      <span>{badge}</span>
+                    </div>
+                  ))}
+                </div>
               </div>
+
             </motion.div>
           </div>
 
-        <div className="lg:w-1/3 mt-8 lg:mt-0 bg-blue-50/50 flex items-center justify-center border-l-0 lg:border-l border-slate-100 -m-6 md:-m-10 lg:m-0 p-8">
-          <div className="text-center w-full">
-            <div className="text-4xl font-black text-blue-900 mb-1">$2,500+</div>
-            <div className="text-[10px] uppercase font-bold text-slate-500 tracking-wider mb-6">Avg. Global Sales Growth per Business</div>
-            
-            <div className="grid grid-cols-2 gap-2 text-[10px] font-bold">
-              <div className="bg-white p-3 rounded-lg border border-blue-100 shadow-sm italic text-blue-800">
-                "International Shipping"
+          {/* Quick Booking Request Form */}
+          <div className="lg:w-1/3 bg-slate-50/80 p-6 rounded-2xl border border-slate-200/80 flex flex-col justify-between">
+            <div>
+              <div className="flex items-center gap-2 mb-4 pb-3 border-b border-slate-200">
+                <span className="flex h-2.5 w-2.5 relative">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#FEB919] opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#FEB919]"></span>
+                </span>
+                <h3 className="text-xs font-black uppercase tracking-wider text-[#032B73]">Quick Booking Request</h3>
               </div>
-              <div className="bg-white p-3 rounded-lg border border-blue-100 shadow-sm italic text-blue-800">
-                "E-Commerce & AI Setup"
-              </div>
-              <div className="bg-white p-3 rounded-lg border border-blue-100 shadow-sm italic text-blue-800">
-                "Export Customs Cleared"
-              </div>
-              <div className="bg-white p-3 rounded-lg border border-blue-100 shadow-sm italic text-blue-800">
-                "Global Customer Growth"
-              </div>
+              
+              <form onSubmit={handleSubmit} className="space-y-3">
+                <div className="space-y-1">
+                  <label className="text-[10px] font-black uppercase tracking-wider text-slate-500 flex items-center gap-1">
+                    <User size={12} className="text-[#032B73]" /> Full Name *
+                  </label>
+                  <input 
+                    type="text" 
+                    placeholder="First & last name"
+                    value={fullName}
+                    onChange={(e) => setFullName(e.target.value)}
+                    className="w-full bg-white border border-slate-200 rounded-lg px-3 py-2 text-xs font-bold text-slate-800 placeholder-slate-400 focus:outline-none focus:border-[#032B73] transition-colors"
+                  />
+                </div>
+
+                <div className="space-y-1">
+                  <label className="text-[10px] font-black uppercase tracking-wider text-slate-500 flex items-center gap-1">
+                    <Phone size={12} className="text-[#032B73]" /> Phone / WhatsApp *
+                  </label>
+                  <input 
+                    type="tel" 
+                    placeholder="e.g. +234..."
+                    value={phone}
+                    onChange={(e) => setPhone(e.target.value)}
+                    className="w-full bg-white border border-slate-200 rounded-lg px-3 py-2 text-xs font-bold text-slate-800 placeholder-slate-400 focus:outline-none focus:border-[#032B73] transition-colors"
+                  />
+                </div>
+
+                <div className="space-y-1">
+                  <label className="text-[10px] font-black uppercase tracking-wider text-slate-500 flex items-center gap-1">
+                    <Globe size={12} className="text-[#032B73]" /> Destination Country *
+                  </label>
+                  <select 
+                    value={destination}
+                    onChange={(e) => setDestination(e.target.value)}
+                    className="w-full bg-white border border-slate-200 rounded-lg px-3 py-2 text-xs font-bold text-slate-800 focus:outline-none focus:border-[#032B73] transition-colors cursor-pointer"
+                  >
+                    <option value="">Select destination</option>
+                    <option value="USA">United States (USA)</option>
+                    <option value="UK">United Kingdom (UK)</option>
+                    <option value="Canada">Canada</option>
+                    <option value="Europe">Europe</option>
+                    <option value="China">China (Import &amp; Export)</option>
+                    <option value="Other">Other Country</option>
+                  </select>
+                </div>
+
+                <div className="space-y-1">
+                  <label className="text-[10px] font-black uppercase tracking-wider text-slate-500 flex items-center gap-1">
+                    <Box size={12} className="text-[#032B73]" /> Shipment Type
+                  </label>
+                  <select 
+                    value={shipmentType}
+                    onChange={(e) => setShipmentType(e.target.value)}
+                    className="w-full bg-white border border-slate-200 rounded-lg px-3 py-2 text-xs font-bold text-slate-800 focus:outline-none focus:border-[#032B73] transition-colors cursor-pointer"
+                  >
+                    <option value="">Select mode</option>
+                    <option value="Air Cargo">Air Cargo Express</option>
+                    <option value="Sea Cargo">Sea Freight</option>
+                  </select>
+                </div>
+
+                <div className="space-y-1">
+                  <label className="text-[10px] font-black uppercase tracking-wider text-slate-500 flex items-center gap-1">
+                    <MessageCircle size={12} className="text-[#032B73]" /> Items Description
+                  </label>
+                  <input 
+                    type="text" 
+                    placeholder="e.g. 50kg Foodstuffs, Clothes"
+                    value={message}
+                    onChange={(e) => setMessage(e.target.value)}
+                    className="w-full bg-white border border-slate-200 rounded-lg px-3 py-2 text-xs font-bold text-slate-800 placeholder-slate-400 focus:outline-none focus:border-[#032B73] transition-colors"
+                  />
+                </div>
+
+                {error && (
+                  <p className="text-red-500 text-[10px] font-black uppercase tracking-wider">{error}</p>
+                )}
+
+                <button 
+                  type="submit" 
+                  className="w-full text-center bg-[#032B73] hover:bg-[#022157] text-white font-black py-3 px-4 rounded-lg transition-all duration-300 hover:shadow-md text-xs uppercase tracking-widest flex items-center justify-center gap-2 cursor-pointer mt-2"
+                >
+                  <MessageCircle size={14} className="text-[#FEB919] fill-[#FEB919]" />
+                  Send Quote Request
+                </button>
+              </form>
+            </div>
+
+            <div className="mt-4 pt-3 border-t border-slate-200/80 text-[10px] font-bold text-slate-500 flex items-center justify-between">
+              <span className="flex items-center gap-1">
+                <ShieldCheck size={12} className="text-emerald-600" /> Door-to-Door Guaranteed
+              </span>
+              <span className="text-[#032B73] font-black">24/7 Support</span>
             </div>
           </div>
+
         </div>
       </div>
-
-      <div className="mt-8 grid grid-cols-2 md:grid-cols-4 gap-4">
-        {[
-          { icon: <CheckCircle2 size={16} className="text-green-500" />, label: "International Shipping" },
-          { icon: <CheckCircle2 size={16} className="text-green-500" />, label: "Export Solutions & Customs" },
-          { icon: <CheckCircle2 size={16} className="text-green-500" />, label: "E-Commerce & AI Systems" },
-          { icon: <CheckCircle2 size={16} className="text-green-500" />, label: "Business Growth Support" }
-        ].map((item, i) => (
-          <div key={i} className="flex items-center gap-2 bg-white px-4 py-2 rounded-lg border border-slate-200 shadow-sm font-bold text-[11px] uppercase tracking-tight text-slate-600">
-            {item.icon}
-            {item.label}
-          </div>
-        ))}
-      </div>
-    </div>
-  </section>
+    </section>
   );
 };
 
