@@ -103,7 +103,7 @@ const Button = ({
 const WHATSAPP_BASE = "https://wa.me/2349168273513?text=";
 const URL_QUOTE = `${WHATSAPP_BASE}${encodeURIComponent("Hello Shipplix, I want to get a quote for a shipment.")}`;
 const URL_START = `${WHATSAPP_BASE}${encodeURIComponent("Hello, I'm ready to start my first shipment with Shipplix.")}`;
-const URL_TRACK = `${WHATSAPP_BASE}${encodeURIComponent("I want to track my shipment status.")}`;
+const URL_TRACK = "https://track.shipplix.com";
 const URL_CONNECT = `${WHATSAPP_BASE}${encodeURIComponent("I want to connect to international markets and start selling my goods abroad.")}`;
 const URL_SPACE = `${WHATSAPP_BASE}${encodeURIComponent("I'm interested in Group Shipping to save costs. How does it work?")}`;
 const URL_PROCESS = `${WHATSAPP_BASE}${encodeURIComponent("I'd like to know more about your export security and guarantee.")}`;
@@ -547,7 +547,7 @@ Please contact me to continue my shipment booking.`;
                     <ArrowRight size={16} />
                   </a>
                   <a 
-                    href={URL_TRACK}
+                    href="https://track.shipplix.com"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="w-full sm:w-auto text-center bg-slate-100 hover:bg-slate-200 text-slate-800 font-black py-4 px-8 rounded-xl transition-all duration-300 hover:-translate-y-0.5 text-xs md:text-sm uppercase tracking-widest flex items-center justify-center gap-2 border border-slate-200"
