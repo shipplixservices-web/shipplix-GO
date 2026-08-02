@@ -66,7 +66,6 @@ import UkToNigeriaPage from './components/UkToNigeriaPage';
 import NigeriaToHoustonPage from './components/NigeriaToHoustonPage';
 import Breadcrumbs from './components/Breadcrumbs';
 import { PWAInstallPrompt } from './components/PWAInstallPrompt';
-import BrandStudioPage from './components/BrandStudioPage';
 import shipplixPackagingUploaded from './assets/images/shipplix_packaging.png';
 
 // Common Components
@@ -309,13 +308,6 @@ const Navbar = ({ onNavigate, currentPath }: { onNavigate?: (path: string) => vo
                 >
                   Trust &amp; Security
                 </a>
-                <a 
-                  href="#/brand-studio" 
-                  onClick={(e) => handleLinkClick(e, '/brand-studio')} 
-                  className={`block px-4 py-2.5 rounded-xl text-[11px] font-bold hover:bg-white/10 hover:text-shipplix-yellow transition-colors ${currentPath === '/brand-studio' ? 'bg-white/10 text-shipplix-yellow font-black' : ''}`}
-                >
-                  ✨ AI Brand &amp; Logo Studio
-                </a>
               </div>
             </div>
           </div>
@@ -430,7 +422,6 @@ const Navbar = ({ onNavigate, currentPath }: { onNavigate?: (path: string) => vo
                     <a href="#/export-blueprint" onClick={(e) => handleLinkClick(e, '/export-blueprint')} className="py-1.5 text-slate-300 hover:text-shipplix-yellow">Export Blueprint</a>
                     <a href="#/future-products" onClick={(e) => handleLinkClick(e, '/future-products')} className="py-1.5 text-slate-300 hover:text-shipplix-yellow">Future Products Roadmap</a>
                     <a href="#/trust" onClick={(e) => handleLinkClick(e, '/trust')} className="py-1.5 text-slate-300 hover:text-shipplix-yellow">Trust &amp; Security</a>
-                    <a href="#/brand-studio" onClick={(e) => handleLinkClick(e, '/brand-studio')} className="py-1.5 text-shipplix-yellow font-bold flex items-center gap-1.5">✨ AI Brand &amp; Logo Studio</a>
                   </div>
                 )}
               </div>
@@ -2892,7 +2883,6 @@ export default function App() {
         {currentPath === '/export-blueprint' && <ExportBlueprintPage onNavigate={navigateTo} currentPath={currentPath} />}
         {currentPath === '/export-blueprint/thank-you' && <ExportBlueprintPage onNavigate={navigateTo} currentPath={currentPath} />}
         {currentPath === '/future-products' && <FutureProductsPage onNavigate={navigateTo} />}
-        {currentPath === '/brand-studio' && <BrandStudioPage />}
         {currentPath === '/admin-leads' && <AdminLeadsPage onNavigate={navigateTo} />}
       </main>
 
