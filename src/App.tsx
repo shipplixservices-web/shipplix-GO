@@ -54,6 +54,7 @@ import RevenuePartnerPage from './components/RevenuePartnerPage';
 import ExportBlueprintPage from './components/ExportBlueprintPage';
 import AdminLeadsPage from './components/AdminLeadsPage';
 import GlobalLogisticsNetwork from './components/GlobalLogisticsNetwork';
+import GlobalShippingNetworkSection from './components/GlobalShippingNetworkSection';
 import { RealShipmentGallery } from './components/RealShipmentGallery';
 import FutureProductsPage from './components/FutureProductsPage';
 import NigeriaToUsaPage from './components/NigeriaToUsaPage';
@@ -2751,12 +2752,28 @@ export default function App() {
       <main className="min-h-screen">
         {currentPath === '/' && (
           <>
+            {/* 1. Hero */}
             <Hero />
+
+            {/* 2. Core Services */}
+            <ShippingServices />
+            <ExportCategories />
+            <TopItemCategoriesShipped />
+            <PremiumPackagingSection />
+
+            {/* 3. Global Shipping Routes */}
             <GlobalLogisticsNetwork />
-            <UrgencyBanner />
+            <GlobalShippingNetworkSection />
+
+            {/* 4. Why Choose Shipplix */}
             <TrustCertifications />
+            <TrustSection />
+            <UrgencyBanner />
+
+            {/* 5. How It Works & Portals */}
+            <HowItWorks />
             
-            {/* Elegant Standalone Gateway Portal */}
+            {/* Standalone Gateway Portal */}
             <section className="py-16 bg-white border-b border-slate-200">
               <div className="container mx-auto px-6 max-w-5xl">
                 <div className="text-center mb-12">
@@ -2805,19 +2822,18 @@ export default function App() {
               </div>
             </section>
 
-            <ExportCategories />
-            <TopItemCategoriesShipped />
-            <PremiumPackagingSection />
-            <ShippingServices />
-            <HowItWorks />
-            <TrustSection />
             <RealShipmentGallery />
             <DiasporaSection />
             <GroupShipping />
+
+            {/* 6. Customer Testimonials & FAQs */}
             <Testimonials />
             <FAQSection />
+
+            {/* 7. Grow Your International Business (Business Solutions) */}
             <ExportHub />
             
+            {/* 8. Final Call-to-Action */}
             {/* Urgent Recap Section */}
             <section className="py-16 bg-white overflow-hidden relative border-t border-slate-200">
               <div className="container mx-auto px-6 text-center">
