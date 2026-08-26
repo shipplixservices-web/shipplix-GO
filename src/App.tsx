@@ -57,7 +57,6 @@ import AdminLeadsPage from './components/AdminLeadsPage';
 import GlobalLogisticsNetwork from './components/GlobalLogisticsNetwork';
 import GlobalShippingNetworkSection from './components/GlobalShippingNetworkSection';
 import { RealShipmentGallery } from './components/RealShipmentGallery';
-import FutureProductsPage from './components/FutureProductsPage';
 import NigeriaToUsaPage from './components/NigeriaToUsaPage';
 import NigeriaToUkPage from './components/NigeriaToUkPage';
 import NigeriaToCanadaPage from './components/NigeriaToCanadaPage';
@@ -377,13 +376,6 @@ const Navbar = ({ onNavigate, currentPath }: { onNavigate?: (path: string) => vo
                   Export Blueprint
                 </a>
                 <a 
-                  href="#/future-products" 
-                  onClick={(e) => handleLinkClick(e, '/future-products')} 
-                  className={`block px-4 py-2.5 rounded-xl text-[11px] font-bold hover:bg-white/10 hover:text-shipplix-yellow transition-colors ${currentPath === '/future-products' ? 'bg-white/10 text-shipplix-yellow font-black' : ''}`}
-                >
-                  Future Products Roadmap
-                </a>
-                <a 
                   href="#/trust" 
                   onClick={(e) => handleLinkClick(e, '/trust')} 
                   className={`block px-4 py-2.5 rounded-xl text-[11px] font-bold hover:bg-white/10 hover:text-shipplix-yellow transition-colors ${currentPath === '/trust' ? 'bg-white/10 text-shipplix-yellow font-black' : ''}`}
@@ -587,7 +579,6 @@ const Navbar = ({ onNavigate, currentPath }: { onNavigate?: (path: string) => vo
                 {expandedMobileSection === 'resources' && (
                   <div className="pl-4 pr-2 py-2 flex flex-col gap-2 border-l-2 border-shipplix-yellow/40 my-1 bg-white/5 rounded-r-xl">
                     <a href="#/export-blueprint" onClick={(e) => handleLinkClick(e, '/export-blueprint')} className="py-1.5 text-slate-300 hover:text-shipplix-yellow">Export Blueprint</a>
-                    <a href="#/future-products" onClick={(e) => handleLinkClick(e, '/future-products')} className="py-1.5 text-slate-300 hover:text-shipplix-yellow">Future Products Roadmap</a>
                     <a href="#/trust" onClick={(e) => handleLinkClick(e, '/trust')} className="py-1.5 text-slate-300 hover:text-shipplix-yellow">Trust &amp; Security</a>
                   </div>
                 )}
@@ -2989,12 +2980,6 @@ function updatePageSeo(path: string) {
       ogTitle: "Download The African Export Blueprint – Shipplix",
       ogDescription: "Access your free export growth blueprint now."
     },
-    '/future-products': {
-      title: "Future Products & Ecosystem Roadmap – Shipplix",
-      description: "Discover upcoming Shipplix innovations: AI-powered store setup, instant buyer matching, FX settlement, and automated logistics.",
-      ogTitle: "Shipplix Ecosystem & Product Roadmap",
-      ogDescription: "Building the digital infrastructure for African cross-border trade and global commerce."
-    },
     '/admin-leads': {
       title: "Admin Leads Portal – Shipplix",
       description: "Internal administrative leads dashboard for Shipplix team members.",
@@ -3114,9 +3099,6 @@ export default function App() {
     if (p === '/export-blueprint/thank-you' || h === '#/export-blueprint/thank-you' || h === '#export-blueprint-thank-you') {
       return '/export-blueprint/thank-you';
     }
-    if (p === '/future-products' || h === '#/future-products' || h === '#future-products') {
-      return '/future-products';
-    }
     return '/';
   });
 
@@ -3158,8 +3140,6 @@ export default function App() {
         setCurrentPath('/export-blueprint');
       } else if (p === '/export-blueprint/thank-you' || h === '#/export-blueprint/thank-you' || h === '#export-blueprint-thank-you') {
         setCurrentPath('/export-blueprint/thank-you');
-      } else if (p === '/future-products' || h === '#/future-products' || h === '#future-products') {
-        setCurrentPath('/future-products');
       } else {
         setCurrentPath('/');
       }
@@ -3240,10 +3220,9 @@ export default function App() {
                     { title: "Economy Terms", desc: "Full service agreements, dimensional metrics, and payload rules.", link: "/economy-cargo-terms", num: "05" },
                     { title: "Revenue Partner", desc: "Earn extra passive income by referring customers to ship with Shipplix.", link: "/revenue-partner", num: "06" },
                     { title: "Export Blueprint", desc: "Learn how to find overseas buyers and build custom customer acquisition systems.", link: "/export-blueprint", num: "07" },
-                    { title: "Future Products Roadmap", desc: "Explore upcoming Shipplix Commerce, Supplier Directory, AI Assistant & Ecosystem features.", link: "/future-products", num: "08" },
-                    { title: "Ship Nigeria to USA", desc: "Fast 5-7 days express air freight & door-to-door delivery across all 50 US states.", link: "/ship-from-nigeria-to-usa", num: "09" },
-                    { title: "Ship Nigeria to Houston", desc: "Fast 5-7 days express air freight & door-to-door delivery to Sugar Land, Katy, Pearland & Greater Houston, TX.", link: "/ship-from-nigeria-to-houston", num: "10" },
-                    { title: "Ship Nigeria to UK", desc: "Fast 3-5 days express air freight & door-to-door delivery across London & all UK postcodes.", link: "/ship-from-nigeria-to-uk", num: "11" },
+                    { title: "Ship Nigeria to USA", desc: "Fast 5-7 days express air freight & door-to-door delivery across all 50 US states.", link: "/ship-from-nigeria-to-usa", num: "08" },
+                    { title: "Ship Nigeria to Houston", desc: "Fast 5-7 days express air freight & door-to-door delivery to Sugar Land, Katy, Pearland & Greater Houston, TX.", link: "/ship-from-nigeria-to-houston", num: "09" },
+                    { title: "Ship Nigeria to UK", desc: "Fast 3-5 days express air freight & door-to-door delivery across London & all UK postcodes.", link: "/ship-from-nigeria-to-uk", num: "10" },
                     { title: "Ship Nigeria to Canada", desc: "Fast 5-7 days express air freight & door-to-door delivery across Toronto & all 10 Canadian provinces.", link: "/ship-from-nigeria-to-canada", num: "11" },
                     { title: "Ship Nigeria to Europe", desc: "Fast 5-7 days express air freight & door-to-door delivery across Germany, France, Italy & all EU countries.", link: "/ship-from-nigeria-to-europe", num: "12" },
                     { title: "Ship China to Nigeria", desc: "Air cargo express & sea freight import from Guangzhou, Yiwu & Shenzhen with customs clearing in Lagos.", link: "/ship-from-china-to-nigeria", num: "13" },
@@ -3341,7 +3320,6 @@ export default function App() {
         {currentPath === '/revenue-partner' && <RevenuePartnerPage />}
         {currentPath === '/export-blueprint' && <ExportBlueprintPage onNavigate={navigateTo} currentPath={currentPath} />}
         {currentPath === '/export-blueprint/thank-you' && <ExportBlueprintPage onNavigate={navigateTo} currentPath={currentPath} />}
-        {currentPath === '/future-products' && <FutureProductsPage onNavigate={navigateTo} />}
         {currentPath === '/admin-leads' && <AdminLeadsPage onNavigate={navigateTo} />}
       </main>
 

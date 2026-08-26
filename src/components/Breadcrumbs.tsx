@@ -98,11 +98,7 @@ export default function Breadcrumbs({ currentPath, onNavigate, className = '' }:
         items.push({ label: 'Download Guide' });
         break;
 
-      // Ecosystem & Admin
-      case '/future-products':
-        items.push({ label: 'Ecosystem', path: '/' });
-        items.push({ label: 'Product Roadmap' });
-        break;
+      // Admin
       case '/admin-leads':
         items.push({ label: 'Admin', path: '/' });
         items.push({ label: 'Leads Management' });
