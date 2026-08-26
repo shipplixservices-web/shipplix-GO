@@ -150,7 +150,7 @@ const Navbar = ({ onNavigate, currentPath }: { onNavigate?: (path: string) => vo
           }}
         >
           <div className="bg-shipplix-yellow text-shipplix-blue font-black p-1 rounded-sm text-xl tracking-tighter">SHIPPLIX</div>
-          <span className="hidden sm:inline-block text-[10px] font-bold tracking-widest opacity-80 uppercase leading-none">Domestic, Interstate &amp;<br/>Global Logistics</span>
+          <span className="hidden sm:inline-block text-[10px] font-bold tracking-widest opacity-80 uppercase leading-none">International Shipping &amp;<br/>Global Logistics</span>
         </div>
         
         {/* Desktop Navigation Dropdowns */}
@@ -165,81 +165,21 @@ const Navbar = ({ onNavigate, currentPath }: { onNavigate?: (path: string) => vo
             Home
           </a>
 
-          {/* Domestic Shipping Dropdown */}
+          {/* International Shipping Dropdown - PRIMARY */}
           <div className="relative group py-2">
-            <button className="flex items-center gap-1 hover:text-shipplix-yellow transition-colors font-bold uppercase tracking-wider focus:outline-none">
-              Domestic Shipping
+            <button className="flex items-center gap-1 hover:text-shipplix-yellow transition-colors font-black uppercase tracking-wider focus:outline-none">
+              International Shipping
               <ChevronDown size={14} className="transition-transform duration-200 group-hover:rotate-180 text-shipplix-yellow" />
             </button>
             <div className="absolute top-full left-0 pt-2 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-all duration-200 z-50 min-w-[260px]">
               <div className="bg-slate-900 border border-white/10 text-white rounded-2xl shadow-2xl p-2 backdrop-blur-xl">
-                <a 
-                  href="#services" 
-                  onClick={(e) => {
-                    e.preventDefault();
-                    if (currentPath !== '/') {
-                      onNavigate?.('/');
-                      setTimeout(() => {
-                        document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' });
-                      }, 100);
-                    } else {
-                      document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' });
-                    }
-                  }} 
-                  className="block px-4 py-2.5 rounded-xl text-[11px] font-bold hover:bg-white/10 hover:text-shipplix-yellow transition-colors"
-                >
-                  🇳🇬 Intra-State &amp; City Delivery
-                </a>
-                <a 
-                  href="#services" 
-                  onClick={(e) => {
-                    e.preventDefault();
-                    if (currentPath !== '/') {
-                      onNavigate?.('/');
-                      setTimeout(() => {
-                        document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' });
-                      }, 100);
-                    } else {
-                      document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' });
-                    }
-                  }} 
-                  className="block px-4 py-2.5 rounded-xl text-[11px] font-bold hover:bg-white/10 hover:text-shipplix-yellow transition-colors"
-                >
-                  🇳🇬 Interstate Cargo &amp; Haulage (36 States)
-                </a>
-                <a 
-                  href="#services" 
-                  onClick={(e) => {
-                    e.preventDefault();
-                    if (currentPath !== '/') {
-                      onNavigate?.('/');
-                      setTimeout(() => {
-                        document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' });
-                      }, 100);
-                    } else {
-                      document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' });
-                    }
-                  }} 
-                  className="block px-4 py-2.5 rounded-xl text-[11px] font-bold hover:bg-white/10 hover:text-shipplix-yellow transition-colors"
-                >
-                  🚚 Dedicated Truck &amp; Van Hire
-                </a>
-              </div>
-            </div>
-          </div>
-
-          {/* International Shipping Dropdown */}
-          <div className="relative group py-2">
-            <button className="flex items-center gap-1 hover:text-shipplix-yellow transition-colors font-bold uppercase tracking-wider focus:outline-none">
-              International Shipping
-              <ChevronDown size={14} className="transition-transform duration-200 group-hover:rotate-180 text-shipplix-yellow" />
-            </button>
-            <div className="absolute top-full left-0 pt-2 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-all duration-200 z-50 min-w-[240px]">
-              <div className="bg-slate-900 border border-white/10 text-white rounded-2xl shadow-2xl p-2 backdrop-blur-xl">
+                <div className="px-3 py-1.5 text-[9px] font-black uppercase tracking-widest text-shipplix-yellow/80 border-b border-white/10 mb-1">
+                  ⭐ Hero Corridors
+                </div>
                 <a 
                   href="#/ship-from-nigeria-to-usa" 
                   onClick={(e) => handleLinkClick(e, '/ship-from-nigeria-to-usa')} 
-                  className={`block px-4 py-2.5 rounded-xl text-[11px] font-bold hover:bg-white/10 hover:text-shipplix-yellow transition-colors ${currentPath === '/ship-from-nigeria-to-usa' ? 'bg-white/10 text-shipplix-yellow font-black' : ''}`}
+                  className={`block px-4 py-2.5 rounded-xl text-[11px] font-black hover:bg-white/10 hover:text-shipplix-yellow transition-colors ${currentPath === '/ship-from-nigeria-to-usa' ? 'bg-white/10 text-shipplix-yellow font-black' : ''}`}
                 >
                   🇺🇸 Ship Nigeria to USA
                 </a>
@@ -253,10 +193,13 @@ const Navbar = ({ onNavigate, currentPath }: { onNavigate?: (path: string) => vo
                 <a 
                   href="#/ship-from-nigeria-to-uk" 
                   onClick={(e) => handleLinkClick(e, '/ship-from-nigeria-to-uk')} 
-                  className={`block px-4 py-2.5 rounded-xl text-[11px] font-bold hover:bg-white/10 hover:text-shipplix-yellow transition-colors ${currentPath === '/ship-from-nigeria-to-uk' ? 'bg-white/10 text-shipplix-yellow font-black' : ''}`}
+                  className={`block px-4 py-2.5 rounded-xl text-[11px] font-black hover:bg-white/10 hover:text-shipplix-yellow transition-colors ${currentPath === '/ship-from-nigeria-to-uk' ? 'bg-white/10 text-shipplix-yellow font-black' : ''}`}
                 >
                   🇬🇧 Ship Nigeria to UK
                 </a>
+                <div className="px-3 py-1.5 text-[9px] font-black uppercase tracking-widest text-slate-400 border-t border-b border-white/10 my-1">
+                  Global Destinations
+                </div>
                 <a 
                   href="#/ship-from-nigeria-to-canada" 
                   onClick={(e) => handleLinkClick(e, '/ship-from-nigeria-to-canada')} 
@@ -271,14 +214,14 @@ const Navbar = ({ onNavigate, currentPath }: { onNavigate?: (path: string) => vo
                 >
                   🇪🇺 Ship Nigeria to Europe
                 </a>
-                <div className="my-1 border-t border-white/10"></div>
                 <a 
                   href="#/ship-from-china-to-nigeria" 
                   onClick={(e) => handleLinkClick(e, '/ship-from-china-to-nigeria')} 
                   className={`block px-4 py-2.5 rounded-xl text-[11px] font-bold hover:bg-white/10 hover:text-shipplix-yellow transition-colors ${currentPath === '/ship-from-china-to-nigeria' ? 'bg-white/10 text-shipplix-yellow font-black' : ''}`}
                 >
-                  🇨🇳 Ship China to Nigeria (Import)
+                  🇨🇳 China ↔ Nigeria (Import &amp; Sourcing)
                 </a>
+                <div className="my-1 border-t border-white/10"></div>
                 <a 
                   href="#/ship-from-usa-to-nigeria" 
                   onClick={(e) => handleLinkClick(e, '/ship-from-usa-to-nigeria')} 
@@ -292,6 +235,69 @@ const Navbar = ({ onNavigate, currentPath }: { onNavigate?: (path: string) => vo
                   className={`block px-4 py-2.5 rounded-xl text-[11px] font-bold hover:bg-white/10 hover:text-shipplix-yellow transition-colors ${currentPath === '/ship-from-uk-to-nigeria' ? 'bg-white/10 text-shipplix-yellow font-black' : ''}`}
                 >
                   🇬🇧 Ship UK to Nigeria
+                </a>
+              </div>
+            </div>
+          </div>
+
+          {/* Domestic Logistics Dropdown - SECONDARY */}
+          <div className="relative group py-2">
+            <button className="flex items-center gap-1 hover:text-shipplix-yellow transition-colors font-bold uppercase tracking-wider focus:outline-none opacity-90">
+              Domestic Logistics
+              <ChevronDown size={14} className="transition-transform duration-200 group-hover:rotate-180 text-shipplix-yellow" />
+            </button>
+            <div className="absolute top-full left-0 pt-2 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-all duration-200 z-50 min-w-[260px]">
+              <div className="bg-slate-900 border border-white/10 text-white rounded-2xl shadow-2xl p-2 backdrop-blur-xl">
+                <a 
+                  href="#domestic-services" 
+                  onClick={(e) => {
+                    e.preventDefault();
+                    if (currentPath !== '/') {
+                      onNavigate?.('/');
+                      setTimeout(() => {
+                        document.getElementById('domestic-services')?.scrollIntoView({ behavior: 'smooth' });
+                      }, 100);
+                    } else {
+                      document.getElementById('domestic-services')?.scrollIntoView({ behavior: 'smooth' });
+                    }
+                  }} 
+                  className="block px-4 py-2.5 rounded-xl text-[11px] font-bold hover:bg-white/10 hover:text-shipplix-yellow transition-colors"
+                >
+                  🇳🇬 Interstate Shipping (36 States)
+                </a>
+                <a 
+                  href="#domestic-services" 
+                  onClick={(e) => {
+                    e.preventDefault();
+                    if (currentPath !== '/') {
+                      onNavigate?.('/');
+                      setTimeout(() => {
+                        document.getElementById('domestic-services')?.scrollIntoView({ behavior: 'smooth' });
+                      }, 100);
+                    } else {
+                      document.getElementById('domestic-services')?.scrollIntoView({ behavior: 'smooth' });
+                    }
+                  }} 
+                  className="block px-4 py-2.5 rounded-xl text-[11px] font-bold hover:bg-white/10 hover:text-shipplix-yellow transition-colors"
+                >
+                  🇳🇬 Intra-State City Delivery
+                </a>
+                <a 
+                  href="#truck-van-hire" 
+                  onClick={(e) => {
+                    e.preventDefault();
+                    if (currentPath !== '/') {
+                      onNavigate?.('/');
+                      setTimeout(() => {
+                        document.getElementById('truck-van-hire')?.scrollIntoView({ behavior: 'smooth' });
+                      }, 100);
+                    } else {
+                      document.getElementById('truck-van-hire')?.scrollIntoView({ behavior: 'smooth' });
+                    }
+                  }} 
+                  className="block px-4 py-2.5 rounded-xl text-[11px] font-bold hover:bg-white/10 hover:text-shipplix-yellow transition-colors"
+                >
+                  🚚 Truck &amp; Van Hire
                 </a>
               </div>
             </div>
@@ -395,7 +401,7 @@ const Navbar = ({ onNavigate, currentPath }: { onNavigate?: (path: string) => vo
               target="_self" 
               className="bg-[#FEB919] hover:bg-[#e2a412] text-[#032B73] font-black py-2.5 px-3.5 rounded-xl transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md text-[10px] uppercase tracking-widest flex items-center justify-center gap-1"
             >
-              Book Shipment
+              Ship Internationally
             </a>
             <Button 
               as="a" 
@@ -441,94 +447,99 @@ const Navbar = ({ onNavigate, currentPath }: { onNavigate?: (path: string) => vo
                 Home
               </a>
 
-              {/* Domestic Shipping Accordion */}
+              {/* International Shipping Routes Accordion - PRIMARY */}
+              <div className="border-b border-white/10 pb-2">
+                <button 
+                  onClick={() => toggleMobileSection('routes')} 
+                  className="w-full flex items-center justify-between py-2.5 px-3 rounded-xl hover:bg-white/5 transition-colors font-black uppercase text-shipplix-yellow"
+                >
+                  <span className="flex items-center gap-1.5">
+                    <span>International Shipping</span>
+                    <span className="text-[9px] bg-shipplix-yellow/20 text-shipplix-yellow px-1.5 py-0.5 rounded">Core</span>
+                  </span>
+                  <ChevronDown size={16} className={`text-shipplix-yellow transition-transform duration-200 ${expandedMobileSection === 'routes' ? 'rotate-180' : ''}`} />
+                </button>
+                {expandedMobileSection === 'routes' && (
+                  <div className="pl-4 pr-2 py-2 flex flex-col gap-2 border-l-2 border-shipplix-yellow/40 my-1 bg-white/5 rounded-r-xl">
+                    <div className="text-[9px] font-black uppercase tracking-widest text-shipplix-yellow opacity-80 pt-1">⭐ Hero Routes</div>
+                    <a href="#/ship-from-nigeria-to-usa" onClick={(e) => handleLinkClick(e, '/ship-from-nigeria-to-usa')} className="py-1.5 text-white font-black hover:text-shipplix-yellow">🇺🇸 Ship Nigeria to USA</a>
+                    <a href="#/ship-from-nigeria-to-houston" onClick={(e) => handleLinkClick(e, '/ship-from-nigeria-to-houston')} className="py-1.5 text-slate-200 hover:text-shipplix-yellow">🇺🇸 Ship Nigeria to Houston, TX</a>
+                    <a href="#/ship-from-nigeria-to-uk" onClick={(e) => handleLinkClick(e, '/ship-from-nigeria-to-uk')} className="py-1.5 text-white font-black hover:text-shipplix-yellow">🇬🇧 Ship Nigeria to UK</a>
+                    <div className="text-[9px] font-black uppercase tracking-widest text-slate-400 pt-2 border-t border-white/10">Global Corridors</div>
+                    <a href="#/ship-from-nigeria-to-canada" onClick={(e) => handleLinkClick(e, '/ship-from-nigeria-to-canada')} className="py-1.5 text-slate-200 hover:text-shipplix-yellow">🇨🇦 Ship Nigeria to Canada</a>
+                    <a href="#/ship-from-nigeria-to-europe" onClick={(e) => handleLinkClick(e, '/ship-from-nigeria-to-europe')} className="py-1.5 text-slate-200 hover:text-shipplix-yellow">🇪🇺 Ship Nigeria to Europe</a>
+                    <a href="#/ship-from-china-to-nigeria" onClick={(e) => handleLinkClick(e, '/ship-from-china-to-nigeria')} className="py-1.5 text-slate-200 hover:text-shipplix-yellow">🇨🇳 China ↔ Nigeria (Import)</a>
+                    <a href="#/ship-from-usa-to-nigeria" onClick={(e) => handleLinkClick(e, '/ship-from-usa-to-nigeria')} className="py-1.5 text-slate-200 hover:text-shipplix-yellow">🇺🇸 Ship USA to Nigeria</a>
+                    <a href="#/ship-from-uk-to-nigeria" onClick={(e) => handleLinkClick(e, '/ship-from-uk-to-nigeria')} className="py-1.5 text-slate-200 hover:text-shipplix-yellow">🇬🇧 Ship UK to Nigeria</a>
+                  </div>
+                )}
+              </div>
+
+              {/* Domestic Shipping Accordion - SECONDARY */}
               <div className="border-b border-white/10 pb-2">
                 <button 
                   onClick={() => toggleMobileSection('domestic')} 
-                  className="w-full flex items-center justify-between py-2.5 px-3 rounded-xl hover:bg-white/5 transition-colors font-black uppercase text-slate-200"
+                  className="w-full flex items-center justify-between py-2.5 px-3 rounded-xl hover:bg-white/5 transition-colors font-bold uppercase text-slate-300"
                 >
-                  <span>Domestic Shipping</span>
-                  <ChevronDown size={16} className={`text-shipplix-yellow transition-transform duration-200 ${expandedMobileSection === 'domestic' ? 'rotate-180' : ''}`} />
+                  <span>Domestic Logistics</span>
+                  <ChevronDown size={16} className={`text-slate-400 transition-transform duration-200 ${expandedMobileSection === 'domestic' ? 'rotate-180' : ''}`} />
                 </button>
                 {expandedMobileSection === 'domestic' && (
-                  <div className="pl-4 pr-2 py-2 flex flex-col gap-2 border-l-2 border-shipplix-yellow/40 my-1 bg-white/5 rounded-r-xl">
+                  <div className="pl-4 pr-2 py-2 flex flex-col gap-2 border-l-2 border-white/20 my-1 bg-white/5 rounded-r-xl">
                     <a 
-                      href="#services" 
+                      href="#domestic-services" 
                       onClick={(e) => {
                         e.preventDefault();
                         setIsOpen(false);
                         if (currentPath !== '/') {
                           onNavigate?.('/');
                           setTimeout(() => {
-                            document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' });
+                            document.getElementById('domestic-services')?.scrollIntoView({ behavior: 'smooth' });
                           }, 100);
                         } else {
-                          document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' });
+                          document.getElementById('domestic-services')?.scrollIntoView({ behavior: 'smooth' });
                         }
                       }} 
                       className="py-1.5 text-slate-300 hover:text-shipplix-yellow"
                     >
-                      Intra-State &amp; City Delivery
+                      Interstate Haulage (36 States)
                     </a>
                     <a 
-                      href="#services" 
+                      href="#domestic-services" 
                       onClick={(e) => {
                         e.preventDefault();
                         setIsOpen(false);
                         if (currentPath !== '/') {
                           onNavigate?.('/');
                           setTimeout(() => {
-                            document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' });
+                            document.getElementById('domestic-services')?.scrollIntoView({ behavior: 'smooth' });
                           }, 100);
                         } else {
-                          document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' });
+                          document.getElementById('domestic-services')?.scrollIntoView({ behavior: 'smooth' });
                         }
                       }} 
                       className="py-1.5 text-slate-300 hover:text-shipplix-yellow"
                     >
-                      Interstate Cargo &amp; Haulage
+                      Intra-State City Delivery
                     </a>
                     <a 
-                      href="#services" 
+                      href="#truck-van-hire" 
                       onClick={(e) => {
                         e.preventDefault();
                         setIsOpen(false);
                         if (currentPath !== '/') {
                           onNavigate?.('/');
                           setTimeout(() => {
-                            document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' });
+                            document.getElementById('truck-van-hire')?.scrollIntoView({ behavior: 'smooth' });
                           }, 100);
                         } else {
-                          document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' });
+                          document.getElementById('truck-van-hire')?.scrollIntoView({ behavior: 'smooth' });
                         }
                       }} 
                       className="py-1.5 text-slate-300 hover:text-shipplix-yellow"
                     >
                       Dedicated Truck &amp; Van Hire
                     </a>
-                  </div>
-                )}
-              </div>
-
-              {/* International Shipping Routes Accordion */}
-              <div className="border-b border-white/10 pb-2">
-                <button 
-                  onClick={() => toggleMobileSection('routes')} 
-                  className="w-full flex items-center justify-between py-2.5 px-3 rounded-xl hover:bg-white/5 transition-colors font-black uppercase text-slate-200"
-                >
-                  <span>International Shipping</span>
-                  <ChevronDown size={16} className={`text-shipplix-yellow transition-transform duration-200 ${expandedMobileSection === 'routes' ? 'rotate-180' : ''}`} />
-                </button>
-                {expandedMobileSection === 'routes' && (
-                  <div className="pl-4 pr-2 py-2 flex flex-col gap-2 border-l-2 border-shipplix-yellow/40 my-1 bg-white/5 rounded-r-xl">
-                    <a href="#/ship-from-nigeria-to-usa" onClick={(e) => handleLinkClick(e, '/ship-from-nigeria-to-usa')} className="py-1.5 text-slate-200 hover:text-shipplix-yellow">🇺🇸 Ship Nigeria to USA</a>
-                    <a href="#/ship-from-nigeria-to-houston" onClick={(e) => handleLinkClick(e, '/ship-from-nigeria-to-houston')} className="py-1.5 text-slate-200 hover:text-shipplix-yellow">🇺🇸 Ship Nigeria to Houston, TX</a>
-                    <a href="#/ship-from-nigeria-to-uk" onClick={(e) => handleLinkClick(e, '/ship-from-nigeria-to-uk')} className="py-1.5 text-slate-200 hover:text-shipplix-yellow">🇬🇧 Ship Nigeria to UK</a>
-                    <a href="#/ship-from-nigeria-to-canada" onClick={(e) => handleLinkClick(e, '/ship-from-nigeria-to-canada')} className="py-1.5 text-slate-200 hover:text-shipplix-yellow">🇨🇦 Ship Nigeria to Canada</a>
-                    <a href="#/ship-from-nigeria-to-europe" onClick={(e) => handleLinkClick(e, '/ship-from-nigeria-to-europe')} className="py-1.5 text-slate-200 hover:text-shipplix-yellow">🇪🇺 Ship Nigeria to Europe</a>
-                    <a href="#/ship-from-china-to-nigeria" onClick={(e) => handleLinkClick(e, '/ship-from-china-to-nigeria')} className="py-1.5 text-slate-200 hover:text-shipplix-yellow">🇨🇳 Ship China to Nigeria</a>
-                    <a href="#/ship-from-usa-to-nigeria" onClick={(e) => handleLinkClick(e, '/ship-from-usa-to-nigeria')} className="py-1.5 text-slate-200 hover:text-shipplix-yellow">🇺🇸 Ship USA to Nigeria</a>
-                    <a href="#/ship-from-uk-to-nigeria" onClick={(e) => handleLinkClick(e, '/ship-from-uk-to-nigeria')} className="py-1.5 text-slate-200 hover:text-shipplix-yellow">🇬🇧 Ship UK to Nigeria</a>
                   </div>
                 )}
               </div>
@@ -631,30 +642,30 @@ const Hero = () => {
 
     const formattedMessage = `Hello Shipplix,
 
-I would like to request a quote / booking for logistics services.
+I would like to request a quote / booking for international shipping & logistics.
 
 *Name:* ${fullName.trim()}
 *Phone/WhatsApp:* ${phone.trim()}
-*Service Type:* ${serviceType || 'Standard Logistics'}
+*Service Type:* ${serviceType || 'International Air Freight'}
 *Pickup Location:* ${origin.trim() || 'Nigeria'}
 *Destination:* ${destination}
-*Goods / Cargo Description:* ${message.trim() || 'General Cargo'}
+*Goods / Cargo Description:* ${message.trim() || 'Foodstuffs, Fashion or Commercial Cargo'}
 
-Please contact me with a quick quote and next steps.`;
+Please contact me with a quick quote and shipping schedule.`;
 
     const whatsappUrl = `https://wa.me/2349168273513?text=${encodeURIComponent(formattedMessage)}`;
     window.open(whatsappUrl, '_self');
   };
 
   const serviceBadges = [
-    "🇳🇬 Domestic Deliveries",
-    "🇳🇬 Interstate Haulage (36 States)",
-    "🚚 Truck & Van Hire",
-    "✈️ Air Freight (USA, UK, CA, EU)",
-    "🇨🇳 China Import & Sourcing",
-    "🚢 Sea Freight & Containers",
-    "🛡️ Customs Clearance",
-    "📦 Door-to-Door Delivery"
+    { text: "🇺🇸 Nigeria → USA", featured: true },
+    { text: "🇬🇧 Nigeria → UK", featured: true },
+    { text: "🇨🇦 Nigeria → Canada", featured: false },
+    { text: "🇪🇺 Nigeria → Europe", featured: false },
+    { text: "🇨🇳 China ↔ Nigeria", featured: false },
+    { text: "✈️ Air Freight", featured: false },
+    { text: "🚢 Sea Freight", featured: false },
+    { text: "📦 Door-to-Door Delivery", featured: false }
   ];
 
   return (
@@ -671,15 +682,15 @@ Please contact me with a quick quote and next steps.`;
             >
               <span className="bg-[#032B73]/10 text-[#032B73] text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-widest mb-4 inline-flex items-center gap-1.5 border border-[#032B73]/15">
                 <Globe size={12} className="text-[#032B73]" />
-                Domestic • Interstate • International Logistics
+                International Freight &amp; Cross-Border Logistics
               </span>
               
               <h1 className="text-3xl md:text-5xl font-black leading-tight text-slate-900 mb-4 tracking-tight">
-                Move Goods. <span className="text-[#032B73] underline decoration-[#FFD700] decoration-4 underline-offset-4">Ship Worldwide.</span>
+                Ship From Nigeria <span className="text-[#032B73] underline decoration-[#FFD700] decoration-4 underline-offset-4">To The World.</span>
               </h1>
               
               <p className="text-slate-600 text-base md:text-lg mb-6 font-medium leading-relaxed max-w-2xl">
-                Ship confidently with Shipplix. From local city deliveries, interstate haulage across all 36 Nigerian states, and dedicated truck &amp; van hire to express air freight, sea cargo, customs clearance, and global door-to-door delivery.
+                Reliable international shipping from Nigeria to the USA, UK, Canada, Europe and China — with pickup, cargo handling and delivery solutions for individuals and businesses.
               </p>
 
               {/* Primary & Secondary Call-To-Action */}
@@ -688,39 +699,44 @@ Please contact me with a quick quote and next steps.`;
                   <a 
                     href="https://myshipment.shipplix.com" 
                     target="_self" 
-                    className="w-full sm:w-auto text-center bg-[#FEB919] hover:bg-[#e2a412] text-[#032B73] font-black py-4 px-8 rounded-xl transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg text-xs md:text-sm uppercase tracking-widest flex items-center justify-center gap-2 border border-[#FEB919]/50"
+                    className="w-full sm:w-auto text-center bg-[#FEB919] hover:bg-[#e2a412] text-[#032B73] font-black py-4 px-8 rounded-xl transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg text-xs md:text-sm uppercase tracking-widest flex items-center justify-center gap-2 border border-[#FEB919]/50 shadow-md"
                   >
-                    <span>Book My Shipment</span>
+                    <span>Ship Internationally</span>
                     <ArrowRight size={16} />
                   </a>
                   <a 
-                    href="https://track.shipplix.com"
+                    href={URL_QUOTE}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="w-full sm:w-auto text-center bg-slate-100 hover:bg-slate-200 text-slate-800 font-black py-4 px-8 rounded-xl transition-all duration-300 hover:-translate-y-0.5 text-xs md:text-sm uppercase tracking-widest flex items-center justify-center gap-2 border border-slate-200"
                   >
-                    <span>Track Shipment</span>
+                    <span>Get a Shipping Quote</span>
                   </a>
                 </div>
                 <p className="mt-3 text-xs text-slate-500 font-bold italic flex items-center gap-2">
                   <span className="inline-block w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-                  Nationwide deliveries &amp; global freight • Customs cleared • Real-time tracking
+                  Doorstep pickup in Nigeria • Air &amp; Sea cargo • USA &amp; UK specialist • Full customs clearance
                 </p>
               </div>
 
-              {/* Premium Service Badges */}
+              {/* Top International Destinations & Badges */}
               <div className="pt-6 border-t border-slate-100">
-                <div className="text-[10px] font-black uppercase tracking-wider text-slate-400 mb-3">
-                  Complete Domestic &amp; Global Logistics Solutions
+                <div className="text-[10px] font-black uppercase tracking-wider text-slate-400 mb-3 flex items-center justify-between">
+                  <span>Priority Global Shipping Routes &amp; Freight Services</span>
+                  <span className="text-[9px] text-[#032B73] font-black">USA &amp; UK Daily Express</span>
                 </div>
                 <div className="flex flex-wrap gap-2.5">
                   {serviceBadges.map((badge, i) => (
                     <div 
                       key={i} 
-                      className="flex items-center gap-1.5 bg-slate-50 hover:bg-blue-50/60 border border-slate-200/90 hover:border-[#032B73]/30 px-3 py-1.5 rounded-xl text-xs font-bold text-slate-800 transition-colors shadow-2xs"
+                      className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold transition-all shadow-2xs ${
+                        badge.featured 
+                          ? 'bg-[#032B73] text-white border border-[#032B73] ring-2 ring-[#FEB919]/50 shadow-sm' 
+                          : 'bg-slate-50 hover:bg-blue-50/60 border border-slate-200/90 text-slate-800'
+                      }`}
                     >
-                      <CheckCircle2 size={14} className="text-emerald-600 shrink-0" />
-                      <span>{badge}</span>
+                      <CheckCircle2 size={14} className={badge.featured ? 'text-[#FEB919] shrink-0' : 'text-emerald-600 shrink-0'} />
+                      <span>{badge.text}</span>
                     </div>
                   ))}
                 </div>
@@ -737,7 +753,7 @@ Please contact me with a quick quote and next steps.`;
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#FEB919] opacity-75"></span>
                   <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#FEB919]"></span>
                 </span>
-                <h3 className="text-xs font-black uppercase tracking-wider text-[#032B73]">Quick Booking &amp; Quote Request</h3>
+                <h3 className="text-xs font-black uppercase tracking-wider text-[#032B73]">Quick International Shipping Quote</h3>
               </div>
               
               <form onSubmit={handleSubmit} className="space-y-3">
@@ -769,7 +785,7 @@ Please contact me with a quick quote and next steps.`;
 
                 <div className="space-y-1">
                   <label className="text-[10px] font-black uppercase tracking-wider text-slate-500 flex items-center gap-1">
-                    <Box size={12} className="text-[#032B73]" /> Service Category
+                    <Box size={12} className="text-[#032B73]" /> Shipping Service
                   </label>
                   <select 
                     value={serviceType}
@@ -777,18 +793,25 @@ Please contact me with a quick quote and next steps.`;
                     className="w-full bg-white border border-slate-200 rounded-lg px-3 py-2 text-xs font-bold text-slate-800 focus:outline-none focus:border-[#032B73] transition-colors cursor-pointer"
                   >
                     <option value="">Select service mode</option>
-                    <option value="Domestic City Delivery">🇳🇬 Domestic Intra-City Delivery</option>
-                    <option value="Interstate Shipping">🇳🇬 Interstate Cargo &amp; Haulage (36 States)</option>
-                    <option value="Truck & Van Hire">🚚 Dedicated Truck &amp; Van Hire</option>
-                    <option value="International Air Cargo">✈️ International Air Cargo (USA, UK, CA, EU)</option>
-                    <option value="International Sea Freight">🚢 International Sea Freight</option>
-                    <option value="China Import Sourcing">🇨🇳 China Sourcing &amp; Import Freight</option>
+                    <optgroup label="International Freight (Primary)">
+                      <option value="Express Air Cargo to USA">✈️ Air Cargo to USA (Express 3-5 Days)</option>
+                      <option value="Express Air Cargo to UK">✈️ Air Cargo to UK (Express 3-5 Days)</option>
+                      <option value="Express Air Cargo to Canada">✈️ Air Cargo to Canada (5-7 Days)</option>
+                      <option value="Express Air Cargo to Europe">✈️ Air Cargo to Europe (5-7 Days)</option>
+                      <option value="China Import & Sourcing">🇨🇳 China ↔ Nigeria Import Freight</option>
+                      <option value="International Sea Freight">🚢 Sea Cargo & Commercial Containers</option>
+                    </optgroup>
+                    <optgroup label="Domestic Logistics (Nigeria)">
+                      <option value="Interstate Shipping">🇳🇬 Interstate Cargo Haulage (36 States)</option>
+                      <option value="Domestic City Delivery">🇳🇬 Intra-State City Delivery</option>
+                      <option value="Truck & Van Hire">🚚 Dedicated Truck & Van Hire</option>
+                    </optgroup>
                   </select>
                 </div>
 
                 <div className="space-y-1">
                   <label className="text-[10px] font-black uppercase tracking-wider text-slate-500 flex items-center gap-1">
-                    <MapPin size={12} className="text-[#032B73]" /> Destination Location *
+                    <MapPin size={12} className="text-[#032B73]" /> Destination Country / City *
                   </label>
                   <select 
                     value={destination}
@@ -796,22 +819,23 @@ Please contact me with a quick quote and next steps.`;
                     className="w-full bg-white border border-slate-200 rounded-lg px-3 py-2 text-xs font-bold text-slate-800 focus:outline-none focus:border-[#032B73] transition-colors cursor-pointer"
                   >
                     <option value="">Select destination</option>
+                    <optgroup label="⭐ Primary International Destinations">
+                      <option value="USA - United States (All 50 States)">🇺🇸 United States (USA) — Houston, NY, Atlanta, etc.</option>
+                      <option value="UK - United Kingdom">🇬🇧 United Kingdom (UK) — London, Manchester, etc.</option>
+                      <option value="Canada">🇨🇦 Canada — Toronto, Calgary, Montreal, etc.</option>
+                      <option value="Europe">🇪🇺 Europe — Germany, France, Italy, Ireland, etc.</option>
+                      <option value="China">🇨🇳 China — Guangzhou, Yiwu, Shenzhen</option>
+                      <option value="Other International Country">🌍 Other International Country</option>
+                    </optgroup>
                     <optgroup label="Domestic (Within Nigeria)">
                       <option value="Lagos, Nigeria">Lagos State</option>
                       <option value="Abuja (FCT), Nigeria">Abuja (FCT)</option>
                       <option value="Port Harcourt, Rivers">Port Harcourt (Rivers)</option>
-                      <option value="Kano / Kaduna / North">Kano / Kaduna / Northern States</option>
+                      <option value="Onitsha / Aba / South-East">Onitsha / Aba / Eastern States</option>
+                      <option value="Enugu / South-East">Enugu State</option>
                       <option value="Ibadan / Oyo / South-West">Ibadan / South-Western States</option>
-                      <option value="Enugu / Onitsha / South-East">Enugu / Onitsha / Eastern States</option>
+                      <option value="Kano / Kaduna / North">Kano / Kaduna / Northern States</option>
                       <option value="Other Nigerian State">Other Nigerian State (36 States)</option>
-                    </optgroup>
-                    <optgroup label="International Destinations">
-                      <option value="USA">United States (USA)</option>
-                      <option value="UK">United Kingdom (UK)</option>
-                      <option value="Canada">Canada</option>
-                      <option value="Europe">Europe</option>
-                      <option value="China">China (Import &amp; Export)</option>
-                      <option value="Other Country">Other International Country</option>
                     </optgroup>
                   </select>
                 </div>
@@ -822,7 +846,7 @@ Please contact me with a quick quote and next steps.`;
                   </label>
                   <input 
                     type="text" 
-                    placeholder="e.g. 50kg Foodstuffs, Pallets, Furniture, 5T Cargo"
+                    placeholder="e.g. 25kg Foodstuffs, Ankara Fashion, Commercial Samples"
                     value={message}
                     onChange={(e) => setMessage(e.target.value)}
                     className="w-full bg-white border border-slate-200 rounded-lg px-3 py-2 text-xs font-bold text-slate-800 placeholder-slate-400 focus:outline-none focus:border-[#032B73] transition-colors"
@@ -838,16 +862,16 @@ Please contact me with a quick quote and next steps.`;
                   className="w-full text-center bg-[#032B73] hover:bg-[#022157] text-white font-black py-3 px-4 rounded-lg transition-all duration-300 hover:shadow-md text-xs uppercase tracking-widest flex items-center justify-center gap-2 cursor-pointer mt-2"
                 >
                   <MessageCircle size={14} className="text-[#FEB919] fill-[#FEB919]" />
-                  Send Quote Request
+                  Request Shipping Quote
                 </button>
               </form>
             </div>
 
             <div className="mt-4 pt-3 border-t border-slate-200/80 text-[10px] font-bold text-slate-500 flex items-center justify-between">
               <span className="flex items-center gap-1">
-                <ShieldCheck size={12} className="text-emerald-600" /> Door-to-Door Delivery
+                <ShieldCheck size={12} className="text-emerald-600" /> Export Cleared &amp; Handled
               </span>
-              <span className="text-[#032B73] font-black">24/7 Logistics Support</span>
+              <span className="text-[#032B73] font-black">Fast Dispatch</span>
             </div>
           </div>
 
@@ -1646,127 +1670,176 @@ const HowItWorks = () => {
 };
 
 const ShippingServices = () => {
-  const options = [
+  const internationalOptions = [
     {
-      title: "Intra-State & City Delivery",
-      time: "Same-Day / Next-Day",
-      desc: "Fast, secure door-to-door dispatch for parcels, business goods, and e-commerce orders within major Nigerian metropolitan areas.",
-      benefit: "Rapid Local Dispatch",
-      useCase: "E-commerce orders, retail stock, business parcels & documents",
-      icon: <Package className="text-shipplix-yellow" size={24} />,
-      features: ["Doorstep pickup & direct drop-off", "Real-time dispatch updates", "Safe package handling"]
+      title: "Nigeria → USA Express Air Freight",
+      time: "3–5 Business Days",
+      desc: "Send food products, fashion items, business inventory and diaspora packages from Nigeria to all 50 US States with customs clearance included.",
+      benefit: "Priority US Hub Express",
+      useCase: "Foodstuffs (Egusi, Ogbono, Fish), fashion apparel, hair, diaspora & commercial cargo",
+      icon: <Plane className="text-[#FEB919]" size={24} />,
+      features: ["Weekly scheduled flights to Houston, NY, Atlanta, Dallas", "Full US Customs & FDA document clearance", "Door-to-door delivery across all 50 US states"],
+      badge: "⭐ Primary Corridor • Express"
     },
     {
-      title: "Interstate Cargo & Haulage",
-      time: "1–3 Business Days",
-      desc: "Comprehensive road freight connecting all 36 states across Nigeria with regular scheduled line-haul dispatches and doorstep delivery.",
-      benefit: "36-State Nationwide Reach",
-      useCase: "Commercial goods, wholesale inventory, regional distribution",
-      icon: <Truck className="text-shipplix-yellow" size={24} />,
-      features: ["Coverage across all 36 Nigerian states", "Scheduled inter-city linehaul", "Fragile & high-value item protection"]
+      title: "Nigeria → UK Express Air Freight",
+      time: "3–5 Business Days",
+      desc: "Direct air cargo exports from Nigeria to the United Kingdom with coordinated pickup, packaging inspection, and last-mile door delivery.",
+      benefit: "Direct London Line-Haul",
+      useCase: "Packaged groceries, African fashion, cosmetics, retail stock & diaspora parcels",
+      icon: <Plane className="text-[#FEB919]" size={24} />,
+      features: ["Direct flights to London Heathrow / Gatwick", "UK Border Force & Customs handling", "Doorstep delivery in London, Manchester, Birmingham & Scotland"],
+      badge: "⭐ Primary Corridor • Express"
     },
     {
-      title: "Dedicated Truck & Van Hire",
-      time: "On-Demand & Contract",
-      desc: "Flexible rental fleet ranging from mini-vans to 3-ton, 5-ton, 10-ton, and 30-ton haulage trucks with experienced drivers for cargo moves.",
-      benefit: "Exclusive Dedicated Fleet",
-      useCase: "Bulk inventory, warehouse transfers, event logistics, industrial moves",
-      icon: <Truck className="text-shipplix-yellow" size={24} />,
-      features: ["Mini-vans, 3T, 5T, 10T & 30T trucks", "Vetted, professional drivers", "Full-load dedicated point-to-point routing"]
+      title: "Nigeria → Canada Air Cargo",
+      time: "5–7 Business Days",
+      desc: "Dependable air freight service connecting Nigerian shippers with buyers and families across Toronto, Calgary, Edmonton, Ottawa, and all 10 provinces.",
+      benefit: "All 10 Provinces Doorstep Reach",
+      useCase: "Food items, African fabrics, artisan crafts & commercial samples",
+      icon: <Globe className="text-[#FEB919]" size={24} />,
+      features: ["CBSA compliant customs handling", "Doorstep delivery across Ontario, Alberta & Quebec", "Reliable tracking from Lagos MMIA departure"],
+      badge: "Popular Global Route"
     },
     {
-      title: "Express Global Air Freight",
-      time: "3–7 Business Days",
-      desc: "Direct air cargo exports from Nigeria to the USA, UK, Canada, and Europe with full export documentation, customs clearance, and doorstep delivery.",
-      benefit: "Global Door-to-Door Freight",
-      useCase: "Foodstuffs, fashion, cosmetics, diaspora packages, commercial cargo",
-      icon: <Plane className="text-shipplix-yellow" size={24} />,
-      features: ["Doorstep delivery in USA, UK, CA, EU", "Customs clearance included", "Next-flight priority dispatch"]
+      title: "Nigeria → Europe Express Cargo",
+      time: "5–7 Business Days",
+      desc: "Comprehensive export solutions from Nigeria to Germany, France, Italy, Ireland, Netherlands, Spain and destinations across the European Union.",
+      benefit: "Pan-European Door Delivery",
+      useCase: "African food groceries, fashion textiles, cosmetics & business goods",
+      icon: <Globe className="text-[#FEB919]" size={24} />,
+      features: ["EU customs declaration & clearance", "Coverage across Western & Central Europe", "Safe, temperature-controlled packaging support"],
+      badge: "EU Wide Coverage"
     },
     {
-      title: "Import from China",
-      time: "Air & Sea Freight",
-      desc: "End-to-end China-to-Nigeria import: supplier verification, product sourcing, warehouse consolidation in Guangzhou/Yiwu, and clearing.",
-      benefit: "Direct Factory Sourcing & Clearing",
-      useCase: "Commercial stock, electronics, machinery, fashion & hardware",
-      icon: <Globe className="text-shipplix-yellow" size={24} />,
-      features: ["Guangzhou & Yiwu warehouse hubs", "Air express & sea container freight", "Customs clearing & nationwide delivery"]
+      title: "China ↔ Nigeria Bilateral Freight",
+      time: "Air Express (5–8 Days) & Sea Cargo",
+      desc: "End-to-end China-Nigeria trade support: supplier verification, product sourcing, warehouse consolidation in Guangzhou/Yiwu, shipping & customs clearing in Lagos.",
+      benefit: "Direct Factory Sourcing & Port Clearing",
+      useCase: "Electronics, machinery, fashion apparel, auto parts & raw materials",
+      icon: <Box className="text-[#FEB919]" size={24} />,
+      features: ["Guangzhou & Yiwu receiving warehouse hubs", "Air express cargo & containerized sea freight", "Complete Apapa/Tincan port clearing & Lagos delivery"],
+      badge: "Bilateral Trade Hub"
     },
     {
-      title: "Sea Freight & Bulk Cargo",
-      time: "Economy Sea Cargo",
-      desc: "Full Container Load (FCL) and Less than Container Load (LCL) consolidated sea freight for high-volume commercial shipments and heavy cargo.",
-      benefit: "Maximum Economy on Heavy Cargo",
-      useCase: "High-volume exports, heavy machinery, agricultural commodities",
-      icon: <Ship className="text-shipplix-yellow" size={24} />,
-      features: ["LCL & FCL container booking", "Complete port clearing & documentation", "Economical bulk shipping rates"]
+      title: "International Sea Freight & Containers",
+      time: "Economy Sea Cargo (4–6 Weeks)",
+      desc: "Consolidated Less than Container Load (LCL) and Full Container Load (FCL) sea freight for high-volume commercial shipments, heavy machinery, and commodities.",
+      benefit: "Maximum Economy on Bulk Freight",
+      useCase: "Heavy manufacturing equipment, agricultural commodities, bulk raw materials",
+      icon: <Ship className="text-[#FEB919]" size={24} />,
+      features: ["FCL (20ft / 40ft) & LCL consolidation", "Export documentation & port compliance", "Cost-effective bulk commercial rates"],
+      badge: "Heavy & Bulk Cargo"
     }
   ];
 
   const steps = [
-    { title: "Book or Request Pickup", icon: <Truck size={20} /> },
-    { title: "We Process & Inspect", icon: <Package size={20} /> },
-    { title: "Track Your Shipment", icon: <Globe size={20} /> },
-    { title: "Delivered to Doorstep", icon: <CheckCircle2 size={20} /> }
+    { title: "Pickup or Hub Drop-Off", icon: <Truck size={20} /> },
+    { title: "Packaging & Inspection", icon: <Package size={20} /> },
+    { title: "Air / Sea Freight & Customs", icon: <Plane size={20} /> },
+    { title: "Doorstep Delivery Abroad", icon: <CheckCircle2 size={20} /> }
   ];
 
   const trustPoints = [
-    "Domestic City Delivery & Interstate Haulage (36 States)",
-    "Dedicated Truck & Van Rentals (Mini-vans to 30T)",
-    "Global Air & Sea Cargo (USA, UK, Canada, Europe, China)",
-    "Customs Clearance & Real-Time Tracking"
+    "Dedicated USA & UK Express Corridors (3-5 Days)",
+    "Canada & Europe Wide Door-to-Door Delivery",
+    "Complete Export Documentation & Customs Clearance",
+    "Real-Time Online Tracking & Video Inspection"
   ];
 
   return (
     <section id="services" className="scroll-mt-24 py-16 bg-white border-y border-slate-200">
       <div className="container mx-auto px-6">
         <SectionTitle 
-          title="Domestic, Interstate & Global Logistics Services" 
-          subtitle="From local city deliveries and nationwide interstate haulage to dedicated truck rentals and worldwide air & sea freight, Shipplix moves your cargo with reliability."
+          title="From Pickup In Nigeria To Delivery Abroad" 
+          subtitle="Shipplix helps individuals, vendors, exporters and businesses move eligible goods from Nigeria to international destinations through a coordinated logistics process."
         />
 
+        {/* Global Process Ribbon */}
+        <div className="bg-slate-50 border border-slate-200 rounded-2xl p-4 md:p-6 mb-12 flex flex-wrap items-center justify-between gap-4 text-center md:text-left">
+          <div className="flex items-center gap-2">
+            <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
+            <span className="text-xs font-black uppercase text-[#032B73] tracking-wider">End-to-End International Logistics:</span>
+          </div>
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 w-full md:w-auto flex-1 max-w-3xl">
+            <div className="bg-white px-3 py-2 rounded-lg border border-slate-200 text-xs font-bold text-slate-700">1. Pickup in Nigeria</div>
+            <div className="bg-white px-3 py-2 rounded-lg border border-slate-200 text-xs font-bold text-slate-700">2. Cargo Inspection</div>
+            <div className="bg-white px-3 py-2 rounded-lg border border-slate-200 text-xs font-bold text-slate-700">3. Global Freight</div>
+            <div className="bg-white px-3 py-2 rounded-lg border border-slate-200 text-xs font-bold text-slate-700">4. Delivery Abroad</div>
+          </div>
+        </div>
+
+        {/* 6 International Service Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
-          {options.map((opt, i) => (
-            <div key={i} className="p-6 bg-white border border-slate-200 rounded-xl hover:border-shipplix-blue transition-all shadow-sm flex flex-col h-full group">
-              <div className="bg-slate-50 w-12 h-12 rounded-lg flex items-center justify-center mb-4 group-hover:bg-shipplix-blue/5 transition-colors">
-                {opt.icon}
+          {internationalOptions.map((opt, i) => (
+            <div 
+              key={i} 
+              className={`p-6 bg-white rounded-2xl transition-all shadow-sm flex flex-col h-full group ${
+                i < 2 
+                  ? 'border-2 border-[#032B73] shadow-md ring-1 ring-[#FEB919]/40 hover:shadow-xl' 
+                  : 'border border-slate-200 hover:border-[#032B73]'
+              }`}
+            >
+              <div className="flex items-center justify-between mb-4">
+                <div className="bg-slate-50 w-12 h-12 rounded-xl flex items-center justify-center group-hover:bg-[#032B73]/10 transition-colors">
+                  {opt.icon}
+                </div>
+                <span className={`text-[10px] font-black uppercase px-2.5 py-1 rounded-full ${
+                  i < 2 
+                    ? 'bg-[#032B73] text-white' 
+                    : 'bg-blue-50 text-[#032B73] border border-blue-100'
+                }`}>
+                  {opt.badge}
+                </span>
               </div>
-              <h3 className="text-lg font-black text-slate-900 mb-1 uppercase tracking-tight">{opt.title}</h3>
-              <div className="text-shipplix-blue font-black text-xs uppercase mb-3 tracking-widest">{opt.time}</div>
-              <p className="text-sm text-slate-600 font-medium mb-6 flex-grow">{opt.desc}</p>
+              
+              <h3 className="text-lg font-black text-slate-900 mb-1 tracking-tight">{opt.title}</h3>
+              <div className="text-[#032B73] font-black text-xs uppercase mb-3 tracking-widest">{opt.time}</div>
+              <p className="text-sm text-slate-600 font-medium mb-6 flex-grow leading-relaxed">{opt.desc}</p>
               
               <div className="mt-auto space-y-3 pt-4 border-t border-slate-100">
                 <div>
-                  <div className="text-[9px] font-black uppercase tracking-[0.2em] text-slate-400 mb-1">Key Benefit</div>
+                  <div className="text-[9px] font-black uppercase tracking-[0.2em] text-slate-400 mb-1">Key Route Advantage</div>
                   <div className="text-[11px] font-bold text-slate-800 uppercase tracking-tight">{opt.benefit}</div>
                 </div>
                 <div>
-                  <div className="text-[9px] font-black uppercase tracking-[0.2em] text-slate-400 mb-1">Ideal For</div>
+                  <div className="text-[9px] font-black uppercase tracking-[0.2em] text-slate-400 mb-1">Common Cargo</div>
                   <div className="text-[11px] font-bold text-slate-800 uppercase tracking-tight">{opt.useCase}</div>
                 </div>
                 {opt.features && (
                   <div className="space-y-1.5 pt-3 border-t border-slate-100">
-                    <div className="text-[9px] font-black uppercase tracking-[0.2em] text-slate-400 mb-1">Services Included</div>
+                    <div className="text-[9px] font-black uppercase tracking-[0.2em] text-slate-400 mb-1">Features Included</div>
                     {opt.features.map((feat, fIdx) => (
                       <div key={fIdx} className="flex items-start gap-1.5 text-[11px] font-bold text-slate-700">
-                        <CheckCircle2 size={13} className="text-shipplix-blue flex-shrink-0 mt-0.5" />
+                        <CheckCircle2 size={13} className="text-[#032B73] flex-shrink-0 mt-0.5" />
                         <span>{feat}</span>
                       </div>
                     ))}
                   </div>
                 )}
+                <div className="pt-3">
+                  <a 
+                    href={URL_QUOTE} 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="w-full text-center bg-slate-100 hover:bg-[#032B73] text-slate-800 hover:text-white font-black py-2.5 px-4 rounded-lg transition-colors text-xs uppercase tracking-wider block"
+                  >
+                    Request Quote for Route
+                  </a>
+                </div>
               </div>
             </div>
           ))}
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center bg-shipplix-blue text-white p-8 md:p-14 rounded-3xl relative overflow-hidden">
+        {/* How International Shipping Works */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center bg-[#032B73] text-white p-8 md:p-14 rounded-3xl relative overflow-hidden">
           <div className="relative z-10">
             <h3 className="text-2xl md:text-3xl font-black mb-8 uppercase tracking-tighter italic">How It Works</h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-10">
               {steps.map((step, i) => (
                 <div key={i} className="flex gap-4">
-                  <div className="flex-shrink-0 w-10 h-10 rounded-full bg-shipplix-yellow text-shipplix-blue flex items-center justify-center font-black text-lg border-2 border-white/20 shadow-lg">
+                  <div className="flex-shrink-0 w-10 h-10 rounded-full bg-[#FEB919] text-[#032B73] flex items-center justify-center font-black text-lg border-2 border-white/20 shadow-lg">
                     {i + 1}
                   </div>
                   <div>
@@ -1779,18 +1852,18 @@ const ShippingServices = () => {
           </div>
 
           <div className="relative z-10 bg-white/5 backdrop-blur-sm p-8 rounded-2xl border border-white/10">
-            <h3 className="text-xl font-black mb-6 uppercase tracking-tight text-shipplix-yellow italic">Why Trust Shipplix?</h3>
+            <h3 className="text-xl font-black mb-6 uppercase tracking-tight text-[#FEB919] italic">Why Ship Internationally With Shipplix?</h3>
             <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-10">
               {trustPoints.map((point, i) => (
                 <li key={i} className="flex items-center gap-3">
-                  <CheckCircle2 size={16} className="text-shipplix-yellow flex-shrink-0" />
+                  <CheckCircle2 size={16} className="text-[#FEB919] flex-shrink-0" />
                   <span className="text-xs font-black uppercase tracking-tight">{point}</span>
                 </li>
               ))}
             </ul>
             
             <div className="pt-8 border-t border-white/10">
-              <h4 className="text-base font-black mb-4 uppercase tracking-tight text-white/90">Ready to move cargo or ship globally?</h4>
+              <h4 className="text-base font-black mb-4 uppercase tracking-tight text-white/90">Ready to export products or ship abroad?</h4>
               <div className="flex flex-col sm:flex-row gap-3">
                 <Button 
                   as="a" 
@@ -1817,7 +1890,132 @@ const ShippingServices = () => {
           </div>
           
           {/* Decorative background element */}
-          <Truck className="absolute -bottom-10 -right-10 text-white/5 w-64 h-64 rotate-[-15deg] pointer-events-none" />
+          <Plane className="absolute -bottom-10 -right-10 text-white/5 w-64 h-64 rotate-[-15deg] pointer-events-none" />
+        </div>
+      </div>
+    </section>
+  );
+};
+
+// Secondary Service Section: Domestic & Interstate Logistics
+const DomesticLogisticsSection = () => {
+  const domesticRoutes = [
+    { from: "Lagos", to: "Abuja", highlight: "Daily Express Linehaul", desc: "Commercial documents, retail stock, wholesale inventory & door delivery across the Federal Capital Territory." },
+    { from: "Lagos", to: "Port Harcourt", highlight: "Industrial & Commercial Cargo", desc: "Heavy commercial dispatch, corporate logistics & retail merchandise delivery across Rivers State." },
+    { from: "Lagos", to: "Onitsha", highlight: "Wholesale & Trader Distribution", desc: "High-volume market deliveries, consumer goods & textile inventory for commercial hubs." },
+    { from: "Lagos", to: "Enugu", highlight: "Eastern Regional Cargo", desc: "Scheduled interstate freight connecting commercial vendors with South-Eastern markets." },
+    { from: "Lagos", to: "Ibadan", highlight: "Rapid South-West Transit", desc: "Same-day and next-day cargo movement between Lagos and Oyo State distribution points." },
+    { from: "Across Nigeria", to: "All 36 States", highlight: "Nationwide Network", desc: "Dependable line-haul road freight connecting northern, eastern, western, and southern state capitals." }
+  ];
+
+  return (
+    <section id="domestic-services" className="scroll-mt-24 py-16 bg-slate-50 border-b border-slate-200">
+      <div className="container mx-auto px-6">
+        <div className="max-w-3xl mb-12">
+          <span className="bg-[#032B73]/10 text-[#032B73] text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-widest mb-3 inline-block border border-[#032B73]/15">
+            Secondary Logistics Service
+          </span>
+          <h2 className="text-2xl md:text-4xl font-black text-slate-900 tracking-tight uppercase mb-3">
+            Need To Move Goods Within Nigeria?
+          </h2>
+          <p className="text-slate-600 text-sm md:text-base font-medium leading-relaxed">
+            Shipplix also provides interstate and domestic transportation solutions for businesses, vendors and individuals moving goods between major Nigerian cities.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-10">
+          {domesticRoutes.map((route, idx) => (
+            <div key={idx} className="bg-white p-6 rounded-2xl border border-slate-200 hover:border-[#032B73]/40 transition-all shadow-2xs">
+              <div className="flex items-center justify-between mb-3">
+                <div className="flex items-center gap-2 text-slate-900 font-black text-base">
+                  <Truck size={18} className="text-[#032B73]" />
+                  <span>{route.from} → {route.to}</span>
+                </div>
+                <span className="text-[9px] font-black uppercase tracking-wider bg-slate-100 text-slate-700 px-2 py-0.5 rounded">
+                  {route.highlight}
+                </span>
+              </div>
+              <p className="text-xs text-slate-600 font-medium leading-relaxed mb-4">
+                {route.desc}
+              </p>
+              <div className="pt-3 border-t border-slate-100 flex items-center justify-between text-[11px] font-bold text-[#032B73]">
+                <span>Scheduled Linehaul</span>
+                <span className="text-slate-400 text-[10px]">1–3 Days</span>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <div className="bg-white p-6 rounded-2xl border border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div>
+            <h4 className="text-sm font-black text-slate-900 uppercase tracking-tight">Need a customized interstate haulage quote?</h4>
+            <p className="text-xs text-slate-500 font-medium">Send your pickup location, destination state, and cargo weight for immediate dispatch rates.</p>
+          </div>
+          <a 
+            href={URL_QUOTE} 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="shrink-0 bg-[#032B73] hover:bg-[#022157] text-white text-xs font-black uppercase tracking-widest px-6 py-3 rounded-xl transition-colors shadow-sm"
+          >
+            Inquire Domestic Logistics
+          </a>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+// Tertiary Service Section: Truck & Van Hire
+const TruckVanHireSection = () => {
+  const fleetOptions = [
+    { title: "Mini-Vans & Hiace Vans", cap: "Up to 1.5 Tons", use: "Urban deliveries, e-commerce batch distribution, fragile packages & retail stock." },
+    { title: "3-Ton & 5-Ton Trucks", cap: "3,000kg – 5,000kg", use: "Medium commercial shipments, warehouse inventory transfers & corporate moves." },
+    { title: "10-Ton & 30-Ton Haulage", cap: "10,000kg – 30,000kg", use: "Heavy industrial cargo, agricultural commodities, construction materials & container haulage." }
+  ];
+
+  return (
+    <section id="truck-van-hire" className="scroll-mt-24 py-16 bg-white border-b border-slate-200">
+      <div className="container mx-auto px-6">
+        <div className="max-w-3xl mb-12">
+          <span className="bg-slate-100 text-slate-700 text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-widest mb-3 inline-block border border-slate-200">
+            Tertiary Logistics Service
+          </span>
+          <h2 className="text-2xl md:text-4xl font-black text-slate-900 tracking-tight uppercase mb-3">
+            Need A Dedicated Vehicle For Bulk Movement?
+          </h2>
+          <p className="text-slate-600 text-sm md:text-base font-medium leading-relaxed">
+            We can help coordinate suitable trucks and relocation vans with professional drivers for qualifying cargo and interstate transportation requirements.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+          {fleetOptions.map((fleet, idx) => (
+            <div key={idx} className="bg-slate-50 p-6 rounded-2xl border border-slate-200 flex flex-col justify-between">
+              <div>
+                <div className="bg-white w-10 h-10 rounded-xl flex items-center justify-center mb-4 border border-slate-200 text-[#032B73]">
+                  <Truck size={20} />
+                </div>
+                <h3 className="text-base font-black text-slate-900 uppercase tracking-tight mb-1">{fleet.title}</h3>
+                <div className="text-[11px] font-black text-[#032B73] uppercase tracking-wider mb-3">{fleet.cap}</div>
+                <p className="text-xs text-slate-600 font-medium leading-relaxed">{fleet.use}</p>
+              </div>
+              <div className="mt-6 pt-4 border-t border-slate-200 text-[10px] font-black uppercase text-slate-400 tracking-wider">
+                Vetted Drivers • Full-Load Transit
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <div className="text-center">
+          <a 
+            href={URL_QUOTE} 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 bg-[#FEB919] hover:bg-[#e2a412] text-[#032B73] text-xs font-black uppercase tracking-widest px-8 py-3.5 rounded-xl transition-all shadow-sm"
+          >
+            <span>Request A Dedicated Vehicle</span>
+            <ArrowRight size={14} />
+          </a>
         </div>
       </div>
     </section>
@@ -2495,10 +2693,10 @@ const Footer = ({ onNavigate }: { onNavigate?: (path: string) => void }) => {
         <div className="bg-slate-50 border border-slate-200 rounded-2xl p-6 md:p-8 mb-10 flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="text-center md:text-left">
             <h4 className="text-base font-black text-slate-900 uppercase tracking-tight mb-1">
-              Move Cargo Across Nigeria or Ship Globally
+              Ship From Nigeria To The World
             </h4>
             <p className="text-xs font-bold text-slate-500 uppercase tracking-wider">
-              Door-to-door domestic logistics, interstate haulage, and worldwide air &amp; sea freight.
+              Weekly express air cargo to USA, UK, Canada &amp; Europe, China-Nigeria freight, plus nationwide domestic logistics.
             </p>
           </div>
           <div className="flex flex-col items-center gap-2 w-full md:w-auto">
@@ -2524,7 +2722,7 @@ const Footer = ({ onNavigate }: { onNavigate?: (path: string) => void }) => {
               <span className="text-[10px] font-bold tracking-widest uppercase">Safe. Fast. Transparent.</span>
             </div>
             <p className="text-slate-500 text-xs leading-relaxed mb-4">
-              Complete logistics solutions offering domestic city deliveries, interstate haulage across all 36 Nigerian states, dedicated truck rentals, and international freight.
+              Leading international shipping &amp; logistics company connecting Nigerian exporters, vendors, and diaspora families with the USA, UK, Canada, Europe, and China, with supportive domestic freight solutions across Nigeria.
             </p>
             {/* Follow Us */}
             <div className="flex items-center gap-3">
@@ -2563,60 +2761,73 @@ const Footer = ({ onNavigate }: { onNavigate?: (path: string) => void }) => {
             </div>
           </div>
 
-          {/* Domestic Logistics */}
+          {/* International Corridors - PRIMARY */}
           <div>
-            <h5 className="font-black text-slate-900 uppercase tracking-widest text-[11px] mb-3">Domestic Shipping</h5>
+            <h5 className="font-black text-slate-900 uppercase tracking-widest text-[11px] mb-3">International Freight</h5>
+            <ul className="space-y-2 font-medium">
+              <li><a href="#/ship-from-nigeria-to-usa" onClick={(e) => handleLinkClick(e, '/ship-from-nigeria-to-usa')} className="hover:text-blue-600 font-bold">Nigeria → USA Express</a></li>
+              <li><a href="#/ship-from-nigeria-to-uk" onClick={(e) => handleLinkClick(e, '/ship-from-nigeria-to-uk')} className="hover:text-blue-600 font-bold">Nigeria → UK Air Cargo</a></li>
+              <li><a href="#/ship-from-nigeria-to-houston" onClick={(e) => handleLinkClick(e, '/ship-from-nigeria-to-houston')} className="hover:text-blue-600">Nigeria → Houston, TX</a></li>
+              <li><a href="#/ship-from-nigeria-to-canada" onClick={(e) => handleLinkClick(e, '/ship-from-nigeria-to-canada')} className="hover:text-blue-600">Nigeria → Canada Air Cargo</a></li>
+              <li><a href="#/ship-from-nigeria-to-europe" onClick={(e) => handleLinkClick(e, '/ship-from-nigeria-to-europe')} className="hover:text-blue-600">Nigeria → Europe Wide</a></li>
+              <li><a href="#/ship-from-china-to-nigeria" onClick={(e) => handleLinkClick(e, '/ship-from-china-to-nigeria')} className="hover:text-blue-600">China ↔ Nigeria Trade</a></li>
+            </ul>
+          </div>
+
+          {/* Domestic Logistics - SECONDARY */}
+          <div>
+            <h5 className="font-black text-slate-900 uppercase tracking-widest text-[11px] mb-3">Domestic &amp; Interstate</h5>
             <ul className="space-y-2 font-medium">
               <li>
                 <a 
-                  href="#/domestic-shipping" 
+                  href="#domestic-services" 
                   onClick={(e) => {
                     e.preventDefault();
                     if (window.location.hash !== '') {
                       onNavigate?.('/');
                       setTimeout(() => {
-                        document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' });
+                        document.getElementById('domestic-services')?.scrollIntoView({ behavior: 'smooth' });
                       }, 100);
                     } else {
-                      document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' });
+                      document.getElementById('domestic-services')?.scrollIntoView({ behavior: 'smooth' });
                     }
                   }} 
                   className="hover:text-blue-600 transition-colors"
                 >
-                  Intra-State City Delivery
+                  Interstate Cargo (Lagos → Abuja, PH, Onitsha)
                 </a>
               </li>
               <li>
                 <a 
-                  href="#/interstate-haulage" 
+                  href="#domestic-services" 
                   onClick={(e) => {
                     e.preventDefault();
                     if (window.location.hash !== '') {
                       onNavigate?.('/');
                       setTimeout(() => {
-                        document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' });
+                        document.getElementById('domestic-services')?.scrollIntoView({ behavior: 'smooth' });
                       }, 100);
                     } else {
-                      document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' });
+                      document.getElementById('domestic-services')?.scrollIntoView({ behavior: 'smooth' });
                     }
                   }} 
                   className="hover:text-blue-600 transition-colors"
                 >
-                  Interstate Haulage (36 States)
+                  Intra-State City Deliveries
                 </a>
               </li>
               <li>
                 <a 
-                  href="#/truck-van-hire" 
+                  href="#truck-van-hire" 
                   onClick={(e) => {
                     e.preventDefault();
                     if (window.location.hash !== '') {
                       onNavigate?.('/');
                       setTimeout(() => {
-                        document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' });
+                        document.getElementById('truck-van-hire')?.scrollIntoView({ behavior: 'smooth' });
                       }, 100);
                     } else {
-                      document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' });
+                      document.getElementById('truck-van-hire')?.scrollIntoView({ behavior: 'smooth' });
                     }
                   }} 
                   className="hover:text-blue-600 transition-colors"
@@ -2629,19 +2840,6 @@ const Footer = ({ onNavigate }: { onNavigate?: (path: string) => void }) => {
                   Book Local Pickup →
                 </a>
               </li>
-            </ul>
-          </div>
-
-          {/* International Corridors */}
-          <div>
-            <h5 className="font-black text-slate-900 uppercase tracking-widest text-[11px] mb-3">Global Freight Routes</h5>
-            <ul className="space-y-2 font-medium">
-              <li><a href="#/ship-from-nigeria-to-usa" onClick={(e) => handleLinkClick(e, '/ship-from-nigeria-to-usa')} className="hover:text-blue-600">Ship Nigeria to USA</a></li>
-              <li><a href="#/ship-from-nigeria-to-houston" onClick={(e) => handleLinkClick(e, '/ship-from-nigeria-to-houston')} className="hover:text-blue-600">Ship Nigeria to Houston, TX</a></li>
-              <li><a href="#/ship-from-nigeria-to-uk" onClick={(e) => handleLinkClick(e, '/ship-from-nigeria-to-uk')} className="hover:text-blue-600">Ship Nigeria to UK</a></li>
-              <li><a href="#/ship-from-nigeria-to-canada" onClick={(e) => handleLinkClick(e, '/ship-from-nigeria-to-canada')} className="hover:text-blue-600">Ship Nigeria to Canada</a></li>
-              <li><a href="#/ship-from-nigeria-to-europe" onClick={(e) => handleLinkClick(e, '/ship-from-nigeria-to-europe')} className="hover:text-blue-600">Ship Nigeria to Europe</a></li>
-              <li><a href="#/ship-from-china-to-nigeria" onClick={(e) => handleLinkClick(e, '/ship-from-china-to-nigeria')} className="hover:text-blue-600">Import China to Nigeria</a></li>
             </ul>
           </div>
 
@@ -2660,13 +2858,13 @@ const Footer = ({ onNavigate }: { onNavigate?: (path: string) => void }) => {
         </div>
 
         <div className="pt-8 border-t border-slate-100 flex flex-col md:flex-row justify-between items-center gap-4 text-[9px] font-black uppercase tracking-widest">
-          <p>© {new Date().getFullYear()} SHIPPLIX LOGISTICS. DOMESTIC &amp; GLOBAL CARGO SOLUTIONS.</p>
+          <p>© {new Date().getFullYear()} SHIPPLIX LOGISTICS. INTERNATIONAL &amp; DOMESTIC FREIGHT SERVICES.</p>
           <div className="flex items-center gap-4">
-            <span className="text-blue-600">36 States Covered</span>
-            <span className="text-slate-300">|</span>
-            <span className="text-blue-600">Worldwide Air &amp; Sea Cargo</span>
+            <span className="text-blue-600">USA • UK • Canada • Europe • China</span>
             <span className="text-slate-300">|</span>
             <span className="text-blue-600">Customs Clearance</span>
+            <span className="text-slate-300">|</span>
+            <span className="text-blue-600">Door-to-Door Delivery</span>
           </div>
         </div>
       </div>
@@ -2996,7 +3194,7 @@ export default function App() {
             {/* 1. Hero */}
             <Hero />
 
-            {/* 2. Core Services */}
+            {/* 2. Core International Services */}
             <ShippingServices />
             <ExportCategories />
             <TopItemCategoriesShipped />
@@ -3006,12 +3204,16 @@ export default function App() {
             <GlobalLogisticsNetwork />
             <GlobalShippingNetworkSection />
 
-            {/* 4. Why Choose Shipplix */}
+            {/* 4. Secondary & Tertiary Services: Domestic & Truck Hire */}
+            <DomesticLogisticsSection />
+            <TruckVanHireSection />
+
+            {/* 5. Why Choose Shipplix */}
             <TrustCertifications />
             <TrustSection />
             <UrgencyBanner />
 
-            {/* 5. How It Works & Portals */}
+            {/* 6. How It Works & Portals */}
             <HowItWorks />
             
             {/* Standalone Gateway Portal */}

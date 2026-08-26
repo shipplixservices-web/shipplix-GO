@@ -1,6 +1,6 @@
 {
-  "name": "Shipplix Logistics – Domestic, Interstate & Global Shipping",
-  "description": "Shipplix is a complete logistics company providing domestic city delivery, interstate haulage, truck & van hire, and international air and sea freight across the USA, UK, Canada, Europe, and China.",
+  "name": "Shipplix – International Shipping & Global Logistics",
+  "description": "Reliable international shipping from Nigeria to the USA, UK, Canada, Europe and China with pickup, customs handling, and door-to-door delivery, plus domestic logistics across Nigeria.",
   "requestFramePermissions": [],
   "majorCapabilities": [
     "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
