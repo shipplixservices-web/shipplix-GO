@@ -271,7 +271,7 @@ export default function EconomyTerms({ onBack }: { onBack: () => void }) {
                   </p>
                 </div>
                 <p>
-                  This service covers our entire operational process—from safe collection or office drop-offs in our Lagos Hub, export documentation preparation, terminal submission, and airline dispatch, to customs clearance facilitation and door-to-door delivery in destination countries.
+                  This service covers our entire operational process, from safe collection or office drop-offs in our Lagos Hub, export documentation preparation, terminal submission, and airline dispatch, to customs clearance facilitation and door-to-door delivery in destination countries.
                 </p>
               </Section>
 

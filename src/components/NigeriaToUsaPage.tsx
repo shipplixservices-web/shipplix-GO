@@ -145,7 +145,7 @@ export default function NigeriaToUsaPage({ onNavigate }: NigeriaToUsaPageProps) 
     },
     {
       q: "Do you deliver to all 50 states in the United States?",
-      a: "Yes! Shipplix provides complete door-to-door delivery across every US state—including Texas (Houston, Dallas), Maryland (Baltimore, Bowie), Georgia (Atlanta), New York, California (Los Angeles), Florida, Illinois (Chicago), Minnesota, Pennsylvania, and Washington DC."
+      a: "Yes! Shipplix provides complete door-to-door delivery across every US state, including Texas (Houston, Dallas), Maryland (Baltimore, Bowie), Georgia (Atlanta), New York, California (Los Angeles), Florida, Illinois (Chicago), Minnesota, Pennsylvania, and Washington DC."
     },
     {
       q: "Can I ship Nigerian foodstuff like Egusi, Crayfish, and Garri to the USA legally?",
@@ -153,7 +153,7 @@ export default function NigeriaToUsaPage({ onNavigate }: NigeriaToUsaPageProps) 
     },
     {
       q: "How are shipping rates calculated for Nigeria to USA packages?",
-      a: "Shipping rates are billed on a per-kilogram basis based on the actual gross weight or volumetric (dimensional) weight, whichever is higher. Our rates are transparent and all-inclusive—covering vacuum packing, customs export documentation, and last-mile US doorstep delivery."
+      a: "Shipping rates are billed on a per-kilogram basis based on the actual gross weight or volumetric (dimensional) weight, whichever is higher. Our rates are transparent and all-inclusive, covering vacuum packing, customs export documentation, and last-mile US doorstep delivery."
     },
     {
       q: "How does US Customs (FDA & CBP) clearance work?",
@@ -474,7 +474,7 @@ export default function NigeriaToUsaPage({ onNavigate }: NigeriaToUsaPageProps) 
               How <span className="text-shipplix-blue">Shipping from Nigeria to USA</span> Works
             </h2>
             <p className="text-sm md:text-base text-slate-600 font-medium">
-              From Lagos hub drop-off to final delivery in Houston, Atlanta, or Baltimore—our streamlined 4-step workflow guarantees speed and security.
+              From Lagos hub drop-off to final delivery in Houston, Atlanta, or Baltimore, our streamlined 4-step workflow guarantees speed and security.
             </p>
           </div>
 

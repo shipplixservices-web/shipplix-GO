@@ -190,7 +190,7 @@ Build an International Business That Overseas Customers Trust
 Why Most Nigerian Businesses Never Get International Customers
 Many business owners believe they don't have customers overseas because their products aren't good enough.
 That is rarely the real problem.
-Thousands of people abroad buy Nigerian products every single day—from food items and beverages to fashion, beauty products, herbs, spices, and cultural items.
+Thousands of people abroad buy Nigerian products every single day, from food items and beverages to fashion, beauty products, herbs, spices, and cultural items.
 The businesses winning these customers are not always selling better products.
 They simply look more trustworthy.
 People in the US, UK, Canada, and Europe are sending money to someone they've never met. Before they pay, they subconsciously ask themselves:
@@ -198,7 +198,7 @@ People in the US, UK, Canada, and Europe are sending money to someone they've ne
 * Will I receive my order?
 * Is this company professional?
 * Can I contact them if something goes wrong?
-If your business cannot answer those questions within a few seconds, many buyers will leave—even if they love your product.
+If your business cannot answer those questions within a few seconds, many buyers will leave, even if they love your product.
 Trust is your first product.
 Your actual product comes second.
 ________________
@@ -294,7 +294,7 @@ ________________
 
 Soft Transition to Phase 2 (Psychological CTA)
 Now that your business has the foundation buyers expect, the next challenge is visibility.
-A professional business without customers is like opening a beautiful shop in the middle of a forest—no one knows it exists.
+A professional business without customers is like opening a beautiful shop in the middle of a forest: no one knows it exists.
 In Phase 2, you'll learn how to consistently attract overseas buyers using Meta Ads, content marketing, diaspora communities, and high-converting advertising strategies that put your products in front of the right audience.
 ________________
 
@@ -391,7 +391,7 @@ Instead of saying:
 "We ship to the UK."
 Say:
 "Receive your favourite Nigerian products at your doorstep without asking family members to carry them on flights."
-People buy solutions, convenience, memories, emotions, and confidence—not just products.
+People buy solutions, convenience, memories, emotions, and confidence, not just products.
 ________________
 
 
@@ -418,7 +418,7 @@ A strong advertisement combines:
 * Authentic storytelling
 * Customer proof
 * A simple call to action
-Great advertising isn't about being loud—it's about being relevant.
+Great advertising isn't about being loud; it's about being relevant.
 ________________
 
 
@@ -454,7 +454,7 @@ The second business has:
 * Shipment tracking
 Which business would you trust with your money?
 Most people choose the second one.
-The difference isn't the product—it's the buying experience.
+The difference isn't the product: it's the buying experience.
 ________________
 
 
@@ -678,7 +678,7 @@ The final piece is bringing everything together into one complete system.
 In Phase 5, you'll see how successful export businesses combine marketing, technology, automation, and reliable logistics into a single engine that can grow consistently. You'll also discover the key areas where expert setup can save months of trial and error and help you scale faster.
 PHASE 5 
 Build an Export Business That Can Scale
-Success Doesn't Come From One Tool—It Comes From a Complete System
+Success Doesn't Come From One Tool. It Comes From a Complete System
 Many business owners think they need one more app, one more social media platform, or one more advertisement to succeed.
 In reality, successful export businesses are built on systems that work together.
 Think of your business like a machine. Every part has a job:
@@ -739,7 +739,7 @@ For example, your business can automatically:
 * Send payment instructions.
 * Provide shipment updates.
 * Follow up after delivery.
-Automation doesn't replace personal service—it gives you more time to focus on growing your business.
+Automation doesn't replace personal service; it gives you more time to focus on growing your business.
 ________________
 
 
@@ -777,7 +777,7 @@ Month 3 – Optimize and Scale
 * Launch a referral program.
 * Automate repetitive tasks.
 * Expand into additional international markets.
-Growth comes from improving your system every month—not from chasing shortcuts.
+Growth comes from improving your system every month, not from chasing shortcuts.
 ________________
 
 
@@ -807,7 +807,7 @@ Many business owners understand the strategy but don't have the time or technica
 That's where Shipplix can help.
 Instead of spending months learning multiple tools and fixing mistakes, you can work with a team that helps you build a professional export business from the ground up.
 Whether you're selling food products, fashion, beauty items, handmade goods, or other export-ready products, the goal is the same:
-Create a business that customers trust, recommend, and return to—again and again.
+Create a business that customers trust, recommend, and return to, again and again.
 ________________
 
 
@@ -974,7 +974,7 @@ Before you launch, make sure you have:
     },
     {
       q: "Can Shipplix build my website?",
-      a: "Absolutely. Beyond freight forwarding, we help businesses implement their full tech systems—including custom responsive websites, optimized online catalogues, and fast search-engine visibility."
+      a: "Absolutely. Beyond freight forwarding, we help businesses implement their full tech systems, including custom responsive websites, optimized online catalogues, and fast search-engine visibility."
     },
     {
       q: "Can Shipplix run Meta Ads?",
@@ -990,7 +990,7 @@ Before you launch, make sure you have:
     },
     {
       q: "Can Shipplix handle international shipping?",
-      a: "Yes, Shipplix is a leading global logistics provider specializing in fast, reliable air and ocean cargo from Africa to the USA, UK, Canada, and Europe—complete with customs clearance and anti-scam video packing scale integrations."
+      a: "Yes, Shipplix is a leading global logistics provider specializing in fast, reliable air and ocean cargo from Africa to the USA, UK, Canada, and Europe, complete with customs clearance and anti-scam video packing scale integrations."
     },
     {
       q: "Can Shipplix help me find overseas customers?",

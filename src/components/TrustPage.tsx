@@ -47,7 +47,7 @@ export default function TrustPage() {
   const reasons = [
     {
       title: "Real-Time Tracking",
-      desc: "Know exactly where your goods are — from Lagos departures to UK arrivals.",
+      desc: "Know exactly where your goods are, from Lagos departures to UK arrivals.",
     },
     {
       title: "No Hidden Costs",
@@ -160,7 +160,7 @@ export default function TrustPage() {
                 The Diaspora Market <br/><span className="bg-blue-900 text-amber-400 px-2 inline-block mt-1">Is Waiting</span>
               </h2>
               <p className="text-blue-950 font-bold text-base md:text-lg mb-8 italic">
-                "Your people abroad are ready to buy... the question is — are you ready to supply?"
+                "Your people abroad are ready to buy... the question is, are you ready to supply?"
               </p>
               
               <div className="grid grid-cols-2 gap-4">

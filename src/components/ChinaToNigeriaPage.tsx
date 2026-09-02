@@ -286,7 +286,7 @@ export default function ChinaToNigeriaPage({ onNavigate }: ChinaToNigeriaPagePro
               </div>
               <h3 className="font-extrabold text-slate-900 text-base mb-2">Full Customs Clearance</h3>
               <p className="text-slate-600 text-xs leading-relaxed">
-                We handle complete Nigerian Customs clearing at Lagos airports and seaports—no hidden clearing tariffs or surprise fees.
+                We handle complete Nigerian Customs clearing at Lagos airports and seaports, with no hidden clearing tariffs or surprise fees.
               </p>
             </div>
 

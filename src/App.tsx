@@ -633,31 +633,20 @@ const Hero = () => {
 
     const formattedMessage = `Hello Shipplix,
 
-I would like to request a quote / booking for international shipping & logistics.
+I would like to request a quote / booking for specialized international shipping & logistics.
 
 *Name:* ${fullName.trim()}
 *Phone/WhatsApp:* ${phone.trim()}
-*Service Type:* ${serviceType || 'International Air Freight'}
+*Service Type:* ${serviceType || 'Specialized International Cargo'}
 *Pickup Location:* ${origin.trim() || 'Nigeria'}
 *Destination:* ${destination}
-*Goods / Cargo Description:* ${message.trim() || 'Foodstuffs, Fashion or Commercial Cargo'}
+*Goods / Cargo Description:* ${message.trim() || 'Miss Paris perfumes, Kpomo, Supplements, Foodstuffs, Fashion or Commercial Cargo'}
 
 Please contact me with a quick quote and shipping schedule.`;
 
     const whatsappUrl = `https://wa.me/2349168273513?text=${encodeURIComponent(formattedMessage)}`;
     window.open(whatsappUrl, '_self');
   };
-
-  const serviceBadges = [
-    { text: "🇺🇸 Nigeria → USA", featured: true },
-    { text: "🇬🇧 Nigeria → UK", featured: true },
-    { text: "🇨🇦 Nigeria → Canada", featured: false },
-    { text: "🇪🇺 Nigeria → Europe", featured: false },
-    { text: "🇨🇳 China ↔ Nigeria", featured: false },
-    { text: "✈️ Air Freight", featured: false },
-    { text: "🚢 Sea Freight", featured: false },
-    { text: "📦 Door-to-Door Delivery", featured: false }
-  ];
 
   return (
     <section className="relative pt-32 pb-12 bg-shipplix-bg overflow-hidden select-none">
@@ -673,16 +662,27 @@ Please contact me with a quick quote and shipping schedule.`;
             >
               <span className="bg-[#032B73]/10 text-[#032B73] text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-widest mb-4 inline-flex items-center gap-1.5 border border-[#032B73]/15">
                 <Globe size={12} className="text-[#032B73]" />
-                International Freight &amp; Cross-Border Logistics
+                Specialized International Freight &amp; Cargo Handling
               </span>
               
               <h1 className="text-3xl md:text-5xl font-black leading-tight text-slate-900 mb-4 tracking-tight">
-                Ship From Nigeria <span className="text-[#032B73] underline decoration-[#FFD700] decoration-4 underline-offset-4">To The World.</span>
+                From Miss Paris Perfume to Kpomo, <span className="text-[#032B73] underline decoration-[#FFD700] decoration-4 underline-offset-4">We Move More.</span>
               </h1>
               
-              <p className="text-slate-600 text-base md:text-lg mb-6 font-medium leading-relaxed max-w-2xl">
-                Reliable international shipping from Nigeria to the USA, UK, Canada, Europe and China — with pickup, cargo handling and delivery solutions for individuals and businesses.
-              </p>
+              <div className="text-slate-600 text-base md:text-lg mb-6 font-medium leading-relaxed max-w-2xl space-y-3">
+                <p>
+                  Need to send goods from Nigeria or bring goods into Nigeria? Shipplix helps individuals and businesses move a wide range of eligible cargo, from Miss Paris perfume and spiritual products to supplements, approved medication, food products, fashion, electronics, commercial goods and more.
+                </p>
+                <p>
+                  Ship from <strong className="text-slate-900 font-bold">Nigeria to the USA, UK &amp; Europe</strong>, or import goods from <strong className="text-slate-900 font-bold">China to Nigeria</strong>.
+                </p>
+              </div>
+
+              {/* Simple Supporting Message */}
+              <div className="mb-6 p-3.5 bg-white/70 border border-slate-200/80 rounded-xl text-xs sm:text-sm font-bold text-slate-800 flex items-center gap-2.5">
+                <CheckCircle2 size={16} className="text-[#032B73] shrink-0" />
+                <span>From personal items to commercial cargo, we help you move eligible goods internationally with pickup, freight and delivery options.</span>
+              </div>
 
               {/* Primary & Secondary Call-To-Action */}
               <div className="mb-8">
@@ -692,7 +692,7 @@ Please contact me with a quick quote and shipping schedule.`;
                     target="_self" 
                     className="w-full sm:w-auto text-center bg-[#FEB919] hover:bg-[#e2a412] text-[#032B73] font-black py-4 px-8 rounded-xl transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg text-xs md:text-sm uppercase tracking-widest flex items-center justify-center gap-2 border border-[#FEB919]/50 shadow-md"
                   >
-                    <span>Ship Internationally</span>
+                    <span>SHIP INTERNATIONALLY</span>
                     <ArrowRight size={16} />
                   </a>
                   <a 
@@ -701,35 +701,60 @@ Please contact me with a quick quote and shipping schedule.`;
                     rel="noopener noreferrer"
                     className="w-full sm:w-auto text-center bg-slate-100 hover:bg-slate-200 text-slate-800 font-black py-4 px-8 rounded-xl transition-all duration-300 hover:-translate-y-0.5 text-xs md:text-sm uppercase tracking-widest flex items-center justify-center gap-2 border border-slate-200"
                   >
-                    <span>Get a Shipping Quote</span>
+                    <span>GET A SHIPPING QUOTE</span>
                   </a>
                 </div>
                 <p className="mt-3 text-xs text-slate-500 font-bold italic flex items-center gap-2">
                   <span className="inline-block w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-                  Doorstep pickup in Nigeria • Air &amp; Sea cargo • USA &amp; UK specialist • Full customs clearance
+                  Specialized cargo handling • Pickup in Nigeria • Air &amp; sea freight • International delivery
                 </p>
               </div>
 
-              {/* Top International Destinations & Badges */}
+              {/* Route / Cargo Information */}
               <div className="pt-6 border-t border-slate-100">
                 <div className="text-[10px] font-black uppercase tracking-wider text-slate-400 mb-3 flex items-center justify-between">
-                  <span>Priority Global Shipping Routes &amp; Freight Services</span>
-                  <span className="text-[9px] text-[#032B73] font-black">USA &amp; UK Daily Express</span>
+                  <span>Shipping Routes &amp; Examples</span>
+                  <span className="text-[9px] text-[#032B73] font-black">Eligible Cargo Solutions</span>
                 </div>
-                <div className="flex flex-wrap gap-2.5">
-                  {serviceBadges.map((badge, i) => (
-                    <div 
-                      key={i} 
-                      className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold transition-all shadow-2xs ${
-                        badge.featured 
-                          ? 'bg-[#032B73] text-white border border-[#032B73] ring-2 ring-[#FEB919]/50 shadow-sm' 
-                          : 'bg-slate-50 hover:bg-blue-50/60 border border-slate-200/90 text-slate-800'
-                      }`}
-                    >
-                      <CheckCircle2 size={14} className={badge.featured ? 'text-[#FEB919] shrink-0' : 'text-emerald-600 shrink-0'} />
-                      <span>{badge.text}</span>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+                  <div className="bg-slate-50 border border-slate-200/90 rounded-xl p-3 flex flex-col justify-between">
+                    <div>
+                      <div className="text-xs font-black text-[#032B73] mb-1 flex items-center gap-1.5">
+                        <span className="text-sm">🇳🇬</span>
+                        <span>Nigeria → 🇺🇸 USA</span>
+                      </div>
+                      <div className="text-[9px] font-black uppercase tracking-wider text-slate-400 mb-1.5">Eligible cargo such as:</div>
+                      <p className="text-[11px] font-medium text-slate-600 leading-relaxed">
+                        Miss Paris perfume • Spiritual products • Supplements • Approved medication • Herbal drinks • Fashion • Personal belongings • Commercial goods &amp; more
+                      </p>
                     </div>
-                  ))}
+                  </div>
+                  
+                  <div className="bg-slate-50 border border-slate-200/90 rounded-xl p-3 flex flex-col justify-between">
+                    <div>
+                      <div className="text-xs font-black text-[#032B73] mb-1 flex items-center gap-1.5">
+                        <span className="text-sm">🇳🇬</span>
+                        <span>Nigeria → 🇬🇧 UK &amp; Europe</span>
+                      </div>
+                      <div className="text-[9px] font-black uppercase tracking-wider text-slate-400 mb-1.5">Eligible cargo such as:</div>
+                      <p className="text-[11px] font-medium text-slate-600 leading-relaxed">
+                        Kpomo • Goat meat • Food products • Miss Paris perfume • Spiritual products • Supplements • Approved medication • Herbal drinks • Fashion • Commercial goods &amp; more
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="bg-slate-50 border border-slate-200/90 rounded-xl p-3 flex flex-col justify-between">
+                    <div>
+                      <div className="text-xs font-black text-[#032B73] mb-1 flex items-center gap-1.5">
+                        <span className="text-sm">🇨🇳</span>
+                        <span>China → 🇳🇬 Nigeria</span>
+                      </div>
+                      <div className="text-[9px] font-black uppercase tracking-wider text-slate-400 mb-1.5">We help businesses &amp; individuals import:</div>
+                      <p className="text-[11px] font-medium text-slate-600 leading-relaxed">
+                        Electronics • Business goods • General merchandise • Commercial cargo &amp; more
+                      </p>
+                    </div>
+                  </div>
                 </div>
               </div>
 
@@ -811,11 +836,11 @@ Please contact me with a quick quote and shipping schedule.`;
                   >
                     <option value="">Select destination</option>
                     <optgroup label="⭐ Primary International Destinations">
-                      <option value="USA - United States (All 50 States)">🇺🇸 United States (USA) — Houston, NY, Atlanta, etc.</option>
-                      <option value="UK - United Kingdom">🇬🇧 United Kingdom (UK) — London, Manchester, etc.</option>
-                      <option value="Canada">🇨🇦 Canada — Toronto, Calgary, Montreal, etc.</option>
-                      <option value="Europe">🇪🇺 Europe — Germany, France, Italy, Ireland, etc.</option>
-                      <option value="China">🇨🇳 China — Guangzhou, Yiwu, Shenzhen</option>
+                      <option value="USA - United States (All 50 States)">🇺🇸 United States (USA) - Houston, NY, Atlanta, etc.</option>
+                      <option value="UK - United Kingdom">🇬🇧 United Kingdom (UK) - London, Manchester, etc.</option>
+                      <option value="Canada">🇨🇦 Canada - Toronto, Calgary, Montreal, etc.</option>
+                      <option value="Europe">🇪🇺 Europe - Germany, France, Italy, Ireland, etc.</option>
+                      <option value="China">🇨🇳 China - Guangzhou, Yiwu, Shenzhen</option>
                       <option value="Other International Country">🌍 Other International Country</option>
                     </optgroup>
                     <optgroup label="Domestic (Within Nigeria)">
@@ -837,7 +862,7 @@ Please contact me with a quick quote and shipping schedule.`;
                   </label>
                   <input 
                     type="text" 
-                    placeholder="e.g. 25kg Foodstuffs, Ankara Fashion, Commercial Samples"
+                    placeholder="e.g. Miss Paris perfumes, Kpomo, Supplements, Fashion, Foodstuffs"
                     value={message}
                     onChange={(e) => setMessage(e.target.value)}
                     className="w-full bg-white border border-slate-200 rounded-lg px-3 py-2 text-xs font-bold text-slate-800 placeholder-slate-400 focus:outline-none focus:border-[#032B73] transition-colors"
@@ -2017,7 +2042,7 @@ const TrustSection = () => {
   const reasons = [
     {
       title: "Real-Time Tracking",
-      desc: "Know exactly where your goods are — from Lagos departures to UK arrivals.",
+      desc: "Know exactly where your goods are, from Lagos departures to UK arrivals.",
     },
     {
       title: "No Hidden Costs",
@@ -2042,7 +2067,7 @@ const TrustSection = () => {
               Why African Businesses <br/><span className="text-shipplix-accent">Grow with Shipplix</span>
             </h2>
             <p className="text-slate-600 font-medium mb-8">
-              Shipplix is more than a freight forwarder — we are your complete partner for global commerce. From transparent international logistics to AI tools, store setup, and buyer acquisition systems, we help you build an enduring international brand.
+              Shipplix is more than a freight forwarder: we are your complete partner for global commerce. From transparent international logistics to AI tools, store setup, and buyer acquisition systems, we help you build an enduring international brand.
             </p>
             <div className="bg-blue-900 text-white p-6 rounded-xl relative overflow-hidden">
                 <div className="relative z-10">
@@ -2077,7 +2102,7 @@ const DiasporaSection = () => (
             Your People Abroad <br/><span className="bg-shipplix-blue text-shipplix-yellow px-2">Are Waiting</span>
           </h2>
           <p className="text-shipplix-blue/80 font-bold text-lg mb-8 italic">
-            "Your people abroad are ready to buy... the question is — are you ready to supply?"
+            "Your people abroad are ready to buy... the question is, are you ready to supply?"
           </p>
           <div className="space-y-4">
              {[
@@ -2179,7 +2204,7 @@ const FAQSection = () => {
     },
     {
       question: "How does Shipplix handle customs clearance for exports?",
-      answer: "Shipplix operates a fully managed, stress-free clearance service. We handle 100% of the customs inspection, export paperwork, and destination clearance on your behalf—both at MMIA Lagos and in the destination ports (US Customs, UK Border Force, CBSA Canada, etc.). This ensures your buyers never have to deal with complex shipping agents or unexpected clearance hurdles. Note that all food items are packed and declared in compliance with international food import guidelines."
+      answer: "Shipplix operates a fully managed, stress-free clearance service. We handle 100% of the customs inspection, export paperwork, and destination clearance on your behalf, both at MMIA Lagos and in the destination ports (US Customs, UK Border Force, CBSA Canada, etc.). This ensures your buyers never have to deal with complex shipping agents or unexpected clearance hurdles. Note that all food items are packed and declared in compliance with international food import guidelines."
     },
     {
       question: "Are my shipments covered by insurance? What is the payout process?",
@@ -2664,7 +2689,7 @@ const FinalCTA = () => (
             </Button>
           </div>
           <p className="mt-6 text-[10px] font-black uppercase tracking-[0.3em] text-slate-400">
-            Nigeria Hub — Closed on Sundays
+            Nigeria Hub: Closed on Sundays
           </p>
        </div>
     </div>

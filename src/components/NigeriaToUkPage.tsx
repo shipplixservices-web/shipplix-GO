@@ -145,7 +145,7 @@ export default function NigeriaToUkPage({ onNavigate }: NigeriaToUkPageProps) {
     },
     {
       q: "Do you deliver door-to-door across all UK cities and postcodes?",
-      a: "Yes! Shipplix provides 100% complete door-to-door delivery to every postal address in England, Scotland, Wales, and Northern Ireland—including London, Birmingham, Manchester, Leeds, Glasgow, Edinburgh, Coventry, Leicester, Luton, Kent, Essex, and Aberdeen."
+      a: "Yes! Shipplix provides 100% complete door-to-door delivery to every postal address in England, Scotland, Wales, and Northern Ireland, including London, Birmingham, Manchester, Leeds, Glasgow, Edinburgh, Coventry, Leicester, Luton, Kent, Essex, and Aberdeen."
     },
     {
       q: "Can I ship Nigerian foodstuff like Egusi, Crayfish, Stockfish, and Garri to the UK?",
@@ -153,7 +153,7 @@ export default function NigeriaToUkPage({ onNavigate }: NigeriaToUkPageProps) {
     },
     {
       q: "How are shipping rates calculated for Nigeria to UK packages?",
-      a: "Shipping rates are calculated on a per-kilogram basis based on the gross weight or volumetric weight (length x width x height / 5000), whichever is higher. Our pricing is all-inclusive and transparent—covering export handling, vacuum sealing, air freight, and final UK doorstep delivery."
+      a: "Shipping rates are calculated on a per-kilogram basis based on the gross weight or volumetric weight (length x width x height / 5000), whichever is higher. Our pricing is all-inclusive and transparent, covering export handling, vacuum sealing, air freight, and final UK doorstep delivery."
     },
     {
       q: "How does UK Customs (HMRC) clearance work?",
@@ -506,7 +506,7 @@ export default function NigeriaToUkPage({ onNavigate }: NigeriaToUkPageProps) {
               How the <span className="text-shipplix-blue">Nigeria to UK Shipping</span> Process Works
             </h2>
             <p className="text-sm md:text-base text-slate-600 font-medium">
-              From Lagos hub intake to final delivery at your UK address—our simple 4-step workflow guarantees speed and peace of mind.
+              From Lagos hub intake to final delivery at your UK address, our simple 4-step workflow guarantees speed and peace of mind.
             </p>
           </div>
 
