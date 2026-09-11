@@ -86,6 +86,11 @@ export default function Breadcrumbs({ currentPath, onNavigate, className = '' }:
         items.push({ label: 'Partnerships', path: '/' });
         items.push({ label: 'Revenue Partner Program' });
         break;
+      case '/creators':
+      case '/creator':
+        items.push({ label: 'Partnerships', path: '/' });
+        items.push({ label: 'Creator & Affiliate Program' });
+        break;
 
       // Export Blueprint & Resources
       case '/export-blueprint':

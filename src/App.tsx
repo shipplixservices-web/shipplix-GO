@@ -52,6 +52,7 @@ import EconomyCargoPage from './components/EconomyCargoPage';
 import ProcessingPage from './components/ProcessingPage';
 import TrustPage from './components/TrustPage';
 import RevenuePartnerPage from './components/RevenuePartnerPage';
+import CreatorsPage from './components/CreatorsPage';
 import ExportBlueprintPage from './components/ExportBlueprintPage';
 import AdminLeadsPage from './components/AdminLeadsPage';
 import GlobalLogisticsNetwork from './components/GlobalLogisticsNetwork';
@@ -369,6 +370,21 @@ const Navbar = ({ onNavigate, currentPath }: { onNavigate?: (path: string) => vo
             <div className="absolute top-full left-0 pt-2 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-all duration-200 z-50 min-w-[220px]">
               <div className="bg-slate-900 border border-white/10 text-white rounded-2xl shadow-2xl p-2 backdrop-blur-xl">
                 <a 
+                  href="#/creators" 
+                  onClick={(e) => handleLinkClick(e, '/creators')} 
+                  className={`block px-4 py-2.5 rounded-xl text-[11px] font-bold hover:bg-white/10 hover:text-shipplix-yellow transition-colors flex items-center justify-between ${currentPath === '/creators' ? 'bg-white/10 text-shipplix-yellow font-black' : ''}`}
+                >
+                  <span>Creator &amp; Affiliate</span>
+                  <span className="text-[9px] font-black bg-[#FEB919] text-[#032B73] px-1.5 py-0.5 rounded uppercase">Earn</span>
+                </a>
+                <a 
+                  href="#/revenue-partner" 
+                  onClick={(e) => handleLinkClick(e, '/revenue-partner')} 
+                  className={`block px-4 py-2.5 rounded-xl text-[11px] font-bold hover:bg-white/10 hover:text-shipplix-yellow transition-colors ${currentPath === '/revenue-partner' ? 'bg-white/10 text-shipplix-yellow font-black' : ''}`}
+                >
+                  Revenue Partner
+                </a>
+                <a 
                   href="#/export-blueprint" 
                   onClick={(e) => handleLinkClick(e, '/export-blueprint')} 
                   className={`block px-4 py-2.5 rounded-xl text-[11px] font-bold hover:bg-white/10 hover:text-shipplix-yellow transition-colors ${currentPath === '/export-blueprint' ? 'bg-white/10 text-shipplix-yellow font-black' : ''}`}
@@ -578,6 +594,11 @@ const Navbar = ({ onNavigate, currentPath }: { onNavigate?: (path: string) => vo
                 </button>
                 {expandedMobileSection === 'resources' && (
                   <div className="pl-4 pr-2 py-2 flex flex-col gap-2 border-l-2 border-shipplix-yellow/40 my-1 bg-white/5 rounded-r-xl">
+                    <a href="#/creators" onClick={(e) => handleLinkClick(e, '/creators')} className="py-1.5 text-slate-300 hover:text-shipplix-yellow flex items-center justify-between">
+                      <span>Creator &amp; Affiliate Program</span>
+                      <span className="text-[9px] font-black bg-[#FEB919] text-[#032B73] px-1.5 py-0.5 rounded uppercase">Earn</span>
+                    </a>
+                    <a href="#/revenue-partner" onClick={(e) => handleLinkClick(e, '/revenue-partner')} className="py-1.5 text-slate-300 hover:text-shipplix-yellow">Revenue Partner Program</a>
                     <a href="#/export-blueprint" onClick={(e) => handleLinkClick(e, '/export-blueprint')} className="py-1.5 text-slate-300 hover:text-shipplix-yellow">Export Blueprint</a>
                     <a href="#/trust" onClick={(e) => handleLinkClick(e, '/trust')} className="py-1.5 text-slate-300 hover:text-shipplix-yellow">Trust &amp; Security</a>
                   </div>
@@ -2864,6 +2885,8 @@ const Footer = ({ onNavigate }: { onNavigate?: (path: string) => void }) => {
             <h5 className="font-black text-slate-900 uppercase tracking-widest text-[11px] mb-3">Resources &amp; Support</h5>
             <ul className="space-y-2 font-medium">
               <li><a href="https://track.shipplix.com" target="_blank" rel="noopener noreferrer" className="hover:text-blue-600 font-bold">Track Shipment</a></li>
+              <li><a href="#/creators" onClick={(e) => handleLinkClick(e, '/creators')} className="hover:text-blue-600 font-bold text-amber-600 flex items-center gap-1.5"><span>Creator &amp; Affiliate</span> <span className="bg-amber-100 text-amber-800 text-[8px] px-1 py-0.5 rounded font-black">EARN</span></a></li>
+              <li><a href="#/revenue-partner" onClick={(e) => handleLinkClick(e, '/revenue-partner')} className="hover:text-blue-600">Revenue Partner Program</a></li>
               <li><a href="#/cargo-items" onClick={(e) => handleLinkClick(e, '/cargo-items')} className="hover:text-blue-600">Allowed Cargo Items</a></li>
               <li><a href="#/processing" onClick={(e) => handleLinkClick(e, '/processing')} className="hover:text-blue-600">Processing &amp; Inspection</a></li>
               <li><a href="#/economy-cargo-terms" onClick={(e) => handleLinkClick(e, '/economy-cargo-terms')} className="hover:text-blue-600">Shipping Terms</a></li>
@@ -2993,6 +3016,18 @@ function updatePageSeo(path: string) {
       ogTitle: "Shipplix Revenue Partner Program – Earn in FX",
       ogDescription: "Partner with Shipplix and earn commissions on international freight referrals."
     },
+    '/creators': {
+      title: "Shipplix Creator & Affiliate Program | Get Paid to Create Content",
+      description: "Join the Shipplix Creator & Affiliate Program. Get paid to create and publish authentic short-form videos with scripts supplied by Shipplix.",
+      ogTitle: "Shipplix Creator & Affiliate Program – Create. Post. Refer. Earn.",
+      ogDescription: "Get paid to create short-form videos for Shipplix. Scripts provided, content rewards, performance bonuses, and referral commissions."
+    },
+    '/creator': {
+      title: "Shipplix Creator & Affiliate Program | Get Paid to Create Content",
+      description: "Join the Shipplix Creator & Affiliate Program. Get paid to create and publish authentic short-form videos with scripts supplied by Shipplix.",
+      ogTitle: "Shipplix Creator & Affiliate Program – Create. Post. Refer. Earn.",
+      ogDescription: "Get paid to create short-form videos for Shipplix. Scripts provided, content rewards, performance bonuses, and referral commissions."
+    },
     '/export-blueprint': {
       title: "The African Export Blueprint | Free Export Business Guide | Shipplix",
       description: "Free step-by-step guide on how to build an international customer acquisition system that attracts overseas buyers consistently.",
@@ -3118,6 +3153,9 @@ export default function App() {
     if (p === '/revenue-partner' || h === '#/revenue-partner' || h === '#revenue-partner') {
       return '/revenue-partner';
     }
+    if (p === '/creators' || h === '#/creators' || h === '#creators' || p === '/creator' || h === '#/creator' || h === '#creator') {
+      return '/creators';
+    }
     if (p === '/export-blueprint' || h === '#/export-blueprint' || h === '#export-blueprint') {
       return '/export-blueprint';
     }
@@ -3161,6 +3199,8 @@ export default function App() {
         setCurrentPath('/trust');
       } else if (p === '/revenue-partner' || h === '#/revenue-partner' || h === '#revenue-partner') {
         setCurrentPath('/revenue-partner');
+      } else if (p === '/creators' || h === '#/creators' || h === '#creators' || p === '/creator' || h === '#/creator' || h === '#creator') {
+        setCurrentPath('/creators');
       } else if (p === '/export-blueprint' || h === '#/export-blueprint' || h === '#export-blueprint') {
         setCurrentPath('/export-blueprint');
       } else if (p === '/export-blueprint/thank-you' || h === '#/export-blueprint/thank-you' || h === '#export-blueprint-thank-you') {
@@ -3343,6 +3383,7 @@ export default function App() {
         {currentPath === '/trust' && <TrustPage />}
         {currentPath === '/economy-cargo-terms' && <EconomyTerms onBack={() => navigateTo('/')} />}
         {currentPath === '/revenue-partner' && <RevenuePartnerPage />}
+        {currentPath === '/creators' && <CreatorsPage onNavigate={navigateTo} />}
         {currentPath === '/export-blueprint' && <ExportBlueprintPage onNavigate={navigateTo} currentPath={currentPath} />}
         {currentPath === '/export-blueprint/thank-you' && <ExportBlueprintPage onNavigate={navigateTo} currentPath={currentPath} />}
         {currentPath === '/admin-leads' && <AdminLeadsPage onNavigate={navigateTo} />}
