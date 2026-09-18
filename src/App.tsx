@@ -402,6 +402,14 @@ const Navbar = ({ onNavigate, currentPath }: { onNavigate?: (path: string) => vo
             </div>
           </div>
 
+          {/* Shop Link */}
+          <a 
+            href="https://shop.shipplix.com" 
+            className="hover:text-shipplix-yellow transition-colors py-2 flex items-center gap-1"
+          >
+            <span>Shop</span>
+          </a>
+
           {/* Call To Actions */}
           <div className="flex items-center gap-2.5 ml-1">
             <a 
@@ -581,6 +589,14 @@ const Navbar = ({ onNavigate, currentPath }: { onNavigate?: (path: string) => vo
               >
                 <span>Track Shipment</span>
                 <ExternalLink size={14} className="text-shipplix-yellow" />
+              </a>
+
+              {/* Shop */}
+              <a 
+                href="https://shop.shipplix.com" 
+                className="py-2.5 px-3 rounded-xl hover:bg-white/5 hover:text-shipplix-yellow transition-colors flex items-center justify-between font-black uppercase text-slate-200"
+              >
+                <span>Shop</span>
               </a>
 
               {/* Resources Accordion */}
@@ -2884,6 +2900,7 @@ const Footer = ({ onNavigate }: { onNavigate?: (path: string) => void }) => {
           <div>
             <h5 className="font-black text-slate-900 uppercase tracking-widest text-[11px] mb-3">Resources &amp; Support</h5>
             <ul className="space-y-2 font-medium">
+              <li><a href="https://shop.shipplix.com" className="hover:text-blue-600 font-bold">Shop</a></li>
               <li><a href="https://track.shipplix.com" target="_blank" rel="noopener noreferrer" className="hover:text-blue-600 font-bold">Track Shipment</a></li>
               <li><a href="#/creators" onClick={(e) => handleLinkClick(e, '/creators')} className="hover:text-blue-600 font-bold text-amber-600 flex items-center gap-1.5"><span>Creator &amp; Affiliate</span> <span className="bg-amber-100 text-amber-800 text-[8px] px-1 py-0.5 rounded font-black">EARN</span></a></li>
               <li><a href="#/revenue-partner" onClick={(e) => handleLinkClick(e, '/revenue-partner')} className="hover:text-blue-600">Revenue Partner Program</a></li>
