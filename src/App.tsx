@@ -2774,8 +2774,11 @@ const Footer = ({ onNavigate }: { onNavigate?: (path: string) => void }) => {
               <div className="bg-slate-900 text-white font-black px-2 py-1 rounded text-lg tracking-tighter">SHIPPLIX</div>
               <span className="text-[10px] font-bold tracking-widest uppercase">Safe. Fast. Transparent.</span>
             </div>
-            <p className="text-slate-500 text-xs leading-relaxed mb-4">
+            <p className="text-slate-500 text-xs leading-relaxed mb-3">
               Leading international shipping &amp; logistics company connecting Nigerian exporters, vendors, and diaspora families with the USA, UK, Canada, Europe, and China, with supportive domestic freight solutions across Nigeria.
+            </p>
+            <p className="text-slate-600 text-xs font-semibold mb-4">
+              Legal Business Name: Shipplix Value Tech Services
             </p>
             {/* Follow Us */}
             <div className="flex items-center gap-3">
@@ -2914,7 +2917,11 @@ const Footer = ({ onNavigate }: { onNavigate?: (path: string) => void }) => {
         </div>
 
         <div className="pt-8 border-t border-slate-100 flex flex-col md:flex-row justify-between items-center gap-4 text-[9px] font-black uppercase tracking-widest">
-          <p>© {new Date().getFullYear()} SHIPPLIX LOGISTICS. INTERNATIONAL &amp; DOMESTIC FREIGHT SERVICES.</p>
+          <div className="flex flex-col sm:flex-row items-center gap-1 sm:gap-2 text-center md:text-left">
+            <p>© {new Date().getFullYear()} SHIPPLIX LOGISTICS. INTERNATIONAL &amp; DOMESTIC FREIGHT SERVICES.</p>
+            <span className="hidden sm:inline text-slate-300">|</span>
+            <p className="normal-case font-bold text-slate-600">Legal Business Name: Shipplix Value Tech Services</p>
+          </div>
           <div className="flex items-center gap-4">
             <span className="text-blue-600">USA • UK • Canada • Europe • China</span>
             <span className="text-slate-300">|</span>

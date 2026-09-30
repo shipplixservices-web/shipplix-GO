@@ -624,6 +624,9 @@ export default function EconomyTerms({ onBack }: { onBack: () => void }) {
           <p className="text-[10px] font-black uppercase tracking-widest">
             © {new Date().getFullYear()} SHIPPLIX EXPORT LOGISTICS. ALL RIGHTS RESERVED. MADE IN LAGOS.
           </p>
+          <p className="text-slate-400 text-xs font-medium mt-2 normal-case">
+            Legal Business Name: Shipplix Value Tech Services
+          </p>
         </div>
       </footer>
     </div>
