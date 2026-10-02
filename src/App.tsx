@@ -3029,10 +3029,10 @@ function updatePageSeo(path: string) {
       ogDescription: "Verify authentic Shipplix accounts, bank details, and customer support channels to protect against fraud."
     },
     '/economy-cargo-terms': {
-      title: "Economy Cargo Terms & Conditions – Shipplix",
-      description: "Terms and conditions governing Shipplix Economy Group Cargo, batch schedules, weight limits, and claims policy.",
-      ogTitle: "Economy Cargo Terms & Conditions – Shipplix",
-      ogDescription: "Official policies and terms of service for Shipplix group shipping and consolidated cargo."
+      title: "Shipplix Economy Cargo Terms & Conditions | Official Shipping Policy",
+      description: "Official Shipplix Economy Cargo Terms & Conditions. Learn about our 9-14 business day estimated delivery, separate box identification, consolidated air transport, customer responsibilities, claims process, and goodwill compensation policy.",
+      ogTitle: "Shipplix Economy Cargo Terms & Conditions – Official Policy",
+      ogDescription: "Affordable, reliable consolidated international shipping. Clear 9–14 business day delivery expectations, separate packaging identification, customer responsibilities, and claims guidelines."
     },
     '/revenue-partner': {
       title: "Become a Shipplix Revenue Partner – Earn referring customers",
