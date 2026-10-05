@@ -43,9 +43,12 @@ import {
   Award,
   Facebook,
   Instagram,
-  MapPin
+  MapPin,
+  Search,
+  Bell
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
+import { openWhatsApp } from './utils/whatsapp';
 import EconomyTerms from './components/EconomyTerms';
 import CargoItemsPage from './components/CargoItemsPage';
 import EconomyCargoPage from './components/EconomyCargoPage';
@@ -69,6 +72,22 @@ import NigeriaToHoustonPage from './components/NigeriaToHoustonPage';
 import Breadcrumbs from './components/Breadcrumbs';
 import { PWAInstallPrompt } from './components/PWAInstallPrompt';
 import shipplixPackagingUploaded from './assets/images/shipplix_packaging.png';
+import heroLogisticsBanner from './assets/images/global_shipping_in_motion.png';
+import globalShippingMotionImg from './assets/images/global_shipping_in_motion.png';
+import shipplixOfficialLogo from './assets/images/shipplix_official_logo.png';
+import servicePlaneBoxes from './assets/images/shipplix_airfreight_in_motion.png';
+import serviceChinaShipping from './assets/images/service_china_shipping_1791028756928.jpg';
+import serviceVanHiace from './assets/images/service_van_hiace_1791028733401.jpg';
+import serviceTruckHaulage from './assets/images/regenerated_image_1791243757227.png';
+import serviceLocalBoxes from './assets/images/service_local_boxes_1791028718311.jpg';
+import QuickActionHub from './components/QuickActionHub';
+import MobileBottomNav from './components/MobileBottomNav';
+import HomepageServices from './components/HomepageServices';
+import ShipmentTrackingSection from './components/ShipmentTrackingSection';
+import WhyShipplixSection from './components/WhyShipplixSection';
+import HowItWorksSection from './components/HowItWorksSection';
+import WhatsAppCtaSection from './components/WhatsAppCtaSection';
+import { WhatsAppButton } from './components/WhatsAppButton';
 
 // Common Components
 const Button = ({ 
@@ -127,10 +146,14 @@ const SectionTitle = ({ title, subtitle, light = false, centered = true }: { tit
 const Navbar = ({ onNavigate, currentPath }: { onNavigate?: (path: string) => void; currentPath?: string }) => {
   const [isOpen, setIsOpen] = React.useState(false);
   const [expandedMobileSection, setExpandedMobileSection] = React.useState<string | null>(null);
+  const [showNotifications, setShowNotifications] = React.useState(false);
+  const [showAccountMenu, setShowAccountMenu] = React.useState(false);
 
   const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, path: string) => {
     e.preventDefault();
     setIsOpen(false);
+    setShowNotifications(false);
+    setShowAccountMenu(false);
     onNavigate?.(path);
   };
 
@@ -139,308 +162,457 @@ const Navbar = ({ onNavigate, currentPath }: { onNavigate?: (path: string) => vo
   };
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-shipplix-blue border-b-4 border-shipplix-yellow text-white py-3 shadow-md">
-      <div className="container mx-auto px-6 flex justify-between items-center">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-shipplix-blue border-b-4 border-shipplix-yellow text-white py-2.5 sm:py-3 shadow-md">
+      <div className="container max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 flex justify-between items-center">
         {/* Brand Logo */}
         <div 
-          className="flex items-center gap-2 cursor-pointer" 
+          className="flex items-center gap-2 sm:gap-2.5 cursor-pointer" 
           onClick={() => {
             setIsOpen(false);
             onNavigate?.('/');
           }}
         >
-          <div className="bg-shipplix-yellow text-shipplix-blue font-black p-1 rounded-sm text-xl tracking-tighter">SHIPPLIX</div>
-          <span className="hidden sm:inline-block text-[10px] font-bold tracking-widest opacity-80 uppercase leading-none">International Shipping &amp;<br/>Global Logistics</span>
+          <img 
+            src={shipplixOfficialLogo} 
+            alt="Shipplix" 
+            className="h-6 sm:h-7 w-auto object-contain brightness-0 invert"
+            onError={(e) => {
+              (e.currentTarget as HTMLElement).style.display = 'none';
+            }}
+          />
+          <div>
+            <div className="bg-shipplix-yellow text-shipplix-blue font-black px-1.5 py-0.5 rounded text-base sm:text-lg tracking-tighter leading-none inline-block">
+              SHIPPLIX
+            </div>
+            <div className="hidden sm:block text-[8px] font-black tracking-widest text-[#FFD700] uppercase leading-tight mt-0.5">
+              THINK SHIPPING THINK SHIPPLIX
+            </div>
+          </div>
         </div>
         
-        {/* Desktop Navigation Dropdowns */}
-        <div className="hidden lg:flex items-center gap-4 text-[11px] font-bold uppercase tracking-wider">
+        {/* Desktop Navigation */}
+        <div className="hidden lg:flex items-center gap-1.5 xl:gap-3 text-[10.5px] xl:text-xs font-bold uppercase tracking-wider">
           
-          {/* Home */}
-          <a 
-            href="#/" 
-            onClick={(e) => handleLinkClick(e, '/')} 
-            className={`transition-colors py-2 ${currentPath === '/' ? 'text-shipplix-yellow underline font-black' : 'hover:text-shipplix-yellow'}`}
-          >
-            Home
-          </a>
-
-          {/* International Shipping Dropdown - PRIMARY */}
+          {/* 1. Services Dropdown */}
           <div className="relative group py-2">
-            <button className="flex items-center gap-1 hover:text-shipplix-yellow transition-colors font-black uppercase tracking-wider focus:outline-none">
-              International Shipping
-              <ChevronDown size={14} className="transition-transform duration-200 group-hover:rotate-180 text-shipplix-yellow" />
+            <button className="flex items-center gap-1 hover:text-shipplix-yellow transition-colors font-black uppercase tracking-wider focus:outline-none cursor-pointer">
+              <span>Services</span>
+              <ChevronDown size={13} className="transition-transform duration-200 group-hover:rotate-180 text-shipplix-yellow" />
             </button>
-            <div className="absolute top-full left-0 pt-2 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-all duration-200 z-50 min-w-[260px]">
-              <div className="bg-slate-900 border border-white/10 text-white rounded-2xl shadow-2xl p-2 backdrop-blur-xl">
-                <div className="px-3 py-1.5 text-[9px] font-black uppercase tracking-widest text-shipplix-yellow/80 border-b border-white/10 mb-1">
-                  ⭐ Hero Corridors
+            <div className="absolute top-full left-0 pt-2 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-all duration-200 z-50 min-w-[270px]">
+              <div className="bg-slate-900 border border-white/10 text-white rounded-2xl shadow-2xl p-2.5 backdrop-blur-xl">
+                <div className="px-3 py-1 text-[9px] font-black uppercase tracking-widest text-[#FFD700] border-b border-white/10 mb-1">
+                  Shipplix Logistics Services
+                </div>
+                <a 
+                  href="#services" 
+                  onClick={(e) => {
+                    e.preventDefault();
+                    if (currentPath !== '/') {
+                      onNavigate?.('/');
+                      setTimeout(() => document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' }), 100);
+                    } else {
+                      document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' });
+                    }
+                  }}
+                  className="block px-3.5 py-2 rounded-xl text-[11px] font-bold hover:bg-white/10 hover:text-shipplix-yellow transition-colors"
+                >
+                  ✈️ All 6 Core Logistics Services
+                </a>
+                <a 
+                  href="#/economy-cargo" 
+                  onClick={(e) => handleLinkClick(e, '/economy-cargo')} 
+                  className={`block px-3.5 py-2 rounded-xl text-[11px] font-bold hover:bg-white/10 hover:text-shipplix-yellow transition-colors ${currentPath === '/economy-cargo' ? 'bg-white/10 text-shipplix-yellow font-black' : ''}`}
+                >
+                  📦 Economy Air Cargo (9–14 Days)
+                </a>
+                <a 
+                  href="#/cargo-items" 
+                  onClick={(e) => handleLinkClick(e, '/cargo-items')} 
+                  className={`block px-3.5 py-2 rounded-xl text-[11px] font-bold hover:bg-white/10 hover:text-shipplix-yellow transition-colors ${currentPath === '/cargo-items' ? 'bg-white/10 text-shipplix-yellow font-black' : ''}`}
+                >
+                  📋 Allowed Cargo Items Guide
+                </a>
+                <a 
+                  href="#/processing" 
+                  onClick={(e) => handleLinkClick(e, '/processing')} 
+                  className={`block px-3.5 py-2 rounded-xl text-[11px] font-bold hover:bg-white/10 hover:text-shipplix-yellow transition-colors ${currentPath === '/processing' ? 'bg-white/10 text-shipplix-yellow font-black' : ''}`}
+                >
+                  🔍 Inspection &amp; Live Video Packing
+                </a>
+                <div className="my-1 border-t border-white/10"></div>
+                <button
+                  onClick={() => openWhatsApp('truck')}
+                  className="w-full text-left px-3.5 py-2 rounded-xl text-[11px] font-bold hover:bg-white/10 hover:text-shipplix-yellow transition-colors cursor-pointer"
+                >
+                  🚚 Dedicated Truck &amp; Haulage
+                </button>
+                <button
+                  onClick={() => openWhatsApp('van')}
+                  className="w-full text-left px-3.5 py-2 rounded-xl text-[11px] font-bold hover:bg-white/10 hover:text-shipplix-yellow transition-colors cursor-pointer"
+                >
+                  🚐 Van &amp; Hiace Hire
+                </button>
+              </div>
+            </div>
+          </div>
+
+          {/* 2. Routes Dropdown */}
+          <div className="relative group py-2">
+            <button className="flex items-center gap-1 hover:text-shipplix-yellow transition-colors font-black uppercase tracking-wider focus:outline-none cursor-pointer">
+              <span>Routes</span>
+              <ChevronDown size={13} className="transition-transform duration-200 group-hover:rotate-180 text-shipplix-yellow" />
+            </button>
+            <div className="absolute top-full left-0 pt-2 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-all duration-200 z-50 min-w-[280px]">
+              <div className="bg-slate-900 border border-white/10 text-white rounded-2xl shadow-2xl p-2.5 backdrop-blur-xl">
+                <div className="px-3 py-1 text-[9px] font-black uppercase tracking-widest text-[#FFD700] border-b border-white/10 mb-1">
+                  ⭐ Core Export Corridors
                 </div>
                 <a 
                   href="#/ship-from-nigeria-to-usa" 
                   onClick={(e) => handleLinkClick(e, '/ship-from-nigeria-to-usa')} 
-                  className={`block px-4 py-2.5 rounded-xl text-[11px] font-black hover:bg-white/10 hover:text-shipplix-yellow transition-colors ${currentPath === '/ship-from-nigeria-to-usa' ? 'bg-white/10 text-shipplix-yellow font-black' : ''}`}
+                  className={`block px-3.5 py-2 rounded-xl text-[11px] font-black hover:bg-white/10 hover:text-shipplix-yellow transition-colors ${currentPath === '/ship-from-nigeria-to-usa' ? 'bg-white/10 text-shipplix-yellow font-black' : ''}`}
                 >
-                  🇺🇸 Ship Nigeria to USA
+                  🇺🇸 Ship Nigeria to USA (All 50 States)
                 </a>
                 <a 
                   href="#/ship-from-nigeria-to-houston" 
                   onClick={(e) => handleLinkClick(e, '/ship-from-nigeria-to-houston')} 
-                  className={`block px-4 py-2.5 rounded-xl text-[11px] font-bold hover:bg-white/10 hover:text-shipplix-yellow transition-colors ${currentPath === '/ship-from-nigeria-to-houston' ? 'bg-white/10 text-shipplix-yellow font-black' : ''}`}
+                  className={`block px-3.5 py-2 rounded-xl text-[11px] font-bold hover:bg-white/10 hover:text-shipplix-yellow transition-colors ${currentPath === '/ship-from-nigeria-to-houston' ? 'bg-white/10 text-shipplix-yellow font-black' : ''}`}
                 >
                   🇺🇸 Ship Nigeria to Houston, TX
                 </a>
                 <a 
                   href="#/ship-from-nigeria-to-uk" 
                   onClick={(e) => handleLinkClick(e, '/ship-from-nigeria-to-uk')} 
-                  className={`block px-4 py-2.5 rounded-xl text-[11px] font-black hover:bg-white/10 hover:text-shipplix-yellow transition-colors ${currentPath === '/ship-from-nigeria-to-uk' ? 'bg-white/10 text-shipplix-yellow font-black' : ''}`}
+                  className={`block px-3.5 py-2 rounded-xl text-[11px] font-black hover:bg-white/10 hover:text-shipplix-yellow transition-colors ${currentPath === '/ship-from-nigeria-to-uk' ? 'bg-white/10 text-shipplix-yellow font-black' : ''}`}
                 >
-                  🇬🇧 Ship Nigeria to UK
+                  🇬🇧 Ship Nigeria to UK (London Express)
                 </a>
-                <div className="px-3 py-1.5 text-[9px] font-black uppercase tracking-widest text-slate-400 border-t border-b border-white/10 my-1">
-                  Global Destinations
+                <div className="px-3 py-1 text-[9px] font-black uppercase tracking-widest text-slate-400 border-t border-b border-white/10 my-1">
+                  Global Corridors &amp; Imports
                 </div>
                 <a 
                   href="#/ship-from-nigeria-to-canada" 
                   onClick={(e) => handleLinkClick(e, '/ship-from-nigeria-to-canada')} 
-                  className={`block px-4 py-2.5 rounded-xl text-[11px] font-bold hover:bg-white/10 hover:text-shipplix-yellow transition-colors ${currentPath === '/ship-from-nigeria-to-canada' ? 'bg-white/10 text-shipplix-yellow font-black' : ''}`}
+                  className={`block px-3.5 py-2 rounded-xl text-[11px] font-bold hover:bg-white/10 hover:text-shipplix-yellow transition-colors ${currentPath === '/ship-from-nigeria-to-canada' ? 'bg-white/10 text-shipplix-yellow font-black' : ''}`}
                 >
                   🇨🇦 Ship Nigeria to Canada
                 </a>
                 <a 
                   href="#/ship-from-nigeria-to-europe" 
                   onClick={(e) => handleLinkClick(e, '/ship-from-nigeria-to-europe')} 
-                  className={`block px-4 py-2.5 rounded-xl text-[11px] font-bold hover:bg-white/10 hover:text-shipplix-yellow transition-colors ${currentPath === '/ship-from-nigeria-to-europe' ? 'bg-white/10 text-shipplix-yellow font-black' : ''}`}
+                  className={`block px-3.5 py-2 rounded-xl text-[11px] font-bold hover:bg-white/10 hover:text-shipplix-yellow transition-colors ${currentPath === '/ship-from-nigeria-to-europe' ? 'bg-white/10 text-shipplix-yellow font-black' : ''}`}
                 >
-                  🇪🇺 Ship Nigeria to Europe
+                  🇪🇺 Ship Nigeria to Europe (EU-Wide)
                 </a>
                 <a 
                   href="#/ship-from-china-to-nigeria" 
                   onClick={(e) => handleLinkClick(e, '/ship-from-china-to-nigeria')} 
-                  className={`block px-4 py-2.5 rounded-xl text-[11px] font-bold hover:bg-white/10 hover:text-shipplix-yellow transition-colors ${currentPath === '/ship-from-china-to-nigeria' ? 'bg-white/10 text-shipplix-yellow font-black' : ''}`}
+                  className={`block px-3.5 py-2 rounded-xl text-[11px] font-bold hover:bg-white/10 hover:text-shipplix-yellow transition-colors ${currentPath === '/ship-from-china-to-nigeria' ? 'bg-white/10 text-shipplix-yellow font-black' : ''}`}
                 >
-                  🇨🇳 China ↔ Nigeria (Import &amp; Sourcing)
+                  🇨🇳 China ↔ Nigeria (Import Trade)
                 </a>
-                <div className="my-1 border-t border-white/10"></div>
-                <a 
-                  href="#/ship-from-usa-to-nigeria" 
-                  onClick={(e) => handleLinkClick(e, '/ship-from-usa-to-nigeria')} 
-                  className={`block px-4 py-2.5 rounded-xl text-[11px] font-bold hover:bg-white/10 hover:text-shipplix-yellow transition-colors ${currentPath === '/ship-from-usa-to-nigeria' ? 'bg-white/10 text-shipplix-yellow font-black' : ''}`}
+                <button 
+                  onClick={() => openWhatsApp('interstate')} 
+                  className="w-full text-left px-3.5 py-2 rounded-xl text-[11px] font-bold hover:bg-white/10 hover:text-shipplix-yellow transition-colors cursor-pointer"
                 >
-                  🇺🇸 Ship USA to Nigeria
-                </a>
-                <a 
-                  href="#/ship-from-uk-to-nigeria" 
-                  onClick={(e) => handleLinkClick(e, '/ship-from-uk-to-nigeria')} 
-                  className={`block px-4 py-2.5 rounded-xl text-[11px] font-bold hover:bg-white/10 hover:text-shipplix-yellow transition-colors ${currentPath === '/ship-from-uk-to-nigeria' ? 'bg-white/10 text-shipplix-yellow font-black' : ''}`}
-                >
-                  🇬🇧 Ship UK to Nigeria
-                </a>
+                  🇳🇬 Interstate Transport (36 States)
+                </button>
               </div>
             </div>
           </div>
 
-          {/* Domestic Logistics Dropdown - SECONDARY */}
-          <div className="relative group py-2">
-            <button className="flex items-center gap-1 hover:text-shipplix-yellow transition-colors font-bold uppercase tracking-wider focus:outline-none opacity-90">
-              Domestic Logistics
-              <ChevronDown size={14} className="transition-transform duration-200 group-hover:rotate-180 text-shipplix-yellow" />
-            </button>
-            <div className="absolute top-full left-0 pt-2 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-all duration-200 z-50 min-w-[260px]">
-              <div className="bg-slate-900 border border-white/10 text-white rounded-2xl shadow-2xl p-2 backdrop-blur-xl">
-                <a 
-                  href="#domestic-services" 
-                  onClick={(e) => {
-                    e.preventDefault();
-                    if (currentPath !== '/') {
-                      onNavigate?.('/');
-                      setTimeout(() => {
-                        document.getElementById('domestic-services')?.scrollIntoView({ behavior: 'smooth' });
-                      }, 100);
-                    } else {
-                      document.getElementById('domestic-services')?.scrollIntoView({ behavior: 'smooth' });
-                    }
-                  }} 
-                  className="block px-4 py-2.5 rounded-xl text-[11px] font-bold hover:bg-white/10 hover:text-shipplix-yellow transition-colors"
-                >
-                  🇳🇬 Interstate Shipping (36 States)
-                </a>
-                <a 
-                  href="#domestic-services" 
-                  onClick={(e) => {
-                    e.preventDefault();
-                    if (currentPath !== '/') {
-                      onNavigate?.('/');
-                      setTimeout(() => {
-                        document.getElementById('domestic-services')?.scrollIntoView({ behavior: 'smooth' });
-                      }, 100);
-                    } else {
-                      document.getElementById('domestic-services')?.scrollIntoView({ behavior: 'smooth' });
-                    }
-                  }} 
-                  className="block px-4 py-2.5 rounded-xl text-[11px] font-bold hover:bg-white/10 hover:text-shipplix-yellow transition-colors"
-                >
-                  🇳🇬 Intra-State City Delivery
-                </a>
-                <a 
-                  href="#truck-van-hire" 
-                  onClick={(e) => {
-                    e.preventDefault();
-                    if (currentPath !== '/') {
-                      onNavigate?.('/');
-                      setTimeout(() => {
-                        document.getElementById('truck-van-hire')?.scrollIntoView({ behavior: 'smooth' });
-                      }, 100);
-                    } else {
-                      document.getElementById('truck-van-hire')?.scrollIntoView({ behavior: 'smooth' });
-                    }
-                  }} 
-                  className="block px-4 py-2.5 rounded-xl text-[11px] font-bold hover:bg-white/10 hover:text-shipplix-yellow transition-colors"
-                >
-                  🚚 Truck &amp; Van Hire
-                </a>
-              </div>
-            </div>
-          </div>
-
-          {/* Services Dropdown */}
-          <div className="relative group py-2">
-            <button className="flex items-center gap-1 hover:text-shipplix-yellow transition-colors font-bold uppercase tracking-wider focus:outline-none">
-              Services
-              <ChevronDown size={14} className="transition-transform duration-200 group-hover:rotate-180 text-shipplix-yellow" />
-            </button>
-            <div className="absolute top-full left-0 pt-2 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-all duration-200 z-50 min-w-[230px]">
-              <div className="bg-slate-900 border border-white/10 text-white rounded-2xl shadow-2xl p-2 backdrop-blur-xl">
-                <a 
-                  href="#/economy-cargo" 
-                  onClick={(e) => handleLinkClick(e, '/economy-cargo')} 
-                  className={`block px-4 py-2.5 rounded-xl text-[11px] font-bold hover:bg-white/10 hover:text-shipplix-yellow transition-colors ${currentPath === '/economy-cargo' ? 'bg-white/10 text-shipplix-yellow font-black' : ''}`}
-                >
-                  Economy Air Cargo
-                </a>
-                <a 
-                  href="#/processing" 
-                  onClick={(e) => handleLinkClick(e, '/processing')} 
-                  className={`block px-4 py-2.5 rounded-xl text-[11px] font-bold hover:bg-white/10 hover:text-shipplix-yellow transition-colors ${currentPath === '/processing' ? 'bg-white/10 text-shipplix-yellow font-black' : ''}`}
-                >
-                  Processing &amp; Inspection
-                </a>
-                <a 
-                  href="#/cargo-items" 
-                  onClick={(e) => handleLinkClick(e, '/cargo-items')} 
-                  className={`block px-4 py-2.5 rounded-xl text-[11px] font-bold hover:bg-white/10 hover:text-shipplix-yellow transition-colors ${currentPath === '/cargo-items' ? 'bg-white/10 text-shipplix-yellow font-black' : ''}`}
-                >
-                  Allowed Cargo Items
-                </a>
-                <a 
-                  href="#/economy-cargo-terms" 
-                  onClick={(e) => handleLinkClick(e, '/economy-cargo-terms')} 
-                  className={`block px-4 py-2.5 rounded-xl text-[11px] font-bold hover:bg-white/10 hover:text-shipplix-yellow transition-colors ${currentPath === '/economy-cargo-terms' ? 'bg-white/10 text-shipplix-yellow font-black' : ''}`}
-                >
-                  Economy Cargo Terms
-                </a>
-                <a 
-                  href="#/revenue-partner" 
-                  onClick={(e) => handleLinkClick(e, '/revenue-partner')} 
-                  className={`block px-4 py-2.5 rounded-xl text-[11px] font-bold hover:bg-white/10 hover:text-shipplix-yellow transition-colors ${currentPath === '/revenue-partner' ? 'bg-white/10 text-shipplix-yellow font-black' : ''}`}
-                >
-                  Revenue Partner Program
-                </a>
-              </div>
-            </div>
-          </div>
-
-          {/* Track Shipment Link */}
+          {/* 3. Track Shipment */}
           <a 
-            href="https://track.shipplix.com" 
-            target="_blank" 
-            rel="noopener noreferrer" 
-            className="hover:text-shipplix-yellow transition-colors py-2 flex items-center gap-1"
+            href="#tracking" 
+            onClick={(e) => {
+              e.preventDefault();
+              if (currentPath !== '/') {
+                onNavigate?.('/');
+                setTimeout(() => document.getElementById('tracking')?.scrollIntoView({ behavior: 'smooth' }), 100);
+              } else {
+                document.getElementById('tracking')?.scrollIntoView({ behavior: 'smooth' });
+              }
+            }}
+            className="hover:text-shipplix-yellow transition-colors py-2 flex items-center gap-1.5 cursor-pointer"
           >
-            <span>Tracking</span>
-            <ExternalLink size={12} className="opacity-70" />
+            <Search size={14} className="text-[#FFD700]" />
+            <span>Track Shipment</span>
           </a>
 
-          {/* Resources Dropdown */}
+          {/* 4. Get a Quote */}
+          <button 
+            onClick={() => {
+              if (currentPath !== '/') {
+                onNavigate?.('/');
+                setTimeout(() => document.getElementById('quick-actions')?.scrollIntoView({ behavior: 'smooth' }), 100);
+              } else {
+                document.getElementById('quick-actions')?.scrollIntoView({ behavior: 'smooth' });
+              }
+            }}
+            className="hover:text-shipplix-yellow transition-colors py-2 flex items-center gap-1.5 cursor-pointer font-bold"
+          >
+            <Clock size={14} className="text-[#FFD700]" />
+            <span>Get a Quote</span>
+          </button>
+
+          {/* 5. Support */}
           <div className="relative group py-2">
-            <button className="flex items-center gap-1 hover:text-shipplix-yellow transition-colors font-bold uppercase tracking-wider focus:outline-none">
-              Resources
-              <ChevronDown size={14} className="transition-transform duration-200 group-hover:rotate-180 text-shipplix-yellow" />
+            <button className="flex items-center gap-1 hover:text-shipplix-yellow transition-colors font-bold uppercase tracking-wider focus:outline-none cursor-pointer">
+              <span>Support</span>
+              <ChevronDown size={13} className="transition-transform duration-200 group-hover:rotate-180 text-shipplix-yellow" />
             </button>
-            <div className="absolute top-full left-0 pt-2 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-all duration-200 z-50 min-w-[220px]">
-              <div className="bg-slate-900 border border-white/10 text-white rounded-2xl shadow-2xl p-2 backdrop-blur-xl">
-                <a 
-                  href="#/creators" 
-                  onClick={(e) => handleLinkClick(e, '/creators')} 
-                  className={`block px-4 py-2.5 rounded-xl text-[11px] font-bold hover:bg-white/10 hover:text-shipplix-yellow transition-colors flex items-center justify-between ${currentPath === '/creators' ? 'bg-white/10 text-shipplix-yellow font-black' : ''}`}
+            <div className="absolute top-full left-0 pt-2 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-all duration-200 z-50 min-w-[240px]">
+              <div className="bg-slate-900 border border-white/10 text-white rounded-2xl shadow-2xl p-2.5 backdrop-blur-xl">
+                <button 
+                  onClick={() => openWhatsApp('need_help')} 
+                  className="w-full text-left px-3.5 py-2.5 rounded-xl hover:bg-white/10 transition-colors flex items-center justify-between text-[11px] font-bold text-emerald-400 cursor-pointer"
                 >
-                  <span>Creator &amp; Affiliate</span>
-                  <span className="text-[9px] font-black bg-[#FEB919] text-[#032B73] px-1.5 py-0.5 rounded uppercase">Earn</span>
+                  <span className="flex items-center gap-2">
+                    <MessageCircle size={14} className="fill-emerald-400/20" />
+                    <span>WhatsApp Helpdesk</span>
+                  </span>
+                  <span className="text-[9px] bg-emerald-500/20 text-emerald-400 px-1.5 py-0.5 rounded uppercase font-black">24/7</span>
+                </button>
+                <a href="#/trust" onClick={(e) => handleLinkClick(e, '/trust')} className="block px-3.5 py-2 rounded-xl text-[11px] font-bold text-slate-200 hover:bg-white/10 hover:text-shipplix-yellow transition-colors">
+                  Trust &amp; Export Security
                 </a>
-                <a 
-                  href="#/revenue-partner" 
-                  onClick={(e) => handleLinkClick(e, '/revenue-partner')} 
-                  className={`block px-4 py-2.5 rounded-xl text-[11px] font-bold hover:bg-white/10 hover:text-shipplix-yellow transition-colors ${currentPath === '/revenue-partner' ? 'bg-white/10 text-shipplix-yellow font-black' : ''}`}
-                >
-                  Revenue Partner
+                <a href="#faq" onClick={(e) => {
+                  e.preventDefault();
+                  document.getElementById('faq')?.scrollIntoView({ behavior: 'smooth' });
+                }} className="block px-3.5 py-2 rounded-xl text-[11px] font-bold text-slate-200 hover:bg-white/10 hover:text-shipplix-yellow transition-colors">
+                  Frequently Asked Questions
                 </a>
-                <a 
-                  href="#/export-blueprint" 
-                  onClick={(e) => handleLinkClick(e, '/export-blueprint')} 
-                  className={`block px-4 py-2.5 rounded-xl text-[11px] font-bold hover:bg-white/10 hover:text-shipplix-yellow transition-colors ${currentPath === '/export-blueprint' ? 'bg-white/10 text-shipplix-yellow font-black' : ''}`}
-                >
-                  Export Blueprint
-                </a>
-                <a 
-                  href="#/trust" 
-                  onClick={(e) => handleLinkClick(e, '/trust')} 
-                  className={`block px-4 py-2.5 rounded-xl text-[11px] font-bold hover:bg-white/10 hover:text-shipplix-yellow transition-colors ${currentPath === '/trust' ? 'bg-white/10 text-shipplix-yellow font-black' : ''}`}
-                >
-                  Trust &amp; Security
+                <a href="mailto:services@shipplix.com" className="block px-3.5 py-2 rounded-xl text-[11px] font-medium text-slate-400 hover:text-white transition-colors lowercase">
+                  services@shipplix.com
                 </a>
               </div>
             </div>
           </div>
 
-          {/* Shop Link */}
-          <a 
-            href="https://shop.shipplix.com" 
-            className="hover:text-shipplix-yellow transition-colors py-2 flex items-center gap-1"
-          >
-            <span>Shop</span>
-          </a>
+          {/* 6. WhatsApp Button */}
+          <WhatsAppButton
+            action="general"
+            label="WhatsApp"
+            variant="whatsapp"
+            size="sm"
+            className="text-[11px] font-black uppercase px-3 py-2 rounded-xl shrink-0"
+          />
 
-          {/* Call To Actions */}
-          <div className="flex items-center gap-2.5 ml-1">
-            <a 
-              href="https://myshipment.shipplix.com" 
-              target="_self" 
-              className="bg-[#FEB919] hover:bg-[#e2a412] text-[#032B73] font-black py-2.5 px-3.5 rounded-xl transition-all duration-300 hover:-translate-y-0.5 hover:shadow-md text-[10px] uppercase tracking-widest flex items-center justify-center gap-1"
-            >
-              Ship Internationally
-            </a>
-            <Button 
-              as="a" 
-              href={URL_QUOTE} 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              variant="ghost" 
-              className="py-2 px-3 text-[10px] uppercase tracking-widest border border-white/20 hover:bg-white/10"
-            >
-              Get Quote
-            </Button>
-          </div>
+          {/* 7. Book a shipment */}
+          <a 
+            href="https://myshipment.shipplix.com" 
+            target="_self" 
+            className="bg-[#FFD700] hover:bg-[#F5C400] text-[#032B73] font-black py-2 px-3.5 rounded-xl transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md text-[11px] uppercase tracking-wider flex items-center gap-1.5 shrink-0"
+          >
+            <Package size={13} />
+            <span>Book a shipment</span>
+          </a>
 
         </div>
 
-        {/* Mobile Hamburger Toggle Button */}
-        <button 
-          className="lg:hidden flex items-center justify-center p-2 rounded-lg hover:bg-white/10 transition-colors" 
-          onClick={() => setIsOpen(!isOpen)} 
-          aria-label="Toggle menu"
-        >
-          {isOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
+        {/* Header Utility Area: Notifications, Account & Mobile Hamburger Menu */}
+        <div className="flex items-center gap-1 sm:gap-2">
+          
+          {/* 1. Notification Area */}
+          <div className="relative">
+            <button
+              onClick={() => {
+                setShowNotifications(!showNotifications);
+                setShowAccountMenu(false);
+                setIsOpen(false);
+              }}
+              className="relative p-2 rounded-xl text-slate-200 hover:text-white hover:bg-white/10 transition-colors cursor-pointer flex items-center justify-center min-w-[36px] min-h-[36px]"
+              aria-label="View notifications"
+            >
+              <Bell size={18} className="text-[#FFD700]" />
+              <span className="absolute top-1 right-1 w-2 h-2 rounded-full bg-emerald-400 ring-2 ring-[#032B73]"></span>
+            </button>
+
+            {/* Notification Dropdown / Panel */}
+            <AnimatePresence>
+              {showNotifications && (
+                <motion.div
+                  initial={{ opacity: 0, y: 8, scale: 0.95 }}
+                  animate={{ opacity: 1, y: 0, scale: 1 }}
+                  exit={{ opacity: 0, y: 8, scale: 0.95 }}
+                  transition={{ duration: 0.15 }}
+                  className="absolute right-0 mt-2 w-72 sm:w-84 bg-slate-900 border border-white/15 rounded-2xl shadow-2xl p-4 text-white z-50"
+                >
+                  <div className="flex items-center justify-between pb-3 border-b border-white/10 mb-3">
+                    <div className="flex items-center gap-1.5">
+                      <Bell size={14} className="text-[#FFD700]" />
+                      <span className="text-xs font-black uppercase tracking-wider text-white">Notifications</span>
+                    </div>
+                    <span className="text-[9px] bg-[#FFD700]/20 text-[#FFD700] px-2 py-0.5 rounded-full font-bold">2 Updates</span>
+                  </div>
+
+                  <div className="space-y-2.5">
+                    {/* Notification 1: Active Flight Notice */}
+                    <div className="p-2.5 bg-white/5 hover:bg-white/10 rounded-xl border border-white/10 transition-colors text-left">
+                      <div className="flex items-center justify-between gap-1 mb-1">
+                        <span className="text-[10px] font-black uppercase tracking-wider text-[#FFD700] flex items-center gap-1">
+                          <Plane size={11} /> Next Flight Departure
+                        </span>
+                        <span className="text-[9px] text-slate-400 font-medium">Weekly Manifest</span>
+                      </div>
+                      <p className="text-[11px] font-bold text-slate-200 leading-snug">
+                        Lagos (MMIA) → USA &amp; UK express air cargo closes Thursday 4:00 PM.
+                      </p>
+                      <button
+                        onClick={() => {
+                          setShowNotifications(false);
+                          openWhatsApp('quote');
+                        }}
+                        className="mt-1.5 text-[10px] font-black uppercase tracking-wider text-[#FFD700] hover:underline flex items-center gap-1 cursor-pointer"
+                      >
+                        <span>Reserve space on flight</span>
+                        <ArrowRight size={10} />
+                      </button>
+                    </div>
+
+                    {/* Notification 2: Customs Pre-Clearance */}
+                    <div className="p-2.5 bg-white/5 hover:bg-white/10 rounded-xl border border-white/10 transition-colors text-left">
+                      <div className="flex items-center justify-between gap-1 mb-1">
+                        <span className="text-[10px] font-black uppercase tracking-wider text-emerald-400 flex items-center gap-1">
+                          <ShieldCheck size={11} /> Export Pre-Clearance
+                        </span>
+                        <span className="text-[9px] text-slate-400 font-medium">FDA &amp; Customs</span>
+                      </div>
+                      <p className="text-[11px] font-bold text-slate-200 leading-snug">
+                        Foodstuff, dried fish, spices, and approved herbal products are pre-cleared for Houston &amp; UK customs.
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Notification Footer Action */}
+                  <div className="mt-3 pt-2.5 border-t border-white/10 flex items-center justify-between">
+                    <span className="text-[10px] text-slate-400 font-medium">Need instant help?</span>
+                    <button
+                      onClick={() => {
+                        setShowNotifications(false);
+                        openWhatsApp('need_help');
+                      }}
+                      className="text-[10px] font-black uppercase tracking-wider text-emerald-400 hover:text-emerald-300 flex items-center gap-1 cursor-pointer"
+                    >
+                      <MessageCircle size={12} className="fill-emerald-400" />
+                      <span>WhatsApp Agent</span>
+                    </button>
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
+
+          {/* 2. Account Area (Mobile & Tablet quick access) */}
+          <div className="relative lg:hidden">
+            <button
+              onClick={() => {
+                setShowAccountMenu(!showAccountMenu);
+                setShowNotifications(false);
+                setIsOpen(false);
+              }}
+              className="p-1.5 sm:p-2 rounded-xl text-slate-200 hover:text-white hover:bg-white/10 transition-colors cursor-pointer flex items-center gap-1.5 min-w-[36px] min-h-[36px]"
+              aria-label="Account and shipments portal"
+            >
+              <div className="w-6 h-6 rounded-full bg-white/20 border border-white/30 flex items-center justify-center text-[#FFD700]">
+                <User size={14} />
+              </div>
+              <span className="hidden sm:inline text-[10px] font-bold uppercase tracking-wider text-slate-200">
+                Portal
+              </span>
+            </button>
+
+            {/* Account Dropdown */}
+            <AnimatePresence>
+              {showAccountMenu && (
+                <motion.div
+                  initial={{ opacity: 0, y: 8, scale: 0.95 }}
+                  animate={{ opacity: 1, y: 0, scale: 1 }}
+                  exit={{ opacity: 0, y: 8, scale: 0.95 }}
+                  transition={{ duration: 0.15 }}
+                  className="absolute right-0 mt-2 w-72 bg-slate-900 border border-white/15 rounded-2xl shadow-2xl p-3 text-white z-50 text-left"
+                >
+                  <div className="p-2.5 bg-white/5 rounded-xl border border-white/10 mb-2">
+                    <div className="text-[10px] font-black uppercase tracking-widest text-[#FFD700]">Shipplix Customer Portal</div>
+                    <div className="text-xs font-bold text-slate-200 mt-0.5">Manage &amp; Track Consignments</div>
+                  </div>
+
+                  <div className="space-y-1">
+                    <a
+                      href="https://myshipment.shipplix.com"
+                      target="_self"
+                      className="w-full text-left px-3 py-2 rounded-xl hover:bg-white/10 transition-colors flex items-center justify-between text-xs font-black uppercase tracking-wider text-white"
+                    >
+                      <span className="flex items-center gap-2">
+                        <Package size={14} className="text-[#FFD700]" />
+                        <span>My Shipments Portal</span>
+                      </span>
+                      <ExternalLink size={12} className="text-slate-400" />
+                    </a>
+
+                    <button
+                      onClick={() => {
+                        setShowAccountMenu(false);
+                        const el = document.getElementById('tracking-section') || document.getElementById('quick-actions');
+                        el?.scrollIntoView({ behavior: 'smooth' });
+                      }}
+                      className="w-full text-left px-3 py-2 rounded-xl hover:bg-white/10 transition-colors flex items-center justify-between text-xs font-black uppercase tracking-wider text-white cursor-pointer"
+                    >
+                      <span className="flex items-center gap-2">
+                        <Search size={14} className="text-blue-400" />
+                        <span>Track Airway Bill</span>
+                      </span>
+                      <ArrowRight size={12} className="text-slate-400" />
+                    </button>
+
+                    <button
+                      onClick={() => {
+                        setShowAccountMenu(false);
+                        openWhatsApp('quote');
+                      }}
+                      className="w-full text-left px-3 py-2 rounded-xl hover:bg-white/10 transition-colors flex items-center justify-between text-xs font-black uppercase tracking-wider text-white cursor-pointer"
+                    >
+                      <span className="flex items-center gap-2">
+                        <DollarSign size={14} className="text-[#FFD700]" />
+                        <span>Get Instant Quote</span>
+                      </span>
+                      <ArrowRight size={12} className="text-slate-400" />
+                    </button>
+
+                    <button
+                      onClick={() => {
+                        setShowAccountMenu(false);
+                        openWhatsApp('need_help');
+                      }}
+                      className="w-full text-left px-3 py-2 rounded-xl bg-emerald-950/60 border border-emerald-500/30 text-emerald-300 hover:bg-emerald-900/60 transition-colors flex items-center justify-between text-xs font-black uppercase tracking-wider cursor-pointer"
+                    >
+                      <span className="flex items-center gap-2">
+                        <MessageCircle size={14} className="text-emerald-400 fill-emerald-400/20" />
+                        <span>WhatsApp Helpdesk</span>
+                      </span>
+                      <ArrowRight size={12} className="text-emerald-400" />
+                    </button>
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
+
+          {/* 3. Mobile Hamburger Toggle Button */}
+          <button 
+            className="lg:hidden flex items-center justify-center p-2 rounded-xl hover:bg-white/10 transition-colors text-white min-w-[36px] min-h-[36px] cursor-pointer" 
+            onClick={() => {
+              setIsOpen(!isOpen);
+              setShowNotifications(false);
+              setShowAccountMenu(false);
+            }} 
+            aria-label="Toggle menu"
+          >
+            {isOpen ? <X size={22} /> : <Menu size={22} />}
+          </button>
+        </div>
       </div>
 
       {/* Mobile Drawer Menu */}
@@ -651,281 +823,229 @@ const Navbar = ({ onNavigate, currentPath }: { onNavigate?: (path: string) => vo
 };
 
 // Sections
-const Hero = () => {
-  const [fullName, setFullName] = React.useState('');
-  const [phone, setPhone] = React.useState('');
-  const [serviceType, setServiceType] = React.useState('');
-  const [origin, setOrigin] = React.useState('');
-  const [destination, setDestination] = React.useState('');
-  const [message, setMessage] = React.useState('');
-  const [error, setError] = React.useState('');
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!fullName.trim() || !phone.trim() || !destination) {
-      setError('Full Name, Phone Number, and Destination are required.');
-      return;
+const Hero = ({ onNavigate }: { onNavigate?: (path: string) => void }) => {
+  const scrollToQuickActions = (tabId?: 'book' | 'track' | 'rates') => {
+    const el = document.getElementById('quick-actions');
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth' });
     }
-    setError('');
+  };
 
-    const formattedMessage = `Hello Shipplix,
+  const handleWhatsApp = () => {
+    const message = `Hello Shipplix! 📦
 
-I would like to request a quote / booking for specialized international shipping & logistics.
+I would like to get a shipping quote / book specialized international shipping.
 
-*Name:* ${fullName.trim()}
-*Phone/WhatsApp:* ${phone.trim()}
-*Service Type:* ${serviceType || 'Specialized International Cargo'}
-*Pickup Location:* ${origin.trim() || 'Nigeria'}
-*Destination:* ${destination}
-*Goods / Cargo Description:* ${message.trim() || 'Miss Paris perfumes, Kpomo, Supplements, Foodstuffs, Fashion or Commercial Cargo'}
+• Tagline: THINK SHIPPING THINK SHIPPLIX
+• Move Anything With Shipplix (Nigeria ↔ USA, UK, Canada & China)
 
-Please contact me with a quick quote and shipping schedule.`;
+Please provide me with your latest schedules and rates. Thank you!`;
 
-    const whatsappUrl = `https://wa.me/2349168273513?text=${encodeURIComponent(formattedMessage)}`;
-    window.open(whatsappUrl, '_self');
+    window.open(`https://wa.me/2349168273513?text=${encodeURIComponent(message)}`, '_blank');
   };
 
   return (
-    <section className="relative pt-32 pb-12 bg-shipplix-bg overflow-hidden select-none">
-      <div className="container mx-auto px-6 relative z-10">
-        <div className="bg-white p-6 md:p-10 rounded-2xl shadow-sm border border-slate-200 relative overflow-hidden flex flex-col lg:flex-row gap-8">
+    <section className="relative pt-28 md:pt-36 lg:pt-40 xl:pt-44 pb-20 md:pb-28 lg:pb-36 bg-[#032B73] text-white overflow-hidden select-none">
+      {/* Background World Flow Grid Pattern */}
+      <div className="absolute inset-0 opacity-15 pointer-events-none bg-[radial-gradient(#FFD700_1px,transparent_1px)] [background-size:24px_24px]"></div>
+      
+      {/* Subtle Glow Accents */}
+      <div className="absolute -top-24 -left-24 w-96 h-96 bg-[#0066FF]/30 rounded-full blur-3xl pointer-events-none"></div>
+      <div className="absolute top-1/2 -right-24 w-96 h-96 bg-[#FFD700]/15 rounded-full blur-3xl pointer-events-none"></div>
+
+      <div className="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 xl:gap-16 items-center">
           
-          {/* Main Hero Copy & Service Badges */}
-          <div className="relative z-10 lg:w-2/3 lg:pr-4">
+          {/* Left Column: Headlines, Tagline, Value Prop & CTAs */}
+          <div className="lg:col-span-7">
             <motion.div
-              initial={{ opacity: 0, y: 10 }}
+              initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4 }}
+              transition={{ duration: 0.5 }}
+              className="space-y-6"
             >
-              <span className="bg-[#032B73]/10 text-[#032B73] text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-widest mb-4 inline-flex items-center gap-1.5 border border-[#032B73]/15">
-                <Globe size={12} className="text-[#032B73]" />
-                Specialized International Freight &amp; Cargo Handling
-              </span>
-              
-              <h1 className="text-3xl md:text-5xl font-black leading-tight text-slate-900 mb-4 tracking-tight">
-                From Miss Paris Perfume to Kpomo, <span className="text-[#032B73] underline decoration-[#FFD700] decoration-4 underline-offset-4">We Move More.</span>
-              </h1>
-              
-              <div className="text-slate-600 text-base md:text-lg mb-6 font-medium leading-relaxed max-w-2xl space-y-3">
-                <p>
-                  Need to send goods from Nigeria or bring goods into Nigeria? Shipplix helps individuals and businesses move a wide range of eligible cargo, from Miss Paris perfume and spiritual products to supplements, approved medication, food products, fashion, electronics, commercial goods and more.
-                </p>
-                <p>
-                  Ship from <strong className="text-slate-900 font-bold">Nigeria to the USA, UK &amp; Europe</strong>, or import goods from <strong className="text-slate-900 font-bold">China to Nigeria</strong>.
-                </p>
-              </div>
-
-              {/* Simple Supporting Message */}
-              <div className="mb-6 p-3.5 bg-white/70 border border-slate-200/80 rounded-xl text-xs sm:text-sm font-bold text-slate-800 flex items-center gap-2.5">
-                <CheckCircle2 size={16} className="text-[#032B73] shrink-0" />
-                <span>From personal items to commercial cargo, we help you move eligible goods internationally with pickup, freight and delivery options.</span>
-              </div>
-
-              {/* Primary & Secondary Call-To-Action */}
-              <div className="mb-8">
-                <div className="flex flex-col sm:flex-row gap-4">
-                  <a 
-                    href="https://myshipment.shipplix.com" 
-                    target="_self" 
-                    className="w-full sm:w-auto text-center bg-[#FEB919] hover:bg-[#e2a412] text-[#032B73] font-black py-4 px-8 rounded-xl transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg text-xs md:text-sm uppercase tracking-widest flex items-center justify-center gap-2 border border-[#FEB919]/50 shadow-md"
-                  >
-                    <span>SHIP INTERNATIONALLY</span>
-                    <ArrowRight size={16} />
-                  </a>
-                  <a 
-                    href={URL_QUOTE}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-full sm:w-auto text-center bg-slate-100 hover:bg-slate-200 text-slate-800 font-black py-4 px-8 rounded-xl transition-all duration-300 hover:-translate-y-0.5 text-xs md:text-sm uppercase tracking-widest flex items-center justify-center gap-2 border border-slate-200"
-                  >
-                    <span>GET A SHIPPING QUOTE</span>
-                  </a>
+              {/* Brand Header & Official Tagline */}
+              <div className="flex flex-wrap items-center gap-3">
+                <div className="flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/20 px-3.5 py-1.5 rounded-full">
+                  <img 
+                    src={shipplixOfficialLogo} 
+                    alt="Shipplix" 
+                    className="h-5 w-auto object-contain brightness-0 invert" 
+                    onError={(e) => {
+                      (e.currentTarget as HTMLElement).style.display = 'none';
+                    }}
+                  />
+                  <span className="text-[11px] font-black uppercase tracking-widest text-[#FFD700]">
+                    SHIPPLIX
+                  </span>
                 </div>
-                <p className="mt-3 text-xs text-slate-500 font-bold italic flex items-center gap-2">
-                  <span className="inline-block w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-                  Specialized cargo handling • Pickup in Nigeria • Air &amp; sea freight • International delivery
-                </p>
+
+                <span className="bg-[#FFD700] text-[#032B73] text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-widest shadow-sm">
+                  THINK SHIPPING THINK SHIPPLIX
+                </span>
               </div>
 
-              {/* Route / Cargo Information */}
-              <div className="pt-6 border-t border-slate-100">
-                <div className="text-[10px] font-black uppercase tracking-wider text-slate-400 mb-3 flex items-center justify-between">
-                  <span>Shipping Routes &amp; Examples</span>
-                  <span className="text-[9px] text-[#032B73] font-black">Eligible Cargo Solutions</span>
+              {/* Main Positioning Headline */}
+              <div>
+                <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-[1.08] text-white">
+                  Move Anything <br />
+                  <span className="text-[#FFD700] underline decoration-white/40 decoration-4 underline-offset-8">
+                    With Shipplix.
+                  </span>
+                </h1>
+                
+                {/* Supporting Route Copy */}
+                <div className="mt-4 flex flex-wrap items-center gap-2 text-xs sm:text-sm font-black uppercase tracking-wider text-slate-200">
+                  <span className="bg-white/15 px-3 py-1 rounded-lg border border-white/10">
+                    Local • National • International
+                  </span>
+                  <span className="text-[#FFD700] font-black">
+                    Nigeria ↔ USA, UK, Canada &amp; China
+                  </span>
                 </div>
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
-                  <div className="bg-slate-50 border border-slate-200/90 rounded-xl p-3 flex flex-col justify-between">
-                    <div>
-                      <div className="text-xs font-black text-[#032B73] mb-1 flex items-center gap-1.5">
-                        <span className="text-sm">🇳🇬</span>
-                        <span>Nigeria → 🇺🇸 USA</span>
-                      </div>
-                      <div className="text-[9px] font-black uppercase tracking-wider text-slate-400 mb-1.5">Eligible cargo such as:</div>
-                      <p className="text-[11px] font-medium text-slate-600 leading-relaxed">
-                        Miss Paris perfume • Spiritual products • Supplements • Approved medication • Herbal drinks • Fashion • Personal belongings • Commercial goods &amp; more
-                      </p>
-                    </div>
-                  </div>
-                  
-                  <div className="bg-slate-50 border border-slate-200/90 rounded-xl p-3 flex flex-col justify-between">
-                    <div>
-                      <div className="text-xs font-black text-[#032B73] mb-1 flex items-center gap-1.5">
-                        <span className="text-sm">🇳🇬</span>
-                        <span>Nigeria → 🇬🇧 UK &amp; Europe</span>
-                      </div>
-                      <div className="text-[9px] font-black uppercase tracking-wider text-slate-400 mb-1.5">Eligible cargo such as:</div>
-                      <p className="text-[11px] font-medium text-slate-600 leading-relaxed">
-                        Kpomo • Goat meat • Food products • Miss Paris perfume • Spiritual products • Supplements • Approved medication • Herbal drinks • Fashion • Commercial goods &amp; more
-                      </p>
-                    </div>
-                  </div>
+              </div>
 
-                  <div className="bg-slate-50 border border-slate-200/90 rounded-xl p-3 flex flex-col justify-between">
-                    <div>
-                      <div className="text-xs font-black text-[#032B73] mb-1 flex items-center gap-1.5">
-                        <span className="text-sm">🇨🇳</span>
-                        <span>China → 🇳🇬 Nigeria</span>
-                      </div>
-                      <div className="text-[9px] font-black uppercase tracking-wider text-slate-400 mb-1.5">We help businesses &amp; individuals import:</div>
-                      <p className="text-[11px] font-medium text-slate-600 leading-relaxed">
-                        Electronics • Business goods • General merchandise • Commercial cargo &amp; more
-                      </p>
-                    </div>
+              {/* Core Reassuring Statement */}
+              <p className="text-sm sm:text-base text-slate-200 font-medium leading-relaxed max-w-xl">
+                From foodstuff, dried fish, kpomo, and Miss Paris perfume to spiritual products, approved medication, fashion, and commercial inventory — tell us what you want to move, where it is going, and Shipplix handles the rest.
+              </p>
+
+              {/* CTA Action Row */}
+              <div className="pt-2 flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center gap-3.5">
+                {/* Primary CTA */}
+                <button
+                  onClick={() => {
+                    const el = document.getElementById('quick-actions');
+                    el?.scrollIntoView({ behavior: 'smooth' });
+                  }}
+                  className="bg-[#FFD700] hover:bg-[#F5C400] text-[#032B73] font-black py-4 px-7 rounded-2xl shadow-xl transition-all duration-200 hover:-translate-y-0.5 hover:shadow-2xl text-xs sm:text-sm uppercase tracking-wider flex items-center justify-center gap-2 cursor-pointer border border-[#FFD700]"
+                >
+                  <Package size={18} className="fill-[#032B73]" />
+                  <span>Get a Quote</span>
+                  <ArrowRight size={16} />
+                </button>
+
+                {/* Secondary CTA */}
+                <button
+                  onClick={() => {
+                    const el = document.getElementById('tracking');
+                    el?.scrollIntoView({ behavior: 'smooth' });
+                  }}
+                  className="bg-white/15 hover:bg-white/25 text-white font-black py-4 px-6 rounded-2xl backdrop-blur-md transition-all duration-200 hover:-translate-y-0.5 text-xs sm:text-sm uppercase tracking-wider flex items-center justify-center gap-2 border border-white/20 cursor-pointer"
+                >
+                  <Search size={16} className="text-[#FFD700]" />
+                  <span>Track Shipment</span>
+                </button>
+
+                {/* WhatsApp CTA */}
+                <WhatsAppButton
+                  action="general"
+                  label="Chat on WhatsApp"
+                  variant="whatsapp"
+                  size="md"
+                />
+              </div>
+
+              {/* Trust Indicators / Badges */}
+              <div className="pt-4 border-t border-white/15 grid grid-cols-2 sm:grid-cols-3 gap-3 text-[11px] font-bold text-slate-300">
+                <div className="flex items-center gap-2">
+                  <div className="w-5 h-5 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center shrink-0">
+                    <CheckCircle2 size={13} />
                   </div>
+                  <span>Door-to-Door Worldwide</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <div className="w-5 h-5 rounded-full bg-[#FFD700]/20 text-[#FFD700] flex items-center justify-center shrink-0">
+                    <ShieldCheck size={13} />
+                  </div>
+                  <span>Export Cleared at MMIA</span>
+                </div>
+                <div className="flex items-center gap-2 col-span-2 sm:col-span-1">
+                  <div className="w-5 h-5 rounded-full bg-blue-400/20 text-blue-300 flex items-center justify-center shrink-0">
+                    <Plane size={13} />
+                  </div>
+                  <span>3–5 Days Express Flights</span>
                 </div>
               </div>
 
             </motion.div>
           </div>
 
-          {/* Quick Booking Request Form */}
-          <div className="lg:w-1/3 bg-slate-50/80 p-6 rounded-2xl border border-slate-200/80 flex flex-col justify-between">
-            <div>
-              <div className="flex items-center gap-2 mb-4 pb-3 border-b border-slate-200">
-                <span className="flex h-2.5 w-2.5 relative">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#FEB919] opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#FEB919]"></span>
-                </span>
-                <h3 className="text-xs font-black uppercase tracking-wider text-[#032B73]">Quick International Shipping Quote</h3>
+          {/* Right Column: Visual Showcase (Airplanes, Containers, Trucks, Global Movements) */}
+          <div className="lg:col-span-5 relative">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              className="relative"
+            >
+              {/* Main Logistics Visual Card */}
+              <div className="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white/20 bg-slate-900 group">
+                <img 
+                  src={globalShippingMotionImg} 
+                  alt="Shipplix Global Shipping in Motion - Aircraft, Vessels, Trucks and Air Cargo" 
+                  className="w-full h-80 sm:h-96 lg:h-[430px] xl:h-[480px] object-cover object-center transform group-hover:scale-105 transition-transform duration-700"
+                />
+                
+                {/* Gradient Overlays */}
+                <div className="absolute inset-0 bg-gradient-to-t from-[#032B73]/90 via-[#032B73]/20 to-transparent"></div>
+                
+                {/* Top Badge Overlay */}
+                <div className="absolute top-4 left-4 right-4 flex items-center justify-between">
+                  <span className="bg-[#032B73]/80 backdrop-blur-md text-[#FFD700] text-[10px] font-black uppercase px-3 py-1.5 rounded-full border border-white/20 flex items-center gap-1.5">
+                    <Plane size={12} />
+                    Direct Air &amp; Ocean Freighting
+                  </span>
+                  <span className="bg-emerald-500 text-white text-[9px] font-black uppercase px-2.5 py-1 rounded-full shadow-md animate-pulse">
+                    Live Dispatch
+                  </span>
+                </div>
+
+                {/* Bottom Overlay Content */}
+                <div className="absolute bottom-4 left-4 right-4 bg-white/10 backdrop-blur-md border border-white/20 p-3.5 rounded-2xl">
+                  <div className="flex items-center justify-between">
+                    <div>
+                      <div className="text-[10px] font-black uppercase tracking-wider text-[#FFD700]">
+                        Global Movement Corridors
+                      </div>
+                      <div className="text-xs font-black text-white">
+                        Lagos MMIA ✈️ Houston • London • Toronto • Guangzhou
+                      </div>
+                    </div>
+                    <span className="text-xl">🌍</span>
+                  </div>
+                </div>
               </div>
-              
-              <form onSubmit={handleSubmit} className="space-y-3">
-                <div className="space-y-1">
-                  <label className="text-[10px] font-black uppercase tracking-wider text-slate-500 flex items-center gap-1">
-                    <User size={12} className="text-[#032B73]" /> Full Name *
-                  </label>
-                  <input 
-                    type="text" 
-                    placeholder="First & last name"
-                    value={fullName}
-                    onChange={(e) => setFullName(e.target.value)}
-                    className="w-full bg-white border border-slate-200 rounded-lg px-3 py-2 text-xs font-bold text-slate-800 placeholder-slate-400 focus:outline-none focus:border-[#032B73] transition-colors"
-                  />
+
+              {/* Floating Mini Highlight Badge 1: Watch Cargo Live */}
+              <div className="absolute -bottom-5 -left-4 sm:-left-6 bg-white text-slate-900 p-3 rounded-2xl shadow-xl border border-slate-200 flex items-center gap-3">
+                <div className="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center shrink-0">
+                  <Video size={20} />
                 </div>
-
-                <div className="space-y-1">
-                  <label className="text-[10px] font-black uppercase tracking-wider text-slate-500 flex items-center gap-1">
-                    <Phone size={12} className="text-[#032B73]" /> Phone / WhatsApp *
-                  </label>
-                  <input 
-                    type="tel" 
-                    placeholder="e.g. +234..."
-                    value={phone}
-                    onChange={(e) => setPhone(e.target.value)}
-                    className="w-full bg-white border border-slate-200 rounded-lg px-3 py-2 text-xs font-bold text-slate-800 placeholder-slate-400 focus:outline-none focus:border-[#032B73] transition-colors"
-                  />
+                <div>
+                  <div className="text-[9px] font-black uppercase text-emerald-700 tracking-wider">
+                    Anti-Scam Transparency
+                  </div>
+                  <div className="text-xs font-black text-slate-900">
+                    Watch Cargo Packed Live
+                  </div>
                 </div>
+              </div>
 
-                <div className="space-y-1">
-                  <label className="text-[10px] font-black uppercase tracking-wider text-slate-500 flex items-center gap-1">
-                    <Box size={12} className="text-[#032B73]" /> Shipping Service
-                  </label>
-                  <select 
-                    value={serviceType}
-                    onChange={(e) => setServiceType(e.target.value)}
-                    className="w-full bg-white border border-slate-200 rounded-lg px-3 py-2 text-xs font-bold text-slate-800 focus:outline-none focus:border-[#032B73] transition-colors cursor-pointer"
-                  >
-                    <option value="">Select service mode</option>
-                    <optgroup label="International Freight (Primary)">
-                      <option value="Express Air Cargo to USA">✈️ Air Cargo to USA (Express 3-5 Days)</option>
-                      <option value="Express Air Cargo to UK">✈️ Air Cargo to UK (Express 3-5 Days)</option>
-                      <option value="Express Air Cargo to Canada">✈️ Air Cargo to Canada (5-7 Days)</option>
-                      <option value="Express Air Cargo to Europe">✈️ Air Cargo to Europe (5-7 Days)</option>
-                      <option value="China Import & Sourcing">🇨🇳 China ↔ Nigeria Import Freight</option>
-                      <option value="International Sea Freight">🚢 Sea Cargo & Commercial Containers</option>
-                    </optgroup>
-                    <optgroup label="Domestic Logistics (Nigeria)">
-                      <option value="Interstate Shipping">🇳🇬 Interstate Cargo Haulage (36 States)</option>
-                      <option value="Domestic City Delivery">🇳🇬 Intra-State City Delivery</option>
-                      <option value="Truck & Van Hire">🚚 Dedicated Truck & Van Hire</option>
-                    </optgroup>
-                  </select>
+              {/* Floating Mini Highlight Badge 2: Flight Status */}
+              <div className="hidden sm:flex absolute -top-4 -right-4 bg-slate-900/90 text-white p-3 rounded-2xl shadow-xl border border-white/20 items-center gap-2.5 backdrop-blur-md">
+                <span className="text-xl">📦</span>
+                <div>
+                  <div className="text-[9px] font-black uppercase text-[#FFD700] tracking-wider">
+                    Weekly Cargo Flights
+                  </div>
+                  <div className="text-xs font-black">
+                    Wed &amp; Fri Departures
+                  </div>
                 </div>
+              </div>
 
-                <div className="space-y-1">
-                  <label className="text-[10px] font-black uppercase tracking-wider text-slate-500 flex items-center gap-1">
-                    <MapPin size={12} className="text-[#032B73]" /> Destination Country / City *
-                  </label>
-                  <select 
-                    value={destination}
-                    onChange={(e) => setDestination(e.target.value)}
-                    className="w-full bg-white border border-slate-200 rounded-lg px-3 py-2 text-xs font-bold text-slate-800 focus:outline-none focus:border-[#032B73] transition-colors cursor-pointer"
-                  >
-                    <option value="">Select destination</option>
-                    <optgroup label="⭐ Primary International Destinations">
-                      <option value="USA - United States (All 50 States)">🇺🇸 United States (USA) - Houston, NY, Atlanta, etc.</option>
-                      <option value="UK - United Kingdom">🇬🇧 United Kingdom (UK) - London, Manchester, etc.</option>
-                      <option value="Canada">🇨🇦 Canada - Toronto, Calgary, Montreal, etc.</option>
-                      <option value="Europe">🇪🇺 Europe - Germany, France, Italy, Ireland, etc.</option>
-                      <option value="China">🇨🇳 China - Guangzhou, Yiwu, Shenzhen</option>
-                      <option value="Other International Country">🌍 Other International Country</option>
-                    </optgroup>
-                    <optgroup label="Domestic (Within Nigeria)">
-                      <option value="Lagos, Nigeria">Lagos State</option>
-                      <option value="Abuja (FCT), Nigeria">Abuja (FCT)</option>
-                      <option value="Port Harcourt, Rivers">Port Harcourt (Rivers)</option>
-                      <option value="Onitsha / Aba / South-East">Onitsha / Aba / Eastern States</option>
-                      <option value="Enugu / South-East">Enugu State</option>
-                      <option value="Ibadan / Oyo / South-West">Ibadan / South-Western States</option>
-                      <option value="Kano / Kaduna / North">Kano / Kaduna / Northern States</option>
-                      <option value="Other Nigerian State">Other Nigerian State (36 States)</option>
-                    </optgroup>
-                  </select>
-                </div>
-
-                <div className="space-y-1">
-                  <label className="text-[10px] font-black uppercase tracking-wider text-slate-500 flex items-center gap-1">
-                    <MessageCircle size={12} className="text-[#032B73]" /> Cargo / Goods Description
-                  </label>
-                  <input 
-                    type="text" 
-                    placeholder="e.g. Miss Paris perfumes, Kpomo, Supplements, Fashion, Foodstuffs"
-                    value={message}
-                    onChange={(e) => setMessage(e.target.value)}
-                    className="w-full bg-white border border-slate-200 rounded-lg px-3 py-2 text-xs font-bold text-slate-800 placeholder-slate-400 focus:outline-none focus:border-[#032B73] transition-colors"
-                  />
-                </div>
-
-                {error && (
-                  <p className="text-red-500 text-[10px] font-black uppercase tracking-wider">{error}</p>
-                )}
-
-                <button 
-                  type="submit" 
-                  className="w-full text-center bg-[#032B73] hover:bg-[#022157] text-white font-black py-3 px-4 rounded-lg transition-all duration-300 hover:shadow-md text-xs uppercase tracking-widest flex items-center justify-center gap-2 cursor-pointer mt-2"
-                >
-                  <MessageCircle size={14} className="text-[#FEB919] fill-[#FEB919]" />
-                  Request Shipping Quote
-                </button>
-              </form>
-            </div>
-
-            <div className="mt-4 pt-3 border-t border-slate-200/80 text-[10px] font-bold text-slate-500 flex items-center justify-between">
-              <span className="flex items-center gap-1">
-                <ShieldCheck size={12} className="text-emerald-600" /> Export Cleared &amp; Handled
-              </span>
-              <span className="text-[#032B73] font-black">Fast Dispatch</span>
-            </div>
+            </motion.div>
           </div>
 
         </div>
@@ -1731,6 +1851,7 @@ const ShippingServices = () => {
       benefit: "Priority US Hub Express",
       useCase: "Foodstuffs (Egusi, Ogbono, Fish), fashion apparel, hair, diaspora & commercial cargo",
       icon: <Plane className="text-[#FEB919]" size={24} />,
+      image: servicePlaneBoxes,
       features: ["Weekly scheduled flights to Houston, NY, Atlanta, Dallas", "Full US Customs & FDA document clearance", "Door-to-door delivery across all 50 US states"],
       badge: "⭐ Primary Corridor • Express"
     },
@@ -1741,6 +1862,7 @@ const ShippingServices = () => {
       benefit: "Direct London Line-Haul",
       useCase: "Packaged groceries, African fashion, cosmetics, retail stock & diaspora parcels",
       icon: <Plane className="text-[#FEB919]" size={24} />,
+      image: servicePlaneBoxes,
       features: ["Direct flights to London Heathrow / Gatwick", "UK Border Force & Customs handling", "Doorstep delivery in London, Manchester, Birmingham & Scotland"],
       badge: "⭐ Primary Corridor • Express"
     },
@@ -1751,6 +1873,7 @@ const ShippingServices = () => {
       benefit: "All 10 Provinces Doorstep Reach",
       useCase: "Food items, African fabrics, artisan crafts & commercial samples",
       icon: <Globe className="text-[#FEB919]" size={24} />,
+      image: serviceLocalBoxes,
       features: ["CBSA compliant customs handling", "Doorstep delivery across Ontario, Alberta & Quebec", "Reliable tracking from Lagos MMIA departure"],
       badge: "Popular Global Route"
     },
@@ -1761,6 +1884,7 @@ const ShippingServices = () => {
       benefit: "Pan-European Door Delivery",
       useCase: "African food groceries, fashion textiles, cosmetics & business goods",
       icon: <Globe className="text-[#FEB919]" size={24} />,
+      image: serviceLocalBoxes,
       features: ["EU customs declaration & clearance", "Coverage across Western & Central Europe", "Safe, temperature-controlled packaging support"],
       badge: "EU Wide Coverage"
     },
@@ -1771,6 +1895,7 @@ const ShippingServices = () => {
       benefit: "Direct Factory Sourcing & Port Clearing",
       useCase: "Electronics, machinery, fashion apparel, auto parts & raw materials",
       icon: <Box className="text-[#FEB919]" size={24} />,
+      image: serviceChinaShipping,
       features: ["Guangzhou & Yiwu receiving warehouse hubs", "Air express cargo & containerized sea freight", "Complete Apapa/Tincan port clearing & Lagos delivery"],
       badge: "Bilateral Trade Hub"
     },
@@ -1781,6 +1906,7 @@ const ShippingServices = () => {
       benefit: "Maximum Economy on Bulk Freight",
       useCase: "Heavy manufacturing equipment, agricultural commodities, bulk raw materials",
       icon: <Ship className="text-[#FEB919]" size={24} />,
+      image: heroLogisticsBanner,
       features: ["FCL (20ft / 40ft) & LCL consolidation", "Export documentation & port compliance", "Cost-effective bulk commercial rates"],
       badge: "Heavy & Bulk Cargo"
     }
@@ -1827,57 +1953,79 @@ const ShippingServices = () => {
           {internationalOptions.map((opt, i) => (
             <div 
               key={i} 
-              className={`p-6 bg-white rounded-2xl transition-all shadow-sm flex flex-col h-full group ${
+              className={`p-5 bg-white rounded-3xl transition-all shadow-sm flex flex-col h-full group ${
                 i < 2 
-                  ? 'border-2 border-[#032B73] shadow-md ring-1 ring-[#FEB919]/40 hover:shadow-xl' 
+                  ? 'border-2 border-[#032B73] shadow-md ring-2 ring-[#FFD700]/30 hover:shadow-xl' 
                   : 'border border-slate-200 hover:border-[#032B73]'
               }`}
             >
-              <div className="flex items-center justify-between mb-4">
-                <div className="bg-slate-50 w-12 h-12 rounded-xl flex items-center justify-center group-hover:bg-[#032B73]/10 transition-colors">
+              {/* Card Image Header */}
+              {opt.image && (
+                <div className="h-40 rounded-2xl overflow-hidden mb-4 relative bg-slate-900">
+                  <img 
+                    src={opt.image} 
+                    alt={opt.title} 
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-black/20"></div>
+                  <div className="absolute top-2.5 left-2.5">
+                    <span className={`text-[9px] font-black uppercase px-2.5 py-1 rounded-full shadow-md ${
+                      i < 2 
+                        ? 'bg-[#032B73] text-[#FFD700] border border-[#FFD700]/30' 
+                        : 'bg-white/90 text-[#032B73] backdrop-blur-sm'
+                    }`}>
+                      {opt.badge}
+                    </span>
+                  </div>
+                  <div className="absolute bottom-2.5 left-3 right-3 flex items-center justify-between text-white">
+                    <span className="text-[10px] font-black uppercase tracking-wider text-[#FFD700] bg-slate-950/80 px-2 py-0.5 rounded backdrop-blur-sm">
+                      {opt.time}
+                    </span>
+                    <span className="text-[9px] font-bold text-white/90 flex items-center gap-1">
+                      <ShieldCheck size={12} className="text-emerald-400" />
+                      MMIA Cleared
+                    </span>
+                  </div>
+                </div>
+              )}
+
+              <div className="flex items-center gap-2.5 mb-2">
+                <div className="bg-slate-50 w-9 h-9 rounded-xl flex items-center justify-center group-hover:bg-[#032B73]/10 transition-colors shrink-0">
                   {opt.icon}
                 </div>
-                <span className={`text-[10px] font-black uppercase px-2.5 py-1 rounded-full ${
-                  i < 2 
-                    ? 'bg-[#032B73] text-white' 
-                    : 'bg-blue-50 text-[#032B73] border border-blue-100'
-                }`}>
-                  {opt.badge}
-                </span>
+                <h3 className="text-base font-black text-slate-900 tracking-tight leading-snug">{opt.title}</h3>
               </div>
               
-              <h3 className="text-lg font-black text-slate-900 mb-1 tracking-tight">{opt.title}</h3>
-              <div className="text-[#032B73] font-black text-xs uppercase mb-3 tracking-widest">{opt.time}</div>
-              <p className="text-sm text-slate-600 font-medium mb-6 flex-grow leading-relaxed">{opt.desc}</p>
+              <p className="text-xs text-slate-600 font-medium mb-4 flex-grow leading-relaxed">{opt.desc}</p>
               
-              <div className="mt-auto space-y-3 pt-4 border-t border-slate-100">
+              <div className="mt-auto space-y-2.5 pt-3 border-t border-slate-100">
                 <div>
-                  <div className="text-[9px] font-black uppercase tracking-[0.2em] text-slate-400 mb-1">Key Route Advantage</div>
-                  <div className="text-[11px] font-bold text-slate-800 uppercase tracking-tight">{opt.benefit}</div>
+                  <div className="text-[8px] font-black uppercase tracking-[0.2em] text-slate-400 mb-0.5">Key Route Advantage</div>
+                  <div className="text-[10px] font-bold text-slate-800 uppercase tracking-tight">{opt.benefit}</div>
                 </div>
                 <div>
-                  <div className="text-[9px] font-black uppercase tracking-[0.2em] text-slate-400 mb-1">Common Cargo</div>
-                  <div className="text-[11px] font-bold text-slate-800 uppercase tracking-tight">{opt.useCase}</div>
+                  <div className="text-[8px] font-black uppercase tracking-[0.2em] text-slate-400 mb-0.5">Common Cargo</div>
+                  <div className="text-[10px] font-medium text-slate-600 line-clamp-2">{opt.useCase}</div>
                 </div>
                 {opt.features && (
-                  <div className="space-y-1.5 pt-3 border-t border-slate-100">
-                    <div className="text-[9px] font-black uppercase tracking-[0.2em] text-slate-400 mb-1">Features Included</div>
+                  <div className="space-y-1 pt-2 border-t border-slate-100">
                     {opt.features.map((feat, fIdx) => (
-                      <div key={fIdx} className="flex items-start gap-1.5 text-[11px] font-bold text-slate-700">
-                        <CheckCircle2 size={13} className="text-[#032B73] flex-shrink-0 mt-0.5" />
+                      <div key={fIdx} className="flex items-start gap-1.5 text-[10px] font-bold text-slate-700">
+                        <CheckCircle2 size={12} className="text-[#032B73] flex-shrink-0 mt-0.5" />
                         <span>{feat}</span>
                       </div>
                     ))}
                   </div>
                 )}
-                <div className="pt-3">
+                <div className="pt-2">
                   <a 
-                    href={URL_QUOTE} 
+                    href={`https://wa.me/2349168273513?text=${encodeURIComponent(`Hello Shipplix! I am inquiring about shipping via route: ${opt.title} (${opt.time}). Please let me know the rates and next scheduled flight.`)}`} 
                     target="_blank" 
                     rel="noopener noreferrer" 
-                    className="w-full text-center bg-slate-100 hover:bg-[#032B73] text-slate-800 hover:text-white font-black py-2.5 px-4 rounded-lg transition-colors text-xs uppercase tracking-wider block"
+                    className="w-full text-center bg-[#FFD700] hover:bg-[#F5C400] text-[#032B73] font-black py-2.5 px-4 rounded-xl transition-all hover:shadow-md text-xs uppercase tracking-wider flex items-center justify-center gap-1.5 cursor-pointer"
                   >
-                    Request Quote for Route
+                    <MessageCircle size={14} className="fill-[#032B73]" />
+                    <span>Quote on WhatsApp</span>
                   </a>
                 </div>
               </div>
@@ -2021,9 +2169,24 @@ const DomesticLogisticsSection = () => {
 // Tertiary Service Section: Truck & Van Hire
 const TruckVanHireSection = () => {
   const fleetOptions = [
-    { title: "Mini-Vans & Hiace Vans", cap: "Up to 1.5 Tons", use: "Urban deliveries, e-commerce batch distribution, fragile packages & retail stock." },
-    { title: "3-Ton & 5-Ton Trucks", cap: "3,000kg – 5,000kg", use: "Medium commercial shipments, warehouse inventory transfers & corporate moves." },
-    { title: "10-Ton & 30-Ton Haulage", cap: "10,000kg – 30,000kg", use: "Heavy industrial cargo, agricultural commodities, construction materials & container haulage." }
+    { 
+      title: "Mini-Vans & Hiace Vans", 
+      cap: "Up to 1.5 Tons", 
+      use: "Urban deliveries, e-commerce batch distribution, fragile packages & retail stock.",
+      image: serviceVanHiace
+    },
+    { 
+      title: "3-Ton & 5-Ton Trucks", 
+      cap: "3,000kg – 5,000kg", 
+      use: "Medium commercial shipments, warehouse inventory transfers & corporate moves.",
+      image: serviceTruckHaulage
+    },
+    { 
+      title: "10-Ton & 30-Ton Haulage", 
+      cap: "10,000kg – 30,000kg", 
+      use: "Heavy industrial cargo, agricultural commodities, construction materials & container haulage.",
+      image: heroLogisticsBanner
+    }
   ];
 
   return (
@@ -2031,29 +2194,46 @@ const TruckVanHireSection = () => {
       <div className="container mx-auto px-6">
         <div className="max-w-3xl mb-12">
           <span className="bg-slate-100 text-slate-700 text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-widest mb-3 inline-block border border-slate-200">
-            Tertiary Logistics Service
+            Dedicated Logistics Service
           </span>
           <h2 className="text-2xl md:text-4xl font-black text-slate-900 tracking-tight uppercase mb-3">
             Need A Dedicated Vehicle For Bulk Movement?
           </h2>
           <p className="text-slate-600 text-sm md:text-base font-medium leading-relaxed">
-            We can help coordinate suitable trucks and relocation vans with professional drivers for qualifying cargo and interstate transportation requirements.
+            We coordinate suitable trucks and relocation vans with professional, verified drivers for qualifying cargo and interstate transportation requirements.
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
           {fleetOptions.map((fleet, idx) => (
-            <div key={idx} className="bg-slate-50 p-6 rounded-2xl border border-slate-200 flex flex-col justify-between">
+            <div key={idx} className="bg-slate-50 p-5 rounded-3xl border border-slate-200 flex flex-col justify-between group hover:border-[#032B73] transition-all">
               <div>
-                <div className="bg-white w-10 h-10 rounded-xl flex items-center justify-center mb-4 border border-slate-200 text-[#032B73]">
-                  <Truck size={20} />
+                <div className="h-36 rounded-2xl overflow-hidden mb-4 bg-slate-900 relative">
+                  <img 
+                    src={fleet.image} 
+                    alt={fleet.title} 
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
+                  />
+                  <div className="absolute top-2.5 left-2.5 bg-slate-950/80 backdrop-blur-sm text-[#FFD700] text-[9px] font-black uppercase px-2.5 py-0.5 rounded-full">
+                    {fleet.cap}
+                  </div>
                 </div>
                 <h3 className="text-base font-black text-slate-900 uppercase tracking-tight mb-1">{fleet.title}</h3>
-                <div className="text-[11px] font-black text-[#032B73] uppercase tracking-wider mb-3">{fleet.cap}</div>
-                <p className="text-xs text-slate-600 font-medium leading-relaxed">{fleet.use}</p>
+                <p className="text-xs text-slate-600 font-medium leading-relaxed mb-4">{fleet.use}</p>
               </div>
-              <div className="mt-6 pt-4 border-t border-slate-200 text-[10px] font-black uppercase text-slate-400 tracking-wider">
-                Vetted Drivers • Full-Load Transit
+              <div className="mt-4 pt-4 border-t border-slate-200 flex items-center justify-between">
+                <span className="text-[10px] font-black uppercase text-slate-400 tracking-wider">
+                  Vetted Drivers
+                </span>
+                <a
+                  href={`https://wa.me/2349168273513?text=${encodeURIComponent(`Hello Shipplix! I am inquiring about booking a dedicated vehicle: ${fleet.title} (${fleet.cap}). Please provide availability and rates.`)}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-[#032B73] hover:bg-[#061B4F] text-white text-[10px] font-black uppercase tracking-wider px-3.5 py-1.5 rounded-lg flex items-center gap-1"
+                >
+                  <MessageCircle size={12} className="text-[#FFD700]" />
+                  <span>Quote</span>
+                </a>
               </div>
             </div>
           ))}
@@ -2061,12 +2241,13 @@ const TruckVanHireSection = () => {
 
         <div className="text-center">
           <a 
-            href={URL_QUOTE} 
+            href={`https://wa.me/2349168273513?text=${encodeURIComponent('Hello Shipplix! I would like to request a dedicated truck or van for interstate haulage in Nigeria.')}`}
             target="_blank" 
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 bg-[#FEB919] hover:bg-[#e2a412] text-[#032B73] text-xs font-black uppercase tracking-widest px-8 py-3.5 rounded-xl transition-all shadow-sm"
+            className="inline-flex items-center gap-2 bg-[#FFD700] hover:bg-[#F5C400] text-[#032B73] text-xs font-black uppercase tracking-widest px-8 py-3.5 rounded-2xl transition-all shadow-md hover:-translate-y-0.5"
           >
-            <span>Request A Dedicated Vehicle</span>
+            <MessageCircle size={15} className="fill-[#032B73]" />
+            <span>Request A Dedicated Vehicle On WhatsApp</span>
             <ArrowRight size={14} />
           </a>
         </div>
@@ -2308,6 +2489,27 @@ const FAQSection = () => {
               </div>
             );
           })}
+        </div>
+
+        {/* Action 8: Need Help / Action 10: General Inquiry Support Callout */}
+        <div className="mt-12 bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-sm flex flex-col sm:flex-row items-center justify-between gap-6 text-center sm:text-left">
+          <div>
+            <h4 className="text-base font-black text-slate-900 uppercase tracking-tight">
+              Have a question not listed here?
+            </h4>
+            <p className="text-xs sm:text-sm text-slate-600 font-medium mt-1">
+              Our export specialists and customer support concierges are ready to assist you right now.
+            </p>
+          </div>
+          <div className="flex flex-col sm:flex-row items-center gap-3 shrink-0 w-full sm:w-auto">
+            <WhatsAppButton
+              action="need_help"
+              label="Need Help? Chat With Us"
+              variant="navy"
+              showArrow={true}
+              className="w-full sm:w-auto"
+            />
+          </div>
         </div>
       </div>
     </section>
@@ -2740,8 +2942,8 @@ const Footer = ({ onNavigate }: { onNavigate?: (path: string) => void }) => {
   };
 
   return (
-    <footer className="bg-white border-t border-slate-200 py-12 text-slate-500">
-      <div className="container mx-auto px-6">
+    <footer className="bg-white border-t border-slate-200 py-12 pb-28 lg:pb-12 text-slate-500">
+      <div className="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Prominent Footer CTA Section */}
         <div className="bg-slate-50 border border-slate-200 rounded-2xl p-6 md:p-8 mb-10 flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="text-center md:text-left">
@@ -3253,143 +3455,40 @@ export default function App() {
   }, [currentPath]);
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white overflow-x-hidden">
       {currentPath !== '/admin-leads' && <Navbar onNavigate={navigateTo} currentPath={currentPath} />}
       {currentPath !== '/admin-leads' && <Breadcrumbs currentPath={currentPath} onNavigate={navigateTo} />}
       
-      <main className="min-h-screen">
+      <main className="min-h-screen pb-20 lg:pb-0">
         {currentPath === '/' && (
           <>
-            {/* 1. Hero */}
-            <Hero />
+            {/* 1. Header is rendered above as Navbar */}
 
-            {/* 2. Core International Services */}
-            <ShippingServices />
-            <ExportCategories />
-            <TopItemCategoriesShipped />
-            <PremiumPackagingSection />
+            {/* 2. Hero */}
+            <Hero onNavigate={navigateTo} />
 
-            {/* 3. Global Shipping Routes */}
-            <GlobalLogisticsNetwork />
-            <GlobalShippingNetworkSection />
+            {/* 3. Quick Shipping Action */}
+            <QuickActionHub onNavigate={navigateTo} />
 
-            {/* 4. Secondary & Tertiary Services: Domestic & Truck Hire */}
-            <DomesticLogisticsSection />
-            <TruckVanHireSection />
+            {/* 4. Services (6 Visual Cards) */}
+            <HomepageServices onNavigate={navigateTo} />
 
-            {/* 5. Why Choose Shipplix */}
-            <TrustCertifications />
-            <TrustSection />
-            <UrgencyBanner />
+            {/* 5. Shipment Tracking */}
+            <ShipmentTrackingSection onNavigate={navigateTo} />
 
-            {/* 6. How It Works & Portals */}
-            <HowItWorks />
-            
-            {/* Standalone Gateway Portal */}
-            <section className="py-16 bg-white border-b border-slate-200">
-              <div className="container mx-auto px-6 max-w-5xl">
-                <div className="text-center mb-12">
-                  <span className="bg-blue-100 text-blue-900 text-[10px] font-black px-3 py-1.5 rounded uppercase tracking-widest font-mono">
-                    Explore Standalone Divisions
-                  </span>
-                  <h2 className="text-3xl font-black uppercase text-slate-950 mt-2 mb-4 tracking-tighter">
-                    Dedicated Customer Portals
-                  </h2>
-                  <p className="text-xs font-bold text-slate-500 uppercase tracking-wider max-w-xl mx-auto leading-relaxed">
-                    Click any panel to jump into our specialized, deep-dive information pages.
-                  </p>
-                </div>
+            {/* 6. Why Shipplix */}
+            <WhyShipplixSection onNavigate={navigateTo} />
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                  {[
-                    { title: "Cargo Items", desc: "Lookup allowed foodstuff, cosmetics, fashion, and forbidden products.", link: "/cargo-items", num: "01" },
-                    { title: "Economy Cargo", desc: "Cooperative space consolidation, freight estimators, and rates.", link: "/economy-cargo", num: "02" },
-                    { title: "Processing Flow", desc: "Our 5-step packing, MMIA customs manifesting, and last-mile.", link: "/processing", num: "03" },
-                    { title: "Trust & Reviews", desc: "Anti-scam video packing scales, customer reviews, and insurance.", link: "/trust", num: "04" },
-                    { title: "Economy Terms", desc: "Full service agreements, dimensional metrics, and payload rules.", link: "/economy-cargo-terms", num: "05" },
-                    { title: "Revenue Partner", desc: "Earn extra passive income by referring customers to ship with Shipplix.", link: "/revenue-partner", num: "06" },
-                    { title: "Export Blueprint", desc: "Learn how to find overseas buyers and build custom customer acquisition systems.", link: "/export-blueprint", num: "07" },
-                    { title: "Ship Nigeria to USA", desc: "Fast 5-7 days express air freight & door-to-door delivery across all 50 US states.", link: "/ship-from-nigeria-to-usa", num: "08" },
-                    { title: "Ship Nigeria to Houston", desc: "Fast 5-7 days express air freight & door-to-door delivery to Sugar Land, Katy, Pearland & Greater Houston, TX.", link: "/ship-from-nigeria-to-houston", num: "09" },
-                    { title: "Ship Nigeria to UK", desc: "Fast 3-5 days express air freight & door-to-door delivery across London & all UK postcodes.", link: "/ship-from-nigeria-to-uk", num: "10" },
-                    { title: "Ship Nigeria to Canada", desc: "Fast 5-7 days express air freight & door-to-door delivery across Toronto & all 10 Canadian provinces.", link: "/ship-from-nigeria-to-canada", num: "11" },
-                    { title: "Ship Nigeria to Europe", desc: "Fast 5-7 days express air freight & door-to-door delivery across Germany, France, Italy & all EU countries.", link: "/ship-from-nigeria-to-europe", num: "12" },
-                    { title: "Ship China to Nigeria", desc: "Air cargo express & sea freight import from Guangzhou, Yiwu & Shenzhen with customs clearing in Lagos.", link: "/ship-from-china-to-nigeria", num: "13" },
-                    { title: "Ship USA to Nigeria", desc: "Air cargo express import from Houston, Dallas, Atlanta, NYC & all US states with Lagos door delivery.", link: "/ship-from-usa-to-nigeria", num: "14" },
-                    { title: "Ship UK to Nigeria", desc: "Fast 3-5 days express air freight & door-to-door delivery from London, Manchester, Birmingham & all UK cities to Nigeria.", link: "/ship-from-uk-to-nigeria", num: "15" }
-                  ].map((portal, i) => (
-                    <div key={i} className="p-6 bg-slate-50 border border-slate-200 rounded-2xl hover:border-blue-900 transition-colors flex flex-col justify-between">
-                      <div>
-                        <div className="text-amber-500 font-black text-xs font-mono mb-2">{portal.num}</div>
-                        <h3 className="text-sm font-black uppercase text-blue-950 tracking-tight mb-2">{portal.title}</h3>
-                        <p className="text-[11px] text-slate-500 font-bold leading-normal mb-6">{portal.desc}</p>
-                      </div>
-                      <Button onClick={() => navigateTo(portal.link)} variant="outline" className="w-full text-[10px] py-2.5 uppercase tracking-widest font-black">
-                        Open Portal
-                      </Button>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </section>
+            {/* 7. How It Works */}
+            <HowItWorksSection onNavigate={navigateTo} />
 
-            <RealShipmentGallery />
-            <DiasporaSection />
-            <GroupShipping />
-
-            {/* 6. Customer Testimonials & FAQs */}
-            <Testimonials />
+            {/* 8. Frequently Asked Questions */}
             <FAQSection />
 
-            {/* 7. Grow Your International Business (Business Solutions) */}
-            <ExportHub />
-            
-            {/* 8. Final Call-to-Action */}
-            {/* Urgent Recap Section */}
-            <section className="py-16 bg-white overflow-hidden relative border-t border-slate-200">
-              <div className="container mx-auto px-6 text-center">
-                 <div className="inline-flex items-center justify-center w-16 h-16 bg-red-600 rounded-lg mb-8 shadow-2xl relative">
-                    <Clock className="text-white" size={32} />
-                    <div className="absolute inset-0 animate-ping rounded-lg bg-red-600 opacity-20"></div>
-                 </div>
-                 <h2 className="text-3xl md:text-5xl font-black text-slate-900 mb-4 uppercase tracking-tighter leading-none">
-                   Batch Closing <span className="text-red-500">Fast</span>
-                 </h2>
-                 <p className="text-sm md:text-lg text-slate-500 font-bold max-w-2xl mx-auto mb-10 uppercase tracking-widest leading-relaxed">
-                   If your goods miss this week's flight, you're <span className="text-slate-900 underline decoration-shipplix-yellow decoration-4 underline-offset-4">delaying your profit.</span>
-                 </p>
-                 
-                 <div className="grid grid-cols-1 md:grid-cols-3 gap-0 max-w-3xl mx-auto border border-slate-200 rounded-xl overflow-hidden mb-12">
-                    <div className="bg-red-50 p-6 border-b md:border-b-0 md:border-r border-slate-200">
-                      <div className="text-slate-400 text-[10px] uppercase font-black tracking-widest mb-2">Mon - Wed Batch</div>
-                      <div className="text-red-600 font-black text-lg">FULL</div>
-                    </div>
-                    <div className="bg-orange-50 p-6 border-b md:border-b-0 md:border-r border-slate-200">
-                      <div className="text-slate-400 text-[10px] uppercase font-black tracking-widest mb-2">Wed - Fri Batch</div>
-                      <div className="text-orange-500 font-black text-lg">ALMOST FULL</div>
-                    </div>
-                    <div className="bg-emerald-50 p-6">
-                      <div className="text-slate-400 text-[10px] uppercase font-black tracking-widest mb-2">Weekend Batch</div>
-                      <div className="text-emerald-600 font-black text-lg">SPOTS LEFT</div>
-                    </div>
-                 </div>
-                 
+            {/* 9. Support / WhatsApp */}
+            <WhatsAppCtaSection />
 
-                 <Button 
-                   as="a" 
-                   href={URL_RESERVE} 
-                   target="_blank" 
-                   rel="noopener noreferrer" 
-                   variant="primary" 
-                   className="mx-auto text-xs px-12 py-5 uppercase tracking-[0.2em] bg-shipplix-blue group"
-                 >
-                    Reserve My Spot Now
-                    <ArrowRight className="group-hover:translate-x-1 transition-transform" size={16} />
-                 </Button>
-              </div>
-            </section>
-
-            <FinalCTA />
+            {/* 10. Footer is rendered below */}
           </>
         )}
 
@@ -3415,9 +3514,9 @@ export default function App() {
 
       {currentPath !== '/admin-leads' && <Footer onNavigate={navigateTo} />}
 
-      {/* Floating WhatsApp Action Button */}
+      {/* Floating WhatsApp Action Button (Desktop Only) */}
       {currentPath !== '/admin-leads' && (
-        <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-1 select-none pointer-events-auto">
+        <div className="hidden lg:flex fixed bottom-6 right-6 z-50 flex-col items-end gap-1 select-none pointer-events-auto">
           {/* Tooltip / Label */}
           <div className="bg-slate-950 text-white border border-slate-800/80 px-3 py-1 rounded-full shadow-2xl text-[9px] font-black uppercase tracking-widest flex items-center gap-1.5 pointer-events-none mb-1">
             <span className="relative flex h-1.5 w-1.5">
@@ -3443,6 +3542,11 @@ export default function App() {
             <span className="absolute -inset-1 rounded-full border border-emerald-500/30 animate-pulse pointer-events-none"></span>
           </motion.a>
         </div>
+      )}
+
+      {/* Mobile App Bottom Navigation Bar */}
+      {currentPath !== '/admin-leads' && (
+        <MobileBottomNav onNavigate={navigateTo} currentPath={currentPath} />
       )}
 
       {/* Progressive Web App Install Prompt */}

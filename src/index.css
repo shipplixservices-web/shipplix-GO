@@ -5,11 +5,11 @@
   --font-sans: "Poppins", ui-sans-serif, system-ui, sans-serif;
   --font-display: "Poppins", ui-sans-serif, system-ui, sans-serif;
   
-  --color-shipplix-blue: #1e3a8a; /* blue-900 from theme */
-  --color-shipplix-yellow: #facc15; /* yellow-400 from theme */
-  --color-shipplix-accent: #3b82f6; /* blue-500 from theme */
-  --color-shipplix-navy: #171717; /* slate-900ish */
-  --color-shipplix-bg: #f8fafc; /* slate-50 from theme */
+  --color-shipplix-blue: #032B73; /* Royal Blue */
+  --color-shipplix-yellow: #FFD700; /* Bright Yellow */
+  --color-shipplix-accent: #0066FF; /* Electric Blue Accent */
+  --color-shipplix-navy: #061B4F; /* Deep Navy */
+  --color-shipplix-bg: #F4F7FC; /* Soft Light Background */
 }
 
 @layer base {
@@ -34,6 +34,9 @@
     -ms-overflow-style: none;
     scrollbar-width: none;
   }
+  .pb-safe {
+    padding-bottom: env(safe-area-inset-bottom, 16px);
+  }
 }
 
 .high-density-card {
@@ -41,7 +44,7 @@
 }
 
 .high-density-button-primary {
-  @apply bg-shipplix-yellow text-blue-900 font-bold px-6 py-3 rounded-lg shadow-md transition-all hover:bg-yellow-500;
+  @apply bg-shipplix-yellow text-blue-900 font-bold px-6 py-3 rounded-lg shadow-md transition-all hover:bg-yellow-400;
 }
 
 .high-density-button-secondary {
