@@ -10,7 +10,6 @@ import {
   Phone, 
   MapPin, 
   TrendingUp, 
-  Sparkles, 
   Globe, 
   ChevronRight, 
   HelpCircle, 
@@ -260,9 +259,9 @@ ________________
 Your Business Must Look International
 Before running a single advertisement, make sure your business looks professional.
 Every serious export business should have:
-✔ A professional business name
-✔ A logo
-✔ A business email address
+* A professional business name
+* A logo
+* A business email address
 Example:
 contact@yourbusiness.com
 instead of
@@ -424,12 +423,12 @@ ________________
 
 Action Steps
 Before moving to Phase 3:
-✅ Define your ideal customer.
-✅ Create a monthly content calendar.
-✅ Produce at least 15 short videos.
-✅ Collect customer testimonials.
-✅ Join diaspora communities related to your niche.
-✅ Launch your first Meta advertising campaign.
+* Define your ideal customer.
+* Create a monthly content calendar.
+* Produce at least 15 short videos.
+* Collect customer testimonials.
+* Join diaspora communities related to your niche.
+* Launch your first Meta advertising campaign.
 ________________
 
 
@@ -477,9 +476,9 @@ ________________
 A Business Email Builds Confidence
 Many international buyers feel more comfortable communicating with businesses that use a professional email address.
 For example:
-✅ sales@yourbusiness.com
+Recommended: sales@yourbusiness.com
 is generally seen as more professional than:
-❌ yourbusiness@gmail.com
+Avoid: yourbusiness@gmail.com
 A custom email shows that you've invested in your business and intend to be around for the long term.
 ________________
 
@@ -495,7 +494,7 @@ Set it up to:
 * Display business hours
 * Direct customers to the correct next step
 When people receive fast, helpful responses, they're more likely to continue the conversation instead of moving on to another seller.
-As your business grows, you can also add AI-powered assistants that answer common questions, qualify leads, and keep conversations moving even when you're unavailable.
+As your business grows, you can also add automated assistants that answer common questions, qualify leads, and keep conversations moving even when you're unavailable.
 ________________
 
 
@@ -547,12 +546,12 @@ ________________
 
 Action Steps
 Before moving to Phase 4, make sure you have:
-✅ A professional website
-✅ A custom business email
-✅ WhatsApp Business fully configured
-✅ A clear customer ordering process
-✅ Testimonials and customer reviews
-✅ A simple follow-up process after every sale
+* A professional website
+* A custom business email
+* WhatsApp Business fully configured
+* A clear customer ordering process
+* Testimonials and customer reviews
+* A simple follow-up process after every sale
 ________________
 
 
@@ -660,11 +659,11 @@ ________________
 
 Action Steps
 Before moving to the final phase:
-✅ Create a follow-up message for every completed order.
-✅ Ask every satisfied customer for a review.
-✅ Launch a referral program.
-✅ Keep a simple record of your business performance.
-✅ Commit to consistent communication with your audience.
+* Create a follow-up message for every completed order.
+* Ask every satisfied customer for a review.
+* Launch a referral program.
+* Keep a simple record of your business performance.
+* Commit to consistent communication with your audience.
 ________________
 
 
@@ -758,20 +757,20 @@ ________________
 
 
 Your 90-Day Growth Plan
-Month 1 – Build Your Foundation
+Month 1: Build Your Foundation
 * Choose your niche.
 * Create your branding.
 * Set up your business email.
 * Build your website.
 * Configure WhatsApp Business.
 * Prepare high-quality product photos and videos.
-Month 2 – Launch Your Marketing
+Month 2: Launch Your Marketing
 * Start posting consistently.
 * Join diaspora communities.
 * Run your first Meta Ads campaign.
 * Collect customer testimonials.
 * Improve your sales process.
-Month 3 – Optimize and Scale
+Month 3: Optimize and Scale
 * Review your advertising performance.
 * Increase spending on successful campaigns.
 * Launch a referral program.
@@ -800,7 +799,7 @@ Many business owners understand the strategy but don't have the time or technica
 * WhatsApp Business automation
 * Meta Ads campaigns
 * Customer enquiry forms
-* AI-powered customer support
+* Automated customer support
 * Shipment tracking
 * Follow-up automation
 * Export-ready business systems
@@ -813,20 +812,20 @@ ________________
 
 Bonus: Free Export Business Checklist
 Before you launch, make sure you have:
-☐ Chosen a profitable niche.
-☐ Identified your ideal overseas customer.
-☐ Created professional branding.
-☐ Registered a business domain and email.
-☐ Built a website or online store.
-☐ Set up WhatsApp Business.
-☐ Prepared high-quality product photos and videos.
-☐ Created a content calendar.
-☐ Launched your first Meta Ads campaign.
-☐ Collected customer reviews.
-☐ Established a clear shipping process.
-☐ Created a follow-up system.
-☐ Built a referral program.
-☐ Tracked your key business metrics.`;
+[ ] Chosen a profitable niche.
+[ ] Identified your ideal overseas customer.
+[ ] Created professional branding.
+[ ] Registered a business domain and email.
+[ ] Built a website or online store.
+[ ] Set up WhatsApp Business.
+[ ] Prepared high-quality product photos and videos.
+[ ] Created a content calendar.
+[ ] Launched your first Meta Ads campaign.
+[ ] Collected customer reviews.
+[ ] Established a clear shipping process.
+[ ] Created a follow-up system.
+[ ] Built a referral program.
+[ ] Tracked your key business metrics.`;
 
     const blob = new Blob([textContent], { type: 'text/plain;charset=utf-8' });
     const url = URL.createObjectURL(blob);
@@ -1049,7 +1048,7 @@ Before you launch, make sure you have:
 
           <div className="mt-16 pt-10 border-t border-slate-100 text-left">
             <h4 className="text-xs font-black uppercase tracking-wider text-slate-400 mb-6 flex items-center gap-2">
-              <Sparkles size={14} className="text-shipplix-yellow" /> What's Next?
+              What's Next?
             </h4>
             <div className="bg-slate-50 border border-slate-200/60 rounded-2xl p-6 text-sm text-slate-700 space-y-4">
               <p className="font-bold">
@@ -1097,7 +1096,7 @@ Before you launch, make sure you have:
             {/* Hero Left Info */}
             <div className="lg:col-span-7 space-y-6">
               <div className="inline-flex items-center gap-2 bg-white/10 border border-white/10 backdrop-blur-md px-3.5 py-1.5 rounded-full text-shipplix-yellow text-[10px] uppercase font-black tracking-widest shadow-inner">
-                <Sparkles size={12} className="animate-pulse" /> Official Lead Magnet Guide
+                Official Export Blueprint Guide
               </div>
               
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-black uppercase tracking-tighter leading-[0.95] text-white">
@@ -1208,7 +1207,7 @@ Before you launch, make sure you have:
               { label: "Manufacturers", icon: Package, desc: "Makers of packaged FMCG goods, retail craft, & home decor." },
               { label: "Farmers & Producers", icon: Compass, desc: "Growers of cocoa, nuts, chili peppers, charcoal, & split beans." },
               { label: "Grocery Suppliers", icon: Store, desc: "Bulk traders dispatching ethnic food stocks to Western stores." },
-              { label: "Entrepreneurs", icon: Sparkles, desc: "Self-starters setting up brand new international trades." },
+              { label: "Entrepreneurs", icon: Users, desc: "Self-starters setting up brand new international trades." },
               { label: "Business Owners", icon: Briefcase, desc: "Established companies upgrading to foreign currencies." },
               { label: "Export Beginners", icon: BookOpen, desc: "Newcomers looking to avoid costly logistics mistakes." },
               { label: "Existing Exporters", icon: TrendingUp, desc: "Pro players wanting to scale and automate their operations." }
@@ -1354,7 +1353,7 @@ Before you launch, make sure you have:
                   { title: "Understand Buyer Psychology", desc: "Unlock emotional hooks and trust dynamics foreign clients demand." },
                   { title: "Acquire Premium Branding", desc: "Build professional email, logos, and business styles." },
                   { title: "Meta Ads & Target Channels", desc: "Configure precise Facebook & Instagram targeted funnels." },
-                  { title: "WhatsApp & AI Automation", desc: "Create auto-responders to serve leads 24 hours a day." },
+                  { title: "WhatsApp & Chat Automation", desc: "Create auto-responders to serve leads 24 hours a day." },
                   { title: "Seamless Checkout Stores", desc: "Enable digital self-service checkouts and catalogs." },
                   { title: "Operational Scaling", desc: "Deploy systematic checklists, CRM retention, and metrics." }
                 ].map((item, i) => (
@@ -1694,7 +1693,7 @@ Before you launch, make sure you have:
                   <ArrowRight size={14} className="group-hover:translate-x-0.5 transition-transform" />
                 </PageButton>
                 <p className="text-center text-[10px] text-slate-400 mt-3 font-semibold uppercase tracking-wider">
-                  🔐 We respect your privacy. No spam. Secure database transmission.
+                  We respect your privacy. No spam. Secure database transmission.
                 </p>
               </div>
 
@@ -1725,7 +1724,7 @@ Before you launch, make sure you have:
               { title: "Online Store Setup", icon: Store, desc: "Complete digital checkout, multi-currency display, & auto rates." },
               { title: "Business Email", icon: Mail, desc: "Establish immediate overseas trust with domain-hosted mail." },
               { title: "WhatsApp Business", icon: Phone, desc: "Set up professional catalog links, greeting alerts, & automations." },
-              { title: "AI Customer Support", icon: Sparkles, desc: "Deploy intelligent chat bots to converse with leads 24/7." },
+              { title: "Customer Support Chat", icon: MessageSquare, desc: "Deploy automated chat messaging to converse with leads 24/7." },
               { title: "Meta Ads Setup", icon: Megaphone, desc: "Highly profitable diaspora targeting campaigns." },
               { title: "Lead Generation", icon: Compass, desc: "Set up custom landing capture and inquiry pages." },
               { title: "Sales Funnels", icon: TrendingUp, desc: "Frictionless multi-step customer journey automation." },

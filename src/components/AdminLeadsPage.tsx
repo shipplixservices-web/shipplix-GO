@@ -260,7 +260,7 @@ export default function AdminLeadsPage({ onNavigate }: { onNavigate: (path: stri
             </p>
             <p className="text-shipplix-yellow text-xs font-black uppercase tracking-wider flex items-center gap-2">
               <span className="w-2 h-2 rounded-full bg-shipplix-yellow animate-ping"></span>
-              Ready to Upgrade? Simply type "Setup Firebase Firestore for leads" in the AI agent chat to configure automatic cloud synchronization!
+              Ready to Upgrade? Configure Firebase Firestore to enable automatic cloud synchronization across devices.
             </p>
           </div>
         </div>

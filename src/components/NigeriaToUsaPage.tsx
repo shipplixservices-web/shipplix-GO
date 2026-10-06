@@ -17,7 +17,6 @@ import {
   AlertTriangle,
   Utensils,
   Shirt,
-  Sparkles,
   MapPin,
   Search,
   Lock,
@@ -307,7 +306,7 @@ export default function NigeriaToUsaPage({ onNavigate }: NigeriaToUsaPageProps) 
 
             <div className="bg-slate-50 border border-slate-200 p-8 rounded-2xl hover:shadow-lg transition-all">
               <div className="w-12 h-12 bg-shipplix-blue text-shipplix-yellow rounded-xl flex items-center justify-center font-black mb-6">
-                <Sparkles size={24} />
+                <Box size={24} />
               </div>
               <h3 className="text-lg font-black text-slate-900 mb-2 uppercase tracking-tight">Free Vacuum Packing</h3>
               <p className="text-xs text-slate-600 font-medium leading-relaxed">
@@ -359,7 +358,7 @@ export default function NigeriaToUsaPage({ onNavigate }: NigeriaToUsaPageProps) 
             <div className="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm flex flex-col justify-between hover:border-shipplix-blue transition-all">
               <div>
                 <div className="text-xs font-black text-slate-400 uppercase tracking-widest mb-2">Express Parcel</div>
-                <h3 className="text-xl font-black text-slate-900 mb-1">5kg – 10kg</h3>
+                <h3 className="text-xl font-black text-slate-900 mb-1">5kg - 10kg</h3>
                 <div className="text-xs font-bold text-shipplix-blue mb-4">5-7 Days Air Freight</div>
                 <p className="text-xs text-slate-500 mb-6 font-medium">
                   Ideal for personal effects, native wears, gift boxes, and small foodstuff parcels for family and friends.
@@ -388,7 +387,7 @@ export default function NigeriaToUsaPage({ onNavigate }: NigeriaToUsaPageProps) 
               </div>
               <div>
                 <div className="text-xs font-black text-slate-400 uppercase tracking-widest mb-2">Standard Cargo</div>
-                <h3 className="text-xl font-black text-slate-900 mb-1">11kg – 25kg</h3>
+                <h3 className="text-xl font-black text-slate-900 mb-1">11kg - 25kg</h3>
                 <div className="text-xs font-bold text-shipplix-blue mb-4">5-7 Days Air Freight</div>
                 <p className="text-xs text-slate-500 mb-6 font-medium">
                   Best value for medium foodstuff exports, fashion boutique orders, wig inventory, and general cargo.
@@ -414,7 +413,7 @@ export default function NigeriaToUsaPage({ onNavigate }: NigeriaToUsaPageProps) 
             <div className="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm flex flex-col justify-between hover:border-shipplix-blue transition-all">
               <div>
                 <div className="text-xs font-black text-slate-400 uppercase tracking-widest mb-2">Heavy Cargo</div>
-                <h3 className="text-xl font-black text-slate-900 mb-1">26kg – 50kg</h3>
+                <h3 className="text-xl font-black text-slate-900 mb-1">26kg - 50kg</h3>
                 <div className="text-xs font-bold text-shipplix-blue mb-4">5-7 Days Air Freight</div>
                 <p className="text-xs text-slate-500 mb-6 font-medium">
                   Optimized for commercial merchants, African grocery stockists, and high-volume food exporters.
@@ -613,7 +612,7 @@ export default function NigeriaToUsaPage({ onNavigate }: NigeriaToUsaPageProps) 
             {/* Category 3: Cosmetics & Skincare */}
             <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm">
               <div className="w-12 h-12 bg-pink-100 text-pink-700 rounded-xl flex items-center justify-center font-black mb-4">
-                <Sparkles size={24} />
+                <Package size={24} />
               </div>
               <h3 className="text-lg font-black text-slate-900 mb-2 uppercase tracking-tight">Cosmetics &amp; Personal Care</h3>
               <p className="text-xs text-slate-500 font-medium mb-4">
@@ -975,7 +974,7 @@ export default function NigeriaToUsaPage({ onNavigate }: NigeriaToUsaPageProps) 
               }}
               className="inline-flex items-center gap-2 px-4 py-2 bg-white rounded-xl border border-slate-200 text-slate-800 text-xs font-bold hover:border-blue-900 transition-colors shadow-sm"
             >
-              <span>🇺🇸 Ship Nigeria to Houston, Texas (Sugar Land, Katy, Pearland)</span>
+              <span>Ship Nigeria to Houston, Texas (Sugar Land, Katy, Pearland)</span>
               <ArrowRight size={14} className="text-blue-900" />
             </a>
           </div>

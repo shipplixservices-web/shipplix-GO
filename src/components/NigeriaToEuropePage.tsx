@@ -15,7 +15,6 @@ import {
   AlertTriangle,
   Utensils,
   Shirt,
-  Sparkles,
   MapPin,
   Lock,
   ChevronDown,
@@ -159,7 +158,7 @@ export default function NigeriaToEuropePage({ onNavigate }: NigeriaToEuropePageP
   const faqs = [
     {
       q: "How long does shipping from Nigeria to Europe take?",
-      a: "Express Air Freight takes 5-7 business days door-to-door to major European destinations like Germany, France, Italy, Netherlands, Spain, Belgium, and Ireland. Economy Cargo Estimated Delivery: 9–14 Business Days. Most economy and heavy shipments are delivered within this estimated timeframe. However, in rare cases, delivery may take longer due to customs inspections, adverse weather conditions, airline or vessel rescheduling, port congestion, security checks, public holidays, government regulations, or other unforeseen logistics delays. While these situations are uncommon, we will continue to monitor your shipment and provide updates throughout the shipping process."
+      a: "Express Air Freight takes 5-7 business days door-to-door to major European destinations like Germany, France, Italy, Netherlands, Spain, Belgium, and Ireland. Economy Cargo Estimated Delivery: 9-14 Business Days. Most economy and heavy shipments are delivered within this estimated timeframe. However, in rare cases, delivery may take longer due to customs inspections, adverse weather conditions, airline or vessel rescheduling, port congestion, security checks, public holidays, government regulations, or other unforeseen logistics delays. While these situations are uncommon, we will continue to monitor your shipment and provide updates throughout the shipping process."
     },
     {
       q: "Can I ship foodstuffs from Nigeria to European Union countries?",
@@ -273,7 +272,7 @@ export default function NigeriaToEuropePage({ onNavigate }: NigeriaToEuropePageP
 
             <div className="p-6 bg-slate-50 border border-slate-200 rounded-2xl hover:border-blue-900 transition-colors">
               <div className="w-12 h-12 rounded-xl bg-amber-100 text-amber-800 flex items-center justify-center mb-4">
-                <Sparkles size={24} />
+                <Box size={24} />
               </div>
               <h3 className="font-extrabold text-slate-900 text-base mb-2">Commercial Vacuum Packing</h3>
               <p className="text-slate-600 text-xs leading-relaxed">
@@ -652,42 +651,42 @@ export default function NigeriaToEuropePage({ onNavigate }: NigeriaToEuropePageP
                 onClick={(e) => handleLinkClick(e, '/ship-from-nigeria-to-usa')}
                 className="bg-slate-100 hover:bg-blue-900 hover:text-white text-slate-800 px-4 py-2.5 rounded-xl transition-all"
               >
-                🇺🇸 Ship Nigeria to USA
+                Ship Nigeria to USA
               </a>
               <a 
                 href="#/ship-from-nigeria-to-uk" 
                 onClick={(e) => handleLinkClick(e, '/ship-from-nigeria-to-uk')}
                 className="bg-slate-100 hover:bg-blue-900 hover:text-white text-slate-800 px-4 py-2.5 rounded-xl transition-all"
               >
-                🇬🇧 Ship Nigeria to UK
+                Ship Nigeria to UK
               </a>
               <a 
                 href="#/ship-from-nigeria-to-canada" 
                 onClick={(e) => handleLinkClick(e, '/ship-from-nigeria-to-canada')}
                 className="bg-slate-100 hover:bg-blue-900 hover:text-white text-slate-800 px-4 py-2.5 rounded-xl transition-all"
               >
-                🇨🇦 Ship Nigeria to Canada
+                Ship Nigeria to Canada
               </a>
               <a 
                 href="#/cargo-items" 
                 onClick={(e) => handleLinkClick(e, '/cargo-items')}
                 className="bg-slate-100 hover:bg-blue-900 hover:text-white text-slate-800 px-4 py-2.5 rounded-xl transition-all"
               >
-                📦 Approved Cargo Items
+                Approved Cargo Items
               </a>
               <a 
                 href="#/economy-cargo" 
                 onClick={(e) => handleLinkClick(e, '/economy-cargo')}
                 className="bg-slate-100 hover:bg-blue-900 hover:text-white text-slate-800 px-4 py-2.5 rounded-xl transition-all"
               >
-                ✈️ Economy Cargo Rates
+                Economy Cargo Rates
               </a>
               <a 
                 href="#/export-blueprint" 
                 onClick={(e) => handleLinkClick(e, '/export-blueprint')}
                 className="bg-slate-100 hover:bg-blue-900 hover:text-white text-slate-800 px-4 py-2.5 rounded-xl transition-all"
               >
-                📘 Export Blueprint Guide
+                Export Blueprint Guide
               </a>
             </div>
           </div>

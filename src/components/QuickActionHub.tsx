@@ -4,10 +4,9 @@ import {
   MapPin, 
   Plane, 
   Scale, 
-  Sparkles,
-  ArrowRight,
-  ShieldCheck,
-  Search
+  ArrowRight, 
+  ShieldCheck, 
+  Search 
 } from 'lucide-react';
 import { WhatsAppButton } from './WhatsAppButton';
 import { openWhatsApp } from '../utils/whatsapp';
@@ -110,17 +109,17 @@ export const QuickActionHub: React.FC<QuickActionHubProps> = ({ onNavigate }) =>
                 className="w-full bg-white border border-slate-200 rounded-xl px-3 py-2 text-xs font-bold text-slate-800 focus:outline-none cursor-pointer"
               >
                 <optgroup label="Primary International Destinations">
-                  <option value="USA - United States (All 50 States)">🇺🇸 United States (All 50 States)</option>
-                  <option value="Houston, Texas (Direct Hub)">🇺🇸 Houston, TX (Direct Hub)</option>
-                  <option value="UK - United Kingdom (London & All Postcodes)">🇬🇧 United Kingdom (London & All Postcodes)</option>
-                  <option value="Canada (Toronto, Calgary, Edmonton)">🇨🇦 Canada (Toronto & All Provinces)</option>
-                  <option value="Europe (Germany, France, Italy, Ireland)">🇪🇺 Europe (EU-Wide Doorstep Delivery)</option>
-                  <option value="China (Guangzhou / Yiwu / Shenzhen)">🇨🇳 China (Export & Trade)</option>
-                  <option value="Other International Country">🌍 Other International Country</option>
+                  <option value="USA - United States (All 50 States)">United States (All 50 States)</option>
+                  <option value="Houston, Texas (Direct Hub)">Houston, TX (Direct Hub)</option>
+                  <option value="UK - United Kingdom (London & All Postcodes)">United Kingdom (London & All Postcodes)</option>
+                  <option value="Canada (Toronto, Calgary, Edmonton)">Canada (Toronto & All Provinces)</option>
+                  <option value="Europe (Germany, France, Italy, Ireland)">Europe (EU-Wide Doorstep Delivery)</option>
+                  <option value="China (Guangzhou / Yiwu / Shenzhen)">China (Export & Trade)</option>
+                  <option value="Other International Country">Other International Country</option>
                 </optgroup>
                 <optgroup label="Domestic Haulage (Within Nigeria)">
-                  <option value="Lagos Intra-State Delivery">🇳🇬 Lagos Intra-State Doorstep</option>
-                  <option value="Interstate Delivery (36 States)">🇳🇬 Interstate Transport (36 States)</option>
+                  <option value="Lagos Intra-State Delivery">Lagos Intra-State Doorstep</option>
+                  <option value="Interstate Delivery (36 States)">Interstate Transport (36 States)</option>
                 </optgroup>
               </select>
               <span className="text-[9px] text-emerald-600 font-bold block mt-1">Door-to-door delivery included</span>
@@ -137,13 +136,13 @@ export const QuickActionHub: React.FC<QuickActionHubProps> = ({ onNavigate }) =>
                 onChange={(e) => setCargoType(e.target.value)}
                 className="w-full bg-white border border-slate-200 rounded-xl px-3 py-2 text-xs font-bold text-slate-800 focus:outline-none cursor-pointer"
               >
-                <option value="Foodstuffs & Groceries (Egusi, Fish, Spices, etc.)">🍲 Foodstuffs (Egusi, Fish, Spices, etc.)</option>
-                <option value="Miss Paris Perfumes, Cosmetics & Fragrances">🧴 Miss Paris Perfumes & Cosmetics</option>
-                <option value="Approved Medications, Supplements & Herbs">💊 Supplements & Approved Herbs</option>
-                <option value="African Fashion, Ankara Fabrics & Wigs">👗 African Fashion, Ankara & Wigs</option>
-                <option value="Personal Belongings & Diaspora Packages">📦 Personal Effects & Diaspora Parcels</option>
-                <option value="Commercial Cargo & Export Inventory">💼 Commercial Goods & Business Cargo</option>
-                <option value="Electronics & Accessories">📱 Electronics & Accessories</option>
+                <option value="Foodstuffs & Groceries (Egusi, Fish, Spices, etc.)">Foodstuffs (Egusi, Fish, Spices, etc.)</option>
+                <option value="Miss Paris Perfumes, Cosmetics & Fragrances">Miss Paris Perfumes & Cosmetics</option>
+                <option value="Approved Medications, Supplements & Herbs">Supplements & Approved Herbs</option>
+                <option value="African Fashion, Ankara Fabrics & Wigs">African Fashion, Ankara & Wigs</option>
+                <option value="Personal Belongings & Diaspora Packages">Personal Effects & Diaspora Parcels</option>
+                <option value="Commercial Cargo & Export Inventory">Commercial Goods & Business Cargo</option>
+                <option value="Electronics & Accessories">Electronics & Accessories</option>
               </select>
               <span className="text-[9px] text-[#032B73] font-bold block mt-1">Specialized cargo pre-cleared</span>
             </div>
@@ -159,11 +158,11 @@ export const QuickActionHub: React.FC<QuickActionHubProps> = ({ onNavigate }) =>
                 onChange={(e) => setWeightCategory(e.target.value)}
                 className="w-full bg-white border border-slate-200 rounded-xl px-3 py-2 text-xs font-bold text-slate-800 focus:outline-none cursor-pointer"
               >
-                <option value="1 - 5 kg (Small Parcel / Samples)">1 – 5 kg (Small Parcel / Document / Sample)</option>
-                <option value="5 - 15 kg (Standard Box)">5 – 15 kg (Standard Box)</option>
-                <option value="15 - 30 kg (Medium Cargo Box)">15 – 30 kg (Medium Cargo Box)</option>
-                <option value="30 - 50 kg (Large Cargo / Foodstuffs)">30 – 50 kg (Large Cargo / Foodstuffs)</option>
-                <option value="50 kg - 100 kg (Commercial Consolidation)">50 – 100 kg (Commercial Consolidation)</option>
+                <option value="1 - 5 kg (Small Parcel / Samples)">1 - 5 kg (Small Parcel / Document / Sample)</option>
+                <option value="5 - 15 kg (Standard Box)">5 - 15 kg (Standard Box)</option>
+                <option value="15 - 30 kg (Medium Cargo Box)">15 - 30 kg (Medium Cargo Box)</option>
+                <option value="30 - 50 kg (Large Cargo / Foodstuffs)">30 - 50 kg (Large Cargo / Foodstuffs)</option>
+                <option value="50 kg - 100 kg (Commercial Consolidation)">50 - 100 kg (Commercial Consolidation)</option>
                 <option value="100 kg+ / Commercial Container">100 kg+ / Pallet / Sea Container</option>
               </select>
               <span className="text-[9px] text-slate-400 font-semibold block mt-1">Weighed accurately on live video</span>
@@ -228,7 +227,6 @@ export const QuickActionHub: React.FC<QuickActionHubProps> = ({ onNavigate }) =>
               100% Tax Compliant &amp; CAC Verified (RC: 8032416)
             </span>
             <span className="flex items-center gap-1.5">
-              <span className="text-amber-500">📹</span>
               Watch Cargo Packed Live On Verified Scales
             </span>
             <span className="flex items-center gap-1.5">

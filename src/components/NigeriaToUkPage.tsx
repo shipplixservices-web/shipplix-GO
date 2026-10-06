@@ -18,7 +18,6 @@ import {
   AlertTriangle,
   Utensils,
   Shirt,
-  Sparkles,
   MapPin,
   Search,
   Lock,
@@ -307,7 +306,7 @@ export default function NigeriaToUkPage({ onNavigate }: NigeriaToUkPageProps) {
 
             <div className="bg-slate-50 border border-slate-200 p-8 rounded-2xl hover:shadow-lg transition-all">
               <div className="w-12 h-12 bg-shipplix-blue text-shipplix-yellow rounded-xl flex items-center justify-center font-black mb-6">
-                <Sparkles size={24} />
+                <Box size={24} />
               </div>
               <h3 className="text-lg font-black text-slate-900 mb-2 uppercase tracking-tight">Free Vacuum Packing</h3>
               <p className="text-xs text-slate-600 font-medium leading-relaxed">
@@ -359,7 +358,7 @@ export default function NigeriaToUkPage({ onNavigate }: NigeriaToUkPageProps) {
             <div className="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm flex flex-col justify-between hover:border-shipplix-blue transition-all">
               <div>
                 <div className="text-xs font-black text-slate-400 uppercase tracking-widest mb-2">Express Parcel</div>
-                <h3 className="text-xl font-black text-slate-900 mb-1">5kg – 10kg</h3>
+                <h3 className="text-xl font-black text-slate-900 mb-1">5kg - 10kg</h3>
                 <div className="text-xs font-bold text-shipplix-blue mb-4">3-5 Days Express Air</div>
                 <p className="text-xs text-slate-500 mb-6 font-medium">
                   Ideal for personal belongings, native fashion, wigs, family food parcels, and student care packages.
@@ -388,7 +387,7 @@ export default function NigeriaToUkPage({ onNavigate }: NigeriaToUkPageProps) {
               </div>
               <div>
                 <div className="text-xs font-black text-slate-400 uppercase tracking-widest mb-2">Standard Cargo</div>
-                <h3 className="text-xl font-black text-slate-900 mb-1">11kg – 25kg</h3>
+                <h3 className="text-xl font-black text-slate-900 mb-1">11kg - 25kg</h3>
                 <div className="text-xs font-bold text-shipplix-blue mb-4">3-5 Days Express Air</div>
                 <p className="text-xs text-slate-500 mb-6 font-medium">
                   Great value for medium Nigerian food exports, fashion boutiques, African market supplies, and cosmetics.
@@ -414,7 +413,7 @@ export default function NigeriaToUkPage({ onNavigate }: NigeriaToUkPageProps) {
             <div className="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm flex flex-col justify-between hover:border-shipplix-blue transition-all">
               <div>
                 <div className="text-xs font-black text-slate-400 uppercase tracking-widest mb-2">Heavy Cargo</div>
-                <h3 className="text-xl font-black text-slate-900 mb-1">26kg – 50kg</h3>
+                <h3 className="text-xl font-black text-slate-900 mb-1">26kg - 50kg</h3>
                 <div className="text-xs font-bold text-shipplix-blue mb-4">3-5 Days Express Air</div>
                 <p className="text-xs text-slate-500 mb-6 font-medium">
                   Optimized for commercial African food markets in London, Birmingham, and Manchester, plus bulk fashion items.
@@ -645,7 +644,7 @@ export default function NigeriaToUkPage({ onNavigate }: NigeriaToUkPageProps) {
             {/* Category 3: Cosmetics & Skincare */}
             <div className="bg-slate-50 p-6 rounded-2xl border border-slate-200 shadow-sm">
               <div className="w-12 h-12 bg-pink-100 text-pink-700 rounded-xl flex items-center justify-center font-black mb-4">
-                <Sparkles size={24} />
+                <Package size={24} />
               </div>
               <h3 className="text-lg font-black text-slate-900 mb-2 uppercase tracking-tight">Cosmetics &amp; Personal Care</h3>
               <p className="text-xs text-slate-500 font-medium mb-4">
@@ -1012,7 +1011,6 @@ export default function NigeriaToUkPage({ onNavigate }: NigeriaToUkPageProps) {
       <section className="py-20 bg-shipplix-blue text-white relative overflow-hidden border-t-4 border-shipplix-yellow">
         <div className="container mx-auto px-6 text-center relative z-10 max-w-4xl">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-shipplix-yellow/20 text-shipplix-yellow border border-shipplix-yellow/30 text-xs font-black uppercase tracking-widest mb-6">
-            <Sparkles size={16} />
             Ready to Send Your Package to the UK?
           </div>
 

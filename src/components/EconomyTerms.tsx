@@ -126,7 +126,7 @@ export default function EconomyTerms({ onBack }: { onBack: () => void }) {
   const sections = [
     { id: 'notice', title: '1. Customer Notice (Before You Book)', icon: <Info size={18} /> },
     { id: 'what-is-economy', title: '2. What is Economy Cargo?', icon: <Package size={18} /> },
-    { id: 'delivery-timeframe', title: '3. Delivery Timeframe (9–14 Days)', icon: <Clock size={18} /> },
+    { id: 'delivery-timeframe', title: '3. Delivery Timeframe (9-14 Days)', icon: <Clock size={18} /> },
     { id: 'when-we-ship', title: '4. When Do We Ship? (Friday / Wed)', icon: <Calendar size={18} /> },
     { id: 'shipping-journey', title: '5. Step-by-Step Shipping Journey', icon: <Workflow size={18} /> },
     { id: 'what-is-included', title: "6. What's Included With Economy", icon: <CheckCircle2 size={18} /> },
@@ -188,7 +188,7 @@ export default function EconomyTerms({ onBack }: { onBack: () => void }) {
   const faqs = [
     {
       q: "What is the standard delivery timeframe for Economy Cargo?",
-      a: "Most Shipplix Economy Cargo shipments arrive within our standard estimated timeframe of 9–14 business days from the applicable flight shipping date. This is an estimate provided to help customers plan their shipments realistically."
+      a: "Most Shipplix Economy Cargo shipments arrive within our standard estimated timeframe of 9-14 business days from the applicable flight shipping date. This is an estimate provided to help customers plan their shipments realistically."
     },
     {
       q: "What happens if an unexpected international delay occurs?",
@@ -278,7 +278,7 @@ export default function EconomyTerms({ onBack }: { onBack: () => void }) {
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-3xl mx-auto bg-white/5 border border-white/15 p-4 rounded-2xl backdrop-blur-md text-left">
             <div className="border-r border-white/10 pr-2">
               <span className="block text-[10px] uppercase font-bold text-slate-400 tracking-wider">Estimated Delivery</span>
-              <span className="text-sm md:text-base font-black text-shipplix-yellow">9–14 Business Days</span>
+              <span className="text-sm md:text-base font-black text-shipplix-yellow">9-14 Business Days</span>
             </div>
             <div className="border-r border-white/10 pr-2">
               <span className="block text-[10px] uppercase font-bold text-slate-400 tracking-wider">Flight Dispatch</span>
@@ -524,7 +524,7 @@ export default function EconomyTerms({ onBack }: { onBack: () => void }) {
                         Standard Service Expectation
                       </div>
                       <h3 className="text-2xl sm:text-4xl font-black uppercase tracking-tight text-white">
-                        Estimated Delivery: <span className="text-shipplix-yellow">9–14 Business Days</span>
+                        Estimated Delivery: <span className="text-shipplix-yellow">9-14 Business Days</span>
                       </h3>
                       <p className="text-xs md:text-sm text-slate-200 font-medium mt-2 max-w-xl">
                         Calculated from the applicable shipping or dispatch date once the flight departs Nigeria.
@@ -534,7 +534,7 @@ export default function EconomyTerms({ onBack }: { onBack: () => void }) {
                 </div>
 
                 <p>
-                  Most Economy Cargo shipments are delivered within an estimated <strong>9–14 business days</strong> from the applicable shipping or dispatch date. This is an estimate provided to help customers plan their shipments reliably.
+                  Most Economy Cargo shipments are delivered within an estimated <strong>9-14 business days</strong> from the applicable shipping or dispatch date. This is an estimate provided to help customers plan their shipments reliably.
                 </p>
                 <p>
                   Actual delivery timing can vary depending on the destination, airline schedules, customs processing, inspections, local delivery operations, and other stages of the international shipping process.
@@ -706,7 +706,7 @@ export default function EconomyTerms({ onBack }: { onBack: () => void }) {
                 {/* At A Glance Ribbon */}
                 <div className="bg-slate-900 text-white rounded-2xl p-6 text-center border-2 border-shipplix-yellow">
                   <span className="text-[10px] font-black uppercase text-shipplix-yellow tracking-widest block mb-2">
-                    Economy Shipping Flow — At a Glance
+                    Economy Shipping Flow: At a Glance
                   </span>
                   <div className="flex flex-wrap items-center justify-center gap-1.5 text-xs font-bold text-slate-200 uppercase tracking-tight">
                     <span>Your Package</span>
@@ -944,7 +944,7 @@ export default function EconomyTerms({ onBack }: { onBack: () => void }) {
                 <div className="bg-blue-50/80 border border-blue-100 rounded-2xl p-6 mb-4">
                   <h4 className="font-black uppercase text-xs text-blue-950 mb-2">Reassurance First:</h4>
                   <p className="text-xs md:text-sm text-slate-700 leading-relaxed font-medium">
-                    Most Economy Cargo shipments are expected to arrive within the normal <strong>9–14 business-day estimated timeframe</strong>. Our consolidation operations run smoothly week after week.
+                    Most Economy Cargo shipments are expected to arrive within the normal <strong>9-14 business-day estimated timeframe</strong>. Our consolidation operations run smoothly week after week.
                   </p>
                 </div>
 

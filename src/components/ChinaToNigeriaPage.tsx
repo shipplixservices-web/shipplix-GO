@@ -12,7 +12,7 @@ import {
   ArrowRight, 
   AlertTriangle,
   Shirt,
-  Sparkles,
+  Laptop,
   MapPin,
   Lock,
   ChevronDown,
@@ -498,7 +498,7 @@ export default function ChinaToNigeriaPage({ onNavigate }: ChinaToNigeriaPagePro
                 </div>
 
                 <div className="flex items-start gap-3 bg-white p-3 rounded-xl border border-emerald-100">
-                  <Sparkles className="text-emerald-600 shrink-0 mt-0.5" size={18} />
+                  <Laptop className="text-emerald-600 shrink-0 mt-0.5" size={18} />
                   <div>
                     <strong className="text-slate-900 block text-sm">Gadgets &amp; Consumer Electronics</strong>
                     Smartphones, phone accessories, laptops, smartwatches, solar panels, power banks, audio gadgets.
@@ -736,42 +736,42 @@ export default function ChinaToNigeriaPage({ onNavigate }: ChinaToNigeriaPagePro
                 onClick={(e) => handleLinkClick(e, '/ship-from-nigeria-to-usa')}
                 className="bg-white hover:bg-blue-900 hover:text-white text-slate-800 px-4 py-2.5 rounded-xl border border-slate-200 transition-all"
               >
-                🇺🇸 Ship Nigeria to USA
+                Ship Nigeria to USA
               </a>
               <a 
                 href="#/ship-from-nigeria-to-uk" 
                 onClick={(e) => handleLinkClick(e, '/ship-from-nigeria-to-uk')}
                 className="bg-white hover:bg-blue-900 hover:text-white text-slate-800 px-4 py-2.5 rounded-xl border border-slate-200 transition-all"
               >
-                🇬🇧 Ship Nigeria to UK
+                Ship Nigeria to UK
               </a>
               <a 
                 href="#/ship-from-nigeria-to-canada" 
                 onClick={(e) => handleLinkClick(e, '/ship-from-nigeria-to-canada')}
                 className="bg-white hover:bg-blue-900 hover:text-white text-slate-800 px-4 py-2.5 rounded-xl border border-slate-200 transition-all"
               >
-                🇨🇦 Ship Nigeria to Canada
+                Ship Nigeria to Canada
               </a>
               <a 
                 href="#/ship-from-nigeria-to-europe" 
                 onClick={(e) => handleLinkClick(e, '/ship-from-nigeria-to-europe')}
                 className="bg-white hover:bg-blue-900 hover:text-white text-slate-800 px-4 py-2.5 rounded-xl border border-slate-200 transition-all"
               >
-                🇪🇺 Ship Nigeria to Europe
+                Ship Nigeria to Europe
               </a>
               <a 
                 href="#/cargo-items" 
                 onClick={(e) => handleLinkClick(e, '/cargo-items')}
                 className="bg-white hover:bg-blue-900 hover:text-white text-slate-800 px-4 py-2.5 rounded-xl border border-slate-200 transition-all"
               >
-                📦 Cargo Guidelines
+                Cargo Guidelines
               </a>
               <a 
                 href="#/economy-cargo" 
                 onClick={(e) => handleLinkClick(e, '/economy-cargo')}
                 className="bg-white hover:bg-blue-900 hover:text-white text-slate-800 px-4 py-2.5 rounded-xl border border-slate-200 transition-all"
               >
-                ✈️ Economy Cargo Rates
+                Economy Cargo Rates
               </a>
             </div>
           </div>

@@ -161,7 +161,7 @@ export const WhyShipplixSection: React.FC<WhyShipplixSectionProps> = ({ onNaviga
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
                 />
                 <div className="absolute bottom-2 left-2 right-2 bg-black/70 backdrop-blur-md px-2.5 py-1 rounded-lg text-[9px] font-bold text-[#FFD700]">
-                  📹 Live Video Packing Scales
+                  Live Video Packing Scales
                 </div>
               </div>
 
@@ -172,7 +172,7 @@ export const WhyShipplixSection: React.FC<WhyShipplixSectionProps> = ({ onNaviga
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
                 />
                 <div className="absolute bottom-2 left-2 right-2 bg-black/70 backdrop-blur-md px-2.5 py-1 rounded-lg text-[9px] font-bold text-white">
-                  ✈️ MMIA Flight Manifesting
+                  MMIA Flight Manifesting
                 </div>
               </div>
 
@@ -183,7 +183,7 @@ export const WhyShipplixSection: React.FC<WhyShipplixSectionProps> = ({ onNaviga
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
                 />
                 <div className="absolute bottom-2 left-2 right-2 bg-black/70 backdrop-blur-md px-2.5 py-1 rounded-lg text-[9px] font-bold text-white">
-                  📦 Sealed Cargo Consolidation
+                  Sealed Cargo Consolidation
                 </div>
               </div>
 
@@ -194,7 +194,7 @@ export const WhyShipplixSection: React.FC<WhyShipplixSectionProps> = ({ onNaviga
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
                 />
                 <div className="absolute bottom-2 left-2 right-2 bg-black/70 backdrop-blur-md px-2.5 py-1 rounded-lg text-[9px] font-bold text-white">
-                  🚚 Last-Mile Doorstep Dispatch
+                  Last-Mile Doorstep Dispatch
                 </div>
               </div>
             </div>

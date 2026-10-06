@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Download, Smartphone, X, Share, PlusSquare, CheckCircle2, Sparkles } from 'lucide-react';
+import { Download, Smartphone, X, Share, PlusSquare, CheckCircle2 } from 'lucide-react';
 
 interface BeforeInstallPromptEvent extends Event {
   prompt: () => Promise<void>;
@@ -152,8 +152,8 @@ export const PWAInstallPrompt: React.FC = () => {
             <div className="flex-1">
               <div className="flex items-center gap-2">
                 <h4 className="font-bold text-sm text-white">Shipplix Mobile App</h4>
-                <span className="bg-amber-400/20 text-amber-300 text-[10px] font-black uppercase px-1.5 py-0.5 rounded tracking-wide border border-amber-400/30 flex items-center gap-0.5">
-                  <Sparkles size={10} /> Fast
+                <span className="bg-amber-400/20 text-amber-300 text-[10px] font-black uppercase px-1.5 py-0.5 rounded tracking-wide border border-amber-400/30">
+                  Fast
                 </span>
               </div>
               <p className="text-xs text-slate-300 mt-1 leading-snug">

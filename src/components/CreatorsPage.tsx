@@ -1,7 +1,6 @@
 import React, { useState, useRef } from 'react';
 import { 
   Video, 
-  Sparkles, 
   CheckCircle2, 
   ArrowRight, 
   Send, 
@@ -28,8 +27,7 @@ import {
   TrendingUp,
   Globe,
   Radio,
-  Clock,
-  Sparkle
+  Clock
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import creatorHeroImg from '../assets/images/creator_recording_hero_1789126747712.jpg';
@@ -319,7 +317,7 @@ export default function CreatorsPage({ onNavigate }: CreatorsPageProps) {
       </section>
 
       {/* =========================================================================
-          SECTION 1 — WHAT IS THE SHIPPLIX CREATOR PROGRAM?
+          SECTION 1: WHAT IS THE SHIPPLIX CREATOR PROGRAM?
           ========================================================================= */}
       <section className="py-16 bg-white border-b border-slate-200">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -371,7 +369,6 @@ export default function CreatorsPage({ onNavigate }: CreatorsPageProps) {
           <div className="mt-10 bg-gradient-to-r from-blue-900 via-blue-950 to-slate-900 text-white p-6 sm:p-8 rounded-2xl border border-blue-800 shadow-xl flex flex-col md:flex-row items-center justify-between gap-6">
             <div className="space-y-2 text-center md:text-left">
               <div className="inline-flex items-center gap-1.5 text-xs font-bold text-amber-300 uppercase tracking-widest">
-                <Sparkles size={16} />
                 No Guesswork Required
               </div>
               <p className="text-xl sm:text-2xl font-black text-white leading-tight">
@@ -393,7 +390,7 @@ export default function CreatorsPage({ onNavigate }: CreatorsPageProps) {
       </section>
 
       {/* =========================================================================
-          SECTION 2 — HOW IT WORKS (5-STEP PROCESS)
+          SECTION 2: HOW IT WORKS (5-STEP PROCESS)
           ========================================================================= */}
       <section ref={howItWorksRef} className="py-16 bg-slate-50 border-b border-slate-200">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -494,7 +491,7 @@ export default function CreatorsPage({ onNavigate }: CreatorsPageProps) {
       </section>
 
       {/* =========================================================================
-          SECTION 3 — WHO CAN APPLY?
+          SECTION 3 : WHO CAN APPLY?
           ========================================================================= */}
       <section className="py-16 bg-white border-b border-slate-200">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -552,8 +549,7 @@ export default function CreatorsPage({ onNavigate }: CreatorsPageProps) {
               </div>
 
               {/* Engagement note */}
-              <div className="bg-amber-50 border border-amber-200 rounded-xl p-4 text-xs font-semibold text-amber-900 flex items-start gap-3">
-                <Sparkle size={18} className="text-amber-600 shrink-0 mt-0.5" />
+              <div className="bg-amber-50 border border-amber-200 rounded-xl p-4 text-xs font-semibold text-amber-900">
                 <div>
                   <strong>Creators with strong engagement</strong> may also be considered based on content quality, communication clarity, and audience relevance.
                 </div>
@@ -609,7 +605,7 @@ export default function CreatorsPage({ onNavigate }: CreatorsPageProps) {
       </section>
 
       {/* =========================================================================
-          SECTION 4 — HOW YOU CAN EARN
+          SECTION 4 : HOW YOU CAN EARN
           ========================================================================= */}
       <section className="py-16 bg-slate-50 border-b border-slate-200">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -692,7 +688,7 @@ export default function CreatorsPage({ onNavigate }: CreatorsPageProps) {
       </section>
 
       {/* =========================================================================
-          SECTION 5 — WHY CREATE FOR SHIPPLIX? (4 BENEFIT CARDS)
+          SECTION 5 : WHY CREATE FOR SHIPPLIX? (4 BENEFIT CARDS)
           ========================================================================= */}
       <section className="py-16 bg-white border-b border-slate-200">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -765,7 +761,7 @@ export default function CreatorsPage({ onNavigate }: CreatorsPageProps) {
       </section>
 
       {/* =========================================================================
-          SECTION 6 — CONTENT CATEGORIES
+          SECTION 6 : CONTENT CATEGORIES
           ========================================================================= */}
       <section className="py-16 bg-slate-50 border-b border-slate-200">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -817,7 +813,7 @@ export default function CreatorsPage({ onNavigate }: CreatorsPageProps) {
       </section>
 
       {/* =========================================================================
-          SECTION 7 — CREATOR CONTENT PROCESS
+          SECTION 7 : CREATOR CONTENT PROCESS
           ========================================================================= */}
       <section className="py-16 bg-white border-b border-slate-200">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -883,7 +879,7 @@ export default function CreatorsPage({ onNavigate }: CreatorsPageProps) {
 
                 <div className="pt-2 border-t border-white/10 flex items-center justify-between text-xs">
                   <span className="text-slate-300">Turnaround Time:</span>
-                  <span className="text-emerald-400 font-bold">Typically within 24–48 hours</span>
+                  <span className="text-emerald-400 font-bold">Typically within 24-48 hours</span>
                 </div>
               </div>
             </div>
@@ -893,7 +889,7 @@ export default function CreatorsPage({ onNavigate }: CreatorsPageProps) {
       </section>
 
       {/* =========================================================================
-          SECTION 8 — YOUR CONTENT CAN GO FURTHER
+          SECTION 8 : YOUR CONTENT CAN GO FURTHER
           ========================================================================= */}
       <section className="py-16 bg-slate-50 border-b border-slate-200">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -942,7 +938,7 @@ export default function CreatorsPage({ onNavigate }: CreatorsPageProps) {
       </section>
 
       {/* =========================================================================
-          SECTION 9 — CREATOR & AFFILIATE
+          SECTION 9 : CREATOR & AFFILIATE
           ========================================================================= */}
       <section className="py-16 bg-white border-b border-slate-200">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -997,7 +993,7 @@ export default function CreatorsPage({ onNavigate }: CreatorsPageProps) {
             <div className="bg-blue-900 text-white rounded-2xl p-6 relative flex flex-col justify-between shadow-lg border border-blue-950">
               <div>
                 <div className="w-10 h-10 rounded-xl bg-[#FEB919] text-[#032B73] flex items-center justify-center font-black mb-4">
-                  <Sparkles size={20} />
+                  <Layers size={20} />
                 </div>
                 <div className="text-xs font-bold uppercase tracking-wider text-amber-300 mb-1">Best of Both</div>
                 <h3 className="text-xl font-black text-white mb-3">Creator + Affiliate</h3>
@@ -1014,7 +1010,7 @@ export default function CreatorsPage({ onNavigate }: CreatorsPageProps) {
       </section>
 
       {/* =========================================================================
-          SECTION 10 — IMPORTANT RULES
+          SECTION 10 : IMPORTANT RULES
           ========================================================================= */}
       <section className="py-16 bg-slate-50 border-b border-slate-200">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -1058,7 +1054,7 @@ export default function CreatorsPage({ onNavigate }: CreatorsPageProps) {
       </section>
 
       {/* =========================================================================
-          SECTION 11 — FAQ
+          SECTION 11 : FAQ
           ========================================================================= */}
       <section className="py-16 bg-white border-b border-slate-200">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -1144,7 +1140,7 @@ export default function CreatorsPage({ onNavigate }: CreatorsPageProps) {
       </section>
 
       {/* =========================================================================
-          SECTION 12 — APPLICATION FORM
+          SECTION 12 : APPLICATION FORM
           ========================================================================= */}
       <section ref={applicationFormRef} className="py-16 md:py-20 bg-slate-100 border-b border-slate-300">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -1411,10 +1407,10 @@ export default function CreatorsPage({ onNavigate }: CreatorsPageProps) {
                         onChange={handleInputChange}
                         className="w-full bg-slate-50 border border-slate-300 rounded-xl px-3 py-2.5 text-sm text-slate-900 focus:outline-none focus:ring-2 focus:ring-blue-900"
                       >
-                        <option value="500 - 2,500">500 – 2,500</option>
-                        <option value="2,501 - 10,000">2,501 – 10,000</option>
-                        <option value="10,001 - 50,000">10,001 – 50,000</option>
-                        <option value="50,001 - 100,000">50,001 – 100,000</option>
+                        <option value="500 - 2,500">500 - 2,500</option>
+                        <option value="2,501 - 10,000">2,501 - 10,000</option>
+                        <option value="10,001 - 50,000">10,001 - 50,000</option>
+                        <option value="50,001 - 100,000">50,001 - 100,000</option>
                         <option value="100,000+">100,000+</option>
                       </select>
                     </div>

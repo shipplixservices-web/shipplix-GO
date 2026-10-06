@@ -14,7 +14,6 @@ import {
   Plane, 
   Image as ImageIcon,
   ShieldCheck,
-  Sparkles,
   Instagram,
   ExternalLink,
   MessageCircle,
@@ -157,7 +156,7 @@ export const RealShipmentGallery: React.FC = () => {
                   {item.category === 'Packaging & Quality Check' && <CheckCircle2 size={10} className="text-green-400" />}
                   {item.category === 'Warehouse Operations' && <Truck size={10} className="text-blue-400" />}
                   {item.category === 'International Shipping' && <Plane size={10} className="text-yellow-400" />}
-                  {item.category === 'Successful Deliveries' && <Sparkles size={10} className="text-amber-400" />}
+                  {item.category === 'Successful Deliveries' && <ShieldCheck size={10} className="text-amber-400" />}
                   <span>{item.category}</span>
                 </div>
 

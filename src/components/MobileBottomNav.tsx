@@ -100,14 +100,14 @@ export const MobileBottomNav: React.FC<MobileBottomNavProps> = ({
 
               <div className="grid grid-cols-1 gap-2.5">
                 {[
-                  { title: "Ship Nigeria → USA (All 50 States)", path: "/ship-from-nigeria-to-usa", flag: "🇺🇸", time: "3–5 Days Express" },
-                  { title: "Ship Nigeria → Houston, Texas", path: "/ship-from-nigeria-to-houston", flag: "🇺🇸", time: "Specialized Hub" },
-                  { title: "Ship Nigeria → UK (London & All Postcodes)", path: "/ship-from-nigeria-to-uk", flag: "🇬🇧", time: "3–5 Days Express" },
-                  { title: "Ship Nigeria → Canada (All Provinces)", path: "/ship-from-nigeria-to-canada", flag: "🇨🇦", time: "5–7 Days" },
-                  { title: "Ship Nigeria → Europe (EU Wide)", path: "/ship-from-nigeria-to-europe", flag: "🇪🇺", time: "5–7 Days" },
-                  { title: "China → Nigeria Import Trade", path: "/ship-from-china-to-nigeria", flag: "🇨🇳", time: "Air & Sea Cargo" },
-                  { title: "Economy Cargo Consolidated (9–14 Days)", path: "/economy-cargo", flag: "📦", time: "Lowest Cost" },
-                  { title: "Cargo Items Lookup (Allowed & Prohibited)", path: "/cargo-items", flag: "📋", time: "Customs Guide" }
+                  { title: "Ship Nigeria → USA (All 50 States)", path: "/ship-from-nigeria-to-usa", time: "3-5 Days Express" },
+                  { title: "Ship Nigeria → Houston, Texas", path: "/ship-from-nigeria-to-houston", time: "Specialized Hub" },
+                  { title: "Ship Nigeria → UK (London & All Postcodes)", path: "/ship-from-nigeria-to-uk", time: "3-5 Days Express" },
+                  { title: "Ship Nigeria → Canada (All Provinces)", path: "/ship-from-nigeria-to-canada", time: "5-7 Days" },
+                  { title: "Ship Nigeria → Europe (EU Wide)", path: "/ship-from-nigeria-to-europe", time: "5-7 Days" },
+                  { title: "China → Nigeria Import Trade", path: "/ship-from-china-to-nigeria", time: "Air & Sea Cargo" },
+                  { title: "Economy Cargo Consolidated (9-14 Days)", path: "/economy-cargo", time: "Lowest Cost" },
+                  { title: "Cargo Items Lookup (Allowed & Prohibited)", path: "/cargo-items", time: "Customs Guide" }
                 ].map((item, idx) => (
                   <button
                     key={idx}
@@ -118,7 +118,6 @@ export const MobileBottomNav: React.FC<MobileBottomNavProps> = ({
                     className="w-full text-left p-3.5 rounded-2xl bg-slate-50 hover:bg-[#032B73]/5 border border-slate-200/80 flex items-center justify-between transition-colors"
                   >
                     <div className="flex items-center gap-3">
-                      <span className="text-2xl">{item.flag}</span>
                       <div>
                         <div className="text-xs font-black text-slate-900">{item.title}</div>
                         <div className="text-[10px] text-slate-500 font-bold">{item.time}</div>

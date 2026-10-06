@@ -240,7 +240,7 @@ export default function RevenuePartnerPage() {
             className="text-center max-w-3xl mx-auto"
           >
             <span className="bg-[#FEB919] text-[#032B73] text-[10px] md:text-xs font-black px-4 py-2 rounded-full uppercase tracking-widest font-mono inline-block mb-6 shadow-md">
-              💰 Extra Income Network
+              Extra Income Network
             </span>
             <h1 className="text-4xl md:text-6xl font-black uppercase tracking-tighter mb-6 leading-none">
               Become a Shipplix <span className="text-[#FEB919]">Revenue Partner</span>
@@ -594,10 +594,10 @@ export default function RevenuePartnerPage() {
                       <AlertCircle size={14} className="text-amber-600" /> Action Required: Save this ID
                     </p>
                     <p className="text-slate-700 text-[11px] font-bold leading-normal">
-                      📌 <span className="font-black text-slate-950">Please take a screenshot or save this page.</span> You will need your Partner ID whenever referring customers to Shipplix.
+                      <span className="font-black text-slate-950">Please take a screenshot or save this page.</span> You will need your Partner ID whenever referring customers to Shipplix.
                     </p>
                     <p className="text-slate-700 text-[11px] font-bold leading-normal">
-                      📌 Customers must enter this Partner ID during shipment booking for commissions to be credited correctly.
+                      Customers must enter this Partner ID during shipment booking for commissions to be credited correctly.
                     </p>
                   </div>
 

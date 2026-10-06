@@ -58,7 +58,7 @@ export const buildWhatsAppMessage = (
 
   switch (action) {
     case 'quote': {
-      let msg = 'Hello Shipplix 👋\n\nI need help with a shipment.';
+      let msg = 'Hello Shipplix\n\nI need help with a shipment.';
       if (name) msg += `\n\nName: ${name}`;
       if (from) msg += `\nFrom: ${from}`;
       if (to) msg += `\nTo: ${to}`;
@@ -69,7 +69,7 @@ export const buildWhatsAppMessage = (
     }
 
     case 'international': {
-      let msg = 'Hello Shipplix 👋\n\nI would like to get a quote for International Shipping from Nigeria.';
+      let msg = 'Hello Shipplix\n\nI would like to get a quote for International Shipping from Nigeria.';
       if (from && from !== 'Nigeria') msg += `\n\nPickup: ${from}`;
       if (to) msg += `\nDestination: ${to}`;
       if (item) msg += `\nCargo / Goods: ${item}`;
@@ -79,7 +79,7 @@ export const buildWhatsAppMessage = (
     }
 
     case 'local': {
-      let msg = 'Hello Shipplix 👋\n\nI need assistance with a Local City Delivery.';
+      let msg = 'Hello Shipplix\n\nI need assistance with a Local City Delivery.';
       if (from && from !== 'Nigeria') msg += `\n\nPickup Area: ${from}`;
       if (to) msg += `\nDelivery Area: ${to}`;
       if (item) msg += `\nPackage: ${item}`;
@@ -88,7 +88,7 @@ export const buildWhatsAppMessage = (
     }
 
     case 'china': {
-      let msg = 'Hello Shipplix 👋\n\nI would like to inquire about China to Nigeria shipping & procurement.';
+      let msg = 'Hello Shipplix\n\nI would like to inquire about China to Nigeria shipping & procurement.';
       msg += '\n\nRoute: China (Guangzhou / Yiwu) ↔ Nigeria (Lagos)';
       if (item) msg += `\nGoods Description: ${item}`;
       msg += '\n\nPlease share your current exchange rates, China warehouse collection address, and air & sea freight rates.';
@@ -96,7 +96,7 @@ export const buildWhatsAppMessage = (
     }
 
     case 'truck': {
-      let msg = 'Hello Shipplix 👋\n\nI need to hire a dedicated truck for cargo haulage in Nigeria.';
+      let msg = 'Hello Shipplix\n\nI need to hire a dedicated truck for cargo haulage in Nigeria.';
       if (vehicle) msg += `\n\nVehicle Required: ${vehicle}`;
       if (from) msg += `\nPickup Location: ${from}`;
       if (to) msg += `\nDestination State: ${to}`;
@@ -106,7 +106,7 @@ export const buildWhatsAppMessage = (
     }
 
     case 'van': {
-      let msg = 'Hello Shipplix 👋\n\nI would like to book a Van or Hiace bus for cargo movement.';
+      let msg = 'Hello Shipplix\n\nI would like to book a Van or Hiace bus for cargo movement.';
       if (from) msg += `\n\nPickup: ${from}`;
       if (to) msg += `\nDestination: ${to}`;
       if (item) msg += `\nItems: ${item}`;
@@ -115,7 +115,7 @@ export const buildWhatsAppMessage = (
     }
 
     case 'interstate': {
-      let msg = 'Hello Shipplix 👋\n\nI need to transport cargo between Nigerian states.';
+      let msg = 'Hello Shipplix\n\nI need to transport cargo between Nigerian states.';
       if (from) msg += `\n\nOrigin State: ${from}`;
       if (to) msg += `\nDestination State: ${to}`;
       if (item) msg += `\nCargo Description: ${item}`;
@@ -124,14 +124,14 @@ export const buildWhatsAppMessage = (
     }
 
     case 'need_help': {
-      let msg = 'Hello Shipplix 👋\n\nI am currently on your website and need some guidance with my shipment.';
+      let msg = 'Hello Shipplix\n\nI am currently on your website and need some guidance with my shipment.';
       if (params.customMessage) msg += `\n\nInquiry: ${params.customMessage}`;
       msg += '\n\nCould an export logistics specialist please assist me?';
       return msg;
     }
 
     case 'tracking_help': {
-      let msg = 'Hello Shipplix 👋\n\nI am trying to track my shipment but need help locating my tracking number or latest status.';
+      let msg = 'Hello Shipplix\n\nI am trying to track my shipment but need help locating my tracking number or latest status.';
       if (trackingNumber) msg += `\n\nTracking ID: ${trackingNumber}`;
       if (name) msg += `\nSender / Receiver Name: ${name}`;
       msg += '\n\nCould you please help look up my consignment records?';
@@ -142,7 +142,7 @@ export const buildWhatsAppMessage = (
     default: {
       return (
         params.customMessage ||
-        'Hello Shipplix 👋\n\nI would like to make an inquiry regarding Shipplix logistics services.\n\nCould an agent please assist me?'
+        'Hello Shipplix\n\nI would like to make an inquiry regarding Shipplix logistics services.\n\nCould an agent please assist me?'
       );
     }
   }

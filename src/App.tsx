@@ -28,11 +28,10 @@ import {
   Info,
   Globe,
   User,
-  Cpu,
   TrendingUp,
   ShoppingCart,
   Zap,
-  Bot,
+  MessageSquare,
   Store,
   FileCheck,
   CreditCard,
@@ -217,41 +216,41 @@ const Navbar = ({ onNavigate, currentPath }: { onNavigate?: (path: string) => vo
                   }}
                   className="block px-3.5 py-2 rounded-xl text-[11px] font-bold hover:bg-white/10 hover:text-shipplix-yellow transition-colors"
                 >
-                  ✈️ All 6 Core Logistics Services
+                  All 6 Core Logistics Services
                 </a>
                 <a 
                   href="#/economy-cargo" 
                   onClick={(e) => handleLinkClick(e, '/economy-cargo')} 
                   className={`block px-3.5 py-2 rounded-xl text-[11px] font-bold hover:bg-white/10 hover:text-shipplix-yellow transition-colors ${currentPath === '/economy-cargo' ? 'bg-white/10 text-shipplix-yellow font-black' : ''}`}
                 >
-                  📦 Economy Air Cargo (9–14 Days)
+                  Economy Air Cargo (9–14 Days)
                 </a>
                 <a 
                   href="#/cargo-items" 
                   onClick={(e) => handleLinkClick(e, '/cargo-items')} 
                   className={`block px-3.5 py-2 rounded-xl text-[11px] font-bold hover:bg-white/10 hover:text-shipplix-yellow transition-colors ${currentPath === '/cargo-items' ? 'bg-white/10 text-shipplix-yellow font-black' : ''}`}
                 >
-                  📋 Allowed Cargo Items Guide
+                  Allowed Cargo Items Guide
                 </a>
                 <a 
                   href="#/processing" 
                   onClick={(e) => handleLinkClick(e, '/processing')} 
                   className={`block px-3.5 py-2 rounded-xl text-[11px] font-bold hover:bg-white/10 hover:text-shipplix-yellow transition-colors ${currentPath === '/processing' ? 'bg-white/10 text-shipplix-yellow font-black' : ''}`}
                 >
-                  🔍 Inspection &amp; Live Video Packing
+                  Inspection &amp; Live Video Packing
                 </a>
                 <div className="my-1 border-t border-white/10"></div>
                 <button
                   onClick={() => openWhatsApp('truck')}
                   className="w-full text-left px-3.5 py-2 rounded-xl text-[11px] font-bold hover:bg-white/10 hover:text-shipplix-yellow transition-colors cursor-pointer"
                 >
-                  🚚 Dedicated Truck &amp; Haulage
+                  Dedicated Truck &amp; Haulage
                 </button>
                 <button
                   onClick={() => openWhatsApp('van')}
                   className="w-full text-left px-3.5 py-2 rounded-xl text-[11px] font-bold hover:bg-white/10 hover:text-shipplix-yellow transition-colors cursor-pointer"
                 >
-                  🚐 Van &amp; Hiace Hire
+                  Van &amp; Hiace Hire
                 </button>
               </div>
             </div>
@@ -266,28 +265,28 @@ const Navbar = ({ onNavigate, currentPath }: { onNavigate?: (path: string) => vo
             <div className="absolute top-full left-0 pt-2 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-all duration-200 z-50 min-w-[280px]">
               <div className="bg-slate-900 border border-white/10 text-white rounded-2xl shadow-2xl p-2.5 backdrop-blur-xl">
                 <div className="px-3 py-1 text-[9px] font-black uppercase tracking-widest text-[#FFD700] border-b border-white/10 mb-1">
-                  ⭐ Core Export Corridors
+                  Core Export Corridors
                 </div>
                 <a 
                   href="#/ship-from-nigeria-to-usa" 
                   onClick={(e) => handleLinkClick(e, '/ship-from-nigeria-to-usa')} 
                   className={`block px-3.5 py-2 rounded-xl text-[11px] font-black hover:bg-white/10 hover:text-shipplix-yellow transition-colors ${currentPath === '/ship-from-nigeria-to-usa' ? 'bg-white/10 text-shipplix-yellow font-black' : ''}`}
                 >
-                  🇺🇸 Ship Nigeria to USA (All 50 States)
+                  Ship Nigeria to USA (All 50 States)
                 </a>
                 <a 
                   href="#/ship-from-nigeria-to-houston" 
                   onClick={(e) => handleLinkClick(e, '/ship-from-nigeria-to-houston')} 
                   className={`block px-3.5 py-2 rounded-xl text-[11px] font-bold hover:bg-white/10 hover:text-shipplix-yellow transition-colors ${currentPath === '/ship-from-nigeria-to-houston' ? 'bg-white/10 text-shipplix-yellow font-black' : ''}`}
                 >
-                  🇺🇸 Ship Nigeria to Houston, TX
+                  Ship Nigeria to Houston, TX
                 </a>
                 <a 
                   href="#/ship-from-nigeria-to-uk" 
                   onClick={(e) => handleLinkClick(e, '/ship-from-nigeria-to-uk')} 
                   className={`block px-3.5 py-2 rounded-xl text-[11px] font-black hover:bg-white/10 hover:text-shipplix-yellow transition-colors ${currentPath === '/ship-from-nigeria-to-uk' ? 'bg-white/10 text-shipplix-yellow font-black' : ''}`}
                 >
-                  🇬🇧 Ship Nigeria to UK (London Express)
+                  Ship Nigeria to UK (London Express)
                 </a>
                 <div className="px-3 py-1 text-[9px] font-black uppercase tracking-widest text-slate-400 border-t border-b border-white/10 my-1">
                   Global Corridors &amp; Imports
@@ -297,27 +296,27 @@ const Navbar = ({ onNavigate, currentPath }: { onNavigate?: (path: string) => vo
                   onClick={(e) => handleLinkClick(e, '/ship-from-nigeria-to-canada')} 
                   className={`block px-3.5 py-2 rounded-xl text-[11px] font-bold hover:bg-white/10 hover:text-shipplix-yellow transition-colors ${currentPath === '/ship-from-nigeria-to-canada' ? 'bg-white/10 text-shipplix-yellow font-black' : ''}`}
                 >
-                  🇨🇦 Ship Nigeria to Canada
+                  Ship Nigeria to Canada
                 </a>
                 <a 
                   href="#/ship-from-nigeria-to-europe" 
                   onClick={(e) => handleLinkClick(e, '/ship-from-nigeria-to-europe')} 
                   className={`block px-3.5 py-2 rounded-xl text-[11px] font-bold hover:bg-white/10 hover:text-shipplix-yellow transition-colors ${currentPath === '/ship-from-nigeria-to-europe' ? 'bg-white/10 text-shipplix-yellow font-black' : ''}`}
                 >
-                  🇪🇺 Ship Nigeria to Europe (EU-Wide)
+                  Ship Nigeria to Europe (EU-Wide)
                 </a>
                 <a 
                   href="#/ship-from-china-to-nigeria" 
                   onClick={(e) => handleLinkClick(e, '/ship-from-china-to-nigeria')} 
                   className={`block px-3.5 py-2 rounded-xl text-[11px] font-bold hover:bg-white/10 hover:text-shipplix-yellow transition-colors ${currentPath === '/ship-from-china-to-nigeria' ? 'bg-white/10 text-shipplix-yellow font-black' : ''}`}
                 >
-                  🇨🇳 China ↔ Nigeria (Import Trade)
+                  China ↔ Nigeria (Import Trade)
                 </a>
                 <button 
                   onClick={() => openWhatsApp('interstate')} 
                   className="w-full text-left px-3.5 py-2 rounded-xl text-[11px] font-bold hover:bg-white/10 hover:text-shipplix-yellow transition-colors cursor-pointer"
                 >
-                  🇳🇬 Interstate Transport (36 States)
+                  Interstate Transport (36 States)
                 </button>
               </div>
             </div>
@@ -649,16 +648,16 @@ const Navbar = ({ onNavigate, currentPath }: { onNavigate?: (path: string) => vo
                 </button>
                 {expandedMobileSection === 'routes' && (
                   <div className="pl-4 pr-2 py-2 flex flex-col gap-2 border-l-2 border-shipplix-yellow/40 my-1 bg-white/5 rounded-r-xl">
-                    <div className="text-[9px] font-black uppercase tracking-widest text-shipplix-yellow opacity-80 pt-1">⭐ Hero Routes</div>
-                    <a href="#/ship-from-nigeria-to-usa" onClick={(e) => handleLinkClick(e, '/ship-from-nigeria-to-usa')} className="py-1.5 text-white font-black hover:text-shipplix-yellow">🇺🇸 Ship Nigeria to USA</a>
-                    <a href="#/ship-from-nigeria-to-houston" onClick={(e) => handleLinkClick(e, '/ship-from-nigeria-to-houston')} className="py-1.5 text-slate-200 hover:text-shipplix-yellow">🇺🇸 Ship Nigeria to Houston, TX</a>
-                    <a href="#/ship-from-nigeria-to-uk" onClick={(e) => handleLinkClick(e, '/ship-from-nigeria-to-uk')} className="py-1.5 text-white font-black hover:text-shipplix-yellow">🇬🇧 Ship Nigeria to UK</a>
+                    <div className="text-[9px] font-black uppercase tracking-widest text-shipplix-yellow opacity-80 pt-1">Hero Routes</div>
+                    <a href="#/ship-from-nigeria-to-usa" onClick={(e) => handleLinkClick(e, '/ship-from-nigeria-to-usa')} className="py-1.5 text-white font-black hover:text-shipplix-yellow">Ship Nigeria to USA</a>
+                    <a href="#/ship-from-nigeria-to-houston" onClick={(e) => handleLinkClick(e, '/ship-from-nigeria-to-houston')} className="py-1.5 text-slate-200 hover:text-shipplix-yellow">Ship Nigeria to Houston, TX</a>
+                    <a href="#/ship-from-nigeria-to-uk" onClick={(e) => handleLinkClick(e, '/ship-from-nigeria-to-uk')} className="py-1.5 text-white font-black hover:text-shipplix-yellow">Ship Nigeria to UK</a>
                     <div className="text-[9px] font-black uppercase tracking-widest text-slate-400 pt-2 border-t border-white/10">Global Corridors</div>
-                    <a href="#/ship-from-nigeria-to-canada" onClick={(e) => handleLinkClick(e, '/ship-from-nigeria-to-canada')} className="py-1.5 text-slate-200 hover:text-shipplix-yellow">🇨🇦 Ship Nigeria to Canada</a>
-                    <a href="#/ship-from-nigeria-to-europe" onClick={(e) => handleLinkClick(e, '/ship-from-nigeria-to-europe')} className="py-1.5 text-slate-200 hover:text-shipplix-yellow">🇪🇺 Ship Nigeria to Europe</a>
-                    <a href="#/ship-from-china-to-nigeria" onClick={(e) => handleLinkClick(e, '/ship-from-china-to-nigeria')} className="py-1.5 text-slate-200 hover:text-shipplix-yellow">🇨🇳 China ↔ Nigeria (Import)</a>
-                    <a href="#/ship-from-usa-to-nigeria" onClick={(e) => handleLinkClick(e, '/ship-from-usa-to-nigeria')} className="py-1.5 text-slate-200 hover:text-shipplix-yellow">🇺🇸 Ship USA to Nigeria</a>
-                    <a href="#/ship-from-uk-to-nigeria" onClick={(e) => handleLinkClick(e, '/ship-from-uk-to-nigeria')} className="py-1.5 text-slate-200 hover:text-shipplix-yellow">🇬🇧 Ship UK to Nigeria</a>
+                    <a href="#/ship-from-nigeria-to-canada" onClick={(e) => handleLinkClick(e, '/ship-from-nigeria-to-canada')} className="py-1.5 text-slate-200 hover:text-shipplix-yellow">Ship Nigeria to Canada</a>
+                    <a href="#/ship-from-nigeria-to-europe" onClick={(e) => handleLinkClick(e, '/ship-from-nigeria-to-europe')} className="py-1.5 text-slate-200 hover:text-shipplix-yellow">Ship Nigeria to Europe</a>
+                    <a href="#/ship-from-china-to-nigeria" onClick={(e) => handleLinkClick(e, '/ship-from-china-to-nigeria')} className="py-1.5 text-slate-200 hover:text-shipplix-yellow">China ↔ Nigeria (Import)</a>
+                    <a href="#/ship-from-usa-to-nigeria" onClick={(e) => handleLinkClick(e, '/ship-from-usa-to-nigeria')} className="py-1.5 text-slate-200 hover:text-shipplix-yellow">Ship USA to Nigeria</a>
+                    <a href="#/ship-from-uk-to-nigeria" onClick={(e) => handleLinkClick(e, '/ship-from-uk-to-nigeria')} className="py-1.5 text-slate-200 hover:text-shipplix-yellow">Ship UK to Nigeria</a>
                   </div>
                 )}
               </div>
@@ -832,7 +831,7 @@ const Hero = ({ onNavigate }: { onNavigate?: (path: string) => void }) => {
   };
 
   const handleWhatsApp = () => {
-    const message = `Hello Shipplix! 📦
+    const message = `Hello Shipplix!
 
 I would like to get a shipping quote / book specialized international shipping.
 
@@ -907,7 +906,7 @@ Please provide me with your latest schedules and rates. Thank you!`;
 
               {/* Core Reassuring Statement */}
               <p className="text-sm sm:text-base text-slate-200 font-medium leading-relaxed max-w-xl">
-                From foodstuff, dried fish, kpomo, and Miss Paris perfume to spiritual products, approved medication, fashion, and commercial inventory — tell us what you want to move, where it is going, and Shipplix handles the rest.
+                From foodstuff, dried fish, kpomo, and Miss Paris perfume to spiritual products, approved medication, fashion, and commercial inventory: tell us what you want to move, where it is going, and Shipplix handles the rest.
               </p>
 
               {/* CTA Action Row */}
@@ -1009,10 +1008,9 @@ Please provide me with your latest schedules and rates. Thank you!`;
                         Global Movement Corridors
                       </div>
                       <div className="text-xs font-black text-white">
-                        Lagos MMIA ✈️ Houston • London • Toronto • Guangzhou
+                        Lagos MMIA to Houston • London • Toronto • Guangzhou
                       </div>
                     </div>
-                    <span className="text-xl">🌍</span>
                   </div>
                 </div>
               </div>
@@ -1034,7 +1032,6 @@ Please provide me with your latest schedules and rates. Thank you!`;
 
               {/* Floating Mini Highlight Badge 2: Flight Status */}
               <div className="hidden sm:flex absolute -top-4 -right-4 bg-slate-900/90 text-white p-3 rounded-2xl shadow-xl border border-white/20 items-center gap-2.5 backdrop-blur-md">
-                <span className="text-xl">📦</span>
                 <div>
                   <div className="text-[9px] font-black uppercase text-[#FFD700] tracking-wider">
                     Weekly Cargo Flights
@@ -1233,11 +1230,11 @@ const TopItemCategoriesShipped = () => {
   const [activeTab, setActiveTab] = React.useState<TabId>('China');
 
   const tabs: { id: TabId; label: string }[] = [
-    { id: 'China', label: '🇨🇳 China' },
-    { id: 'USA', label: '🇺🇸 USA' },
-    { id: 'UK', label: '🇬🇧 United Kingdom' },
-    { id: 'Canada', label: '🇨🇦 Canada' },
-    { id: 'Europe', label: '🌍 Europe' }
+    { id: 'China', label: 'China' },
+    { id: 'USA', label: 'USA' },
+    { id: 'UK', label: 'United Kingdom' },
+    { id: 'Canada', label: 'Canada' },
+    { id: 'Europe', label: 'Europe' }
   ];
 
   const categoriesData = {
@@ -1853,7 +1850,7 @@ const ShippingServices = () => {
       icon: <Plane className="text-[#FEB919]" size={24} />,
       image: servicePlaneBoxes,
       features: ["Weekly scheduled flights to Houston, NY, Atlanta, Dallas", "Full US Customs & FDA document clearance", "Door-to-door delivery across all 50 US states"],
-      badge: "⭐ Primary Corridor • Express"
+      badge: "Primary Corridor • Express"
     },
     {
       title: "Nigeria → UK Express Air Freight",
@@ -1864,7 +1861,7 @@ const ShippingServices = () => {
       icon: <Plane className="text-[#FEB919]" size={24} />,
       image: servicePlaneBoxes,
       features: ["Direct flights to London Heathrow / Gatwick", "UK Border Force & Customs handling", "Doorstep delivery in London, Manchester, Birmingham & Scotland"],
-      badge: "⭐ Primary Corridor • Express"
+      badge: "Primary Corridor • Express"
     },
     {
       title: "Nigeria → Canada Air Cargo",
@@ -2572,9 +2569,9 @@ const ExportHub = () => {
       icon: <Box className="text-shipplix-yellow" size={24} />,
     },
     {
-      title: "AI & Digital Marketing",
-      desc: "Intelligent AI WhatsApp auto-responders, customer service bots, and targeted ad campaigns to acquire high-converting global buyers.",
-      icon: <Bot className="text-shipplix-yellow" size={24} />,
+      title: "Digital Marketing & Outreach",
+      desc: "Professional WhatsApp messaging, customer inquiry routing, and targeted marketing campaigns to acquire high-converting global buyers.",
+      icon: <MessageSquare className="text-shipplix-yellow" size={24} />,
     },
     {
       title: "Export Products Worldwide",
@@ -2596,7 +2593,7 @@ const ExportHub = () => {
   const timeline = [
     { step: "1", title: "Build Your Store" },
     { step: "2", title: "Import From China" },
-    { step: "3", title: "AI & Marketing Setup" },
+    { step: "3", title: "Marketing & Sales Setup" },
     { step: "4", title: "Sell Locally & Globally" },
     { step: "5", title: "Export With Shipplix" },
     { step: "6", title: "Scale Global Brand" },
@@ -2632,7 +2629,7 @@ const ExportHub = () => {
                 &amp; Logistics Ecosystem
               </h2>
               <p className="text-lg text-white/80 font-medium max-w-xl mb-10 leading-relaxed md:text-xl">
-                Shipplix Growth Platform empowers entrepreneurs to build an online store, import high-demand products from China, generate customers using AI and digital marketing, export goods worldwide, accept international payments, and scale into a thriving global brand.
+                Shipplix Growth Platform empowers entrepreneurs to build an online store, import high-demand products from China, generate customers using digital marketing, export goods worldwide, accept international payments, and scale into a thriving global brand.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Button 
@@ -2700,10 +2697,10 @@ const ExportHub = () => {
                 <div className="flex items-center justify-between mb-6">
                   <div className="flex items-center gap-3">
                     <div className="w-10 h-10 rounded-full bg-shipplix-yellow/20 flex items-center justify-center">
-                      <Cpu size={20} className="text-shipplix-yellow" />
+                      <Zap size={20} className="text-shipplix-yellow" />
                     </div>
                     <div>
-                      <div className="text-xs font-black uppercase text-white tracking-widest">AI Hub</div>
+                      <div className="text-xs font-black uppercase text-white tracking-widest">Growth Hub</div>
                       <div className="text-[10px] text-white/50 uppercase">Analysis...</div>
                     </div>
                   </div>

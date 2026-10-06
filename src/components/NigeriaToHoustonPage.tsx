@@ -12,7 +12,6 @@ import {
   ArrowRight, 
   AlertTriangle,
   Shirt,
-  Sparkles,
   MapPin,
   Lock,
   ChevronDown,
@@ -637,42 +636,42 @@ export default function NigeriaToHoustonPage({ onNavigate }: NigeriaToHoustonPag
                 onClick={(e) => handleLinkClick(e, '/ship-from-nigeria-to-usa')}
                 className="bg-slate-100 hover:bg-blue-900 hover:text-white text-slate-800 px-4 py-2.5 rounded-xl transition-all"
               >
-                🇺🇸 Ship Nigeria to USA (All States)
+                Ship Nigeria to USA (All States)
               </a>
               <a 
                 href="#/ship-from-usa-to-nigeria" 
                 onClick={(e) => handleLinkClick(e, '/ship-from-usa-to-nigeria')}
                 className="bg-slate-100 hover:bg-blue-900 hover:text-white text-slate-800 px-4 py-2.5 rounded-xl transition-all"
               >
-                🇺🇸 Ship USA to Nigeria
+                Ship USA to Nigeria
               </a>
               <a 
                 href="#/ship-from-nigeria-to-uk" 
                 onClick={(e) => handleLinkClick(e, '/ship-from-nigeria-to-uk')}
                 className="bg-slate-100 hover:bg-blue-900 hover:text-white text-slate-800 px-4 py-2.5 rounded-xl transition-all"
               >
-                🇬🇧 Ship Nigeria to UK
+                Ship Nigeria to UK
               </a>
               <a 
                 href="#/ship-from-nigeria-to-canada" 
                 onClick={(e) => handleLinkClick(e, '/ship-from-nigeria-to-canada')}
                 className="bg-slate-100 hover:bg-blue-900 hover:text-white text-slate-800 px-4 py-2.5 rounded-xl transition-all"
               >
-                🇨🇦 Ship Nigeria to Canada
+                Ship Nigeria to Canada
               </a>
               <a 
                 href="#/ship-from-china-to-nigeria" 
                 onClick={(e) => handleLinkClick(e, '/ship-from-china-to-nigeria')}
                 className="bg-slate-100 hover:bg-blue-900 hover:text-white text-slate-800 px-4 py-2.5 rounded-xl transition-all"
               >
-                🇨🇳 Ship China to Nigeria
+                Ship China to Nigeria
               </a>
               <a 
                 href="#/cargo-items" 
                 onClick={(e) => handleLinkClick(e, '/cargo-items')}
                 className="bg-slate-100 hover:bg-blue-900 hover:text-white text-slate-800 px-4 py-2.5 rounded-xl transition-all"
               >
-                📦 Cargo Guidelines
+                Cargo Guidelines
               </a>
             </div>
           </div>

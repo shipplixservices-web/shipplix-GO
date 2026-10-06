@@ -9,7 +9,6 @@ import {
   Palette, 
   Box, 
   ArrowRight, 
-  Sparkles,
   HelpCircle,
   FileCheck
 } from 'lucide-react';
@@ -248,7 +247,7 @@ export default function CargoItemsPage() {
       <section className="py-16 bg-white border-y border-slate-200">
         <div className="container mx-auto px-6 max-w-4xl text-center">
           <div className="inline-flex items-center justify-center w-12 h-12 bg-amber-100 text-amber-600 rounded-xl mb-6">
-            <Sparkles size={24} />
+            <FileCheck size={24} />
           </div>
           <h2 className="text-2xl md:text-3xl font-black text-blue-950 uppercase tracking-tighter mb-4">
             Pro Tips: Foodstuff Export Packaging

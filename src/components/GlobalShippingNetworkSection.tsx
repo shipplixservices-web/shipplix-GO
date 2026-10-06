@@ -9,7 +9,6 @@ import {
   ShieldCheck, 
   CheckCircle2, 
   Box, 
-  Sparkles,
   ExternalLink
 } from 'lucide-react';
 import { motion } from 'motion/react';
@@ -169,7 +168,7 @@ export const GlobalShippingNetworkSection: React.FC = () => {
             transition={{ duration: 0.5, delay: 0.1 }}
             className="text-3xl md:text-5xl font-black text-slate-900 uppercase tracking-tighter mb-4 leading-tight"
           >
-            🌍 Our Global <span className="text-[#032B73] underline decoration-[#FFD700] decoration-4 underline-offset-8">Shipping Network</span>
+            Our Global <span className="text-[#032B73] underline decoration-[#FFD700] decoration-4 underline-offset-8">Shipping Network</span>
           </motion.h2>
 
           <motion.p 
@@ -223,7 +222,6 @@ export const GlobalShippingNetworkSection: React.FC = () => {
               {/* Route Summary Details */}
               <div className="lg:col-span-7 space-y-5">
                 <div className="inline-flex items-center gap-2 bg-[#FFD700] text-[#032B73] font-black px-3.5 py-1 rounded-full text-[11px] uppercase tracking-widest shadow-md">
-                  <Sparkles size={12} />
                   Active Freight Corridor
                 </div>
 
