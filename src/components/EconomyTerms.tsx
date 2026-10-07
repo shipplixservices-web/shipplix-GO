@@ -616,7 +616,7 @@ export default function EconomyTerms({ onBack }: { onBack: () => void }) {
                             Where an exceptional delay occurs, the shipment may take longer than the normal estimated timeframe. <strong>In exceptional circumstances, delivery may extend up to 19 business days.</strong>
                           </p>
                           <p className="text-xs leading-relaxed font-bold text-slate-900 mt-2">
-                            Important Clarification: The 19-business-day period is an exceptional delay contingency provision and is NOT the standard delivery timeframe. Most shipments arrive within 9–14 business days.
+                            Important Clarification: The 19-business-day period is an exceptional delay contingency provision and is NOT the standard delivery timeframe. Most shipments arrive within 9-14 business days.
                           </p>
                         </div>
                       </motion.div>

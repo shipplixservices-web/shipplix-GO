@@ -30,7 +30,6 @@ import {
   User,
   TrendingUp,
   ShoppingCart,
-  Zap,
   MessageSquare,
   Store,
   FileCheck,
@@ -147,14 +146,74 @@ const Navbar = ({ onNavigate, currentPath }: { onNavigate?: (path: string) => vo
   const [expandedMobileSection, setExpandedMobileSection] = React.useState<string | null>(null);
   const [showNotifications, setShowNotifications] = React.useState(false);
   const [showAccountMenu, setShowAccountMenu] = React.useState(false);
+  const [supportOpen, setSupportOpen] = React.useState(false);
+  const lastFaqClickRef = React.useRef(0);
 
   const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, path: string) => {
     e.preventDefault();
     setIsOpen(false);
     setShowNotifications(false);
     setShowAccountMenu(false);
+    setSupportOpen(false);
     onNavigate?.(path);
   };
+
+  const handleFaqNavigation = (e?: React.SyntheticEvent) => {
+    if (e) {
+      e.preventDefault();
+    }
+    const now = Date.now();
+    if (now - lastFaqClickRef.current < 250) {
+      return;
+    }
+    lastFaqClickRef.current = now;
+
+    setSupportOpen(false);
+    setIsOpen(false);
+    setShowNotifications(false);
+    setShowAccountMenu(false);
+
+    if (window.location.hash !== '#faq') {
+      window.history.pushState(null, '', '/#faq');
+    }
+
+    const scrollToFaq = () => {
+      const el = document.getElementById('faq');
+      if (el) {
+        const headerHeight = 72;
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop || 0;
+        const targetTop = el.getBoundingClientRect().top + scrollTop - headerHeight;
+        window.scrollTo({ top: Math.max(0, targetTop), behavior: 'smooth' });
+        return true;
+      }
+      return false;
+    };
+
+    if (currentPath !== '/') {
+      onNavigate?.('/#faq');
+      setTimeout(scrollToFaq, 60);
+      setTimeout(scrollToFaq, 200);
+      setTimeout(scrollToFaq, 500);
+    } else {
+      scrollToFaq();
+      setTimeout(scrollToFaq, 60);
+      setTimeout(scrollToFaq, 200);
+    }
+  };
+
+  React.useEffect(() => {
+    if (!supportOpen) return;
+    const handleOutsideClick = (e: MouseEvent | TouchEvent) => {
+      const target = e.target as HTMLElement | null;
+      if (target && !target.closest('.support-dropdown-container')) {
+        setSupportOpen(false);
+      }
+    };
+    document.addEventListener('click', handleOutsideClick);
+    return () => {
+      document.removeEventListener('click', handleOutsideClick);
+    };
+  }, [supportOpen]);
 
   const toggleMobileSection = (section: string) => {
     setExpandedMobileSection(prev => prev === section ? null : section);
@@ -223,7 +282,7 @@ const Navbar = ({ onNavigate, currentPath }: { onNavigate?: (path: string) => vo
                   onClick={(e) => handleLinkClick(e, '/economy-cargo')} 
                   className={`block px-3.5 py-2 rounded-xl text-[11px] font-bold hover:bg-white/10 hover:text-shipplix-yellow transition-colors ${currentPath === '/economy-cargo' ? 'bg-white/10 text-shipplix-yellow font-black' : ''}`}
                 >
-                  Economy Air Cargo (9–14 Days)
+                  Economy Air Cargo (9-14 Days)
                 </a>
                 <a 
                   href="#/cargo-items" 
@@ -357,15 +416,26 @@ const Navbar = ({ onNavigate, currentPath }: { onNavigate?: (path: string) => vo
           </button>
 
           {/* 5. Support */}
-          <div className="relative group py-2">
-            <button className="flex items-center gap-1 hover:text-shipplix-yellow transition-colors font-bold uppercase tracking-wider focus:outline-none cursor-pointer">
+          <div className="relative group py-2 support-dropdown-container">
+            <button 
+              type="button"
+              onClick={() => {
+                setSupportOpen(prev => !prev);
+                setShowNotifications(false);
+                setShowAccountMenu(false);
+              }}
+              className="flex items-center gap-1 hover:text-shipplix-yellow transition-colors font-bold uppercase tracking-wider focus:outline-none cursor-pointer"
+            >
               <span>Support</span>
-              <ChevronDown size={13} className="transition-transform duration-200 group-hover:rotate-180 text-shipplix-yellow" />
+              <ChevronDown size={13} className={`transition-transform duration-200 text-shipplix-yellow ${supportOpen ? 'rotate-180' : 'group-hover:rotate-180'}`} />
             </button>
-            <div className="absolute top-full left-0 pt-2 opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-all duration-200 z-50 min-w-[240px]">
+            <div className={`absolute top-full left-0 pt-2 transition-all duration-200 z-50 min-w-[240px] ${supportOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto'}`}>
               <div className="bg-slate-900 border border-white/10 text-white rounded-2xl shadow-2xl p-2.5 backdrop-blur-xl">
                 <button 
-                  onClick={() => openWhatsApp('need_help')} 
+                  onClick={() => {
+                    setSupportOpen(false);
+                    openWhatsApp('need_help');
+                  }} 
                   className="w-full text-left px-3.5 py-2.5 rounded-xl hover:bg-white/10 transition-colors flex items-center justify-between text-[11px] font-bold text-emerald-400 cursor-pointer"
                 >
                   <span className="flex items-center gap-2">
@@ -374,16 +444,22 @@ const Navbar = ({ onNavigate, currentPath }: { onNavigate?: (path: string) => vo
                   </span>
                   <span className="text-[9px] bg-emerald-500/20 text-emerald-400 px-1.5 py-0.5 rounded uppercase font-black">24/7</span>
                 </button>
-                <a href="#/trust" onClick={(e) => handleLinkClick(e, '/trust')} className="block px-3.5 py-2 rounded-xl text-[11px] font-bold text-slate-200 hover:bg-white/10 hover:text-shipplix-yellow transition-colors">
+                <a href="#/trust" onClick={(e) => { setSupportOpen(false); handleLinkClick(e, '/trust'); }} className="block px-3.5 py-2 rounded-xl text-[11px] font-bold text-slate-200 hover:bg-white/10 hover:text-shipplix-yellow transition-colors">
                   Trust &amp; Export Security
                 </a>
-                <a href="#faq" onClick={(e) => {
-                  e.preventDefault();
-                  document.getElementById('faq')?.scrollIntoView({ behavior: 'smooth' });
-                }} className="block px-3.5 py-2 rounded-xl text-[11px] font-bold text-slate-200 hover:bg-white/10 hover:text-shipplix-yellow transition-colors">
+                <a 
+                  href="/#faq" 
+                  onClick={handleFaqNavigation}
+                  onPointerDown={(e) => {
+                    if (e.button === 0) {
+                      handleFaqNavigation(e);
+                    }
+                  }}
+                  className="block px-3.5 py-2 rounded-xl text-[11px] font-bold text-slate-200 hover:bg-white/10 hover:text-shipplix-yellow transition-colors cursor-pointer"
+                >
                   Frequently Asked Questions
                 </a>
-                <a href="mailto:services@shipplix.com" className="block px-3.5 py-2 rounded-xl text-[11px] font-medium text-slate-400 hover:text-white transition-colors lowercase">
+                <a href="mailto:services@shipplix.com" onClick={() => setSupportOpen(false)} className="block px-3.5 py-2 rounded-xl text-[11px] font-medium text-slate-400 hover:text-white transition-colors lowercase">
                   services@shipplix.com
                 </a>
               </div>
@@ -551,12 +627,9 @@ const Navbar = ({ onNavigate, currentPath }: { onNavigate?: (path: string) => vo
                       <ExternalLink size={12} className="text-slate-400" />
                     </a>
 
-                    <button
-                      onClick={() => {
-                        setShowAccountMenu(false);
-                        const el = document.getElementById('tracking-section') || document.getElementById('quick-actions');
-                        el?.scrollIntoView({ behavior: 'smooth' });
-                      }}
+                    <a
+                      href="https://track.shipplix.com"
+                      onClick={() => setShowAccountMenu(false)}
                       className="w-full text-left px-3 py-2 rounded-xl hover:bg-white/10 transition-colors flex items-center justify-between text-xs font-black uppercase tracking-wider text-white cursor-pointer"
                     >
                       <span className="flex items-center gap-2">
@@ -564,7 +637,7 @@ const Navbar = ({ onNavigate, currentPath }: { onNavigate?: (path: string) => vo
                         <span>Track Airway Bill</span>
                       </span>
                       <ArrowRight size={12} className="text-slate-400" />
-                    </button>
+                    </a>
 
                     <button
                       onClick={() => {
@@ -963,7 +1036,7 @@ Please provide me with your latest schedules and rates. Thank you!`;
                   <div className="w-5 h-5 rounded-full bg-blue-400/20 text-blue-300 flex items-center justify-center shrink-0">
                     <Plane size={13} />
                   </div>
-                  <span>3–5 Days Express Flights</span>
+                  <span>3-5 Days Express Flights</span>
                 </div>
               </div>
 
@@ -1843,7 +1916,7 @@ const ShippingServices = () => {
   const internationalOptions = [
     {
       title: "Nigeria → USA Express Air Freight",
-      time: "3–5 Business Days",
+      time: "3-5 Business Days",
       desc: "Send food products, fashion items, business inventory and diaspora packages from Nigeria to all 50 US States with customs clearance included.",
       benefit: "Priority US Hub Express",
       useCase: "Foodstuffs (Egusi, Ogbono, Fish), fashion apparel, hair, diaspora & commercial cargo",
@@ -1854,7 +1927,7 @@ const ShippingServices = () => {
     },
     {
       title: "Nigeria → UK Express Air Freight",
-      time: "3–5 Business Days",
+      time: "3-5 Business Days",
       desc: "Direct air cargo exports from Nigeria to the United Kingdom with coordinated pickup, packaging inspection, and last-mile door delivery.",
       benefit: "Direct London Line-Haul",
       useCase: "Packaged groceries, African fashion, cosmetics, retail stock & diaspora parcels",
@@ -1865,7 +1938,7 @@ const ShippingServices = () => {
     },
     {
       title: "Nigeria → Canada Air Cargo",
-      time: "5–7 Business Days",
+      time: "5-7 Business Days",
       desc: "Dependable air freight service connecting Nigerian shippers with buyers and families across Toronto, Calgary, Edmonton, Ottawa, and all 10 provinces.",
       benefit: "All 10 Provinces Doorstep Reach",
       useCase: "Food items, African fabrics, artisan crafts & commercial samples",
@@ -1876,7 +1949,7 @@ const ShippingServices = () => {
     },
     {
       title: "Nigeria → Europe Express Cargo",
-      time: "5–7 Business Days",
+      time: "5-7 Business Days",
       desc: "Comprehensive export solutions from Nigeria to Germany, France, Italy, Ireland, Netherlands, Spain and destinations across the European Union.",
       benefit: "Pan-European Door Delivery",
       useCase: "African food groceries, fashion textiles, cosmetics & business goods",
@@ -1887,7 +1960,7 @@ const ShippingServices = () => {
     },
     {
       title: "China ↔ Nigeria Bilateral Freight",
-      time: "Air Express (5–8 Days) & Sea Cargo",
+      time: "Air Express (5-8 Days) & Sea Cargo",
       desc: "End-to-end China-Nigeria trade support: supplier verification, product sourcing, warehouse consolidation in Guangzhou/Yiwu, shipping & customs clearing in Lagos.",
       benefit: "Direct Factory Sourcing & Port Clearing",
       useCase: "Electronics, machinery, fashion apparel, auto parts & raw materials",
@@ -1898,7 +1971,7 @@ const ShippingServices = () => {
     },
     {
       title: "International Sea Freight & Containers",
-      time: "Economy Sea Cargo (4–6 Weeks)",
+      time: "Economy Sea Cargo (4-6 Weeks)",
       desc: "Consolidated Less than Container Load (LCL) and Full Container Load (FCL) sea freight for high-volume commercial shipments, heavy machinery, and commodities.",
       benefit: "Maximum Economy on Bulk Freight",
       useCase: "Heavy manufacturing equipment, agricultural commodities, bulk raw materials",
@@ -2138,7 +2211,7 @@ const DomesticLogisticsSection = () => {
               </p>
               <div className="pt-3 border-t border-slate-100 flex items-center justify-between text-[11px] font-bold text-[#032B73]">
                 <span>Scheduled Linehaul</span>
-                <span className="text-slate-400 text-[10px]">1–3 Days</span>
+                <span className="text-slate-400 text-[10px]">1-3 Days</span>
               </div>
             </div>
           ))}
@@ -2174,13 +2247,13 @@ const TruckVanHireSection = () => {
     },
     { 
       title: "3-Ton & 5-Ton Trucks", 
-      cap: "3,000kg – 5,000kg", 
+      cap: "3,000kg to 5,000kg", 
       use: "Medium commercial shipments, warehouse inventory transfers & corporate moves.",
       image: serviceTruckHaulage
     },
     { 
       title: "10-Ton & 30-Ton Haulage", 
-      cap: "10,000kg – 30,000kg", 
+      cap: "10,000kg to 30,000kg", 
       use: "Heavy industrial cargo, agricultural commodities, construction materials & container haulage.",
       image: heroLogisticsBanner
     }
@@ -2408,6 +2481,26 @@ const Testimonials = () => (
 const FAQSection = () => {
   const [activeIndex, setActiveIndex] = React.useState<number | null>(null);
 
+  React.useEffect(() => {
+    if (typeof window !== 'undefined' && (window.location.hash === '#faq' || window.location.hash === '#/faq')) {
+      const scrollToFaq = () => {
+        const el = document.getElementById('faq');
+        if (el) {
+          const headerHeight = 72;
+          const scrollTop = window.pageYOffset || document.documentElement.scrollTop || 0;
+          const targetTop = el.getBoundingClientRect().top + scrollTop - headerHeight;
+          window.scrollTo({ top: Math.max(0, targetTop), behavior: 'smooth' });
+        }
+      };
+      const t1 = setTimeout(scrollToFaq, 80);
+      const t2 = setTimeout(scrollToFaq, 300);
+      return () => {
+        clearTimeout(t1);
+        clearTimeout(t2);
+      };
+    }
+  }, []);
+
   const faqs = [
     {
       question: "What are the exact transit times to China, USA, UK, Canada, and Europe?",
@@ -2440,7 +2533,8 @@ const FAQSection = () => {
   ];
 
   return (
-    <section className="py-20 bg-slate-50 border-y border-slate-200 font-sans" id="faqs">
+    <section className="scroll-mt-24 py-20 bg-slate-50 border-y border-slate-200 font-sans" id="faq">
+      <div id="faqs" className="hidden" aria-hidden="true" />
       <div className="container mx-auto px-6 max-w-4xl">
         <SectionTitle 
           title="Frequently Asked Questions" 
@@ -2619,7 +2713,6 @@ const ExportHub = () => {
               viewport={{ once: true }}
             >
               <div className="inline-flex items-center gap-2 bg-shipplix-yellow/10 border border-shipplix-yellow/20 px-3 py-1 rounded-full mb-6 text-shipplix-yellow text-[10px] uppercase font-black tracking-widest">
-                <Zap size={14} className="animate-pulse" />
                 Shipplix Growth Platform
               </div>
               <p className="text-shipplix-yellow font-bold text-lg mb-2 tracking-tight uppercase">Build • Sell • Import • Export • Scale Globally</p>
@@ -2697,7 +2790,7 @@ const ExportHub = () => {
                 <div className="flex items-center justify-between mb-6">
                   <div className="flex items-center gap-3">
                     <div className="w-10 h-10 rounded-full bg-shipplix-yellow/20 flex items-center justify-center">
-                      <Zap size={20} className="text-shipplix-yellow" />
+                      <TrendingUp size={20} className="text-shipplix-yellow" />
                     </div>
                     <div>
                       <div className="text-xs font-black uppercase text-white tracking-widest">Growth Hub</div>
@@ -2878,17 +2971,6 @@ const ExportHub = () => {
              </div>
           </div>
         </motion.div>
-      </div>
-
-      {/* Sticky Mobile CTA for this section (optional but prompt requested) */}
-      <div className="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 w-[90%] md:hidden pointer-events-none">
-          <motion.div 
-            initial={{ y: 100 }}
-            whileInView={{ y: 0 }}
-            className="pointer-events-auto"
-          >
-             {/* This could be a floating message button or similar, but the user requested a sticky mobile CTA */}
-          </motion.div>
       </div>
     </section>
   );
@@ -3150,121 +3232,121 @@ function updatePageSeo(path: string) {
 
   const seoDataMap: Record<string, SeoConfig> = {
     '/': {
-      title: "Shipplix – Global Commerce & Logistics Platform | Expand Beyond Borders",
+      title: "Shipplix | Global Commerce & Logistics Platform | Expand Beyond Borders",
       description: "Shipplix is a leading global commerce and international logistics platform. We offer door-to-door express air cargo, China-to-Nigeria import freight, export systems, customs clearance, and global commerce growth.",
-      ogTitle: "Shipplix – Global Commerce & Logistics Platform",
+      ogTitle: "Shipplix | Global Commerce & Logistics Platform",
       ogDescription: "Door-to-door express air cargo, China-to-Nigeria import, international exports, customs clearance, and global commerce tools."
     },
     '/ship-from-nigeria-to-usa': {
       title: "Ship from Nigeria to USA | Fast, Reliable & Affordable Air Cargo | Shipplix",
       description: "Fast 3-5 business day door-to-door air freight shipping from Nigeria to all 50 US states. Customs cleared, tracking included, handling commercial cargo and African foodstuff.",
-      ogTitle: "Ship from Nigeria to USA – Express Air Cargo | Shipplix",
+      ogTitle: "Ship from Nigeria to USA: Express Air Cargo | Shipplix",
       ogDescription: "Deliver packages from Lagos, Abuja, or PH to any US state in 3-5 days with full customs clearance and real-time tracking."
     },
     '/ship-from-nigeria-to-houston': {
       title: "Ship from Nigeria to Houston, Texas | Fast, Secure & Affordable Delivery | Shipplix",
       description: "Direct door-to-door air cargo shipping from Nigeria to Houston, Sugar Land, Katy, and The Woodlands, TX. Fast 3-5 day delivery for foodstuffs, commercial goods, and packages.",
-      ogTitle: "Ship from Nigeria to Houston, TX – Direct Air Cargo | Shipplix",
+      ogTitle: "Ship from Nigeria to Houston, TX: Direct Air Cargo | Shipplix",
       ogDescription: "Seamless express air cargo from Nigeria to Houston, Texas diaspora community. Fast, reliable, fully cleared customs."
     },
     '/ship-from-nigeria-to-uk': {
       title: "Ship from Nigeria to UK | Fast, Secure & Affordable Delivery | Shipplix",
       description: "Express 3-5 business day air freight shipping from Nigeria to London, Manchester, Birmingham, and across the UK. Full UK customs clearance & doorstep delivery.",
-      ogTitle: "Ship from Nigeria to UK – Express Doorstep Delivery | Shipplix",
+      ogTitle: "Ship from Nigeria to UK: Express Doorstep Delivery | Shipplix",
       ogDescription: "Send food items, fashion, and commercial goods from Nigeria to the United Kingdom with guaranteed fast clearance."
     },
     '/ship-from-nigeria-to-canada': {
       title: "Ship from Nigeria to Canada | Fast, Secure & Affordable Air Cargo | Shipplix",
       description: "Reliable air cargo shipping from Nigeria to Toronto, Calgary, Montreal, Vancouver, and all Canadian provinces. CBSA cleared with door delivery.",
-      ogTitle: "Ship from Nigeria to Canada – Air Cargo Logistics | Shipplix",
+      ogTitle: "Ship from Nigeria to Canada: Air Cargo Logistics | Shipplix",
       ogDescription: "Door-to-door air cargo shipping from Nigeria to Canada. Fast clearance and direct delivery to Canadian addresses."
     },
     '/ship-from-nigeria-to-europe': {
       title: "Ship from Nigeria to Europe | Fast, Secure & Affordable Delivery | Shipplix",
       description: "Express air freight delivery from Nigeria to Germany, France, Netherlands, Ireland, Italy, and EU destinations. Complete customs handling and tracking.",
-      ogTitle: "Ship from Nigeria to Europe – EU Doorstep Air Cargo | Shipplix",
+      ogTitle: "Ship from Nigeria to Europe: EU Doorstep Air Cargo | Shipplix",
       ogDescription: "Ship food, commercial goods, and personal packages from Nigeria to EU countries safely and fast."
     },
     '/ship-from-china-to-nigeria': {
       title: "Ship from China to Nigeria | Air Cargo & Sea Freight Import | Shipplix",
       description: "Hassle-free China to Nigeria import freight forwarding. Express air cargo (3-7 days) & sea freight consolidation with Lagos door delivery and clearing.",
-      ogTitle: "Ship from China to Nigeria – Import Freight & Air Cargo | Shipplix",
+      ogTitle: "Ship from China to Nigeria: Import Freight & Air Cargo | Shipplix",
       ogDescription: "Source goods in China and ship seamlessly to Lagos, Abuja, and Port Harcourt with full customs clearing."
     },
     '/ship-from-usa-to-nigeria': {
       title: "Ship from USA to Nigeria | Fast, Secure & Affordable Delivery | Shipplix",
       description: "Express air cargo and procurement shipping from the USA to Nigeria. Ship online purchases and commercial packages straight to your doorstep.",
-      ogTitle: "Ship from USA to Nigeria – Fast Express Air Cargo | Shipplix",
+      ogTitle: "Ship from USA to Nigeria: Fast Express Air Cargo | Shipplix",
       ogDescription: "Import from the United States to Nigeria with fast transit, reliable customs handling, and Lagos door delivery."
     },
     '/ship-from-uk-to-nigeria': {
       title: "Ship from UK to Nigeria | Fast, Secure & Affordable Delivery | Shipplix",
       description: "Reliable freight shipping from UK to Nigeria. Doorstep collection across UK and fast delivery to Lagos, Abuja, and all Nigerian states.",
-      ogTitle: "Ship from UK to Nigeria – Reliable Freight & Courier | Shipplix",
+      ogTitle: "Ship from UK to Nigeria: Reliable Freight & Courier | Shipplix",
       ogDescription: "Ship personal items and commercial purchases from the UK to Nigeria with transparent pricing."
     },
     '/cargo-items': {
-      title: "Permitted Export & Cargo Items Catalog – Shipplix",
+      title: "Permitted Export & Cargo Items Catalog | Shipplix",
       description: "Check approved export items, packaged African foodstuffs, commercial goods, and restricted cargo rules for international shipping.",
-      ogTitle: "Permitted Export & Cargo Items Catalog – Shipplix",
+      ogTitle: "Permitted Export & Cargo Items Catalog | Shipplix",
       ogDescription: "Comprehensive guidelines on what you can ship internationally from Nigeria, including packaging requirements and customs rules."
     },
     '/economy-cargo': {
-      title: "Economy Cargo & Split Space Shipping – Shipplix",
+      title: "Economy Cargo & Split Space Shipping | Shipplix",
       description: "Save up to 40% on international shipping with Shipplix Economy Group Cargo. Consolidated space for budget-friendly air freight.",
-      ogTitle: "Economy Cargo & Group Space Shipping – Shipplix",
+      ogTitle: "Economy Cargo & Group Space Shipping | Shipplix",
       ogDescription: "Affordable consolidated group cargo shipping for budget-conscious business owners and exporters."
     },
     '/processing': {
-      title: "Customs Clearance & Processing Flow – Shipplix",
+      title: "Customs Clearance & Processing Flow | Shipplix",
       description: "Learn about Shipplix 5-stage export processing flow: reception, inspection, vacuum packaging, customs manifest, and air uplift.",
-      ogTitle: "Customs Clearance & Processing Flow – Shipplix",
+      ogTitle: "Customs Clearance & Processing Flow | Shipplix",
       ogDescription: "Transparent step-by-step export clearance and security inspection process at MMIA Lagos."
     },
     '/trust': {
-      title: "Trust & Anti-Scam Verification – Shipplix",
+      title: "Trust & Anti-Scam Verification | Shipplix",
       description: "Shipplix official verification portal. Learn about our official communication channels, office addresses, bank details, and scam protection.",
-      ogTitle: "Trust & Anti-Scam Policy – Shipplix Verification",
+      ogTitle: "Trust & Anti-Scam Policy: Shipplix Verification",
       ogDescription: "Verify authentic Shipplix accounts, bank details, and customer support channels to protect against fraud."
     },
     '/economy-cargo-terms': {
       title: "Shipplix Economy Cargo Terms & Conditions | Official Shipping Policy",
       description: "Official Shipplix Economy Cargo Terms & Conditions. Learn about our 9-14 business day estimated delivery, separate box identification, consolidated air transport, customer responsibilities, claims process, and goodwill compensation policy.",
-      ogTitle: "Shipplix Economy Cargo Terms & Conditions – Official Policy",
-      ogDescription: "Affordable, reliable consolidated international shipping. Clear 9–14 business day delivery expectations, separate packaging identification, customer responsibilities, and claims guidelines."
+      ogTitle: "Shipplix Economy Cargo Terms & Conditions: Official Policy",
+      ogDescription: "Affordable, reliable consolidated international shipping. Clear 9-14 business day delivery expectations, separate packaging identification, customer responsibilities, and claims guidelines."
     },
     '/revenue-partner': {
-      title: "Become a Shipplix Revenue Partner – Earn referring customers",
+      title: "Become a Shipplix Revenue Partner: Earn referring customers",
       description: "Join the Shipplix Revenue Partner network. Earn recurring commissions in FX by introducing business owners and shippers to Shipplix.",
-      ogTitle: "Shipplix Revenue Partner Program – Earn in FX",
+      ogTitle: "Shipplix Revenue Partner Program: Earn in FX",
       ogDescription: "Partner with Shipplix and earn commissions on international freight referrals."
     },
     '/creators': {
       title: "Shipplix Creator & Affiliate Program | Get Paid to Create Content",
       description: "Join the Shipplix Creator & Affiliate Program. Get paid to create and publish authentic short-form videos with scripts supplied by Shipplix.",
-      ogTitle: "Shipplix Creator & Affiliate Program – Create. Post. Refer. Earn.",
+      ogTitle: "Shipplix Creator & Affiliate Program: Create. Post. Refer. Earn.",
       ogDescription: "Get paid to create short-form videos for Shipplix. Scripts provided, content rewards, performance bonuses, and referral commissions."
     },
     '/creator': {
       title: "Shipplix Creator & Affiliate Program | Get Paid to Create Content",
       description: "Join the Shipplix Creator & Affiliate Program. Get paid to create and publish authentic short-form videos with scripts supplied by Shipplix.",
-      ogTitle: "Shipplix Creator & Affiliate Program – Create. Post. Refer. Earn.",
+      ogTitle: "Shipplix Creator & Affiliate Program: Create. Post. Refer. Earn.",
       ogDescription: "Get paid to create short-form videos for Shipplix. Scripts provided, content rewards, performance bonuses, and referral commissions."
     },
     '/export-blueprint': {
       title: "The African Export Blueprint | Free Export Business Guide | Shipplix",
       description: "Free step-by-step guide on how to build an international customer acquisition system that attracts overseas buyers consistently.",
-      ogTitle: "The African Export Blueprint – Free Masterclass Guide | Shipplix",
+      ogTitle: "The African Export Blueprint: Free Masterclass Guide | Shipplix",
       ogDescription: "Download the complete framework for scaling your African products and attracting buyers in US, UK, Canada & EU."
     },
     '/export-blueprint/thank-you': {
-      title: "Thank You – Download The African Export Blueprint | Shipplix",
+      title: "Thank You: Download The African Export Blueprint | Shipplix",
       description: "Your copy of The African Export Blueprint is ready for download. Start building your international customer acquisition system.",
-      ogTitle: "Download The African Export Blueprint – Shipplix",
+      ogTitle: "Download The African Export Blueprint | Shipplix",
       ogDescription: "Access your free export growth blueprint now."
     },
     '/admin-leads': {
-      title: "Admin Leads Portal – Shipplix",
+      title: "Admin Leads Portal | Shipplix",
       description: "Internal administrative leads dashboard for Shipplix team members.",
       ogTitle: "Shipplix Admin Portal",
       ogDescription: "Admin dashboard for managing logistics inquiries."
@@ -3272,7 +3354,7 @@ function updatePageSeo(path: string) {
   };
 
   const currentSeo = seoDataMap[path] || {
-    title: "Shipplix – Global Commerce & Logistics Platform",
+    title: "Shipplix | Global Commerce & Logistics Platform",
     description: "Shipplix is a leading global commerce and international logistics platform providing air cargo, express shipping, and customs clearance.",
     ogTitle: "Shipplix Logistics",
     ogDescription: "Fast & Reliable Export Shipping and Commerce Platform."
@@ -3331,6 +3413,9 @@ export default function App() {
   const [currentPath, setCurrentPath] = React.useState(() => {
     const p = window.location.pathname;
     const h = window.location.hash;
+    if (h === '#faq' || h === '#/faq') {
+      return '/';
+    }
     if (p === '/admin-leads' || h === '#/admin-leads' || h === '#admin-leads') {
       return '/admin-leads';
     }
@@ -3392,6 +3477,23 @@ export default function App() {
     const handlePopState = () => {
       const p = window.location.pathname;
       const h = window.location.hash;
+      if (h === '#faq' || h === '#/faq') {
+        setCurrentPath('/');
+        const scrollToFaq = () => {
+          const el = document.getElementById('faq');
+          if (el) {
+            const headerHeight = 72;
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop || 0;
+            const targetTop = el.getBoundingClientRect().top + scrollTop - headerHeight;
+            window.scrollTo({ top: Math.max(0, targetTop), behavior: 'smooth' });
+            return true;
+          }
+          return false;
+        };
+        setTimeout(scrollToFaq, 60);
+        setTimeout(scrollToFaq, 250);
+        return;
+      }
       if (p === '/admin-leads' || h === '#/admin-leads' || h === '#admin-leads') {
         setCurrentPath('/admin-leads');
       } else if (p === '/ship-from-nigeria-to-usa' || h === '#/ship-from-nigeria-to-usa' || h === '#ship-from-nigeria-to-usa') {
@@ -3440,7 +3542,47 @@ export default function App() {
     };
   }, []);
 
+  React.useEffect(() => {
+    if (typeof window !== 'undefined' && (window.location.hash === '#faq' || window.location.hash === '#/faq')) {
+      const scrollToFaq = () => {
+        const el = document.getElementById('faq');
+        if (el) {
+          const headerHeight = 72;
+          const scrollTop = window.pageYOffset || document.documentElement.scrollTop || 0;
+          const targetTop = el.getBoundingClientRect().top + scrollTop - headerHeight;
+          window.scrollTo({ top: Math.max(0, targetTop), behavior: 'smooth' });
+          return true;
+        }
+        return false;
+      };
+      setTimeout(scrollToFaq, 100);
+      setTimeout(scrollToFaq, 300);
+      setTimeout(scrollToFaq, 600);
+    }
+  }, []);
+
   const navigateTo = (path: string) => {
+    if (path === '/#faq' || path === '#faq') {
+      if (window.location.hash !== '#faq') {
+        window.history.pushState(null, '', '/#faq');
+      }
+      setCurrentPath('/');
+      const scrollToFaq = () => {
+        const el = document.getElementById('faq');
+        if (el) {
+          const headerHeight = 72;
+          const scrollTop = window.pageYOffset || document.documentElement.scrollTop || 0;
+          const targetTop = el.getBoundingClientRect().top + scrollTop - headerHeight;
+          window.scrollTo({ top: Math.max(0, targetTop), behavior: 'smooth' });
+          return true;
+        }
+        return false;
+      };
+      setTimeout(scrollToFaq, 60);
+      setTimeout(scrollToFaq, 200);
+      setTimeout(scrollToFaq, 500);
+      return;
+    }
     const hashPath = path === '/' ? '' : '#' + path;
     window.history.pushState({}, '', '/' + hashPath);
     setCurrentPath(path);
