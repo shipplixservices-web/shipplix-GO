@@ -194,7 +194,6 @@ export const MobileBottomNav: React.FC<MobileBottomNavProps> = ({
             <span className="text-[10px] uppercase tracking-wider font-black text-slate-900 mt-0.5">
               Book
             </span>
-            <span className="absolute top-0 right-1.5 w-2.5 h-2.5 bg-[#032B73] rounded-full border-2 border-white"></span>
           </button>
 
           {/* 4. Support (WhatsApp) */}
