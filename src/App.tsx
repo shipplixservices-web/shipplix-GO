@@ -42,8 +42,7 @@ import {
   Facebook,
   Instagram,
   MapPin,
-  Search,
-  Bell
+  Search
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { openWhatsApp } from './utils/whatsapp';
@@ -144,7 +143,6 @@ const SectionTitle = ({ title, subtitle, light = false, centered = true }: { tit
 const Navbar = ({ onNavigate, currentPath }: { onNavigate?: (path: string) => void; currentPath?: string }) => {
   const [isOpen, setIsOpen] = React.useState(false);
   const [expandedMobileSection, setExpandedMobileSection] = React.useState<string | null>(null);
-  const [showNotifications, setShowNotifications] = React.useState(false);
   const [showAccountMenu, setShowAccountMenu] = React.useState(false);
   const [supportOpen, setSupportOpen] = React.useState(false);
   const lastFaqClickRef = React.useRef(0);
@@ -152,7 +150,6 @@ const Navbar = ({ onNavigate, currentPath }: { onNavigate?: (path: string) => vo
   const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, path: string) => {
     e.preventDefault();
     setIsOpen(false);
-    setShowNotifications(false);
     setShowAccountMenu(false);
     setSupportOpen(false);
     onNavigate?.(path);
@@ -170,7 +167,6 @@ const Navbar = ({ onNavigate, currentPath }: { onNavigate?: (path: string) => vo
 
     setSupportOpen(false);
     setIsOpen(false);
-    setShowNotifications(false);
     setShowAccountMenu(false);
 
     if (window.location.hash !== '#faq') {
@@ -421,7 +417,6 @@ const Navbar = ({ onNavigate, currentPath }: { onNavigate?: (path: string) => vo
               type="button"
               onClick={() => {
                 setSupportOpen(prev => !prev);
-                setShowNotifications(false);
                 setShowAccountMenu(false);
               }}
               className="flex items-center gap-1 hover:text-shipplix-yellow transition-colors font-bold uppercase tracking-wider focus:outline-none cursor-pointer"
@@ -487,105 +482,14 @@ const Navbar = ({ onNavigate, currentPath }: { onNavigate?: (path: string) => vo
 
         </div>
 
-        {/* Header Utility Area: Notifications, Account & Mobile Hamburger Menu */}
+        {/* Header Utility Area: Account & Mobile Hamburger Menu */}
         <div className="flex items-center gap-1 sm:gap-2">
-          
-          {/* 1. Notification Area */}
-          <div className="relative">
-            <button
-              onClick={() => {
-                setShowNotifications(!showNotifications);
-                setShowAccountMenu(false);
-                setIsOpen(false);
-              }}
-              className="relative p-2 rounded-xl text-slate-200 hover:text-white hover:bg-white/10 transition-colors cursor-pointer flex items-center justify-center min-w-[36px] min-h-[36px]"
-              aria-label="View notifications"
-            >
-              <Bell size={18} className="text-[#FFD700]" />
-              <span className="absolute top-1 right-1 w-2 h-2 rounded-full bg-emerald-400 ring-2 ring-[#032B73]"></span>
-            </button>
 
-            {/* Notification Dropdown / Panel */}
-            <AnimatePresence>
-              {showNotifications && (
-                <motion.div
-                  initial={{ opacity: 0, y: 8, scale: 0.95 }}
-                  animate={{ opacity: 1, y: 0, scale: 1 }}
-                  exit={{ opacity: 0, y: 8, scale: 0.95 }}
-                  transition={{ duration: 0.15 }}
-                  className="absolute right-0 mt-2 w-72 sm:w-84 bg-slate-900 border border-white/15 rounded-2xl shadow-2xl p-4 text-white z-50"
-                >
-                  <div className="flex items-center justify-between pb-3 border-b border-white/10 mb-3">
-                    <div className="flex items-center gap-1.5">
-                      <Bell size={14} className="text-[#FFD700]" />
-                      <span className="text-xs font-black uppercase tracking-wider text-white">Notifications</span>
-                    </div>
-                    <span className="text-[9px] bg-[#FFD700]/20 text-[#FFD700] px-2 py-0.5 rounded-full font-bold">2 Updates</span>
-                  </div>
-
-                  <div className="space-y-2.5">
-                    {/* Notification 1: Active Flight Notice */}
-                    <div className="p-2.5 bg-white/5 hover:bg-white/10 rounded-xl border border-white/10 transition-colors text-left">
-                      <div className="flex items-center justify-between gap-1 mb-1">
-                        <span className="text-[10px] font-black uppercase tracking-wider text-[#FFD700] flex items-center gap-1">
-                          <Plane size={11} /> Next Flight Departure
-                        </span>
-                        <span className="text-[9px] text-slate-400 font-medium">Weekly Manifest</span>
-                      </div>
-                      <p className="text-[11px] font-bold text-slate-200 leading-snug">
-                        Lagos (MMIA) → USA &amp; UK express air cargo closes Thursday 4:00 PM.
-                      </p>
-                      <button
-                        onClick={() => {
-                          setShowNotifications(false);
-                          openWhatsApp('quote');
-                        }}
-                        className="mt-1.5 text-[10px] font-black uppercase tracking-wider text-[#FFD700] hover:underline flex items-center gap-1 cursor-pointer"
-                      >
-                        <span>Reserve space on flight</span>
-                        <ArrowRight size={10} />
-                      </button>
-                    </div>
-
-                    {/* Notification 2: Customs Pre-Clearance */}
-                    <div className="p-2.5 bg-white/5 hover:bg-white/10 rounded-xl border border-white/10 transition-colors text-left">
-                      <div className="flex items-center justify-between gap-1 mb-1">
-                        <span className="text-[10px] font-black uppercase tracking-wider text-emerald-400 flex items-center gap-1">
-                          <ShieldCheck size={11} /> Export Pre-Clearance
-                        </span>
-                        <span className="text-[9px] text-slate-400 font-medium">FDA &amp; Customs</span>
-                      </div>
-                      <p className="text-[11px] font-bold text-slate-200 leading-snug">
-                        Foodstuff, dried fish, spices, and approved herbal products are pre-cleared for Houston &amp; UK customs.
-                      </p>
-                    </div>
-                  </div>
-
-                  {/* Notification Footer Action */}
-                  <div className="mt-3 pt-2.5 border-t border-white/10 flex items-center justify-between">
-                    <span className="text-[10px] text-slate-400 font-medium">Need instant help?</span>
-                    <button
-                      onClick={() => {
-                        setShowNotifications(false);
-                        openWhatsApp('need_help');
-                      }}
-                      className="text-[10px] font-black uppercase tracking-wider text-emerald-400 hover:text-emerald-300 flex items-center gap-1 cursor-pointer"
-                    >
-                      <MessageCircle size={12} className="fill-emerald-400" />
-                      <span>WhatsApp Agent</span>
-                    </button>
-                  </div>
-                </motion.div>
-              )}
-            </AnimatePresence>
-          </div>
-
-          {/* 2. Account Area (Mobile & Tablet quick access) */}
+          {/* Account Area (Mobile & Tablet quick access) */}
           <div className="relative lg:hidden">
             <button
               onClick={() => {
                 setShowAccountMenu(!showAccountMenu);
-                setShowNotifications(false);
                 setIsOpen(false);
               }}
               className="p-1.5 sm:p-2 rounded-xl text-slate-200 hover:text-white hover:bg-white/10 transition-colors cursor-pointer flex items-center gap-1.5 min-w-[36px] min-h-[36px]"
@@ -677,7 +581,6 @@ const Navbar = ({ onNavigate, currentPath }: { onNavigate?: (path: string) => vo
             className="lg:hidden flex items-center justify-center p-2 rounded-xl hover:bg-white/10 transition-colors text-white min-w-[36px] min-h-[36px] cursor-pointer" 
             onClick={() => {
               setIsOpen(!isOpen);
-              setShowNotifications(false);
               setShowAccountMenu(false);
             }} 
             aria-label="Toggle menu"
